@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 baseURL = "http://elly.es/"
 languageCode = "en-us"
-title = "My Site"
-=======
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+title = "My elly.es site"
 theme = "minimal"
-
->>>>>>> add theme
