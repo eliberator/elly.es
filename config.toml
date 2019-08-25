@@ -1,4 +1,4 @@
-baseURL = "http://elly.es/"
+baseURL = "https://elly.es/"
 languageCode = "en-us"
 title = "My elly.es site"
 theme = "minimal"
