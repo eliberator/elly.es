@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive CV | Elly Câmpeanu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm & Welcoming -->
+    <!-- Application Structure Plan: The SPA is designed as a top-down narrative dashboard. It starts with a high-level summary and impactful KPIs to hook the user. It then flows into interactive charts detailing skills, followed by a chronological, tab-based exploration of detailed project experience. This structure allows a recruiter to get a quick overview in 30 seconds or dive deep into specific projects, optimizing for both skimming and detailed review. User flow is guided by scrolling, with click-based interactions for exploring deeper content layers (project tabs), which keeps the initial view clean and uncluttered. -->
+    <!-- Visualization & Content Choices: 
+        - 15+ Yrs Exp, 40+ FTEs, etc. -> Goal: Inform -> Viz: Dynamic Stats Cards (HTML/CSS) -> Interaction: Subtle hover effects -> Justification: High-impact, immediate communication of key qualifications.
+        - Core Competencies -> Goal: Compare -> Viz: Radar Chart (Chart.js/Canvas) -> Interaction: Tooltips on hover -> Justification: Shows a balanced, high-level skill profile across multiple strategic areas.
+        - Technical Skills/Tools -> Goal: Organize/Inform -> Viz: Bar Chart (Chart.js/Canvas) -> Interaction: Tooltips on hover -> Justification: Clearly displays proficiency across a range of specific technologies.
+        - Professional Experience -> Goal: Change/Organize -> Viz: Interactive Tabs (HTML/JS) -> Interaction: Click tabs to reveal content -> Justification: Manages large amounts of text cleanly, allowing users to select which detailed role/project info they want to see, preventing a long, unreadable page.
+        - NO SVG/Mermaid: All visuals are created with Chart.js on Canvas or structured HTML/CSS with Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEFBF6;
+            color: #75665b;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #7F5539;
+            transform: translateY(-2px);
+        }
+        .kpi-card {
+            background-color: #E6CCB2;
+            border-left: 5px solid #7F5539;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .tab:hover, .tab.active {
+            color: #7F5539;
+            border-bottom-color: #7F5539;
+            background-color: rgba(230, 204, 178, 0.2);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Nav -->
+    <header class="sticky top-0 bg-[#fefbf6]/80 backdrop-blur-sm z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-[#7F5539]">Elly Câmpeanu</div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#summary" class="nav-link font-medium">Summary</a>
+                <a href="#skills" class="nav-link font-medium">Skills</a>
+                <a href="#experience" class="nav-link font-medium">Experience</a>
+                <a href="#education" class="nav-link font-medium">Education</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        
+        <!-- Summary & KPIs Section -->
+        <section id="summary" class="mb-20">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-black text-[#7F5539] tracking-tight">Head of Embedded Systems</h1>
+                <p class="text-xl text-[#A68572] mt-2">Automotive Engineering Leader</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white/50 rounded-lg p-8 mb-12 shadow-sm border border-gray-200">
+                <h3 class="font-bold text-lg text-[#7F5539] mb-2">Profile</h3>
+                <p class="text-lg leading-relaxed">
+                    A strategic and results-oriented engineering leader with over 15 years of comprehensive experience in the full hardware and software development lifecycle within the automotive industry. Proven ability to define and execute embedded systems strategy, leading large-scale international teams (40+ FTEs) to deliver robust, scalable, and innovative solutions. A passionate advocate for continuous improvement and technical excellence, adept at high-level stakeholder management and driving projects from concept to successful launch.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="kpi-card p-6 rounded-lg">
+                    <div class="text-4xl font-extrabold text-[#7F5539]">15+</div>
+                    <div class="text-md font-semibold text-[#A68572] mt-1">Years of Experience</div>
+                </div>
+                <div class="kpi-card p-6 rounded-lg">
+                    <div class="text-4xl font-extrabold text-[#7F5539]">40+</div>
+                    <div class="text-md font-semibold text-[#A68572] mt-1">FTEs Managed Globally</div>
+                </div>
+                 <div class="kpi-card p-6 rounded-lg">
+                    <div class="text-4xl font-extrabold text-[#7F5539]">90%</div>
+                    <div class="text-md font-semibold text-[#A68572] mt-1">Issue Backlog Reduction</div>
+                </div>
+                <div class="kpi-card p-6 rounded-lg">
+                    <div class="text-4xl font-extrabold text-[#7F5539]">&gt;800h</div>
+                    <div class="text-md font-semibold text-[#A68572] mt-1">Process Hours Saved / Month</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-20 pt-16 -mt-16">
+             <h2 class="text-3xl font-bold text-center mb-2 text-[#7F5539]">Core Competencies</h2>
+             <p class="text-center text-lg text-[#A68572] mb-12">A balanced profile of strategic leadership and deep technical expertise.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="bg-white/50 rounded-lg p-6 shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-lg text-center text-[#7F5539] mb-4">Leadership & Strategy</h3>
+                    <div class="chart-container">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white/50 rounded-lg p-6 shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-lg text-center text-[#7F5539] mb-4">Technical Expertise & Tools</h3>
+                    <div class="chart-container">
+                        <canvas id="techBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="mb-20 pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-2 text-[#7F5539]">Professional Experience</h2>
+            <p class="text-center text-lg text-[#A68572] mb-12">A career dedicated to driving innovation in automotive embedded systems.</p>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="flex border-b border-gray-200">
+                    <div class="tab active px-6 py-3 font-semibold text-lg" onclick="openTab(event, 'DebugNomad')">Debug Nomad SLU</div>
+                    <div class="tab px-6 py-3 font-semibold text-lg" onclick="openTab(event, 'Lear')">Lear Corporation</div>
+                    <div class="tab px-6 py-3 font-semibold text-lg" onclick="openTab(event, 'Continental')">Continental</div>
+                </div>
+
+                <div id="DebugNomad" class="tab-content active bg-white/50 p-8 rounded-b-lg border-x border-b border-gray-200">
+                    <h3 class="text-2xl font-bold text-[#7F5539]">CEO & Senior Engineering Consultant</h3>
+                    <p class="text-md font-semibold text-[#A68572] mb-4">April 2019 – Present</p>
+                    <p class="mb-6">Providing expert consultancy to Tier 1 automotive suppliers in e-mobility, focusing on embedded systems development, functional safety, and program management.</p>
+                    <ul class="list-disc list-inside space-y-3">
+                        <li>**Define and deliver embedded systems strategy** for clients, aligning technical roadmaps with business objectives to ensure market-leading product development.</li>
+                        <li>**Lead, mentor, and grow talented teams** of embedded engineers, managing a global technical software program with over 40 remote team members.</li>
+                        <li>**Oversee the architecture, development, and deployment** of robust, scalable embedded solutions, ensuring compliance with Functional Safety (ISO 26262) and ASPICE standards.</li>
+                        <li class="font-bold text-[#7F5539] mt-4">Key Projects:</li>
+                        <ul class="list-['\25E6'] list-inside space-y-2 pl-4">
+                             <li>**Automotive RADAR (BMW):** Led function development, reducing unresolved issues from 600 to 60.</li>
+                             <li>**Electric Drive Unit (VW):** Directed 40-person team, cutting integration time from 1 week to 1 day.</li>
+                             <li>**Battery Management System (SAIC-GM, AUDI):** Coached remote team, increasing capacity 5x in under a month.</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div id="Lear" class="tab-content bg-white/50 p-8 rounded-b-lg border-x border-b border-gray-200">
+                    <h3 class="text-2xl font-bold text-[#7F5539]">Engineering Lead & Manager</h3>
+                    <p class="text-md font-semibold text-[#A68572] mb-4">February 2010 – November 2018</p>
+                    <p class="mb-6">Progressed through multiple leadership roles, culminating in leading key projects and supporting the entire developer community.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>**Software Team Leader:** Led the software and testing teams for a complex BMW Battery Management System (BMS) project.</li>
+                        <li>**Tools Engineer Lead:** Supported a 700-person software development community with essential tools and managed IT infrastructure access.</li>
+                        <li>**Software Problem Resolution Manager:** Managed defect lifecycles for Body Control and Lighting modules for BMW and Daimler.</li>
+                        <li>**Function Owner & Embedded Engineer:** Led a remote team in India and integrated 3rd party software (Wiper, Power Windows) and UDS diagnostics for VW and BMW.</li>
+                    </ul>
+                </div>
+                 <div id="Continental" class="tab-content bg-white/50 p-8 rounded-b-lg border-x border-b border-gray-200">
+                    <h3 class="text-2xl font-bold text-[#7F5539]">Embedded Software Engineer</h3>
+                    <p class="text-md font-semibold text-[#A68572] mb-4">November 2006 – August 2009</p>
+                    <p class="mb-6">Developed foundational skills in core automotive embedded systems for major OEM projects.</p>
+                     <ul class="list-disc list-inside space-y-2">
+                        <li>Developed and integrated embedded software for various automotive systems, including sunroof modules and power window drivers.</li>
+                        <li>Integrated diagnostics (KWP2000 over LIN) for VAG projects.</li>
+                        <li>Responsible for CAN stack integration and creating CANoe panels for integration testing.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-2 text-[#7F5539]">Education & Professional Development</h2>
+            <p class="text-center text-lg text-[#A68572] mb-12">A commitment to lifelong learning and staying at the forefront of technology and management.</p>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white/50 p-4 rounded-lg shadow-sm border border-gray-200"><strong>MBA in New Technologies</strong> (Expected 2025)</div>
+                <div class="bg-white/50 p-4 rounded-lg shadow-sm border border-gray-200"><strong>ASPICE v4.0 & Cybersecurity</strong> (2023)</div>
+                <div class="bg-white/50 p-4 rounded-lg shadow-sm border border-gray-200"><strong>ASPICE v3.1 Certified</strong> (2020)</div>
+                <div class="bg-white/50 p-4 rounded-lg shadow-sm border border-gray-200"><strong>Master of Science in Digital Telecommunication</strong> (2008)</div>
+                <div class="bg-white/50 p-4 rounded-lg shadow-sm border border-gray-200"><strong>Bachelor of Science in Electrical Engineering and Computer Science</strong> (2006)</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-20 border-t border-gray-200 bg-white/30">
+        <div class="container mx-auto px-6 py-8 text-center text-[#A68572]">
+            <p>&copy; 2025 Elly Câmpeanu. This interactive application was designed to showcase a professional profile.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tabbed Experience Section
+        function openTab(event, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.tab').click();
+        });
+
+        // Chart.js Configuration
+        const chartFontColor = '#7F5539';
+        const chartGridColor = 'rgba(127, 85, 57, 0.1)';
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            return Array.isArray(label) ? label.join(' ') : label;
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: chartFontColor,
+                        font: { family: "'Inter', sans-serif" }
+                    }
+                },
+                tooltip: {
+                    callbacks: { title: tooltipTitleCallback },
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleFont: { size: 14, family: "'Inter', sans-serif" },
+                    bodyFont: { size: 12, family: "'Inter', sans-serif" },
+                    padding: 10,
+                    cornerRadius: 4
+                }
+            }
+        };
+
+        // Radar Chart
+        const radarCtx = document.getElementById('skillsRadarChart').getContext('2d');
+        const radarLabels = [
+            'Embedded Systems Strategy', 'Team Leadership', 'Program Management',
+            'Stakeholder Management', 'Process Optimization', 'Problem Resolution'
+        ];
+        
+        function wrapLabel(str, maxLen) {
+            if (str.length <= maxLen) return str;
+            const words = str.split(' ');
+            let line = '';
+            const lines = [];
+            for (const word of words) {
+                if ((line + ' ' + word).trim().length > maxLen) {
+                    lines.push(line.trim());
+                    line = word;
+                } else {
+                    line = (line + ' ' + word).trim();
+                }
+            }
+            if (line) lines.push(line);
+            return lines;
+        }
+
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: radarLabels.map(label => wrapLabel(label, 18)),
+                datasets: [{
+                    label: 'Proficiency',
+                    data: [9, 10, 9, 10, 10, 9],
+                    backgroundColor: 'rgba(176, 137, 104, 0.2)',
+                    borderColor: '#B08968',
+                    pointBackgroundColor: '#B08968',
+                    pointBorderColor: '#fff',
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: chartGridColor },
+                        grid: { color: chartGridColor },
+                        pointLabels: {
+                            color: chartFontColor,
+                            font: { size: 12, family: "'Inter', sans-serif" }
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: chartFontColor,
+                            stepSize: 2
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                }
+            }
+        });
+
+        // Bar Chart
+        const barCtx = document.getElementById('techBarChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['C/C++', 'RTOS', 'AUTOSAR', 'Agile/SAFe', 'CI/CD', 'IoT', 'Func. Safety'],
+                datasets: [{
+                    label: 'Expertise Level',
+                    data: [9, 8, 8, 9, 8, 7, 9],
+                    backgroundColor: '#E6CCB2',
+                    borderColor: '#B08968',
+                    borderWidth: 2,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        grid: { color: chartGridColor },
+                        ticks: { color: chartFontColor }
+                    },
+                    y: {
+                        grid: { drawOnChartArea: false },
+                        ticks: { color: chartFontColor }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
