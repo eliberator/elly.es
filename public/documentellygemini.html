@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Interactivo</title>
+<!-- Enlace a Tailwind CSS CDN para estilos rápidos y responsivos -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: #e2e8f0; /* Un gris azulado suave para el fondo */
+}
+/* Estilos personalizados para el contenedor del quiz */
+.quiz-container {
+	max-width: 800px;
+	margin: 4rem auto;
+	padding: 2.5rem; /* Un poco más de padding */
+	background-color: #ffffff;
+	border-radius: 0.75rem; /* Bordes ligeramente más suaves */
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra más sutil */
+}
+/* Estilo para los botones de opción */
+.option-button {
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	border: 1px solid #cbd5e0; /* Borde sutil para las opciones */
+	color: #4a5568; /* Texto gris oscuro */
+	background-color: #f7fafc; /* Fondo muy claro */
+}
+.option-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+	background-color: #edf2f7; /* Un gris más oscuro al pasar el ratón */
+	border-color: #a0aec0; /* Borde más visible al pasar el ratón */
+}
+/* Estilo para la opción seleccionada */
+.option-button.selected {
+	background-color: #4299e1; /* Azul corporativo para la selección */
+	border-color: #3182ce; /* Borde azul más oscuro */
+	color: #ffffff; /* Texto blanco para contraste */
+	font-weight: 600; /* Texto más negrita para la selección */
+	box-shadow: 0 4px 10px rgba(66, 153, 225, 0.2); /* Sombra sutil con color del botón */
+}
+/* Estilo para el botón de enviar */
+#submit-quiz-button {
+	transition: background-color 0.3s ease;
+	background-color: #38a169; /* Verde para el botón principal */
+	color: #ffffff;
+	font-weight: 600;
+}
+#submit-quiz-button:hover {
+	background-color: #2f855a; /* Verde más oscuro al pasar el ratón */
+}
+/* Estilo para el botón de reiniciar */
+#restart-quiz-button {
+	background-color: #ecc94b; /* Amarillo para reiniciar */
+	color: #ffffff;
+	font-weight: 600;
+}
+#restart-quiz-button:hover {
+	background-color: #d69e2e; /* Amarillo más oscuro al pasar el ratón */
+}
+/* Estilo para el título del quiz */
+.quiz-title {
+	background-color: #ebf8ff; /* Azul muy claro para el título */
+	color: #2c5282; /* Azul oscuro para el texto del título */
+	border-bottom: 2px solid #bee3f8; /* Borde inferior para separar */
+	padding-bottom: 1.5rem;
+	margin-bottom: 2.5rem;
+}
+/* Estilo para los bloques de preguntas */
+.question-block {
+	background-color: #ffffff; /* Fondo blanco para las preguntas */
+	border: 1px solid #e2e8f0; /* Borde sutil */
+}
+.question-block p {
+	color: #2d3748; /* Texto de pregunta más oscuro */
+	font-weight: 500; /* Peso de fuente medio */
+}
+/* Estilo para el contenedor de resultados */
+#quiz-result {
+	background-color: #f0fff4; /* Verde muy claro para el fondo de resultados */
+	color: #2f855a; /* Verde oscuro para el texto de resultados */
+	border: 1px solid #9ae6b4; /* Borde verde sutil */
+}
+
+/* Estilos para el modal de confirmación */
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000; /* Asegura que esté por encima de todo */
+}
+.modal-content {
+	background-color: #ffffff;
+	padding: 2rem;
+	border-radius: 0.75rem;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	max-width: 400px;
+	width: 90%;
+}
+.modal-content h3 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: #2d3748;
+}
+.modal-content p {
+	margin-bottom: 1.5rem;
+	color: #4a5568;
+}
+.modal-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+.modal-buttons button {
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	font-weight: 600;
+	transition: background-color 0.2s ease;
+}
+.modal-buttons .confirm-button {
+	background-color: #e53e3e; /* Rojo para confirmar acción "negativa" */
+	color: #ffffff;
+}
+.modal-buttons .confirm-button:hover {
+	background-color: #c53030;
+}
+.modal-buttons .cancel-button {
+	background-color: #cbd5e0; /* Gris para cancelar */
+	color: #4a5568;
+}
+.modal-buttons .cancel-button:hover {
+	background-color: #a0aec0;
+}
+
+/* Nuevos estilos para feedback de respuestas */
+.option-button.correct {
+	background-color: #9ae6b4; /* Verde claro para respuestas correctas */
+	border-color: #38a169;
+	color: #2f855a;
+}
+.option-button.incorrect {
+	background-color: #feb2b2; /* Rojo claro para respuestas incorrectas */
+	border-color: #e53e3e;
+	color: #c53030;
+}
+.option-button:disabled {
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+.feedback-text {
+	font-size: 0.9rem;
+	font-weight: 500;
+	margin-top: 0.5rem;
+	text-align: right;
+}
+.feedback-text.correct {
+	color: #2f855a;
+}
+.feedback-text.incorrect {
+	color: #c53030;
+}
+</style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+<div class="quiz-container">
+<!-- Título del Quiz -->
+<h1 class="text-4xl font-bold text-center quiz-title rounded-t-lg">
+¡Bienvenido a tu Quiz!
+</h1>
+
+<!-- Contenedor de Preguntas -->
+<div id="quiz-questions" class="space-y-6">
+<!-- Las preguntas se generarán dinámicamente aquí por JavaScript -->
+</div>
+
+<!-- Botón para enviar el quiz -->
+<div class="text-center mt-8" id="submit-button-container">
+<button id="submit-quiz-button" class="py-3 px-8 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
+Enviar Respuestas
+</button>
+</div>
+
+<!-- Contenedor para el resultado (inicialmente oculto) -->
+<div id="quiz-result" class="hidden text-center mt-8 p-6 rounded-lg shadow-md">
+<h2 class="text-2xl font-bold mb-4">Resultados del Quiz</h2>
+<p class="text-xl">Tu puntuación final es: <span id="final-score" class="font-extrabold">0</span></p>
+<button id="restart-quiz-button" class="mt-6 py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75">
+Reiniciar Quiz
+</button>
+</div>
+</div>
+
+<!-- Modal de Confirmación (inicialmente oculto) -->
+<div id="confirmation-modal" class="modal-overlay hidden">
+<div class="modal-content">
+<h3>¿Estás seguro de enviar?</h3>
+<p>No has respondido a todas las preguntas. Las preguntas sin contestar contarán como 0 puntos.</p>
+<div class="modal-buttons">
+<button id="confirm-submit" class="confirm-button">Sí, enviar</button>
+<button id="cancel-submit" class="cancel-button">No, volver al quiz</button>
+</div>
+</div>
+</div>
+
+<script>
+// Array de objetos que contiene las preguntas, opciones y la respuesta correcta.
+const questions = [
+{
+	question: "¿Cuál es la capital de Francia?",
+	options: ["Madrid", "Berlín", "París", "Roma"],
+	correctAnswerText: "París"
+},
+{
+	question: "¿Qué planeta es conocido como el 'Planeta Rojo'?",
+	options: ["Júpiter", "Marte", "Venus", "Saturno"],
+	correctAnswerText: "Marte"
+},
+{
+	question: "¿Cuál es el océano más grande del mundo?",
+	options: ["Océano Atlántico", "Océano Índico", "Océano Pacífico", "Océano Ártico"],
+	correctAnswerText: "Océano Pacífico"
+},
+{
+	question: "¿Quién pintó la Mona Lisa?",
+	options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+	correctAnswerText: "Leonardo da Vinci"
+},
+{
+	question: "¿Cuál es el gas más abundante en la atmósfera terrestre?",
+	options: ["Oxígeno", "Dióxido de carbono", "Nitrógeno", "Argón"],
+	correctAnswerText: "Nitrógeno"
+},
+{
+	question: "¿Cine a facut acest quiz?",
+	options: ["Elly", "Gemini", "ChatGPT", "Elly+Gemini"],
+	correctAnswerText: "Elly+Gemini"
+}
+];
+
+// Array para almacenar las respuestas seleccionadas por el usuario (el texto de la opción).
+let userAnswers = Array(questions.length).fill(null);
+let score = 0; // Puntuación inicial del quiz.
+
+// Referencias a elementos del DOM.
+const quizQuestionsContainer = document.getElementById('quiz-questions');
+const submitButton = document.getElementById('submit-quiz-button');
+const quizResultContainer = document.getElementById('quiz-result');
+const finalScoreSpan = document.getElementById('final-score');
+const restartButton = document.getElementById('restart-quiz-button');
+const confirmationModal = document.getElementById('confirmation-modal');
+const confirmSubmitButton = document.getElementById('confirm-submit');
+const cancelSubmitButton = document.getElementById('cancel-submit');
+const submitButtonContainer = document.getElementById('submit-button-container'); // Nuevo: contenedor del botón de enviar
+
+/**
+* Función para mezclar un array (algoritmo Fisher-Yates).
+* @param {Array} array - El array a mezclar.
+* @returns {Array} El array mezclado.
+*/
+function shuffleArray(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array;
+}
+
+/**
+* Renderiza todas las preguntas en el contenedor del quiz.
+*/
+function renderQuestions() {
+	quizQuestionsContainer.innerHTML = ''; // Limpia el contenedor antes de renderizar
+	questions.forEach((q, questionIndex) => {
+		// Crear una copia de las opciones y mezclarlas
+		let shuffledOptions = [...q.options];
+		shuffleArray(shuffledOptions);
+		
+		const questionBlock = document.createElement('div');
+		questionBlock.className = 'question-block p-6 rounded-lg shadow-md';
+		questionBlock.setAttribute('data-question-index', questionIndex); // Añadir índice al bloque de pregunta
+		
+		let optionsHtml = shuffledOptions.map((option, optionIndex) => `
+		<button class="option-button font-bold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-75"
+		data-question-index="${questionIndex}"
+		data-option-text="${option}">
+		${String.fromCharCode(65 + optionIndex)}) ${option}
+		</button>
+		`).join('');
+		
+		questionBlock.innerHTML = `
+		<p class="text-xl font-semibold mb-4">
+		${questionIndex + 1}. ${q.question}
+		</p>
+		<div class="options-container grid grid-cols-1 md:grid-cols-2 gap-4">
+		${optionsHtml}
+		</div>
+		<div class="feedback-text mt-2 hidden"></div> <!-- Contenedor para el feedback -->
+		`;
+		quizQuestionsContainer.appendChild(questionBlock);
+		
+		// Si ya hay una respuesta para esta pregunta (texto de la opción), marcarla
+		if (userAnswers[questionIndex] !== null) {
+			const selectedOptionText = userAnswers[questionIndex];
+			const selectedOptionButton = questionBlock.querySelector(`[data-option-text="${selectedOptionText}"]`);
+			if (selectedOptionButton) {
+				selectedOptionButton.classList.add('selected');
+			}
+		}
+	});
+	addOptionButtonListeners(); // Añade los listeners después de que los botones se han creado
+}
+
+/**
+* Añade event listeners a todos los botones de opción.
+*/
+function addOptionButtonListeners() {
+	document.querySelectorAll('.option-button').forEach(button => {
+		button.addEventListener('click', handleOptionClick);
+	});
+}
+
+/**
+* Maneja el clic en un botón de opción.
+* @param {Event} event - El evento de clic.
+*/
+function handleOptionClick(event) {
+	const clickedButton = event.target;
+	const questionIndex = parseInt(clickedButton.dataset.questionIndex);
+	const optionText = clickedButton.dataset.optionText; // Obtener el texto de la opción
+	
+	// Desmarcar cualquier opción previamente seleccionada para esta pregunta
+	const optionsInThisQuestion = document.querySelectorAll(`.option-button[data-question-index="${questionIndex}"]`);
+	optionsInThisQuestion.forEach(btn => btn.classList.remove('selected'));
+	
+	// Marcar la opción actual como seleccionada
+	clickedButton.classList.add('selected');
+	
+	// Almacenar la respuesta del usuario (el texto de la opción)
+	userAnswers[questionIndex] = optionText;
+}
+
+/**
+* Función principal para manejar el envío del quiz.
+* Muestra una confirmación si no todas las preguntas han sido respondidas.
+*/
+function handleSubmitQuiz() {
+	const allQuestionsAnswered = userAnswers.every(answer => answer !== null);
+	
+	if (!allQuestionsAnswered) {
+		// Mostrar el modal de confirmación
+		confirmationModal.classList.remove('hidden');
+	} else {
+		// Si todas las preguntas están respondidas, finalizar el quiz directamente
+		finalizeQuiz();
+	}
+}
+
+/**
+* Calcula la puntuación final del quiz y muestra los resultados.
+* Esta función se llama después de la confirmación (si es necesaria).
+*/
+function finalizeQuiz() {
+	score = 0; // Reinicia la puntuación
+	
+	// Iterar sobre cada pregunta para calcular la puntuación y mostrar feedback
+	questions.forEach((q, index) => {
+		const userAnswerText = userAnswers[index]; // Obtener el texto de la respuesta del usuario
+		const questionBlockElement = document.querySelector(`.question-block[data-question-index="${index}"]`);
+		const optionsInThisQuestion = questionBlockElement.querySelectorAll('.option-button');
+		const feedbackTextElement = questionBlockElement.querySelector('.feedback-text');
+		
+		// Deshabilitar todos los botones de opción para esta pregunta
+		optionsInThisQuestion.forEach(btn => btn.disabled = true);
+		
+		if (userAnswerText !== null) { // Si la pregunta fue respondida
+			if (userAnswerText === q.correctAnswerText) {
+				score += 1; // Respuesta correcta: +1 punto
+				// Marcar la opción seleccionada como correcta
+				const selectedButton = questionBlockElement.querySelector(`[data-option-text="${userAnswerText}"]`);
+				if (selectedButton) {
+					selectedButton.classList.add('correct');
+				}
+				feedbackTextElement.textContent = "¡Correcto!";
+				feedbackTextElement.classList.add('correct');
+			} else {
+				score -= 0.33; // Respuesta incorrecta: -0.33 puntos
+				// Marcar la opción seleccionada como incorrecta
+				const selectedButton = questionBlockElement.querySelector(`[data-option-text="${userAnswerText}"]`);
+				if (selectedButton) {
+					selectedButton.classList.add('incorrect');
+				}
+				feedbackTextElement.textContent = `Incorrecto. La respuesta correcta era: ${q.correctAnswerText}`;
+				feedbackTextElement.classList.add('incorrect');
+			}
+		} else { // Si la pregunta no fue respondida
+			feedbackTextElement.textContent = `No respondida. La respuesta correcta era: ${q.correctAnswerText}`;
+			feedbackTextElement.classList.add('incorrect'); // Considerar no respondida como tipo de feedback "incorrecto"
+		}
+		
+		// Resaltar siempre la respuesta correcta (si no fue ya resaltada por el usuario)
+		const correctOptionButton = questionBlockElement.querySelector(`[data-option-text="${q.correctAnswerText}"]`);
+		if (correctOptionButton && !correctOptionButton.classList.contains('selected')) {
+			correctOptionButton.classList.add('correct');
+		}
+		feedbackTextElement.classList.remove('hidden'); // Mostrar el feedback
+	});
+	
+	// Muestra la puntuación final (redondeada a 2 decimales)
+	finalScoreSpan.textContent = score.toFixed(2);
+	
+	// Oculta el botón de enviar y muestra el contenedor de resultados
+	submitButtonContainer.classList.add('hidden'); // Ocultar el contenedor del botón de enviar
+	quizResultContainer.classList.remove('hidden');
+	confirmationModal.classList.add('hidden'); // Asegurarse de que el modal esté oculto
+	quizQuestionsContainer.classList.remove('hidden'); // Asegurarse de que las preguntas sean visibles
+}
+
+/**
+* Reinicia el quiz a su estado inicial simulando una recarga de página.
+*/
+function restartQuiz() {
+	console.log("Reiniciando quiz: recargando la página..."); // Mensaje de depuración
+	window.location.reload(); // Recarga la página completa
+}
+
+// Event listener para el botón de enviar
+submitButton.addEventListener('click', handleSubmitQuiz);
+
+// Event listeners para los botones del modal de confirmación
+confirmSubmitButton.addEventListener('click', finalizeQuiz); // Si confirma, finaliza el quiz
+cancelSubmitButton.addEventListener('click', () => {
+	confirmationModal.classList.add('hidden'); // Si cancela, oculta el modal
+});
+
+// Inicializa el quiz cuando la página se carga
+window.onload = function() {
+	renderQuestions();
+	// Añadir el event listener para el botón de reiniciar aquí,
+	// después de que el DOM esté completamente cargado.
+	if (restartButton) {
+		restartButton.addEventListener('click', restartQuiz);
+		console.log("Botón de reiniciar encontrado y listener adjuntado.");
+	} else {
+		console.error("Error: Botón de reiniciar no encontrado al cargar la página.");
+	}
+};
+</script>
+</body>
+</html>
