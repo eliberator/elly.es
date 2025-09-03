@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive CV | Elly Câmpeanu</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- Chosen Palette: Warm Neutrals with Teal Accent -->
+<!-- Application Structure Plan: The SPA is designed as an interactive portfolio. It starts with a strong summary (Hero), followed by a "Skills Dashboard" for a quick technical overview, and an "Interactive Career Timeline" as the core feature. This timeline allows users to click on different roles to dynamically display detailed information, transforming the linear CV into an exploratory experience. This structure is chosen to allow recruiters to quickly get a high-level view or dive deep into specific experiences, enhancing usability and information retention compared to a static document. -->
+<!-- Visualization & Content Choices: 
+- Professional Experience -> Goal: Organize/Explore -> Viz: Interactive Vertical Timeline (HTML/JS) -> Interaction: On-click population of a details pane. Justification: Engages the user and allows for focused reading of complex career history without overwhelming them. Method: Vanilla JS DOM manipulation.
+- Technical Skills -> Goal: Compare/Inform -> Viz: Bar Charts -> Interaction: Hover tooltips and filter buttons to switch categories. Justification: Provides a quick, quantifiable overview of technical abilities. Library: Chart.js (Canvas).
+- Key Achievements -> Goal: Impact/Inform -> Viz: KPI Cards -> Interaction: Subtle hover effects. Justification: Highlights the most impressive, data-driven results for immediate impact. Method: HTML/Tailwind.
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: #f5f5f4; /* stone-100 */
+	color: #1e293b; /* slate-800 */
+}
+.chart-container {
+	position: relative;
+	width: 100%;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 400px;
+	max-height: 50vh;
+}
+.timeline-item {
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	border-left: 3px solid #d6d3d1; /* stone-300 */
+}
+.timeline-item.active {
+	border-left-color: #0d9488; /* teal-600 */
+	background-color: #f0fdfa; /* teal-50 */
+}
+.timeline-item:hover {
+	background-color: #f0fdfa; /* teal-50 */
+}
+.kpi-card {
+	background-color: #ffffff;
+	border-radius: 0.75rem;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	transition: transform 0.2s ease-in-out;
+}
+.kpi-card:hover {
+	transform: translateY(-5px);
+}
+</style>
+</head>
+<body class="antialiased">
+
+<header class="bg-white shadow-sm sticky top-0 z-10">
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<div>
+<h1 class="text-xl md:text-2xl font-bold text-slate-800">Elly Câmpeanu</h1>
+<p class="text-sm text-slate-500">Embedded Software Tech Lead & Project Manager</p>
+</div>
+<div class="hidden md:flex space-x-6">
+<a href="#summary" class="text-slate-600 hover:text-teal-600 transition">Summary</a>
+<a href="#skills" class="text-slate-600 hover:text-teal-600 transition">Skills</a>
+<a href="#experience" class="text-slate-600 hover:text-teal-600 transition">Experience</a>
+<a href="#achievements" class="text-slate-600 hover:text-teal-600 transition">Achievements</a>
+</div>
+</nav>
+</header>
+
+<main class="container mx-auto px-6 py-8 md:py-12">
+<section id="summary" class="text-center mb-16">
+<h2 class="text-3xl font-bold text-teal-600 mb-4">Professional Summary</h2>
+<p class="max-w-3xl mx-auto text-slate-600 leading-relaxed">
+A results-oriented and strategic leader with over 15 years of experience in the full lifecycle of embedded software engineering within the automotive industry. Proven expertise in leading international C/C++ development teams, translating complex system requirements into robust technical specifications, and managing projects using both agile and classical methodologies. An expert in stakeholder communication, risk management, and ensuring the delivery of high-quality, safety-critical software.
+</p>
+</section>
+
+<section id="achievements" class="mb-16">
+<h2 class="text-3xl font-bold text-center text-teal-600 mb-4">Career Highlights</h2>
+<p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">This section showcases key quantifiable achievements that demonstrate tangible impact across various projects and leadership roles.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="kpi-card p-6 text-center">
+<p class="text-4xl font-bold text-teal-600">90%</p>
+<p class="text-slate-600 mt-2">Reduction in Unresolved Technical Issues (from 600 to 60)</p>
+</div>
+<div class="kpi-card p-6 text-center">
+<p class="text-4xl font-bold text-teal-600">1 Day</p>
+<p class="text-slate-600 mt-2">Software Integration Time, Reduced from 1 Week</p>
+</div>
+<div class="kpi-card p-6 text-center">
+<p class="text-4xl font-bold text-teal-600">40</p>
+<p class="text-slate-600 mt-2">FTEs Led in International Embedded Software Teams</p>
+</div>
+</div>
+</section>
+
+<section id="skills" class="mb-16">
+<h2 class="text-3xl font-bold text-center text-teal-600 mb-4">Technical Skills Dashboard</h2>
+<p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">An overview of technical and managerial competencies. Use the buttons to explore different skill categories. Hover over the bars in the chart for more details.</p>
+<div class="text-center mb-6">
+<button onclick="updateSkillsChart('languages')" class="skill-btn bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition">Languages</button>
+<button onclick="updateSkillsChart('pm')" class="skill-btn bg-white text-slate-700 py-2 px-4 rounded-md hover:bg-gray-100 transition border">Project Management</button>
+<button onclick="updateSkillsChart('tools')" class="skill-btn bg-white text-slate-700 py-2 px-4 rounded-md hover:bg-gray-100 transition border">Tools & Platforms</button>
+<button onclick="updateSkillsChart('systems')" class="skill-btn bg-white text-slate-700 py-2 px-4 rounded-md hover:bg-gray-100 transition border">Embedded Systems</button>
+</div>
+<div class="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+<div class="chart-container">
+<canvas id="skillsChart"></canvas>
+</div>
+</div>
+</section>
+
+<section id="experience" class="mb-16">
+<h2 class="text-3xl font-bold text-center text-teal-600 mb-4">Interactive Career Timeline</h2>
+<p class="text-center text-slate-600 mb-12 max-w-3xl mx-auto">Explore a detailed career history. Click on any role in the timeline on the left to view the corresponding responsibilities, projects, and achievements in the details panel on the right.</p>
+<div class="grid md:grid-cols-12 gap-12">
+<div id="timeline-list" class="md:col-span-4 space-y-4">
+</div>
+
+<div id="experience-details" class="md:col-span-8 bg-white p-6 rounded-lg shadow-md min-h-[400px]">
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="bg-slate-800 text-stone-300 py-6">
+<div class="container mx-auto px-6 text-center">
+<p>&copy; 2025 Elly Câmpeanu | Interactive CV</p>
+</div>
+</footer>
+
+<script>
+const careerData = {
+	"debug-nomad": {
+		company: "Debug Nomad SLU",
+		role: "CEO / Senior Consultant",
+		period: "April 2019 – Present",
+		description: "Provided expert-level project management and technical leadership to major automotive Tier 1 suppliers on safety-critical e-mobility projects.",
+		projects: [
+		{
+			title: "Software Program Manager (Electric Drive Unit for VW)",
+			details: [
+			"Led an international team of 40 embedded software engineers and system testers, managing the full project lifecycle using a waterfall-based methodology.",
+			"Acted as the primary interface between cross-functional teams and the customer, ensuring clear communication and alignment on project goals and deliverables.",
+			"Managed resource planning, quality assurance, and risk management for a complex platform-reuse project on a new AURIX hardware platform.",
+			"<strong>Achievement:</strong> Reduced software integration time from one week to one day by implementing CI/CD concepts and automated checks."
+			]
+		},
+		{
+			title: "Tech Lead Software Consultant (BMS for SAIC-GM, AUDI)",
+			details: [
+			"Provided technical leadership and coaching to a multi-site embedded software team (Romania, Spain, Germany) specializing in C/C++ development.",
+			"Translated system-level requirements for diagnostics into detailed software specifications and oversaw implementation using AUTOSAR.",
+			"Ensured quality and managed development costs by empowering and leading a remote team to successfully ramp up a new office and reuse technology across three different projects."
+			]
+		},
+		{
+			title: "Solution Manager (RADAR project for BMW)",
+			details: [
+			"Managed the function development team, focusing on requirements management and issue resolution using Jira.",
+			"Served as the key customer interface for technical clarifications, release content, and status reporting.",
+			"<strong>Achievement:</strong> Successfully reduced the backlog of unresolved technical issues from over 600 to approximately 60 through systematic planning and execution."
+			]
+		}
+		]
+	},
+	"lear": {
+		company: "Lear Corporation",
+		role: "Software Team Leader & Manager",
+		period: "February 2010 – November 2018",
+		description: "Progressed through several roles with increasing responsibility, culminating in leading a software development team for safety-critical automotive systems.",
+		projects: [
+		{
+			title: "Software Team Leader (BMW BMS project)",
+			details: [
+			"Led a team of embedded software engineers and a test manager, taking full responsibility for software delivery on a complex Battery Management System.",
+			"Coordinated all phases of the software development process, from requirements engineering to integration and testing."
+			]
+		},
+		{
+			title: "Software Problem Resolution Manager (BMW Body Control, Daimler Lights)",
+			details: [
+			"Managed the defect lifecycle for embedded software projects, ensuring all issues were documented, analyzed, and resolved according to stringent customer requirements and quality standards."
+			]
+		},
+		{
+			title: "Embedded Software Engineer / Function Owner (VW, BMW)",
+			details: [
+			"Developed, debugged, and integrated embedded software functionalities in C/C++, including Wiper/Washer controls, Power Windows, and UDS diagnostics.",
+			"Led a 5-FTE remote team of software developers in India, providing technical guidance and support."
+			]
+		}
+		]
+	},
+	"continental": {
+		company: "Continental Corporation",
+		role: "Embedded Software Engineer",
+		period: "November 2006 – August 2009",
+		description: "Developed and integrated hardware-related software drivers and diagnostic stacks for automotive ECUs.",
+		projects: [
+		{
+			title: "Core Development",
+			details: [
+			"Specialized in embedded C development for sunroof modules, focusing on diagnostics integration over LIN (KWP2000) and CAN stack integration.",
+			"Created CANoe panels for robust integration testing and debugging.",
+			"Developed drivers and low-level software components for various ECUs."
+			]
+		}
+		]
+	}
+};
+
+const skillsData = {
+	languages: {
+		labels: ['C/C++', 'Python', 'XML'],
+		values: [95, 70, 80],
+		title: 'Programming Languages Proficiency'
+	},
+	pm: {
+		labels: ['Waterfall/V-Model', 'Agile/Scrum', 'Risk Management', 'Stakeholder Comms', 'Resource Planning'],
+		values: [90, 85, 95, 98, 90],
+		title: 'Project Management Skills'
+	},
+	tools: {
+		labels: ['Jira', 'Confluence', 'Matlab/Simulink', 'GIT', 'MS Project'],
+		values: [95, 95, 80, 90, 85],
+		title: 'Tools & Platforms Expertise'
+	},
+	systems: {
+		labels: ['RTOS', 'AUTOSAR', 'CAN/LIN', 'Functional Safety', 'Model-Based Design'],
+		values: [90, 85, 95, 88, 80],
+		title: 'Embedded Systems Knowledge'
+	}
+};
+
+let skillsChartInstance = null;
+
+function updateSkillsChart(category) {
+	const chartData = skillsData[category];
+	const ctx = document.getElementById('skillsChart').getContext('2d');
+	
+	if (skillsChartInstance) {
+		skillsChartInstance.destroy();
+	}
+	
+	skillsChartInstance = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: chartData.labels,
+			datasets: [{
+				label: 'Proficiency / Expertise',
+				data: chartData.values,
+				backgroundColor: 'rgba(13, 148, 136, 0.6)',
+				borderColor: 'rgba(13, 148, 136, 1)',
+				borderWidth: 1
+			}]
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			indexAxis: 'y',
+			scales: {
+				x: {
+					beginAtZero: true,
+					max: 100,
+					ticks: { color: '#475569' }
+				},
+				y: {
+					ticks: { color: '#475569' }
+				}
+			},
+			plugins: {
+				legend: { display: false },
+				title: {
+					display: true,
+					text: chartData.title,
+					font: { size: 16 },
+					color: '#1e293b'
+				},
+				tooltip: {
+					callbacks: {
+						label: function(context) {
+							return ` Expertise: ${context.raw}%`;
+						}
+					}
+				}
+			}
+		}
+	});
+	
+	document.querySelectorAll('.skill-btn').forEach(btn => {
+		btn.classList.remove('bg-teal-600', 'text-white');
+		btn.classList.add('bg-white', 'text-slate-700');
+	});
+	const activeButton = document.querySelector(`button[onclick="updateSkillsChart('${category}')"]`);
+	activeButton.classList.add('bg-teal-600', 'text-white');
+	activeButton.classList.remove('bg-white', 'text-slate-700');
+}
+
+const timelineList = document.getElementById('timeline-list');
+const detailsContainer = document.getElementById('experience-details');
+
+function updateExperienceDetails(jobId) {
+	const jobData = careerData[jobId];
+	let projectsHtml = jobData.projects.map(project => `
+	<div class="mb-4">
+	<h4 class="text-md font-semibold text-teal-700">${project.title}</h4>
+	<ul class="list-disc list-inside text-slate-600 mt-1 space-y-1">
+	${project.details.map(detail => `<li>${detail}</li>`).join('')}
+	</ul>
+	</div>
+	`).join('');
+	
+	detailsContainer.innerHTML = `
+	<h3 class="text-2xl font-bold text-slate-800">${jobData.company}</h3>
+	<p class="text-md text-slate-500 mb-2">${jobData.role}</p>
+	<p class="text-sm text-slate-400 mb-4">${jobData.period}</p>
+	<p class="text-slate-600 mb-6">${jobData.description}</p>
+	<div class="border-t border-stone-200 pt-4">
+	${projectsHtml}
+	</div>
+	`;
+	
+	document.querySelectorAll('.timeline-item').forEach(item => {
+		item.classList.remove('active');
+	});
+	document.getElementById(`timeline-${jobId}`).classList.add('active');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+	Object.keys(careerData).forEach(jobId => {
+		const job = careerData[jobId];
+		const item = document.createElement('div');
+		item.className = 'timeline-item p-4 rounded-md';
+		item.id = `timeline-${jobId}`;
+		item.setAttribute('onclick', `updateExperienceDetails('${jobId}')`);
+		item.innerHTML = `
+		<p class="font-bold text-slate-700">${job.company}</p>
+		<p class="text-sm text-slate-500">${job.role}</p>
+		<p class="text-xs text-slate-400 mt-1">${job.period}</p>
+		`;
+		timelineList.appendChild(item);
+	});
+	
+	updateSkillsChart('languages');
+	updateExperienceDetails('debug-nomad');
+});
+</script>
+</body>
+</html>
