@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infographic CV | Elly Câmpeanu</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<!-- Chosen Palette: Brilliant Blues -->
+<!-- Application Structure Plan: The infographic tells a narrative story of professional growth. It starts with a high-impact header and summary. It then immediately presents "Key Career Metrics" as large, bold numbers to hook the viewer. The core of the narrative is a "Career Progression" timeline, showing the journey from engineer to leader. This is supported by "Core Competency" charts that provide a detailed skill breakdown. Finally, a "Project Management Approach" diagram visually explains a key methodology skill. This top-down structure (Summary -> Achievements -> Experience -> Skills) is designed for recruiters to quickly grasp the candidate's value proposition and then dive deeper into the details. -->
+<!-- Visualization & Content Choices: 
+- Key Achievements -> Goal: Inform -> Viz: "Big Number" KPI Cards -> Justification: Provides immediate, high-impact evidence of success. Method: HTML/Tailwind.
+- Career History -> Goal: Change -> Viz: Vertical Timeline -> Justification: Clearly visualizes career growth and tenure in a scannable format. Method: Structured HTML/CSS with Tailwind.
+- Technical Skills -> Goal: Compare -> Viz: Horizontal Bar Chart -> Justification: Effectively compares expertise levels across various technologies. Library: Chart.js (Canvas), with label wrapping for long strings.
+- Project Management Skills -> Goal: Compare/Relationships -> Viz: Radar Chart -> Justification: Shows a holistic view of managerial strengths and how they interrelate. Library: Chart.js (Canvas).
+- Methodologies (Waterfall/Agile) -> Goal: Organize -> Viz: Flow Diagram -> Justification: Simplifies and clarifies expertise in different development processes. Method: Structured HTML/CSS using Flexbox (NO Mermaid/SVG).
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: #f8fafc; /* slate-50 */
+}
+.chart-container {
+	position: relative;
+	width: 100%;
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 350px;
+	max-height: 50vh;
+}
+@media (min-width: 768px) {
+	.chart-container {
+		height: 400px;
+	}
+}
+.kpi-card {
+	background-color: #003f5c;
+	color: white;
+	padding: 1.5rem;
+	border-radius: 0.75rem;
+	text-align: center;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.timeline::before {
+	content: '';
+	position: absolute;
+	left: 10px;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	background-color: #e2e8f0; /* slate-200 */
+	border-radius: 2px;
+}
+.timeline-item::before {
+	content: '';
+	position: absolute;
+	left: -5px;
+	top: 10px;
+	width: 20px;
+	height: 20px;
+	background-color: #003f5c;
+	border: 4px solid #f8fafc;
+	border-radius: 50%;
+	z-index: 1;
+}
+</style>
+</head>
+<body class="text-slate-700">
+
+<div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+<header class="text-center py-8">
+<h1 class="text-4xl md:text-5xl font-extrabold text-[#003f5c]">Elly Câmpeanu</h1>
+<p class="text-xl md:text-2xl text-[#7a5195] font-medium mt-2">Embedded Software Tech Lead & Project Manager</p>
+</header>
+
+<section class="my-10 p-6 bg-white rounded-lg shadow-md">
+<h2 class="text-2xl font-bold text-[#003f5c] text-center mb-4">Professional Summary</h2>
+<p class="text-center max-w-4xl mx-auto leading-relaxed">
+A results-oriented leader with over 15 years in automotive embedded software engineering. Expert in leading international C/C++ teams, managing projects with agile and classical methodologies, and delivering high-quality, safety-critical software through effective stakeholder communication and risk management.
+</p>
+</section>
+
+<section class="my-12">
+<h2 class="text-3xl font-bold text-[#003f5c] text-center mb-8">Key Career Metrics</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="kpi-card">
+<p class="text-5xl font-extrabold">15+</p>
+<p class="mt-2 text-lg font-medium">Years of Experience</p>
+</div>
+<div class="kpi-card">
+<p class="text-5xl font-extrabold">40</p>
+<p class="mt-2 text-lg font-medium">FTEs Led Internationally</p>
+</div>
+<div class="kpi-card">
+<p class="text-5xl font-extrabold">90%</p>
+<p class="mt-2 text-lg font-medium">Issue Backlog Reduction</p>
+</div>
+</div>
+</section>
+
+<section class="my-12">
+<h2 class="text-3xl font-bold text-[#003f5c] text-center mb-8">Career Progression</h2>
+<p class="text-center max-w-3xl mx-auto mb-10">This timeline highlights a journey of consistent growth, from hands-on engineering to strategic leadership and high-level consulting in the competitive automotive sector.</p>
+<div class="relative timeline pl-8">
+<div class="timeline-item relative pl-8 pb-8">
+<h3 class="text-xl font-bold text-[#374c80]">CEO / Senior Consultant</h3>
+<p class="font-medium text-slate-600">Debug Nomad SLU | 2019 – Present</p>
+<p class="mt-2">Leading expert-level project management and technical strategy for major Tier 1 automotive suppliers on safety-critical e-mobility projects.</p>
+</div>
+<div class="timeline-item relative pl-8 pb-8">
+<h3 class="text-xl font-bold text-[#7a5195]">Software Team Leader & Manager</h3>
+<p class="font-medium text-slate-600">Lear Corporation | 2010 – 2018</p>
+<p class="mt-2">Progressed to lead software development teams for safety-critical systems, including a key role on a complex BMW Battery Management System project.</p>
+</div>
+<div class="timeline-item relative pl-8">
+<h3 class="text-xl font-bold text-[#bc5090]">Embedded Software Engineer</h3>
+<p class="font-medium text-slate-600">Continental Corporation | 2006 – 2009</p>
+<p class="mt-2">Developed and integrated hardware-related software drivers, diagnostic stacks (LIN/CAN), and low-level C code for automotive ECUs.</p>
+</div>
+</div>
+</section>
+
+<section class="my-12">
+<h2 class="text-3xl font-bold text-[#003f5c] text-center mb-8">Core Competencies</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h3 class="text-xl font-bold text-center text-[#374c80] mb-4">Technical & Platform Skills</h3>
+<p class="text-center text-sm text-slate-500 mb-4">This chart shows the expertise level across essential programming languages, platforms, and embedded systems technologies.</p>
+<div class="chart-container">
+<canvas id="techSkillsChart"></canvas>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h3 class="text-xl font-bold text-center text-[#7a5195] mb-4">Project Management Expertise</h3>
+<p class="text-center text-sm text-slate-500 mb-4">This radar chart provides a holistic view of key project management strengths, demonstrating a well-rounded leadership profile.</p>
+<div class="chart-container">
+<canvas id="pmSkillsChart"></canvas>
+</div>
+</div>
+</div>
+</section>
+
+<section class="my-12">
+<h2 class="text-3xl font-bold text-[#003f5c] text-center mb-8">Project Management Approach</h2>
+<p class="text-center max-w-3xl mx-auto mb-10">Demonstrates proficiency in managing projects through both classical and modern agile frameworks, adapting the approach to meet project and stakeholder needs.</p>
+<div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
+<div class="flex-1 bg-white p-6 rounded-lg shadow-md border-t-4 border-[#ff764a]">
+<h3 class="text-xl font-bold text-center text-[#ff764a]">Classical (V-Model / Waterfall)</h3>
+<div class="mt-4 space-y-2 text-center">
+<p class="font-semibold">Requirements</p>
+<p class="text-2xl text-slate-400">⇩</p>
+<p class="font-semibold">System Design</p>
+<p class="text-2xl text-slate-400">⇩</p>
+<p class="font-semibold">Implementation</p>
+<p class="text-2xl text-slate-400">⇩</p>
+<p class="font-semibold">Testing & Validation</p>
+</div>
+</div>
+<div class="flex-1 bg-white p-6 rounded-lg shadow-md border-t-4 border-[#ffa600]">
+<h3 class="text-xl font-bold text-center text-[#ffa600]">Agile (Scrum / SAFe)</h3>
+<div class="mt-4 space-y-2 text-center">
+<p class="font-semibold">Product Backlog</p>
+<p class="text-2xl text-slate-400">↻</p>
+<p class="font-semibold">Sprint Planning & Execution</p>
+<p class="text-2xl text-slate-400">↻</p>
+<p class="font-semibold">Daily Standups</p>
+<p class="text-2xl text-slate-400">↻</p>
+<p class="font-semibold">Review & Retrospective</p>
+</div>
+</div>
+</div>
+</section>
+
+</div>
+
+<script>
+function wrapLabel(label) {
+	const maxLength = 16;
+	if (label.length <= maxLength) return label;
+	const words = label.split(' ');
+	const lines = [];
+	let currentLine = '';
+	for (const word of words) {
+		if ((currentLine + ' ' + word).trim().length > maxLength) {
+			lines.push(currentLine.trim());
+			currentLine = word;
+		} else {
+			currentLine = (currentLine + ' ' + word).trim();
+		}
+	}
+	if (currentLine) lines.push(currentLine);
+	return lines;
+}
+
+const tooltipTitleCallback = function(tooltipItems) {
+	const item = tooltipItems[0];
+	let label = item.chart.data.labels[item.dataIndex];
+	if (Array.isArray(label)) {
+		return label.join(' ');
+	} else {
+		return label;
+	}
+};
+
+const techSkillsCtx = document.getElementById('techSkillsChart').getContext('2d');
+new Chart(techSkillsCtx, {
+	type: 'bar',
+	data: {
+		labels: ['C/C++', 'RTOS', 'CAN/LIN', 'Jira/Confluence', 'Matlab/Simulink', wrapLabel('Functional Safety (ISO 26262)'), 'AUTOSAR', wrapLabel('Model-Based Design')],
+		datasets: [{
+			label: 'Expertise',
+			data: [95, 90, 95, 98, 80, 88, 85, 80],
+			backgroundColor: '#bc5090',
+			borderColor: '#7a5195',
+			borderWidth: 1
+		}]
+	},
+	options: {
+		indexAxis: 'y',
+		responsive: true,
+		maintainAspectRatio: false,
+		scales: {
+			x: { beginAtZero: true, max: 100 }
+		},
+		plugins: {
+			legend: { display: false },
+			tooltip: { callbacks: { title: tooltipTitleCallback } }
+		}
+	}
+});
+
+const pmSkillsCtx = document.getElementById('pmSkillsChart').getContext('2d');
+new Chart(pmSkillsCtx, {
+	type: 'radar',
+	data: {
+		labels: ['Risk Management', 'Stakeholder Comms', 'Resource Planning', 'Agile Methods', 'Waterfall Methods', 'Supplier Mgmt'],
+		datasets: [{
+			label: 'Expertise',
+			data: [95, 98, 90, 85, 90, 88],
+			backgroundColor: 'rgba(239, 86, 117, 0.4)',
+			borderColor: '#ef5675',
+			pointBackgroundColor: '#ef5675',
+			pointBorderColor: '#fff',
+			pointHoverBackgroundColor: '#fff',
+			pointHoverBorderColor: '#ef5675'
+		}]
+	},
+	options: {
+		responsive: true,
+		maintainAspectRatio: false,
+		scales: {
+			r: {
+				angleLines: { color: '#e2e8f0' },
+				grid: { color: '#e2e8f0' },
+				pointLabels: { font: { size: 12 }, color: '#334155' },
+				ticks: {
+					backdropColor: 'transparent',
+					color: '#64748b'
+				},
+				suggestedMin: 0,
+				suggestedMax: 100
+			}
+		},
+		plugins: {
+			legend: { display: false },
+			tooltip: { callbacks: { title: tooltipTitleCallback } }
+		}
+	}
+});
+</script>
+</body>
+</html>
