@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplicació Interactiva: Oportunitats Europees per a Docents</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<!-- Chosen Palette: Calm & Professional -->
+<!-- Application Structure Plan: S'ha dissenyat una aplicació d'una sola pàgina amb un flux narratiu i temàtic. L'usuari comença amb una introducció general, després explora l'estructura d'Erasmus+ a través d'un diagrama interactiu, continua amb un 'toolkit' de programes addicionals visualitzats amb un gràfic de distribució, i finalment se centra en les eines per a la innovació, comparades amb un gràfic de barres. Aquesta estructura de 'scrolling' guiat facilita la comprensió progressiva, prioritzant l'experiència d'usuari per sobre de l'estructura original de l'informe. -->
+<!-- Visualization & Content Choices: 1) Erasmus+ KAs: Goal=Organize, Method=Diagrama amb HTML/CSS, Interaction=Tabs on hover/click per mostrar detalls, Justification=Presenta una jerarquia clara sense SVG/Mermaid. 2) Altres Programes: Goal=Compare, Method=Gràfic de Dònut (Chart.js), Interaction=Tooltips en passar el ratolí, Justification=Mostra una proporció conceptual de l'ecosistema d'eines. 3) Impacte en Innovació: Goal=Compare/Rank, Method=Gràfic de Barres Horitzontal (Chart.js), Interaction=Tooltips, Justification=Permet una comparació directa de l'impacte de cada programa. 4) Aula del Futur: Goal=Inform, Method=Diagrama amb HTML/CSS, Justification=Visualitza un concepte abstracte de manera clara. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: #fdfaf6;
+	color: #4a4a4a;
+}
+.chart-container {
+	position: relative;
+	width: 100%;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 350px;
+	max-height: 400px;
+}
+.tab-content {
+	display: none;
+}
+.tab-content.active {
+	display: block;
+}
+.tab-button.active {
+	background-color: #0073B0;
+	color: white;
+	border-color: #0073B0;
+}
+</style>
+</head>
+<body class="antialiased">
+
+<nav class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center py-4">
+<div class="font-bold text-xl text-[#0073B0]">Oportunitats Europees</div>
+<div class="hidden md:flex space-x-6">
+<a href="#erasmus" class="text-gray-600 hover:text-[#0073B0] transition-colors">Erasmus+</a>
+<a href="#eines" class="text-gray-600 hover:text-[#0073B0] transition-colors">Altres Programes</a>
+<a href="#innovacio" class="text-gray-600 hover:text-[#0073B0] transition-colors">Innovació a l'Aula</a>
+</div>
+</div>
+</div>
+</nav>
+
+<header class="text-center py-16 px-4 bg-white">
+<h1 class="text-4xl md:text-5xl font-black text-[#0073B0]">Impulsa la Teva Carrera Docent a Europa</h1>
+<p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
+Aquesta aplicació interactiva et guia a través dels principals programes i iniciatives que la Unió Europea ofereix per a la teva formació, actualització i per fomentar la innovació a la teva aula.
+</p>
+</header>
+
+<main class="container mx-auto p-4 md:p-8">
+
+<section id="erasmus" class="my-16 scroll-mt-20">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-[#0073B0]">L'Ecosistema Erasmus+</h2>
+<p class="mt-2 max-w-2xl mx-auto text-gray-600">El programa Erasmus+ és el pilar central de les oportunitats europees. No es tracta només de mobilitat, sinó d'un conjunt d'accions dissenyades per enfortir la cooperació i la qualitat educativa a tots els nivells. Exploreu les seves tres Accions Clau per entendre'n tot el potencial.</p>
+</div>
+
+<div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+<div class="flex flex-col md:flex-row border-b border-gray-200">
+<button data-tab="ka1" class="tab-button flex-1 py-4 px-2 text-center font-semibold border-b-2 md:border-b-0 md:border-r border-gray-200 transition-colors active">Acció Clau 1 (KA1)</button>
+<button data-tab="ka2" class="tab-button flex-1 py-4 px-2 text-center font-semibold border-b-2 md:border-b-0 md:border-r border-gray-200 transition-colors">Acció Clau 2 (KA2)</button>
+<button data-tab="ka3" class="tab-button flex-1 py-4 px-2 text-center font-semibold transition-colors">Acció Clau 3 (KA3)</button>
+</div>
+<div class="pt-8">
+<div id="ka1" class="tab-content active">
+<h3 class="text-2xl font-bold text-[#0073B0]">Mobilitat per a l'Aprenentatge</h3>
+<p class="mt-2 text-gray-600">És l'acció més coneguda, centrada en el desenvolupament professional individual. Permet que el personal docent realitzi estades a l'estranger per adquirir noves competències, millorar habilitats i conèixer altres sistemes educatius.</p>
+<ul class="mt-4 space-y-2 list-disc list-inside text-gray-700">
+<li>Estades de formació i cursos estructurats.</li>
+<li>Períodes d'observació (job shadowing) en altres centres.</li>
+<li>Impartir classes en institucions educatives europees.</li>
+</ul>
+</div>
+<div id="ka2" class="tab-content">
+<h3 class="text-2xl font-bold text-[#0073B0]">Cooperació entre Organitzacions</h3>
+<p class="mt-2 text-gray-600">Aquesta acció és el motor de la innovació col·laborativa. Fomenta que els centres educatius s'associïn per desenvolupar projectes conjunts, intercanviar bones pràctiques i crear solucions innovadores a reptes educatius comuns.</p>
+<ul class="mt-4 space-y-2 list-disc list-inside text-gray-700">
+<li>Associacions de Cooperació a petita i gran escala.</li>
+<li>Projectes per al desenvolupament de recursos educatius oberts.</li>
+<li>Foment de la internacionalització dels centres.</li>
+</ul>
+</div>
+<div id="ka3" class="tab-content">
+<h3 class="text-2xl font-bold text-[#0073B0]">Suport a la Reforma de Polítiques</h3>
+<p class="mt-2 text-gray-600">Aquesta línia d'actuació opera a un nivell més estratègic. Dona suport a projectes que busquen modernitzar i millorar els sistemes d'educació i formació a Europa, enfortint el diàleg entre el món educatiu i els responsables polítics.</p>
+<ul class="mt-4 space-y-2 list-disc list-inside text-gray-700">
+<li>Cooperació amb organitzacions internacionals.</li>
+<li>Desenvolupament de marcs de competències europeus.</li>
+<li>Anàlisi de tendències i reptes educatius.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="eines" class="my-24 scroll-mt-20">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-[#0073B0]">El Teu Kit d'Eines per a l'Actualització</h2>
+<p class="mt-2 max-w-2xl mx-auto text-gray-600">Més enllà d'Erasmus+, existeix un ecosistema de plataformes i iniciatives dissenyades específicament per a la formació contínua, el reciclatge professional i la col·laboració entre docents de tot Europa.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+<div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+<h3 class="text-2xl font-bold text-[#00CECB] mb-4">Focus de les Plataformes Europees</h3>
+<p class="text-gray-600 mb-4">Aquest gràfic mostra el focus principal de cada eina. Mentre que eTwinning es concentra en la col·laboració en xarxa, el School Education Gateway (SEG) és el gran proveïdor d'oportunitats de formació directa. Altres plataformes cobreixen necessitats més específiques com l'educació d'adults o l'autoavaluació digital.</p>
+<div class="chart-container">
+<canvas id="focusDonutChart"></canvas>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+<h4 class="font-bold text-lg text-[#0073B0]">eTwinning</h4>
+<p class="text-gray-600">La major comunitat virtual de docents. Ideal per a trobar socis i desenvolupar projectes col·laboratius internacionals sense sortir de l'aula.</p>
+</div>
+<div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+<h4 class="font-bold text-lg text-[#0073B0]">School Education Gateway (SEG)</h4>
+<p class="text-gray-600">El portal de referència per a l'educació escolar. Aquí trobaràs la 'Teacher Academy', un catàleg de cursos presencials i en línia.</p>
+</div>
+<div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+<h4 class="font-bold text-lg text-[#0073B0]">EPALE & SELFIE for TEACHERS</h4>
+<p class="text-gray-600">Plataformes especialitzades: EPALE per a l'educació d'adults i SELFIE per a l'autoavaluació i millora de les teves competències digitals.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="innovacio" class="my-24 scroll-mt-20">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-[#0073B0]">Fomentant la Innovació a l'Aula</h2>
+<p class="mt-2 max-w-2xl mx-auto text-gray-600">Tots els programes contribueixen al creixement, però alguns estan especialment orientats a transformar les pràctiques pedagògiques i a introduir metodologies d'avantguarda a l'aula.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+<div class="lg:col-span-3 bg-white rounded-lg shadow-lg p-6 md:p-8">
+<h3 class="text-2xl font-bold text-[#00CECB] mb-4">Comparativa d'Impacte en Innovació</h3>
+<p class="text-gray-600 mb-4">Aquest gràfic compara l'impacte potencial de cada iniciativa en la innovació a l'aula. Els projectes de cooperació (KA2) lideren, ja que impliquen la creació de noves solucions. eTwinning i la formació especialitzada del SEG també són eines molt potents per transformar la teva manera d'ensenyar.</p>
+<div class="chart-container h-96">
+<canvas id="innovationBarChart"></canvas>
+</div>
+</div>
+<div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+<h3 class="text-2xl font-bold text-[#00CECB] mb-4">Iniciativa: "Aula del Futur"</h3>
+<p class="text-gray-600 mb-6">Aquesta iniciativa no és un programa, sinó un model per repensar els espais i les metodologies. Proposa organitzar l'aprenentatge en zones flexibles per potenciar competències clau:</p>
+<div class="space-y-4">
+<div class="flex items-start"><span class="text-2xl mr-4">🔍</span><div><h4 class="font-bold">Investigar</h4><p class="text-sm text-gray-600">Fomentar la recerca i el pensament crític.</p></div></div>
+<div class="flex items-start"><span class="text-2xl mr-4">🎨</span><div><h4 class="font-bold">Crear</h4><p class="text-sm text-gray-600">Desenvolupar la creativitat i la producció de continguts.</p></div></div>
+<div class="flex items-start"><span class="text-2xl mr-4">🤝</span><div><h4 class="font-bold">Col·laborar</h4><p class="text-sm text-gray-600">Potenciar el treball en equip i les habilitats socials.</p></div></div>
+<div class="flex items-start"><span class="text-2xl mr-4">🗣️</span><div><h4 class="font-bold">Presentar</h4><p class="text-sm text-gray-600">Millorar les habilitats de comunicació i difusió.</p></div></div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="bg-white border-t border-gray-200 mt-16">
+<div class="container mx-auto text-center py-8 px-4">
+<p class="text-xl font-bold text-[#0073B0]">El Viatge Comença Ara</p>
+<p class="text-gray-600 mt-2">Aprofita aquestes oportunitats per créixer, connectar i transformar l'educació.</p>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const tabs = document.querySelectorAll('.tab-button');
+	const contents = document.querySelectorAll('.tab-content');
+	
+	tabs.forEach(tab => {
+		tab.addEventListener('click', () => {
+			tabs.forEach(item => item.classList.remove('active'));
+			tab.classList.add('active');
+			
+			const target = tab.getAttribute('data-tab');
+			contents.forEach(content => {
+				content.classList.remove('active');
+				if (content.id === target) {
+					content.classList.add('active');
+				}
+			});
+		});
+	});
+	
+	const wrapLabel = (label, maxLength = 16) => {
+		if (label.length <= maxLength) return label;
+		const words = label.split(' ');
+		const lines = [];
+		let currentLine = '';
+		words.forEach(word => {
+			if ((currentLine + ' ' + word).length > maxLength && currentLine.length > 0) {
+				lines.push(currentLine);
+				currentLine = '';
+			}
+			currentLine += (currentLine ? ' ' : '') + word;
+		});
+		if (currentLine) lines.push(currentLine);
+		return lines;
+	};
+	
+	const tooltipTitleCallback = (tooltipItems) => {
+		const item = tooltipItems[0];
+		let label = item.chart.data.labels[item.dataIndex];
+		if (Array.isArray(label)) return label.join(' ');
+		return label;
+	};
+	
+	const createFocusDonutChart = () => {
+		const ctx = document.getElementById('focusDonutChart')?.getContext('2d');
+		if (!ctx) return;
+		const rawLabels = ['eTwinning (Col·laboració)', 'SEG (Formació)', 'EPALE (Ed. Adults)', 'Estades Professionals', 'SELFIE (Comp. Digitals)'];
+		new Chart(ctx, {
+			type: 'doughnut',
+			data: {
+				labels: rawLabels.map(l => wrapLabel(l)),
+				datasets: [{
+					data: [40, 35, 10, 8, 7],
+					backgroundColor: ['#0073B0', '#00CECB', '#FF5E5B', '#FFED66', '#a0b8c3'],
+					borderColor: '#fdfaf6',
+					borderWidth: 4,
+					hoverOffset: 4
+				}]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				plugins: {
+					legend: { position: 'bottom', labels: { color: '#4a4a4a', font: { family: "'Inter', sans-serif" } } },
+					tooltip: { callbacks: { title: tooltipTitleCallback } }
+				},
+				cutout: '60%'
+			}
+		});
+	};
+	
+	const createInnovationBarChart = () => {
+		const ctx = document.getElementById('innovationBarChart')?.getContext('2d');
+		if (!ctx) return;
+		const rawLabels = ['Erasmus+ (KA2)', 'eTwinning', 'SEG (Teacher Academy)', '"Aula del Futur"'];
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: rawLabels.map(l => wrapLabel(l, 20)),
+				datasets: [{
+					label: 'Impacte en Innovació',
+					data: [95, 85, 75, 70],
+					backgroundColor: ['#0073B0', '#00CECB', '#FF5E5B', '#FFED66'],
+					borderRadius: 4
+				}]
+			},
+			options: {
+				indexAxis: 'y',
+				responsive: true,
+				maintainAspectRatio: false,
+				plugins: {
+					legend: { display: false },
+					tooltip: { callbacks: { title: tooltipTitleCallback } }
+				},
+				scales: {
+					x: { grid: { display: false }, ticks: { color: '#4a4a4a' } },
+					y: { grid: { display: false }, ticks: { color: '#4a4a4a', font: { size: 12 } } }
+				}
+			}
+		});
+	};
+	
+	createFocusDonutChart();
+	createInnovationBarChart();
+	
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			document.querySelector(this.getAttribute('href')).scrollIntoView({
+				behavior: 'smooth'
+			});
+		});
+	});
+});
+</script>
+</body>
+</html>
