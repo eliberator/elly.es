@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elly Câmpeanu Professional Profile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+	--color-navy: #0A1931;
+	--color-gray: #333333;
+	--color-cyan: #00BFFF;
+}
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: #f4f7f9; /* Overall page background */
+}
+.container-card {
+	background-color: white;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	max-width: 1024px;
+}
+.executive-header {
+	background-color: var(--color-navy);
+	color: white;
+	padding: 3rem 2rem 2rem 2rem; /* Larger padding for high-impact block */
+}
+.timeline {
+	position: relative;
+}
+.timeline::before {
+	content: '';
+	position: absolute;
+	/* Line center is at 41px (39 + 2) */
+	left: 39px; 
+	
+	/* FIX: Start and end line exactly at the center of the first and last markers (14px radius + 2px top offset = 16px) */
+	top: 16px; 
+	bottom: 16px;
+	
+	width: 4px; 
+	background-color: var(--color-cyan);
+	border-radius: 9999px;
+}
+.timeline-item {
+	position: relative;
+	/* Adjusted padding to accommodate the 28px marker cleanly */
+	padding-left: 80px; 
+	margin-bottom: 2.5rem; /* Increased spacing */
+}
+.timeline-item::before {
+	content: '';
+	position: absolute;
+	
+	/* Bullseye/Target Styling (24px inner + 4px border = 28px total width. Radius = 14px) */
+	width: 24px; 
+	height: 24px;
+	border-radius: 50%;
+	
+	/* FIX: Set the initial inner color to BLUE (this will be the final dot color) */
+	background-color: var(--color-cyan);
+	
+	/* 1. Outer Blue Circle */
+	border: 2px solid var(--color-cyan); 
+	
+	/* 2. White Gap: Use WHITE inset shadow to cut out the ring */
+	/* Insets 6px white shadow: This leaves a 12px blue dot in the center */
+	box-shadow: inset 0 0 0 6px white; 
+	
+	/* Position adjusted for 28px total marker width and 4px line centered at 41px */
+	left: 28px; 
+	top: 2px;
+	z-index: 10;
+}
+.text-cool-gray { color: var(--color-gray); }
+.icon-link {
+	font-size: 1.5rem;
+	line-height: 1;
+	padding: 2px 5px;
+	border-radius: 4px;
+	font-weight: 700;
+}
+
+/* --- Mobile Optimization for Timeline --- */
+@media (max-width: 640px) {
+	.timeline-item {
+		/* Adjusted padding to give text more space on small screens */
+		padding-left: 55px;
+	}
+	.timeline::before {
+		/* Line center is at 22px (20 + 2) */
+		left: 20px;
+	}
+	.timeline-item::before {
+		/* Line center (22px) minus marker radius (14px) = 8px */
+		left: 8px;
+		top: 2px;
+	}
+	.executive-header {
+		padding: 2rem 1.5rem 1.5rem 1.5rem;
+	}
+}
+
+/* Custom class for Key Achievement background */
+.achievement-card {
+	background-color: #e6f6ff;
+}
+/* Custom card style for Core Skills and Proficiencies */
+.data-card {
+	background-color: white;
+	padding: 1.5rem;
+	border-radius: 0.75rem;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+</style>
+</head>
+<body class="p-0 sm:p-8 flex justify-center items-start">
+<div class="container-card w-full rounded-2xl overflow-hidden">
+
+<!-- HIGH-IMPACT EXECUTIVE HEADER BLOCK -->
+<header class="executive-header flex flex-col md:flex-row justify-between items-start md:items-center">
+<div class="mb-4 md:mb-0">
+<h1 class="text-4xl sm:text-5xl font-extrabold">
+Elly Câmpeanu
+</h1>
+<h2 class="text-xl sm:text-2xl font-light text-gray-300">
+Engineering Teams Coordinator & Project Leader
+</h2>
+</div>
+
+<div class="flex space-x-4 items-center mt-2 md:mt-0 text-gray-300">
+<!-- Contact Icons -->
+<a href="https://linkedin.com/in/elly-campeanu-project-program-manager" target="_blank" class="hover:text-white transition duration-200" title="LinkedIn">
+<span class="icon-link text-xl text-white" style="background-color: var(--color-cyan); padding: 2px 4px; border-radius: 4px;">in</span>
+</a>
+<a href="mailto:elly@debugnomad.com" class="hover:text-white transition duration-200 icon-link" title="Email">
+&#9993;
+</a>
+<a href="tel:+34681671597" class="hover:text-white transition duration-200 icon-link" title="Phone">
+&#9742;
+</a>
+</div>
+</header>
+
+<!-- PROFESSIONAL PROFILE LEAD STATEMENT -->
+<section class="p-6 sm:p-10 border-l-4" style="border-color: var(--color-cyan); background-color: #fcfcfc;">
+<p class="text-lg text-cool-gray italic font-medium">
+"A results-driven leader with 15+ years of experience coordinating international engineering teams to deliver high-quality automotive software solutions from concept to launch."
+</p>
+</section>
+
+<!-- MAIN CONTENT GRID -->
+<div class="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+<div class="lg:col-span-2">
+
+<!-- KEY ACHIEVEMENT CALLOUT -->
+<div class="mb-10 p-6 rounded-xl border-2 shadow-md achievement-card" style="border-color: var(--color-cyan);">
+<div class="flex items-center mb-3">
+<!-- Unicode Graph Icon: U+1F4C8 -->
+<span class="text-3xl mr-3" style="color: var(--color-cyan);">&#128201;</span>
+<h3 class="text-3xl font-extrabold" style="color: var(--color-navy);">
+90% Issue Reduction
+</h3>
+</div>
+<p class="text-lg text-cool-gray font-semibold">
+Drastically reduced a project's unresolved software issues from over 600 to 60 by implementing targeted corrective actions and improving team coordination.
+</p>
+</div>
+
+<!-- CAREER TIMELINE -->
+<h3 class="text-2xl font-bold mb-6 border-b-2 pb-2" style="color: var(--color-navy); border-color: var(--color-navy);">Career Timeline</h3>
+
+<div class="timeline">
+
+<!-- 1. UPDATED ENTRY: IoT & AI Business -->
+<div class="timeline-item">
+<p class="text-sm font-light text-cool-gray">2022 - Present</p>
+<h4 class="text-xl font-extrabold" style="color: var(--color-navy);">Founder / IoT & AI Lead (Agriculture Tech)</h4>
+<p class="text-cool-gray">Leading an entrepreneurial venture focused on **upgrading existing egg farms** with advanced IoT and AI solutions, specifically implementing automated egg counting and **comprehensive environmental measurement** systems.</p>
+</div>
+
+<!-- 2. UPDATED ENTRY: RADAR Solution Manager Support (Precise dates added) -->
+<div class="timeline-item">
+<p class="text-sm font-light text-cool-gray">March 2022 - December 2022</p>
+<h4 class="text-xl font-extrabold" style="color: var(--color-navy);">RADAR Solution Manager Support</h4>
+<p class="text-cool-gray">Coordinated remote teams and drove issue resolution for a Tier 1 automotive supplier.</p>
+</div>
+
+<!-- 3. NEW ENTRY: IoT Device Distribution Venture -->
+<div class="timeline-item">
+<p class="text-sm font-light text-cool-gray">2021</p>
+<h4 class="text-xl font-extrabold" style="color: var(--color-navy);">IoT Device Distribution Venture</h4>
+<p class="text-cool-gray">Launched a new business focused on the distribution and sales of specialized IoT hardware devices, gaining key insights into supply chain and market dynamics.</p>
+</div>
+
+<!-- 4. UPDATED ENTRY: Support Program Manager (Precise dates added) -->
+<div class="timeline-item">
+<p class="text-sm font-light text-cool-gray">January 2020 - October 2020</p>
+<h4 class="text-xl font-extrabold" style="color: var(--color-navy);">Support Program Manager</h4>
+<p class="text-cool-gray">Managed a 30+ person international team, implementing an Agile strategy for a major electric drive project.</p>
+</div>
+
+<!-- 5. UPDATED ENTRY: Technical Leader (Precise dates added) -->
+<div class="timeline-item">
+<p class="text-sm font-light text-cool-gray">April 2019 - December 2019</p>
+<h4 class="text-xl font-extrabold" style="color: var(--color-navy);">Technical Leader</h4>
+<p class="text-cool-gray">Led a globally distributed team, providing technical guidance on AUTOSAR BSW topics.</p>
+</div>
+
+<div class="timeline-item">
+<p class="text-sm font-light text-cool-gray">2011 - 2018</p>
+<h4 class="text-xl font-extrabold" style="color: var(--color-navy);">Software Team Leader</h4>
+<p class="text-cool-gray">Managed software teams for BMW projects and directed the development of internal automation tools.</p>
+</div>
+<div class="timeline-item">
+<p class="text-sm font-light text-cool-gray">2007 - 2011</p>
+<h4 class="text-xl font-extrabold" style="color: var(--color-navy);">Software Engineer & Consultant</h4>
+<p class="text-cool-gray">Developed foundational experience in embedded systems, CAN, LIN, and diagnostic services.</p>
+</div>
+</div>
+</div>
+
+<!-- CORE SKILLS AND TECHNICAL PROFICIENCIES COLUMN -->
+<div class="lg:col-span-1 space-y-10">
+
+<section class="data-card">
+<h3 class="text-2xl font-bold mb-6 border-b-2 pb-2" style="color: var(--color-navy); border-color: var(--color-navy);">Core Skills</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+<div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm"><span class="text-xl mr-3" style="color: var(--color-cyan);">&#8635;</span><span class="text-sm font-medium text-cool-gray">Agile Methodologies</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm"><span class="text-xl mr-3" style="color: var(--color-cyan);">&#128101;</span><span class="text-sm font-medium text-cool-gray">Team Leadership</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm"><span class="text-xl mr-3" style="color: var(--color-cyan);">&#128737;</span><span class="text-sm font-medium text-cool-gray">Risk Management</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm"><span class="text-xl mr-3" style="color: var(--color-cyan);">&#128187;</span><span class="text-sm font-medium text-cool-gray">Embedded Systems</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm"><span class="text-xl mr-3" style="color: var(--color-cyan);">&#128172;</span><span class="text-sm font-medium text-cool-gray">Stakeholder Comm.</span></div>
+<div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm"><span class="text-xl mr-3" style="color: var(--color-cyan);">&#9881;</span><span class="text-sm font-medium text-cool-gray">Process Improvement</span></div>
+</div>
+</section>
+
+<section class="data-card">
+<h3 class="text-2xl font-bold mb-6 border-b-2 pb-2" style="color: var(--color-navy); border-color: var(--color-navy);">Technical Proficiencies</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">C/C++ Embedded</span>
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">AUTOSAR</span>
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">ASPICE</span>
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">ISO26262</span>
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">JIRA</span>
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">Confluence</span>
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">CAN LIN</span>
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">Automotive Software</span>
+<span class="px-3 py-1 text-sm bg-gray-200 text-cool-gray rounded-full font-medium">System Integration</span>
+</div>
+</section>
+</div>
+</div>
+
+<!-- FOOTER / EDUCATION -->
+<footer class="p-6 sm:p-10 pt-6 border-t border-gray-100 bg-gray-50 text-center">
+<h3 class="text-xl font-bold mb-4" style="color: var(--color-navy);">Education</h3>
+<div class="flex flex-col sm:flex-row justify-center items-center sm:gap-4 text-cool-gray">
+<p class="font-semibold text-lg">M.Sc. Digital Radiocommunication</p>
+<p class="text-lg hidden sm:block font-extrabold" style="color: var(--color-navy);">|</p>
+<p class="font-semibold text-lg">B.Sc. Electrical Engineering & Computers</p>
+</div>
+</footer>
+</div>
+</body>
+</html>

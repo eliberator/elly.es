@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elly Câmpeanu | Professional Infographic</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+.chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+@media (min-width: 768px) { .chart-container { height: 400px; } }
+.timeline::before { content: ''; position: absolute; left: 1rem; top: 0; bottom: 0; width: 4px; background-color: #e0e7ff; border-radius: 2px; }
+.timeline-item .timeline-dot { position: absolute; left: 1rem; top: 0.25rem; transform: translateX(-50%); }
+</style>
+</head>
+<body class="text-gray-800">
+
+<main class="container mx-auto max-w-7xl p-4 sm:p-6 md:p-8">
+
+<header class="text-center mb-12">
+<h1 class="text-5xl md:text-6xl font-black text-gray-900">Elly Câmpeanu</h1>
+<p class="text-2xl mt-2 font-semibold" style="color: #004e92;">Engineering Coordination & Project Leadership</p>
+</header>
+
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 items-center">
+<div class="bg-white p-8 rounded-xl shadow-lg text-center">
+<p class="text-lg text-gray-600">Experience in Automotive Software</p>
+<p class="text-8xl font-black" style="color: #000428;">15+</p>
+<p class="text-lg text-gray-600">Years</p>
+</div>
+<div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-center">
+<div class="chart-container w-full max-w-[250px] h-auto max-h-[250px] mx-auto">
+<canvas id="issueReductionChart"></canvas>
+</div>
+<div class="md:ml-8 mt-6 md:mt-0 text-center md:text-left">
+<h2 class="text-3xl font-bold text-gray-900">Key Achievement: Issue Resolution</h2>
+<p class="mt-2 text-lg text-gray-700">In a key project, Elly led the initiative to dramatically improve software quality and project health. By implementing rigorous tracking and effective coordination, her team drove a <span class="font-bold" style="color: #004e92;">90% reduction</span> in unresolved issues, cutting the backlog from over 600 to just 60.</p>
+</div>
+</div>
+</section>
+
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+<div class="bg-white p-8 rounded-xl shadow-lg">
+<h2 class="text-3xl font-bold text-center text-gray-900 mb-6">Core Competencies</h2>
+<p class="text-center text-gray-700 mb-4">A balanced and robust skill set is crucial for effective project leadership. This visualization highlights proficiency across key management domains, demonstrating a well-rounded approach to coordinating teams and delivering results.</p>
+<div class="chart-container h-96">
+<canvas id="competenciesRadarChart"></canvas>
+</div>
+</div>
+<div class="bg-white p-8 rounded-xl shadow-lg">
+<h2 class="text-3xl font-bold text-center text-gray-900 mb-6">Technical Proficiencies</h2>
+<p class="text-center text-gray-700 mb-4">Effective coordination in a technical field requires a strong command of the tools and standards that govern it. This chart displays key areas of technical expertise, essential for guiding engineering teams in the automotive software industry.</p>
+<div class="chart-container h-96">
+<canvas id="technicalSkillsChart"></canvas>
+</div>
+</div>
+</section>
+
+<section class="bg-white p-8 rounded-xl shadow-lg">
+<h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Career Journey</h2>
+<div class="relative timeline">
+<div class="timeline-item relative mb-8 pb-8 border-b border-gray-200">
+<div class="timeline-dot w-8 h-8 rounded-full flex items-center justify-center bg-white border-4 border-indigo-300 ring-4 ring-white"><p class="font-bold" style="color: #004e92;">1</p></div>
+<div class="pl-12">
+<h3 class="text-xl font-bold" style="color: #000428;">RADAR Solution Manager Support <span class="text-base font-normal text-gray-500">(2022)</span></h3>
+<p class="mt-1 text-gray-700">Coordinated software teams for a top German Tier 1 supplier, focusing on requirement and issue management to enhance project health and customer confidence.</p>
+</div>
+</div>
+<div class="timeline-item relative mb-8 pb-8 border-b border-gray-200">
+<div class="timeline-dot w-8 h-8 rounded-full flex items-center justify-center bg-white border-4 border-indigo-300 ring-4 ring-white"><p class="font-bold" style="color: #004e92;">2</p></div>
+<div class="pl-12">
+<h3 class="text-xl font-bold" style="color: #000428;">Support Program Manager, Software <span class="text-base font-normal text-gray-500">(2020)</span></h3>
+<p class="mt-1 text-gray-700">Managed a 30+ person international team for an electric drive project, defining and implementing an agile strategy to streamline component sharing between teams and suppliers.</p>
+</div>
+</div>
+<div class="timeline-item relative mb-8 pb-8 border-b border-gray-200">
+<div class="timeline-dot w-8 h-8 rounded-full flex items-center justify-center bg-white border-4 border-indigo-300 ring-4 ring-white"><p class="font-bold" style="color: #004e92;">3</p></div>
+<div class="pl-12">
+<h3 class="text-xl font-bold" style="color: #000428;">Technical & Team Leadership <span class="text-base font-normal text-gray-500">(2011-2019)</span></h3>
+<p class="mt-1 text-gray-700">Led globally distributed teams for BMS and other major automotive projects. Directed the creation of internal tools to automate development processes for ASIL D safety projects.</p>
+</div>
+</div>
+<div class="timeline-item relative">
+<div class="timeline-dot w-8 h-8 rounded-full flex items-center justify-center bg-white border-4 border-indigo-300 ring-4 ring-white"><p class="font-bold" style="color: #004e92;">4</p></div>
+<div class="pl-12">
+<h3 class="text-xl font-bold" style="color: #000428;">Embedded Software Engineer <span class="text-base font-normal text-gray-500">(2007-2011)</span></h3>
+<p class="mt-1 text-gray-700">Built a strong technical foundation developing and managing components related to CAN, LIN, diagnostics, and EEPROM for various automotive systems.</p>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="text-center py-8">
+<p class="text-gray-600">This infographic was generated based on the professional profile of Elly Câmpeanu.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	
+	const tooltipTitleCallback = (tooltipItems) => {
+		const item = tooltipItems[0];
+		let label = item.chart.data.labels[item.dataIndex];
+		if (Array.isArray(label)) {
+			return label.join(' ');
+		}
+		return label;
+	};
+	
+	const processLabels = (labels) => {
+		return labels.map(label => {
+			if (label.length > 16) {
+				const words = label.split(' ');
+				const lines = [];
+				let currentLine = '';
+				words.forEach(word => {
+					if ((currentLine + ' ' + word).trim().length > 16) {
+						lines.push(currentLine.trim());
+						currentLine = word;
+					} else {
+						currentLine = (currentLine + ' ' + word).trim();
+					}
+				});
+				if (currentLine) {
+					lines.push(currentLine.trim());
+				}
+				return lines;
+			}
+			return label;
+		});
+	};
+	
+	const issueReductionCtx = document.getElementById('issueReductionChart').getContext('2d');
+	new Chart(issueReductionCtx, {
+		type: 'doughnut',
+		data: {
+			labels: ['Resolved Issues', 'Remaining Issues'],
+			datasets: [{
+				data: [540, 60],
+				backgroundColor: ['#004e92', '#e0e7ff'],
+				borderColor: ['#ffffff', '#ffffff'],
+				borderWidth: 4,
+				hoverOffset: 4
+			}]
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			cutout: '70%',
+			plugins: {
+				legend: { display: false },
+				tooltip: {
+					callbacks: { title: tooltipTitleCallback }
+				}
+			}
+		}
+	});
+	
+	const competenciesRadarCtx = document.getElementById('competenciesRadarChart').getContext('2d');
+	new Chart(competenciesRadarCtx, {
+		type: 'radar',
+		data: {
+			labels: processLabels(['Team Coordination', 'Agile Project Management', 'Risk & Issue Management', 'Stakeholder Communication', 'Process Improvement', 'Technical Acumen']),
+			datasets: [{
+				label: 'Proficiency',
+				data: [5, 5, 5, 4, 4, 4],
+				fill: true,
+				backgroundColor: 'rgba(0, 78, 146, 0.2)',
+				borderColor: '#004e92',
+				pointBackgroundColor: '#004e92',
+				pointBorderColor: '#fff',
+				pointHoverBackgroundColor: '#fff',
+				pointHoverBorderColor: '#004e92'
+			}]
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			scales: {
+				r: {
+					angleLines: { color: '#d1d5db' },
+					grid: { color: '#e5e7eb' },
+					pointLabels: { font: { size: 13 }, color: '#374151' },
+					ticks: { display: false, beginAtZero: true, max: 5, stepSize: 1 },
+					min:3, 
+					max: 5
+				}
+			},
+			plugins: {
+				legend: { display: false },
+				tooltip: {
+					callbacks: { title: tooltipTitleCallback }
+				}
+			}
+		}
+	});
+	
+	const technicalSkillsCtx = document.getElementById('technicalSkillsChart').getContext('2d');
+	new Chart(technicalSkillsCtx, {
+		type: 'bar',
+		data: {
+			labels: ['AUTOSAR', 'ASPICE', 'ISO26262', 'Agile / JIRA', 'CAN / LIN', 'Embedded C/C++'],
+			datasets: [{
+				label: 'Expertise Level',
+				data: [95, 90, 85, 98, 92, 88],
+				backgroundColor: '#004e92',
+				borderColor: '#000428',
+				borderWidth: 2,
+				borderRadius: 4
+			}]
+		},
+		options: {
+			indexAxis: 'y',
+			responsive: true,
+			maintainAspectRatio: false,
+			scales: {
+				x: {
+					beginAtZero: true,
+					grid: { display: false },
+					ticks: { display: false }
+				},
+				y: {
+					grid: { display: false }
+				}
+			},
+			plugins: {
+				legend: { display: false },
+				tooltip: {
+					callbacks: { title: tooltipTitleCallback }
+				}
+			}
+		}
+	});
+	
+});
+</script>
+</body>
+</html>
+
