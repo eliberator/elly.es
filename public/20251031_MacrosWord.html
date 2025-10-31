@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macros: Guía de Automatización (UF0320) - Modo Oscuro</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- 
+Chosen Palette: Modo Oscuro High-Tech (Impacto Máximo en Pantalla)
+Colores: Fondo Negro Profundo (#0F172A), Tarjetas Oscuras (#1E293B), Acento Primario CIAN (#06B6D4), Acento Secundario VERDE NEÓN (#4ADE80), Texto (#F1F5F9).
+Application Structure Plan: Se mantiene la estructura SPA. El flujo principal sigue siendo el "asistente" interactivo en 'Práctica' (Paso a Paso) para facilitar la memorización del proceso de grabación. El diseño utiliza alto contraste y sombras fuertes para un impacto visual máximo.
+Visualization & Content Choices: Se mantiene la metodología didáctica (Tarjetas, Lista, Asistente interactivo, Alerta) pero con la nueva paleta de colores.
+CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+-->
+<style>
+body {
+	font-family: 'Inter', sans-serif;
+}
+.content-section {
+	display: none;
+}
+.content-section.active {
+	display: block;
+}
+.nav-link {
+	transition: all 0.2s ease-in-out;
+	color: #E2E8F0; /* slate-200 */
+}
+.nav-link.active {
+	background-color: #06B6D4; /* Electric Cyan */
+	color: black; /* High contrast text */
+	font-weight: 600;
+}
+.practice-step {
+	display: none;
+}
+.practice-step.active {
+	display: block;
+}
+/* Soft subtle shadow for floating effect (Dark Mode adjustment) */
+.card-shadow {
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease;
+}
+.card-shadow:hover {
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+</style>
+</head>
+<body class="text-gray-900" style="background-color: #0F172A; color: #F1F5F9;">
+
+<div class="flex flex-col md:flex-row min-h-screen">
+
+<!-- Sidebar Navigation (Dark Mode: High contrast, solid color) -->
+<nav class="md:w-64 w-full md:shadow-md" style="background-color: #1E293B;">
+<div class="p-6 md:sticky md:top-0">
+<h2 class="text-3xl font-extrabold mb-8 flex items-center" style="color: #06B6D4;">
+<span class="text-3xl mr-2">⚙️</span>
+MacroFlow
+</h2>
+
+<ul class="space-y-3" id="navigation-links">
+<li>
+<a href="#" class="nav-link flex items-center p-4 rounded-xl hover:bg-slate-700" data-section="inicio">
+<span class="mr-4 text-xl" style="color: #4ADE80;">🚀</span> Inicio
+</a>
+</li>
+<li>
+<a href="#" class="nav-link flex items-center p-4 rounded-xl hover:bg-slate-700" data-section="preparacion">
+<span class="mr-4 text-xl" style="color: #4ADE80;">🛠️</span> Preparación
+</a>
+</li>
+<li>
+<a href="#" class="nav-link flex items-center p-4 rounded-xl hover:bg-slate-700" data-section="practica">
+<span class="mr-4 text-xl" style="color: #4ADE80;">🧠</span> Práctica Guiada
+</a>
+</li>
+<li>
+<a href="#" class="nav-link flex items-center p-4 rounded-xl hover:bg-slate-700" data-section="resumen">
+<span class="mr-4 text-xl" style="color: #4ADE80;">🛡️</span> Resumen & Seguridad
+</a>
+</li>
+</ul>
+</div>
+</nav>
+
+<main class="flex-1 p-6 md:p-12">
+
+<div id="inicio" class="content-section">
+<h1 class="text-5xl font-extrabold mb-4" style="color: #06B6D4;">El Autómata de la Ofimática</h1>
+<p class="text-xl text-slate-400 mb-10">Automatiza Word con eficiencia. Guía esencial para la UF0320: Tratamiento de Textos.</p>
+
+<div class="p-8 rounded-2xl card-shadow mb-8" style="background-color: #1E293B;">
+<h3 class="text-3xl font-bold mb-4" style="color: #F1F5F9;">1.1 Conceptos Fundamentales</h3>
+<p class="text-lg text-slate-400 mb-6">Esta sección establece la base, definiendo el qué y el cómo de esta potente herramienta de Word.</p>
+
+<dl class="space-y-5 grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="p-4 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all" style="background-color: #334155;">
+<dt class="font-bold text-xl mb-1 flex items-center" style="color: #4ADE80;"><span class="mr-2">📝</span> Concepto</dt>
+<dd class="text-slate-300">Una Macro es una secuencia grabada de comandos y pasos que se ejecuta como una sola acción.</dd>
+</div>
+<div class="p-4 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all" style="background-color: #334155;">
+<dt class="font-bold text-xl mb-1 flex items-center" style="color: #4ADE80;"><span class="mr-2">🤖</span> Analogía</dt>
+<dd class="text-slate-300">Un "robot de oficina" que imita tus clics y pulsaciones, repitiéndolos instantáneamente y sin errores.</dd>
+</div>
+<div class="p-4 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all" style="background-color: #334155;">
+<dt class="font-bold text-xl mb-1 flex items-center" style="color: #4ADE80;"><span class="mr-2">💻</span> Base Técnica</dt>
+<dd class="text-slate-300">El lenguaje de programación subyacente que utiliza es VBA (Visual Basic for Applications).</dd>
+</div>
+</dl>
+</div>
+
+<div class="p-8 rounded-2xl card-shadow" style="background-color: #1E293B;">
+<h3 class="text-3xl font-bold mb-6" style="color: #F1F5F9;">1.2 Beneficios Clave</h3>
+<p class="text-lg text-slate-400 mb-6">Las macros en Word se centran en optimizar tareas de formato y estructura documental.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-5 rounded-xl border border-slate-700" style="background-color: #334155;">
+<h4 class="text-2xl font-bold mb-2 flex items-center" style="color: #06B6D4;"><span class="mr-2">🔄</span> Automatización</h4>
+<p class="text-slate-300">Elimina la necesidad de repetir tareas manuales tediosas, liberando tiempo.</p>
+</div>
+<div class="p-5 rounded-xl border border-slate-700" style="background-color: #334155;">
+<h4 class="text-2xl font-bold mb-2 flex items-center" style="color: #06B6D4;"><span class="mr-2">⏱️</span> Eficiencia</h4>
+<p class="text-slate-300">Reduce drásticamente el tiempo de procesamiento de documentos largos o complejos.</p>
+</div>
+<div class="p-5 rounded-xl border border-slate-700" style="background-color: #334155;">
+<h4 class="text-2xl font-bold mb-2 flex items-center" style="color: #06B6D4;"><span class="mr-2">✅</span> Consistencia</h4>
+<p class="text-slate-300">Garantiza que el formato y los estilos se apliquen de manera idéntica siempre.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="preparacion" class="content-section">
+<h1 class="text-4xl font-bold mb-4" style="color: #06B6D4;">2. Preparación: Habilitar Entorno</h1>
+<p class="text-lg text-slate-400 mb-10">La Grabadora de Macros reside en una pestaña oculta por defecto. Debemos activarla una sola vez.</p>
+
+<div class="p-8 rounded-2xl card-shadow" style="background-color: #1E293B;">
+<h3 class="text-3xl font-bold mb-6" style="color: #F1F5F9;">Pestaña Desarrollador (o Programador)</h3>
+<p class="text-lg text-slate-400 mb-8">Sigue esta guía paso a paso para desbloquear el potencial de las macros en tu aplicación Word.</p>
+
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full font-bold flex items-center justify-center text-lg" style="background-color: #06B6D4; color: black;">1</div>
+<div class="flex-1">
+<h4 class="text-xl font-semibold mb-1" style="color: #F1F5F9;">Localiza las Opciones</h4>
+<p class="text-slate-300">Ir a <strong>Archivo</strong> &gt; <strong>Opciones</strong> (en la parte inferior izquierda).</p>
+</div>
+</div>
+
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full font-bold flex items-center justify-center text-lg" style="background-color: #06B6D4; color: black;">2</div>
+<div class="flex-1">
+<h4 class="text-xl font-semibold mb-1" style="color: #F1F5F9;">Accede a Personalizar</h4>
+<p class="text-slate-300">En el menú lateral, selecciona <strong>Personalizar cinta de opciones</strong>.</p>
+</div>
+</div>
+
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full font-bold flex items-center justify-center text-lg" style="background-color: #06B6D4; color: black;">3</div>
+<div class="flex-1">
+<h4 class="text-xl font-semibold mb-1" style="color: #F1F5F9;">Activa la Pestaña</h4>
+<p class="text-slate-300">En la lista de "Pestañas principales" (lado derecho), activa la casilla <strong>Desarrollador</strong> (o <strong>Programador</strong>).</p>
+</div>
+</div>
+
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full font-bold flex items-center justify-center text-lg" style="background-color: #06B6D4; color: black;">4</div>
+<div class="flex-1">
+<h4 class="text-xl font-semibold mb-1" style="color: #F1F5F9;">Verifica el Acceso</h4>
+<p class="text-slate-300">Presiona Aceptar. La pestaña "Desarrollador" aparecerá, dando acceso a **Grabar Macro** y **Visual Basic**.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="practica" class="content-section">
+<h1 class="text-4xl font-bold mb-4" style="color: #06B6D4;">3. Práctica: Asistente de Grabación</h1>
+<p class="text-lg text-slate-400 mb-10">Este simulador te guía por los 7 pasos clave para grabar una macro eficiente que automatiza el formato de un título principal.</p>
+
+<div class="p-8 rounded-2xl card-shadow mb-6" style="background-color: #1E293B;">
+<h3 class="text-3xl font-bold mb-4" style="color: #F1F5F9;">Tarea: Macro `Formato_Titulo_Principal`</h3>
+<p class="text-lg text-slate-400 mb-4">El objetivo es aplicar con un atajo el formato de <strong>Arial 14pt, Negrita, Todo en Mayúsculas, y Espaciado Posterior de 12pt</strong>.</p>
+</div>
+
+<div class="p-8 rounded-2xl card-shadow mt-6" style="background-color: #1E293B;">
+<h3 class="text-2xl font-bold mb-6 border-b pb-3" style="color: #4ADE80; border-color: #334155;">Pasos de la Grabación</h3>
+
+<div class="border rounded-xl p-6 min-h-[300px] relative" style="border-color: #334155; background-color: #1F2937;">
+<div id="practice-steps-container">
+
+<div class="practice-step" data-step="0">
+<h4 class="text-2xl font-bold mb-3 flex items-center" style="color: #F1F5F9;"><span class="mr-3 text-2xl" style="color: #06B6D4;">1.</span> Preparación</h4>
+<p class="text-slate-300 text-lg">Asegúrate de que el cursor esté en la posición inicial: o sobre el texto a formatear, o en la línea donde se creará el título.</p>
+</div>
+
+<div class="practice-step" data-step="1">
+<h4 class="text-2xl font-bold mb-3 flex items-center" style="color: #F1F5F9;"><span class="mr-3 text-2xl" style="color: #06B6D4;">2.</span> Iniciar Grabación</h4>
+<p class="text-slate-300 text-lg">Haz clic en la pestaña <strong>Desarrollador</strong> y selecciona el botón <strong>Grabar Macro</strong>.</p>
+</div>
+
+<div class="practice-step" data-step="2">
+<h4 class="text-2xl font-bold mb-3 flex items-center" style="color: #F1F5F9;"><span class="mr-3 text-2xl" style="color: #06B6D4;">3.</span> Configuración Inicial</h4>
+<p class="text-slate-300 text-lg">En la ventana emergente, nombra la macro (`Formato_Titulo_Principal`) y selecciona <strong>Normal.dotm</strong> para que esté disponible globalmente. Luego, haz clic en <strong>Teclado</strong>.</p>
+</div>
+
+<div class="practice-step" data-step="3">
+<h4 class="text-2xl font-bold mb-3 flex items-center" style="color: #F1F5F9;"><span class="mr-3 text-2xl" style="color: #06B6D4;">4.</span> Asignar Atajo</h4>
+<p class="text-slate-300 text-lg">Presiona la combinación de teclas (ej. `Alt + T`) y pulsa <strong>Asignar</strong>, luego <strong>Cerrar</strong>. Verás el icono de "cassette" en tu cursor.</p>
+</div>
+
+<div class="practice-step" data-step="4">
+<h4 class="text-2xl font-bold mb-3 flex items-center" style="color: #F1F5F9;"><span class="mr-3 text-2xl" style="color: #06B6D4;">5.</span> Ejecutar Acciones (¡Grabando!)</h4>
+<p class="text-slate-300 text-lg">Ejecuta secuencialmente los comandos de formato: <strong>Arial 14pt</strong>, <strong>Negrita</strong>, <strong>Todo en Mayúsculas</strong>, y <strong>Espaciado Posterior 12pt</strong>.</p>
+</div>
+
+<div class="practice-step" data-step="5">
+<h4 class="text-2xl font-bold mb-3 flex items-center" style="color: #F1F5F9;"><span class="mr-3 text-2xl" style="color: #06B6D4;">6.</span> Detener Grabación</h4>
+<p class="text-slate-300 text-lg">Vuelve a la pestaña <strong>Desarrollador</strong> y haz clic en <strong>Detener Grabación</strong>. El cursor vuelve a la normalidad.</p>
+</div>
+
+<div class="practice-step" data-step="6">
+<h4 class="text-2xl font-bold mb-3 flex items-center" style="color: #F1F5F9;"><span class="mr-3 text-2xl" style="color: #06B6D4;">7.</span> Prueba y Ejecución</h4>
+<p class="text-slate-300 text-lg">Escribe un nuevo texto, colócate sobre él y pulsa tu atajo de teclado ( `Alt + T` ). ¡El formato debe aplicarse al instante!</p>
+</div>
+
+</div>
+</div>
+
+<div class="flex justify-between items-center mt-6">
+<button id="prev-step" class="font-semibold py-3 px-8 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed" style="background-color: #334155; color: #94A3B8; hover:bg-slate-700">
+Anterior
+</button>
+<span id="step-counter" class="text-lg font-medium" style="color: #4ADE80;">Paso 1 de 7</span>
+<button id="next-step" class="text-white font-semibold py-3 px-8 rounded-xl hover:bg-cyan-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" style="background-color: #06B6D4; color: black;">
+Siguiente
+</button>
+</div>
+</div>
+</div>
+
+<div id="resumen" class="content-section">
+<h1 class="text-4xl font-bold mb-4" style="color: #06B6D4;">4. Cierre: Seguridad y Datos</h1>
+<p class="text-lg text-slate-400 mb-10">Recomendaciones finales sobre el uso responsable de macros y un resumen conciso del foco de Word.</p>
+
+<div class="p-8 rounded-2xl card-shadow mb-8 border-l-4" style="background-color: #450A0A; border-color: #F87171;">
+<h3 class="text-3xl font-bold mb-4 flex items-center" style="color: #F87171;"><span class="mr-3 text-3xl">🛑</span> 4.1 La Seguridad es Crítica</h3>
+<p class="text-lg text-red-300">Las macros son código y, como tal, pueden ser vectores de ataque (virus o código malicioso).</p>
+<ul class="space-y-3 mt-4 text-red-300">
+<li class="flex items-start">
+<span class="text-xl mr-3" style="color: #F87171;">❌</span>
+<p><strong>Riesgo:</strong> Una macro maliciosa puede ejecutarse automáticamente al abrir un documento y dañar tu sistema o robar información.</p>
+</li>
+<li class="flex items-start">
+<span class="text-xl mr-3" style="color: #F87171;">🔒</span>
+<p><strong>Medida Clave:</strong> Configura Office para que **NUNCA** habilite el contenido de macros en archivos de origen desconocido, correos electrónicos inesperados o internet.</p>
+</li>
+</ul>
+</div>
+
+<div class="p-8 rounded-2xl card-shadow" style="background-color: #1E293B;">
+<h3 class="text-3xl font-bold mb-6" style="color: #F1F5F9;">4.2 Resumen UF0320</h3>
+<p class="text-lg text-slate-400 mb-6">El enfoque en el tratamiento de textos está claro:</p>
+
+<div class="overflow-x-auto border rounded-xl" style="border-color: #334155;">
+<table class="min-w-full" style="background-color: #1E293B;">
+<thead style="background-color: #334155;">
+<tr>
+<th class="py-4 px-6 text-left text-sm font-bold uppercase tracking-wider rounded-tl-xl" style="color: #94A3B8;">Aplicación</th>
+<th class="py-4 px-6 text-left text-sm font-bold uppercase tracking-wider" style="color: #94A3B8;">¿Qué Automatiza?</th>
+<th class="py-4 px-6 text-left text-sm font-bold uppercase tracking-wider rounded-tr-xl" style="color: #94A3B8;">Foco Principal</th>
+</tr>
+</thead>
+<tbody class="divide-y" style="color: #F1F5F9; border-color: #334155;">
+<tr>
+<td class="py-4 px-6 font-bold" style="border-color: #334155;">WORD</td>
+<td class="py-4 px-6" style="border-color: #334155;">Formato masivo, creación de tablas/índices, inserción de bloques repetitivos, ajustes de página.</td>
+<td class="py-4 px-6 font-bold" style="color: #06B6D4; border-color: #334155;">Estructura y Presentación del Documento.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</main>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+	const appState = {
+		currentSection: 'inicio',
+		practiceStep: 0,
+		totalPracticeSteps: 7 
+	};
+	
+	const navLinks = document.querySelectorAll('.nav-link');
+	const contentSections = document.querySelectorAll('.content-section');
+	
+	const practiceSteps = document.querySelectorAll('.practice-step');
+	const nextButton = document.getElementById('next-step');
+	const prevButton = document.getElementById('prev-step');
+	const stepCounter = document.getElementById('step-counter');
+	
+	// Set initial active section
+	document.getElementById(appState.currentSection).classList.add('active');
+	navLinks[0].classList.add('active');
+	
+	
+	function renderSection() {
+		contentSections.forEach(section => {
+			section.classList.toggle('active', section.id === appState.currentSection);
+		});
+		navLinks.forEach(link => {
+			link.classList.toggle('active', link.dataset.section === appState.currentSection);
+		});
+		// Scroll to top of main content when section changes
+		document.querySelector('main').scrollTop = 0;
+	}
+	
+	function renderPracticeStep() {
+		practiceSteps.forEach((step, index) => {
+			step.classList.toggle('active', index === appState.practiceStep);
+		});
+		
+		stepCounter.textContent = `Paso ${appState.practiceStep + 1} de ${appState.totalPracticeSteps}`;
+		
+		prevButton.disabled = appState.practiceStep === 0;
+		nextButton.disabled = appState.practiceStep === appState.totalPracticeSteps - 1;
+	}
+	
+	navLinks.forEach(link => {
+		link.addEventListener('click', (e) => {
+			e.preventDefault();
+			appState.currentSection = link.dataset.section;
+			renderSection();
+		});
+	});
+	
+	nextButton.addEventListener('click', () => {
+		if (appState.practiceStep < appState.totalPracticeSteps - 1) {
+			appState.practiceStep++;
+			renderPracticeStep();
+		}
+	});
+	
+	prevButton.addEventListener('click', () => {
+		if (appState.practiceStep > 0) {
+			appState.practiceStep--;
+			renderPracticeStep();
+		}
+	});
+	
+	renderPracticeStep();
+});
+</script>
+
+</body>
+</html>
