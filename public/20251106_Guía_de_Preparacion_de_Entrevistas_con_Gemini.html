@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía: Prepara tu Entrevista con Gemini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&amp;family=Afacad:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+body {
+	font-family: 'Afacad', sans-serif;
+	background-color: #f0f4f8;
+	color: #334155;
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+/* --- Encabezado y Título --- */
+.header {
+	background-color: #dcfd8bff;
+	padding: 40px 20px;
+	text-align: center;
+	border-radius: 0 0 20px 20px;
+	margin-bottom: 30px;
+}
+.header h1 {
+	font-family: 'Comfortaa', cursive;
+	color: #1e293b;
+	font-size: 36px;
+	margin: 0;
+}
+.header p {
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+/* --- Títulos de Sección --- */
+h2 {
+	font-family: 'Comfortaa', cursive;
+	color: #1e293b;
+	font-size: 28px;
+	border-bottom: 3px solid #dcfd8bff;
+	padding-bottom: 10px;
+	margin-top: 40px;
+}
+
+h3 {
+	font-family: 'Comfortaa', cursive;
+	color: #1e293b;
+	font-size: 22px;
+	margin-top: 25px;
+}
+
+/* --- Tarjetas de Contenido (Tiles) --- */
+.card-container {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	flex-wrap: wrap; /* Para que sea responsivo en móvil */
+}
+.card {
+	background-color: #ffffff;
+	border-radius: 12px;
+	border: 1px solid #e2e8f0;
+	padding: 25px;
+	text-align: center;
+	flex: 1;
+	min-width: 200px; /* Ancho mínimo para cada tarjeta */
+	box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.card .icon {
+	font-size: 40px;
+	margin-bottom: 15px;
+}
+.card h3 {
+	margin: 0;
+	font-size: 20px;
+}
+.card p {
+	font-size: 16px;
+}
+
+/* Colores de Iconos */
+.icon.lime { color: #a3e635; }
+.icon.purple { color: #bc84eeff; }
+.icon.orange { color: #ff823aff; }
+.icon.blue { color: #3b82f6; }
+.icon.green { color: #22c55e; }
+
+/* --- Listas con Iconos --- */
+.icon-list {
+	list-style: none;
+	padding: 0;
+	margin-top: 20px;
+}
+.icon-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 15px;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+.icon-list i {
+	font-size: 24px;
+	color: #22c55e; /* Verde */
+	margin-top: 3px;
+}
+
+/* --- La Fórmula Mágica (Prompt) --- */
+.prompt-formula {
+	background-color: #f0f9ff;
+	border: 2px dashed #bae6fd;
+	border-radius: 12px;
+	padding: 25px;
+	margin-top: 20px;
+}
+.prompt-formula .step {
+	display: flex;
+	align-items: flex-start;
+	gap: 15px;
+	margin-bottom: 15px;
+}
+.prompt-formula .step .icon {
+	font-size: 24px;
+	color: #3b82f6;
+}
+.prompt-formula .step p {
+	margin: 0;
+	font-size: 18px;
+}
+.prompt-example {
+	background-color: #e0f2fe;
+	border-radius: 8px;
+	padding: 15px;
+	margin-top: 20px;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 16px;
+	border-left: 5px solid #3b82f6;
+}
+
+/* --- Práctica de Preguntas --- */
+.practice-item {
+	background-color: #ffffff;
+	border-radius: 12px;
+	border: 1px solid #e2e8f0;
+	margin-top: 20px;
+	overflow: hidden; /* Para contener los fondos */
+}
+.practice-item h3 {
+	font-size: 20px;
+	margin: 0;
+	padding: 20px;
+}
+.practice-qa {
+	display: grid;
+	grid-template-columns: 1fr; /* Apilado en móvil */
+}
+.question-side, .answer-side {
+	padding: 20px;
+}
+.question-side {
+	background-color: #fff7ed; /* Naranja suave */
+}
+.answer-side {
+	background-color: #f0fdf4; /* Verde suave */
+}
+.question-side p, .answer-side p {
+	margin: 0;
+	font-size: 16px;
+}
+.answer-side ul {
+	padding-left: 25px;
+	margin: 10px 0 0 0;
+}
+.answer-side li {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+/* --- Footer --- */
+footer {
+	text-align: center;
+	margin-top: 50px;
+	padding: 20px;
+	border-top: 1px solid #e2e8f0;
+	color: #64748b;
+}
+
+/* --- Media Query para pantallas más grandes --- */
+@media (min-width: 600px) {
+	.practice-qa {
+		grid-template-columns: 1fr 1fr; /* Lado a lado en pantallas más grandes */
+	}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Prepara tu Entrevista</h1>
+<p>Tu guía rápida para practicar con IA (Gemini) desde tu celular</p>
+</div>
+
+<div class="container">
+
+<!-- --- Section 1: El Objetivo --- -->
+<section id="objetivo">
+<h2><i class="fa-solid fa-bullseye icon green"></i> El Objetivo de Hoy</h2>
+<p>Usar la tecnología para practicar y ganar confianza. Los objetivos son:</p>
+<ul class="icon-list">
+<li><i class="fa-solid fa-face-smile"></i><div><strong>Perder el miedo.</strong> La práctica te da seguridad y calma los nervios.</div></li>
+<li><i class="fa-solid fa-mobile-screen-button"></i><div><strong>Tener un "Tutor Personal."</strong> La IA (Gemini) es como un amigo que te ayuda a practicar sin juzgarte.</div></li>
+<li><i class="fa-solid fa-brain"></i><div><strong>Ganar Confianza.</strong> Al practicar, te das cuenta de que sabes más de lo que crees.</div></li>
+</ul>
+</section>
+
+<!-- --- Section 2: Herramientas --- -->
+<section id="herramientas">
+<h2><i class="fa-solid fa-briefcase icon orange"></i> ¿Qué Necesitamos?</h2>
+<div class="card-container">
+<div class="card">
+<div class="icon lime"><i class="fa-solid fa-mobile-screen-button"></i></div>
+<h3>Tu Celular</h3>
+<p>No se necesita nada más.</p>
+</div>
+<div class="card">
+<div class="icon orange"><i class="fa-solid fa-brain"></i></div>
+<h3>La App de Gemini</h3>
+<p>Será nuestro entrevistador.</p>
+</div>
+<div class="card">
+<div class="icon purple"><i class="fa-solid fa-microphone"></i></div>
+<h3>Tu Voz</h3>
+<p>Es más fácil hablar que escribir.</p>
+</div>
+</div>
+</section>
+
+<!-- --- Section 3: El Prompt Mágico --- -->
+<section id="prompt">
+<h2><i class="fa-solid fa-wand-magic-sparkles icon purple"></i> La "Instrucción Mágica" (Prompt)</h2>
+<p>Un "Prompt" es la **orden inicial** que le damos a Gemini. Debemos decirle que se convierta en un entrevistador amable que hable con lenguaje sencillo.</p>
+
+<div class="prompt-formula">
+<h3>La Fórmula de 3 Pasos:</h3>
+<div class="step">
+<div class="icon blue"><i class="fa-solid fa-1"></i></div>
+<p><strong>El Rol:</strong> "Actúa como un reclutador **muy amable** usando **lenguaje sencillo**."</p>
+</div>
+<div class="step">
+<div class="icon blue"><i class="fa-solid fa-2"></i></div>
+<p><strong>El Trabajo:</strong> "Estoy en entrevista para **[TU PUESTO AQUÍ]**."</p>
+</div>
+<div class="step">
+<div class="icon blue"><i class="fa-solid fa-3"></i></div>
+<p><strong>Las Reglas:</strong> "Hazme **una pregunta** a la vez. Cuando yo responda, dame un **consejo simple**."</p>
+</div>
+
+<div class="prompt-example">
+<strong>Ejemplo Completo (para copiar y pegar):</strong><br>
+"Actúa como un reclutador muy amable usando lenguaje sencillo. Estoy en entrevista para un puesto de Obrero de Bodega. Hazme una pregunta a la vez. Cuando yo responda, dame un consejo simple."
+</div>
+</div>
+</section>
+
+<!-- --- Section 4: Práctica de Preguntas --- -->
+<section id="practica">
+<h2><i class="fa-solid fa-comments icon blue"></i> ¡A Practicar! Preguntas Clave</h2>
+
+<!-- Práctica 1 -->
+<div class="practice-item">
+<h3>Práctica 1: Motivación y Ganas</h3>
+<div class="practice-qa">
+<div class="question-side">
+<p><i class="fa-solid fa-question-circle"></i> <strong>Pregunta de la IA:</strong></p>
+<p>"¿Por qué quieres este trabajo?" o "¿Háblame un poco de ti."</p>
+</div>
+<div class="answer-side">
+<p><i class="fa-solid fa-comment-dots"></i> <strong>Ideas para Responder:</strong></p>
+<ul>
+<li>Decir que tienes muchas ganas de trabajar.</li>
+<li>Explicar que eres responsable.</li>
+<li>"Necesito el trabajo y soy muy trabajador."</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Práctica 2 -->
+<div class="practice-item">
+<h3>Práctica 2: Puntualidad</h3>
+<div class="practice-qa">
+<div class="question-side">
+<p><i class="fa-solid fa-question-circle"></i> <strong>Pregunta de la IA:</strong></p>
+<p>"¿Eres una persona puntual?" o "¿Qué haces si llegas tarde?"</p>
+</div>
+<div class="answer-side">
+<p><i class="fa-solid fa-comment-dots"></i> <strong>Ideas para Responder:</strong></p>
+<ul>
+<li>La respuesta es <strong>SIEMPRE SÍ</strong>.</li>
+<li>"Soy muy puntual, me gusta llegar 10 minutos antes."</li>
+<li>"Si tuviera un problema serio, llamaría de inmediato."</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Práctica 3 -->
+<div class="practice-item">
+<h3>Práctica 3: Conflictos</h3>
+<div class="practice-qa">
+<div class="question-side">
+<p><i class="fa-solid fa-question-circle"></i> <strong>Pregunta de la IA:</strong></p>
+<p>"¿Qué haces si tienes un problema con un compañero?"</p>
+</div>
+<div class="answer-side">
+<p><i class="fa-solid fa-comment-dots"></i> <strong>Ideas para Responder:</strong></p>
+<ul>
+<li>Quieren oír que eres una persona tranquila.</li>
+<li>"Intentaría hablar con calma con el compañero."</li>
+<li>"Si el problema es serio, informaría a mi jefe."</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- --- Section 5: Dinámica de Grupo --- -->
+<section id="dinamica">
+<h2><i class="fa-solid fa-users icon purple"></i> ¿Qué pasa si hay una "Dinámica de Grupo"?</h2>
+<p>A veces te ponen en grupo para ver cómo colaboras. No buscan a la persona más inteligente, sino a la que sabe trabajar en equipo.</p>
+<div class="card-container">
+<div class="card" style="background-color: #f3e8ff;">
+<div class="icon purple"><i class="fa-solid fa-ear-listen"></i></div>
+<h3>ESCUCHA</h3>
+<p>Es lo más importante. No interrumpas. Oye lo que dicen los demás.</p>
+</div>
+<div class="card" style="background-color: #f3e8ff;">
+<div class="icon purple"><i class="fa-solid fa-lightbulb"></i></div>
+<h3>PROPÓN</h3>
+<p>No te quedes en silencio. Da tu idea con calma. (Ej: "Pienso que podríamos...")</p>
+</div>
+<div class="card" style="background-color: #f3e8ff;">
+<div class="icon purple"><i class="fa-solid fa-handshake"></i></div>
+<h3>COLABORA</h3>
+<p>No des órdenes ("Haz esto"). Mejor pregunta ("¿Qué te parece si hacemos...?").</p>
+</div>
+</div>
+</section>
+
+<!-- --- Section 6: Preguntas Finales --- -->
+<section id="cierre">
+<h2><i class="fa-solid fa-check-circle icon green"></i> El Cierre: Te Toca Preguntar</h2>
+<p>Cuando te digan "¿Tienes alguna pregunta?", debes **SIEMPRE decir SÍ**. Demuestra interés.</p>
+<ul class="icon-list">
+<li><i class="fa-solid fa-calendar-days"></i><div><strong>Pregunta 1:</strong> "¿Cuáles son los horarios o turnos habituales para esta posición?"</div></li>
+<li><i class="fa-solid fa-person-digging"></i><div><strong>Pregunta 2:</strong> "¿Cómo es un día de trabajo normal aquí?"</div></li>
+<li><i class="fa-solid fa-user-plus"></i><div><strong>Pregunta 3:</strong> "¿Cuándo creen que tendré noticias sobre el proceso de selección?"</div></li>
+</ul>
+</section>
+
+</div>
+
+<footer>
+<p>¡Mucha suerte! La confianza se gana practicando.</p>
+</footer>
+
+
+</body></html>
