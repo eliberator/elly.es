@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elly Câmpeanu - AI Product Manager Interactive Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 350px; }
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
+        }
+        
+        .timeline-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .timeline-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #3b82f6;
+        }
+        .active-card {
+            border-left: 4px solid #3b82f6;
+            background-color: #fff;
+        }
+        
+        .skill-tag { transition: all 0.2s; }
+        .skill-tag:hover { background-color: #e0f2fe; color: #0369a1; }
+
+        /* Animation classes */
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <!-- Chosen Palette: Slate & Blue (Professional, Calm, Tech-focused) -->
+    <!-- Application Structure Plan: 
+         1. Hero Section: Immediate value prop (Remote AI PM, UK-ready).
+         2. Strategic Fit Dashboard: Visualizes the "70/30" mix and "Global Reach" directly answering the JD.
+         3. Interactive Experience Timeline: A filterable journey allowing recruiters to isolate "AI", "Leadership", or "Regulated" experience.
+         4. Regulated Industry Bridge: Specifically maps Automotive/Safety experience to Pharma requirements (Yale cert).
+         5. Technical Ecosystem: Categorized toolkits.
+         6. Footer: Contact & CTA.
+         Why: This structure prioritizes the specific "AI Strategy" and "Pharma Desirable" aspects of the new role while validating the depth of past experience. -->
+    <!-- Visualization & Content Choices: 
+         1. Doughnut Chart: Shows the 70/30 Functional/Technical split. Goal: Inform/Prove Fit.
+         2. Bar Chart: Experience by Domain (Regulated vs AI vs Mgmt). Goal: Compare.
+         3. Timeline Interaction: JavaScript filtering of DOM elements. Goal: Organize/Explore.
+         4. Dynamic Text Blocks: Contextual details for experience items. Goal: Inform.
+         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="h-10 w-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">EC</div>
+                    <span class="font-bold text-xl text-slate-900 tracking-tight">Elly Câmpeanu</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="scrollToSection('dashboard')" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Strategic Fit</button>
+                    <button onclick="scrollToSection('experience')" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience Journey</button>
+                    <button onclick="scrollToSection('pharma-bridge')" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pharma Context</button>
+                    <button onclick="scrollToSection('skills')" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tech Stack</button>
+                </div>
+                <div class="md:hidden">
+                    <!-- Mobile menu button placeholder -->
+                    <button class="text-slate-500 hover:text-slate-700 focus:outline-none">Menu</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-2/3">
+                <span class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 mb-4">Available for Contract • Remote (UK Travel Ready)</span>
+                <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-4">
+                    AI Product Manager
+                </h1>
+                <p class="text-xl text-slate-600 max-w-2xl mb-8">
+                    Bridging the gap between <strong>Data Science</strong> and <strong>Market Delivery</strong>. 
+                    15+ years driving strategy in highly regulated industries.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <div class="flex items-center gap-2 text-sm text-slate-500 bg-slate-100 px-3 py-2 rounded-lg">
+                        <span>📍</span> Remote / UK On-site
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-slate-500 bg-slate-100 px-3 py-2 rounded-lg">
+                        <span>⏱</span> Start: ASAP
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-slate-500 bg-slate-100 px-3 py-2 rounded-lg">
+                        <span>🎓</span> Yale Medical Software Cert
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/3 mt-8 md:mt-0 flex justify-center">
+                <!-- Abstract Representation of AI/Strategy -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm w-full max-w-sm">
+                    <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Core Value Prop</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span class="text-sm">End-to-End AI Delivery</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span class="text-sm">70/30 Functional/Technical</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span class="text-sm">Global Stakeholder Alignment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span class="text-sm">Regulated Environment Expert</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+
+        <!-- SECTION 1: Strategic Fit Dashboard -->
+        <section id="dashboard" class="scroll-mt-24">
+            <div class="mb-8 border-l-4 border-blue-600 pl-4">
+                <h2 class="text-2xl font-bold text-slate-900">Strategic Alignment Dashboard</h2>
+                <p class="text-slate-600 mt-2 max-w-3xl">
+                    This section analyzes my profile against your specific requirements for a <strong>Functional/Technical Mix</strong> and <strong>Global Stakeholder Management</strong>. I bring the "desirable" pharma context through specialized training and transferable regulatory expertise.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Chart 1: The 70/30 Mix -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col">
+                    <h3 class="text-lg font-semibold mb-4 text-center">Functional vs. Technical Balance</h3>
+                    <div class="chart-container">
+                        <canvas id="mixChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-slate-500 text-center">
+                        Perfectly aligned with the 70/30 requirements.<br>
+                        <strong>Functional:</strong> Strategy, Stakeholders, Roadmaps.<br>
+                        <strong>Technical:</strong> MLOps, Python, Auto-Automation.
+                    </div>
+                </div>
+
+                <!-- Chart 2: Domain Expertise -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col">
+                    <h3 class="text-lg font-semibold mb-4 text-center">Years of Domain Expertise</h3>
+                    <div class="chart-container">
+                        <canvas id="domainChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-slate-500 text-center">
+                        Deep roots in regulated environments ensure I can handle<br>compliance and safety-critical AI deployments.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Experience Journey -->
+        <section id="experience" class="scroll-mt-24">
+            <div class="mb-8 border-l-4 border-blue-600 pl-4">
+                <h2 class="text-2xl font-bold text-slate-900">Interactive Experience Journey</h2>
+                <p class="text-slate-600 mt-2">
+                    Explore my career timeline. Click the tags below to filter roles by relevance to <strong>AI</strong>, <strong>Leadership</strong>, or <strong>Regulated Industries</strong>. Click any card for deep-dive details.
+                </p>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-wrap gap-2 mb-8 justify-center md:justify-start">
+                <button onclick="filterTimeline('all')" class="filter-btn bg-slate-800 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-700 transition-colors shadow-sm ring-2 ring-transparent focus:ring-blue-500">All Roles</button>
+                <button onclick="filterTimeline('AI')" class="filter-btn bg-white text-slate-600 border border-slate-300 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">🤖 AI & Data</button>
+                <button onclick="filterTimeline('Leadership')" class="filter-btn bg-white text-slate-600 border border-slate-300 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">👔 Leadership</button>
+                <button onclick="filterTimeline('Regulated')" class="filter-btn bg-white text-slate-600 border border-slate-300 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">⚖️ Regulated / Pharma-Ready</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Timeline Column -->
+                <div class="lg:col-span-5 relative space-y-6" id="timeline-container">
+                    <!-- Cards will be injected by JS -->
+                </div>
+
+                <!-- Detail View Column (Sticky) -->
+                <div class="lg:col-span-7">
+                    <div class="sticky top-24 bg-white p-8 rounded-2xl shadow-lg border border-slate-100 min-h-[400px]" id="detail-panel">
+                        <div class="h-full flex flex-col justify-center items-center text-center text-slate-400" id="detail-placeholder">
+                            <span class="text-4xl mb-4">👈</span>
+                            <p class="text-lg">Select a role from the timeline to see<br>achievements, tech stack, and strategic impact.</p>
+                        </div>
+                        <div id="detail-content" class="hidden">
+                            <!-- Dynamic Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Pharma & Regulated Context -->
+        <section id="pharma-bridge" class="scroll-mt-24 bg-blue-50 rounded-3xl p-8 sm:p-12">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Bridging to Pharma & Healthcare</h2>
+                <p class="text-slate-700 text-lg">
+                    While my background is deep tech and automotive, the <strong>process rigor</strong> is identical. Here is how my experience directly translates to your "Pharma Desirable" requirement.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-teal-500">
+                    <div class="text-teal-600 font-bold text-lg mb-2">Education</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Yale University Cert</h3>
+                    <p class="text-sm text-slate-600 mb-4">Introduction in Medical Software</p>
+                    <p class="text-sm text-slate-500">Gained specific knowledge on clinical software regulations (FDA/MDR), healthcare data privacy, and patient safety protocols.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500">
+                    <div class="text-blue-600 font-bold text-lg mb-2">Compliance</div>
+                    <h3 class="font-bold text-slate-900 mb-2">ASPICE & ISO Standards</h3>
+                    <p class="text-sm text-slate-600 mb-4">15 Years Regulated Tech</p>
+                    <p class="text-sm text-slate-500">Expertise in traceability, validation, and rigorous documentation (V-Model) is directly transferable to GxP and Pharma validation.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-indigo-500">
+                    <div class="text-indigo-600 font-bold text-lg mb-2">Safety</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Functional Safety</h3>
+                    <p class="text-sm text-slate-600 mb-4">Critical Systems Ownership</p>
+                    <p class="text-sm text-slate-500">Managing safety-critical AI (e.g., ADAS/Radar) requires the same risk management mindset needed for AI in drug discovery or patient interaction.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Technical Toolkit -->
+        <section id="skills" class="scroll-mt-24">
+            <div class="mb-8 border-l-4 border-blue-600 pl-4">
+                <h2 class="text-2xl font-bold text-slate-900">Technical & Management Toolkit</h2>
+                <p class="text-slate-600 mt-2">
+                    A comprehensive view of the tools I use to bridge the functional/technical divide.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AI & Data -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-4 flex items-center"><span class="bg-blue-100 text-blue-700 p-2 rounded-lg mr-3 text-xl">🤖</span> AI & MLOps</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">Prompt Engineering</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">Claude / Gemini / GPT</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">Python</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">Process Automation</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">IoT Integration</span>
+                    </div>
+                </div>
+
+                <!-- Management -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-4 flex items-center"><span class="bg-purple-100 text-purple-700 p-2 rounded-lg mr-3 text-xl">📊</span> Management</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">JIRA / Confluence</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">MS Project</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">Agile SAFe</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">Stakeholder Mapping</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">Risk Management</span>
+                    </div>
+                </div>
+
+                <!-- Core Engineering -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-4 flex items-center"><span class="bg-orange-100 text-orange-700 p-2 rounded-lg mr-3 text-xl">⚙️</span> Engineering</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">ASPICE 4.0</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">CI/CD Pipelines</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">GIT / SVN</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">C / C++ (Legacy)</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm">Cybersecurity</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <h2 class="text-2xl font-bold">Elly Câmpeanu</h2>
+                <p class="text-slate-400 mt-2">AI Product Manager & Strategy Leader</p>
+                <div class="flex gap-4 mt-4">
+                    <span class="text-sm bg-slate-800 px-3 py-1 rounded">🇬🇧 UK Ready</span>
+                    <span class="text-sm bg-slate-800 px-3 py-1 rounded">🌍 Remote Expert</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <a href="mailto:elly@debugnomad.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                    Contact for Interview
+                </a>
+                <p class="mt-4 text-slate-500 text-sm">Languages: English (C1), Spanish (C1), Romanian (Native), German (B1)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Data Store ---
+        const experienceData = [
+            {
+                id: 1,
+                role: "Product & Program Manager (AI & IoT)",
+                company: "Independent / Consultant",
+                period: "Apr 2023 – June 2024",
+                tags: ["AI", "Strategy", "Leadership"],
+                shortDesc: "Led digital transformation of production lines using Cloud, IoT, and AI.",
+                fullDesc: "Defined the solution for upgrading production line digitalization based on customer requirements. Improved quality with real-time AI measurements. Managed suppliers, stakeholders, and the interface between data science and accounts.",
+                impact: ["End-to-end AI solution definition", "Real-time quality improvement", "Complex stakeholder management"],
+                tech: ["Cloud IoT", "AI Analytics", "Remote Management"]
+            },
+            {
+                id: 2,
+                role: "CEO & Strategy Consultant",
+                company: "Debug Nomad SLU",
+                period: "Apr 2019 – Present",
+                tags: ["Leadership", "Regulated", "Strategy"],
+                shortDesc: "Supporting Tier 1 suppliers with system development processes & functional safety.",
+                fullDesc: "Providing high-level consultancy on system development processes, functional safety compliance, and management of global technical SW programs (40 FTE). Focused on process automation and technical coaching.",
+                impact: ["Managed 40 FTE Global Team", "Functional Safety Compliance", "Process Automation"],
+                tech: ["ASPICE", "Safety Standards", "Team Coaching"]
+            },
+            {
+                id: 3,
+                role: "Solution Manager / SW Program Manager",
+                company: "BMW & VW Projects",
+                period: "Jan 2020 – Dec 2022",
+                tags: ["Regulated", "Leadership", "Automotive"],
+                shortDesc: "Managed complex RADAR & Electric Drive projects. Bridged engineering & market.",
+                fullDesc: "Managed function development teams remotely. Handled requirements management, issue tracking, and customer interfacing. Reduced software integration time from 1 week to 1 day via automation.",
+                impact: ["Reduced integration time by 80%", "Decreased unresolved issues from 600 to 60", "Cost reduction of 30k EUR"],
+                tech: ["CI/CD", "Automated Testing", "JIRA/Confluence"]
+            },
+            {
+                id: 4,
+                role: "Lead Tools Engineer & Team Lead",
+                company: "Lear Corporation",
+                period: "Feb 2010 – Nov 2018",
+                tags: ["Technical", "Leadership", "Regulated"],
+                shortDesc: "Supported 700+ devs with toolchains. Led offshore teams in India.",
+                fullDesc: "Supported the entire SW development community (700 devs) with tools and IT support. Led software teams for BMW BMS projects. Managed defect resolution and validation support.",
+                impact: ["Managed toolchain for 700 users", "Led 5-FTE remote team in India", "Resident Engineer in Spain"],
+                tech: ["Toolchain Management", "UDS Diagnostics", "LDAP/IT Support"]
+            }
+        ];
+
+        // --- Chart Initialization ---
+        document.addEventListener('DOMContentLoaded', function() {
+            initMixChart();
+            initDomainChart();
+            renderTimeline('all');
+        });
+
+        function initMixChart() {
+            const ctx = document.getElementById('mixChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Functional (Strategy/People)', 'Technical (Tools/AI/Process)'],
+                    datasets: [{
+                        data: [70, 30],
+                        backgroundColor: ['#2563eb', '#64748b'], // Blue-600, Slate-500
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { padding: 20 } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+        }
+
+        function initDomainChart() {
+            const ctx = document.getElementById('domainChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Regulated Industries', 'Project Management', 'Software Dev Cycle', 'Intl. Leadership'],
+                    datasets: [{
+                        label: 'Years of Experience',
+                        data: [15, 12, 15, 8],
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 6,
+                        barThickness: 30
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { 
+                            beginAtZero: true, 
+                            grid: { display: true, color: '#f1f5f9' } 
+                        },
+                        x: { 
+                            grid: { display: false } 
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        // --- Interaction Logic ---
+
+        function renderTimeline(filter) {
+            const container = document.getElementById('timeline-container');
+            container.innerHTML = ''; // Clear current
+
+            // Add line
+            const line = document.createElement('div');
+            line.className = 'timeline-line hidden md:block';
+            container.appendChild(line);
+
+            experienceData.forEach((item, index) => {
+                if (filter === 'all' || item.tags.includes(filter)) {
+                    const card = document.createElement('div');
+                    card.className = `timeline-card bg-white p-6 rounded-lg border border-slate-200 shadow-sm relative z-10 ml-0 md:ml-8 mb-6 fade-in`;
+                    card.onclick = () => selectRole(item.id, card);
+                    
+                    // Tags HTML
+                    const tagsHtml = item.tags.map(tag => 
+                        `<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-100 uppercase last:mr-0 mr-1">${tag}</span>`
+                    ).join('');
+
+                    card.innerHTML = `
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-900">${item.role}</h3>
+                        </div>
+                        <p class="text-sm font-semibold text-blue-600 mb-2">${item.company}</p>
+                        <p class="text-xs text-slate-500 mb-3">${item.period}</p>
+                        <p class="text-slate-600 text-sm mb-3">${item.shortDesc}</p>
+                        <div>${tagsHtml}</div>
+                        <div class="mt-3 text-xs text-slate-400 text-right">Click for details →</div>
+                    `;
+                    container.appendChild(card);
+                }
+            });
+        }
+
+        function filterTimeline(filter) {
+            // Update button styles
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if(btn.textContent.includes(filter) || (filter === 'all' && btn.textContent.includes('All'))) {
+                    btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-300');
+                    btn.classList.add('bg-slate-800', 'text-white', 'border-transparent');
+                } else {
+                    btn.classList.add('bg-white', 'text-slate-600', 'border-slate-300');
+                    btn.classList.remove('bg-slate-800', 'text-white', 'border-transparent');
+                }
+            });
+            
+            // Hide details
+            document.getElementById('detail-placeholder').classList.remove('hidden');
+            document.getElementById('detail-content').classList.add('hidden');
+            
+            renderTimeline(filter);
+        }
+
+        function selectRole(id, cardElement) {
+            // Highlight card
+            document.querySelectorAll('.timeline-card').forEach(c => {
+                c.classList.remove('active-card', 'border-blue-500');
+                c.classList.add('border-slate-200');
+            });
+            cardElement.classList.remove('border-slate-200');
+            cardElement.classList.add('active-card', 'border-blue-500');
+
+            // Find data
+            const role = experienceData.find(d => d.id === id);
+            
+            // Update Details Panel
+            const placeholder = document.getElementById('detail-placeholder');
+            const content = document.getElementById('detail-content');
+            
+            placeholder.classList.add('hidden');
+            content.classList.remove('hidden');
+            content.classList.add('fade-in');
+
+            // Build Impact List
+            const impactList = role.impact.map(i => `<li class="flex items-start mb-2"><span class="text-green-500 mr-2">✓</span><span>${i}</span></li>`).join('');
+            
+            // Build Tech Stack
+            const techBadges = role.tech.map(t => `<span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm">${t}</span>`).join('');
+
+            content.innerHTML = `
+                <div class="border-b border-slate-100 pb-4 mb-4">
+                    <h3 class="text-2xl font-bold text-slate-900">${role.role}</h3>
+                    <p class="text-lg text-blue-600 font-medium">${role.company}</p>
+                    <p class="text-slate-500">${role.period}</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-bold text-slate-800 mb-2">Role Overview</h4>
+                    <p class="text-slate-600 leading-relaxed">${role.fullDesc}</p>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-bold text-slate-800 mb-2">Key Business Impact</h4>
+                    <ul class="text-slate-700 text-sm">
+                        ${impactList}
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-800 mb-3">Tech & Tools</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${techBadges}
+                    </div>
+                </div>
+            `;
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
