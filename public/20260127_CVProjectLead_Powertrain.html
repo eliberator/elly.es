@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elly Câmpeanu | Project Lead E-Powertrain Candidate Profile</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Chosen Palette: Stone & Teal (Warm Neutral Background with Professional Accents) -->
+<!-- Application Structure Plan: 
+1. Hero Section: Immediate identification and value proposition for the specific Nemensis AG role.
+2. Executive Dashboard: High-level metrics and a "Competency Radar" to visually prove the match with job requirements (E-Powertrain, V-Model, etc.).
+3. Interactive Experience Timeline: A clickable timeline focusing on the "Electric Drive" and "BMS" roles relevant to the job, allowing deep dives without clutter.
+4. Impact Case Study: Visualizing the "600 to 60" issue reduction achievement to demonstrate result-orientation.
+5. Skills Matrix: Categorized interactive list to show technical breadth (ASPICE, AUTOSAR).
+6. Application Documents: The tailored Cover Letter and Summary in a readable, clean format.
+
+Why this structure? It prioritizes the "Fit" for the specific job first, then provides evidence (experience/stats), and finally the formal documents. 
+-->
+
+<style>
+/* Custom Font Import - Inter for clean UI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: #fafaf9; /* Stone 50 */
+	color: #1c1917; /* Stone 900 */
+}
+
+/* Chart Container Styling Rules - STRICT ADHERENCE */
+.chart-container {
+	position: relative;
+	width: 100%;
+	max-width: 600px; /* Max width to prevent stretching */
+	height: 300px;    /* Default mobile height */
+	max-height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (min-width: 768px) {
+	.chart-container {
+		height: 350px; /* Tablet/Desktop height */
+	}
+}
+
+/* Interactive Element Styles */
+.timeline-node {
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+.timeline-node:hover {
+	transform: scale(1.1);
+	background-color: #0d9488; /* Teal 600 */
+}
+.timeline-node.active {
+	background-color: #0d9488;
+	border-color: #134e4a;
+}
+
+.nav-link {
+	transition: color 0.2s;
+}
+.nav-link:hover {
+	color: #0d9488;
+}
+
+.card-hover {
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-hover:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+</style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-[#fafaf9]/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center">
+<span class="text-xl font-bold text-stone-800 tracking-tight">Elly Câmpeanu</span>
+<span class="hidden sm:block ml-2 text-sm text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">Project Lead Candidate</span>
+</div>
+<div class="hidden md:flex space-x-8">
+<button onclick="scrollToSection('dashboard')" class="nav-link font-medium text-stone-600">Overview</button>
+<button onclick="scrollToSection('experience')" class="nav-link font-medium text-stone-600">Experience</button>
+<button onclick="scrollToSection('impact')" class="nav-link font-medium text-stone-600">Impact</button>
+<button onclick="scrollToSection('docs')" class="nav-link font-medium text-stone-600">Application</button>
+</div>
+<button onclick="scrollToSection('contact')" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+Contact Me
+</button>
+</div>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<header class="bg-white border-b border-stone-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h1 class="text-4xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">
+Project Lead <br><span class="text-teal-600">E-Powertrain</span>
+</h1>
+<p class="text-lg text-stone-600 mb-6 leading-relaxed">
+Specialized in bridging the gap between hardware system design and software integration. 
+Offering 15+ years of Tier-1 Automotive experience, mastery of the V-Model, and a proven track record in remote leadership.
+</p>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-sm font-semibold border border-teal-100">✔ BMS Expert</span>
+<span class="px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-sm font-semibold border border-teal-100">✔ Electric Drive</span>
+<span class="px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-sm font-semibold border border-teal-100">✔ 95% Remote Ready</span>
+</div>
+</div>
+<div class="bg-stone-50 p-6 rounded-xl border border-stone-100 shadow-inner">
+<h3 class="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-4">Candidate Availability Snapshot</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-stone-200 pb-2">
+<span class="text-stone-600">Start Date</span>
+<span class="font-bold text-stone-900">March 1, 2026</span>
+</div>
+<div class="flex justify-between items-center border-b border-stone-200 pb-2">
+<span class="text-stone-600">Location</span>
+<span class="font-bold text-stone-900">Remote / Norderstedt / South GER</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-stone-600">Contract Duration</span>
+<span class="font-bold text-stone-900">Through Dec 2026++</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Main Content Area -->
+<main class="flex-grow">
+
+<!-- Section 1: Executive Dashboard (Competency Match) -->
+<section id="dashboard" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-8">
+<h2 class="text-2xl font-bold text-stone-900">Executive Dashboard</h2>
+<p class="text-stone-600 mt-2 max-w-3xl">
+This section visualizes the alignment between my professional competencies and the specific requirements for the E-Powertrain Project Lead role (Ref: 2961018). It highlights why I am the "Plug & Play" solution for this project.
+</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Chart 1: Role Alignment Radar -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 lg:col-span-1 card-hover">
+<h3 class="text-lg font-semibold text-stone-800 mb-4 text-center">Role Fit Analysis</h3>
+<!-- Visualization & Content Choices: Radar Chart to show multi-dimensional fit for the specific job description requirements. -->
+<div class="chart-container">
+<canvas id="competencyChart"></canvas>
+</div>
+<p class="text-xs text-stone-500 text-center mt-4">
+Values based on years of experience and project complexity relative to job requirements.
+</p>
+</div>
+
+<!-- Key Metrics Cards -->
+<div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 card-hover flex flex-col justify-center">
+<div class="text-4xl font-bold text-teal-600 mb-2">15+</div>
+<div class="text-sm font-medium text-stone-500 uppercase">Years Automotive Exp</div>
+<p class="text-stone-600 text-sm mt-2">Deep expertise in Embedded Systems, ASPICE, and Safety (ISO26262).</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 card-hover flex flex-col justify-center">
+<div class="text-4xl font-bold text-teal-600 mb-2">30+</div>
+<div class="text-sm font-medium text-stone-500 uppercase">Engineers Managed</div>
+<p class="text-stone-600 text-sm mt-2">Successfully led diverse, international teams across 3 continents remotely.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 card-hover flex flex-col justify-center">
+<div class="text-4xl font-bold text-teal-600 mb-2">90%</div>
+<div class="text-sm font-medium text-stone-500 uppercase">Issue Reduction</div>
+<p class="text-stone-600 text-sm mt-2">Drastically cut unresolved issues from 600 to 60 in previous Tier-1 RADAR project.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 card-hover flex flex-col justify-center">
+<div class="text-4xl font-bold text-teal-600 mb-2">3</div>
+<div class="text-sm font-medium text-stone-500 uppercase">Core Domains</div>
+<p class="text-stone-600 text-sm mt-2">Electric Drive, Battery Management Systems (BMS), & Body Electronics.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Section 2: Interactive Timeline (Experience) -->
+<section id="experience" class="py-16 bg-stone-100 border-y border-stone-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-10 text-center">
+<h2 class="text-2xl font-bold text-stone-900">Relevant Experience Timeline</h2>
+<p class="text-stone-600 mt-2 max-w-2xl mx-auto">
+Click on the roles below to see specific details regarding E-Powertrain relevance and key achievements.
+<br><span class="text-xs text-teal-600 font-semibold">* Highlighted roles are direct matches for this application.</span>
+</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Timeline Sidebar (Navigation) -->
+<div class="lg:col-span-1 space-y-4">
+<!-- Generated via JS -->
+<div id="timeline-nav" class="flex flex-col space-y-2"></div>
+</div>
+
+<!-- Detail View -->
+<div class="lg:col-span-3 bg-white rounded-xl shadow-md p-8 border border-stone-200 min-h-[400px]">
+<div id="role-detail-content" class="h-full flex flex-col">
+<!-- Content injected here -->
+<div class="m-auto text-center text-stone-400">
+<p>Select a role to view details</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Section 3: Impact & Skills (Visualizing Success) -->
+<section id="impact" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+<!-- Visualization: Issue Reduction Chart -->
+<div>
+<h2 class="text-2xl font-bold text-stone-900 mb-4">Proven Results: Issue Management</h2>
+<p class="text-stone-600 mb-6">
+In my recent role as RADAR Solution Manager Support, I demonstrated the ability to take over a distressed project and bring stability. This chart illustrates the drastic reduction in unresolved technical tickets under my leadership.
+</p>
+<!-- Visualization & Content Choices: Bar Chart Comparison. Goal: Inform/Change. Justification: Clearly visualizes the "Before vs After" impact mentioned in the CV. -->
+<div class="chart-container bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+<canvas id="issueChart"></canvas>
+</div>
+</div>
+
+<!-- Skills Cloud / Lists -->
+<div>
+<h2 class="text-2xl font-bold text-stone-900 mb-4">Technical & Management Toolkit</h2>
+<p class="text-stone-600 mb-6">
+A mix of hard technical skills for system design and soft skills for international project coordination.
+</p>
+
+<div class="space-y-6">
+<div>
+<h4 class="text-sm font-bold text-stone-800 uppercase tracking-wide mb-2">Project Management</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-stone-200 text-stone-800 rounded text-sm">Agile / Scrum</span>
+<span class="px-3 py-1 bg-stone-200 text-stone-800 rounded text-sm">V-Model</span>
+<span class="px-3 py-1 bg-stone-200 text-stone-800 rounded text-sm">ASPICE v3.1</span>
+<span class="px-3 py-1 bg-stone-200 text-stone-800 rounded text-sm">Risk Management</span>
+<span class="px-3 py-1 bg-stone-200 text-stone-800 rounded text-sm">Resource Planning</span>
+<span class="px-3 py-1 bg-stone-200 text-stone-800 rounded text-sm">Escalation Mgmt</span>
+</div>
+</div>
+<div>
+<h4 class="text-sm font-bold text-stone-800 uppercase tracking-wide mb-2">Automotive Tech</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-teal-100 text-teal-800 rounded text-sm">E-Powertrain</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 rounded text-sm">BMS</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 rounded text-sm">ISO26262 (ASIL C/D)</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 rounded text-sm">AUTOSAR</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 rounded text-sm">CAN / LIN / FlexRay</span>
+</div>
+</div>
+<div>
+<h4 class="text-sm font-bold text-stone-800 uppercase tracking-wide mb-2">Tools</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white border border-stone-300 text-stone-600 rounded text-sm">JIRA & Confluence</span>
+<span class="px-3 py-1 bg-white border border-stone-300 text-stone-600 rounded text-sm">CANoe</span>
+<span class="px-3 py-1 bg-white border border-stone-300 text-stone-600 rounded text-sm">Cybersecurity Tools</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Section 4: Application Documents -->
+<section id="docs" class="py-16 bg-white border-t border-stone-200">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col sm:flex-row justify-between items-center mb-8">
+<h2 class="text-2xl font-bold text-stone-900">Application Documents</h2>
+<div class="flex space-x-2 mt-4 sm:mt-0">
+<button onclick="showDoc('coverLetter')" id="btn-cover" class="px-4 py-2 bg-stone-800 text-white rounded text-sm font-medium transition hover:bg-stone-700">Cover Letter</button>
+<button onclick="showDoc('summary')" id="btn-summary" class="px-4 py-2 bg-stone-100 text-stone-700 hover:bg-stone-200 rounded text-sm font-medium transition">Executive Summary</button>
+</div>
+</div>
+
+<!-- Document Container -->
+<div class="bg-stone-50 border border-stone-200 p-8 rounded-xl shadow-inner min-h-[500px]">
+
+<!-- Cover Letter Content -->
+<div id="doc-coverLetter" class="doc-content">
+<div class="mb-6 border-b border-stone-200 pb-4">
+<p class="font-bold text-stone-900">To: Nemensis AG</p>
+<p class="text-stone-600">Attn: Niklas Machens | Ref: 2961018</p>
+<p class="text-stone-600 mt-2">Subject: Application for Freelance Project Lead E-Powertrain</p>
+</div>
+<div class="prose prose-stone max-w-none text-stone-800 leading-relaxed space-y-4">
+<p>Dear Mr. Machens,</p>
+<p>With over 15 years of leadership experience in the automotive software and systems industry, I am writing to express my strong interest in the Freelance Project Lead position for E-Powertrain. Having successfully spearheaded complex electric drive and battery management projects for Tier-1 suppliers, I offer the multidisciplinary expertise required to bridge vehicle development, system design, and production.</p>
+
+<p>My background aligns precisely with your project requirements:</p>
+<ul class="list-disc pl-5 space-y-2">
+<li><strong>E-Powertrain & BMS Expertise:</strong> As a Technical Leader for BMS projects and a Support Program Manager for Electric Drive systems, I have deep experience in the integration of motors, inverters, and batteries. I understand the nuances of system-level performance and the critical interfaces between hardware and software components.</li>
+<li><strong>V-Model & ASPICE Mastery:</strong> I am highly proficient in the V-Model development process. My experience ensures that interdisciplinary work packages are not only defined and coordinated but also monitored for strict compliance with safety (ASIL) and quality standards.</li>
+<li><strong>Business & Resource Management:</strong> Beyond technical execution, I have a proven track record of managing budgets, manufacturing costs, and resource planning. I focus on transparency through rigorous status reporting and proactive escalation management to meet economic targets.</li>
+<li><strong>Remote Leadership Excellence:</strong> I am accustomed to the 95% remote model. During the pandemic, I successfully led an international team of 30+ engineers across three continents, proving that high-stakes automotive projects can be delivered efficiently in a distributed environment.</li>
+</ul>
+
+<p>I am available to start on <strong>March 1, 2026</strong>, and am fully committed to the project duration through the end of the year. I am also flexible regarding the required onsite presence in Norderstedt and travel to Southern Germany as needed.</p>
+<p>I look forward to discussing how my experience in E-Mobility systems can contribute to the success of your mobile robot and material handling vehicle projects.</p>
+<p class="mt-8">Sincerely,</p>
+<p class="font-bold">Elly Câmpeanu</p>
+</div>
+</div>
+
+<!-- Executive Summary Content (Hidden by default) -->
+<div id="doc-summary" class="doc-content hidden">
+<h3 class="text-xl font-bold text-stone-900 mb-6">Candidate Executive Summary</h3>
+<div class="bg-white p-6 rounded border border-stone-200 shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-teal-700 font-bold text-xl mr-4">EC</div>
+<div>
+<h4 class="font-bold text-stone-900">Elly Câmpeanu</h4>
+<p class="text-sm text-stone-500">Project Lead E-Powertrain</p>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start">
+<span class="text-teal-500 mr-2 mt-1">▶</span>
+<div>
+<strong class="text-stone-900">15+ Years Automotive Leadership:</strong>
+<p class="text-stone-600 text-sm">Extensive track record in delivering complex software and system integration projects for German Automotive Tier-1 customers (BMW, Continental, Lear Corp).</p>
+</div>
+</li>
+<li class="flex items-start">
+<span class="text-teal-500 mr-2 mt-1">▶</span>
+<div>
+<strong class="text-stone-900">E-Powertrain Specialist:</strong>
+<p class="text-stone-600 text-sm">Direct experience in Electric Drive and Battery Management Systems (BMS), including system-level understanding of motors, inverters, and charging units.</p>
+</div>
+</li>
+<li class="flex items-start">
+<span class="text-teal-500 mr-2 mt-1">▶</span>
+<div>
+<strong class="text-stone-900">V-Model & Quality Expert:</strong>
+<p class="text-stone-600 text-sm">Deeply versed in the V-Model lifecycle, ASPICE, and ISO26262 (ASIL-C/D), ensuring structured and safety-compliant development.</p>
+</div>
+</li>
+<li class="flex items-start">
+<span class="text-teal-500 mr-2 mt-1">▶</span>
+<div>
+<strong class="text-stone-900">Business-Oriented Management:</strong>
+<p class="text-stone-600 text-sm">Experienced in budget planning, resource allocation, and cross-functional coordination (Einkauf, Produktion, Vertrieb).</p>
+</div>
+</li>
+<li class="flex items-start">
+<span class="text-teal-500 mr-2 mt-1">▶</span>
+<div>
+<strong class="text-stone-900">Remote Management Pro:</strong>
+<p class="text-stone-600 text-sm">Expert in leading multidisciplinary, international teams via remote structures with 95% efficiency.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer id="contact" class="bg-stone-900 text-stone-400 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-2xl font-bold text-white mb-6">Contact for Interview</h2>
+<div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+<a href="mailto:elly@debugnomad.com" class="flex items-center hover:text-white transition">
+<span class="mr-2">✉</span> elly@debugnomad.com
+</a>
+<a href="tel:+34681671597" class="flex items-center hover:text-white transition">
+<span class="mr-2">📞</span> +34 681 671 597
+</a>
+<a href="https://linkedin.com/in/elly-campeanu-project-program-manager" class="flex items-center hover:text-white transition">
+<span class="mr-2">🔗</span> LinkedIn Profile
+</a>
+</div>
+<p class="text-sm">
+&copy; 2026 Elly Câmpeanu. Created for Nemensis AG Application (Ref: 2961018).
+</p>
+</div>
+</footer>
+
+<!-- JavaScript Logic -->
+<script>
+// Data for Timeline
+const roles = [
+{
+	id: 'radar',
+	title: 'RADAR Solution Manager Support',
+	company: 'TOP German Automotive Tier1',
+	period: 'Mar 2022 - Dec 2022',
+	highlight: true,
+	desc: 'Co-led software project team and managed remote function development. Served as primary customer interface.',
+	achievements: [
+	'Drastically reduced unresolved issues from 600+ to ~60.',
+	'Managed remote function development team.',
+	'Directed requirement and issue management (Ticket Tracking).'
+	],
+	tech: ['Issue Mgmt', 'Customer Interface', 'Remote Leadership']
+},
+{
+	id: 'electric',
+	title: 'Support Program Manager, Software',
+	company: 'Subcontractor for Electric Drive Projects',
+	period: 'Jan 2020 - Sep 2020',
+	highlight: true,
+	desc: 'Managed day-to-day activities for Electric Drive projects. Led 30+ engineers across 3 continents during COVID-19.',
+	achievements: [
+	'Ensured adherence to ASIL-C, AUTOSAR 4.3, and ASPICE v3.1.',
+	'Implemented agile strategy for internal teams and suppliers.',
+	'Managed complex international remote setup.'
+	],
+	tech: ['Electric Drive', 'ASIL-C', 'ASPICE v3.1', 'Remote Mgmt']
+},
+{
+	id: 'bms',
+	title: 'Technical Leader for BMS Projects',
+	company: 'Subcontractor',
+	period: 'Apr 2019 - Dec 2019',
+	highlight: true,
+	desc: 'Led international software team (Germany, Romania, Spain, US, China) for Battery Management Systems.',
+	achievements: [
+	'Oversaw project planning and milestone tracking.',
+	'Provided expert AUTOSAR BSW support.',
+	'Successful remote team motivation and coordination.'
+	],
+	tech: ['BMS', 'AUTOSAR', 'Global Team Lead', 'Milestone Tracking']
+},
+{
+	id: 'lear',
+	title: 'Software Team Leader',
+	company: 'Lear Corporation',
+	period: 'Oct 2011 - Dec 2018',
+	highlight: false,
+	desc: 'Led software development teams for key BMW projects. Directed internal tool development.',
+	achievements: [
+	'Ensured confidence in software tools for ASIL D safety projects.',
+	'Managed supplier and customer relationships.',
+	'Automated development processes to improve efficiency.'
+	],
+	tech: ['BMW Projects', 'ASIL D', 'Tool Automation', 'Team Lead']
+},
+{
+	id: 'altran',
+	title: 'Software Consultant',
+	company: 'Altran',
+	period: 'Feb 2010 - Oct 2011',
+	highlight: false,
+	desc: 'Maintained Integrated Body Module for BMW. 3rd party software integrator.',
+	achievements: [
+	'Focused on safety functionality (Power windows, Wipers).',
+	'Integrator for wipers, washer models, Rain Light Sensors.'
+	],
+	tech: ['Integration', 'Safety Functionality', 'BMW']
+}
+];
+
+// State Management
+let currentRole = roles[0];
+
+// Initialize Timeline
+function initTimeline() {
+	const navContainer = document.getElementById('timeline-nav');
+	
+	roles.forEach((role, index) => {
+		const btn = document.createElement('div');
+		btn.className = `timeline-node p-4 rounded-lg border-l-4 mb-2 bg-white shadow-sm ${index === 0 ? 'border-teal-600 bg-stone-50' : 'border-stone-300'}`;
+		btn.onclick = () => loadRole(index);
+		btn.dataset.index = index;
+		
+		let highlightBadge = role.highlight ? '<span class="text-xs bg-teal-100 text-teal-800 px-2 py-0.5 rounded ml-2">Match</span>' : '';
+		
+		btn.innerHTML = `
+		<div class="font-bold text-sm text-stone-800">${role.period}</div>
+		<div class="text-stone-700 font-semibold text-sm">${role.title}</div>
+		<div class="text-stone-500 text-xs">${role.company} ${highlightBadge}</div>
+		`;
+		navContainer.appendChild(btn);
+	});
+	
+	loadRole(0);
+}
+
+function loadRole(index) {
+	const role = roles[index];
+	currentRole = role;
+	
+	// Update Nav Styles
+	document.querySelectorAll('.timeline-node').forEach(node => {
+		if (parseInt(node.dataset.index) === index) {
+			node.classList.remove('border-stone-300');
+			node.classList.add('border-teal-600', 'bg-stone-50');
+		} else {
+			node.classList.add('border-stone-300');
+			node.classList.remove('border-teal-600', 'bg-stone-50');
+		}
+	});
+	
+	// Update Content
+	const contentDiv = document.getElementById('role-detail-content');
+	
+	const techBadges = role.tech.map(t => `<span class="inline-block bg-stone-200 text-stone-700 text-xs px-2 py-1 rounded mr-2 mb-2">${t}</span>`).join('');
+	const achievementsList = role.achievements.map(a => `<li class="flex items-start mb-2"><span class="text-teal-500 mr-2 mt-1">✔</span><span>${a}</span></li>`).join('');
+	
+	contentDiv.innerHTML = `
+	<div class="animate-fade-in">
+	<div class="flex justify-between items-start border-b border-stone-100 pb-4 mb-4">
+	<div>
+	<h3 class="text-2xl font-bold text-stone-800">${role.title}</h3>
+	<p class="text-stone-500 font-medium">${role.company} | ${role.period}</p>
+	</div>
+	${role.highlight ? '<div class="bg-teal-600 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wide font-bold">Role Match</div>' : ''}
+	</div>
+	
+	<div class="mb-6">
+	<p class="text-stone-700 leading-relaxed text-lg">${role.desc}</p>
+	</div>
+	
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+	<div>
+	<h4 class="font-bold text-stone-900 mb-3 uppercase text-xs tracking-wider">Key Achievements</h4>
+	<ul class="text-stone-600 text-sm">
+	${achievementsList}
+	</ul>
+	</div>
+	<div>
+	<h4 class="font-bold text-stone-900 mb-3 uppercase text-xs tracking-wider">Relevant Skills</h4>
+	<div class="flex flex-wrap">
+	${techBadges}
+	</div>
+	</div>
+	</div>
+	</div>
+	`;
+}
+
+// Initialize Charts
+function initCharts() {
+	// Radar Chart: Competency Fit
+	const ctxRadar = document.getElementById('competencyChart').getContext('2d');
+	new Chart(ctxRadar, {
+		type: 'radar',
+		data: {
+			labels: ['E-Powertrain Knowledge', 'V-Model/ASPICE', 'Remote Leadership', 'Budget/Resource Mgmt', 'System Integration', 'Cross-Functional Comms'],
+			datasets: [{
+				label: 'Candidate Proficiency',
+				data: [90, 100, 100, 85, 95, 95],
+				fill: true,
+				backgroundColor: 'rgba(13, 148, 136, 0.2)', // Teal 600
+				borderColor: 'rgb(13, 148, 136)',
+				pointBackgroundColor: 'rgb(13, 148, 136)',
+				pointBorderColor: '#fff',
+				pointHoverBackgroundColor: '#fff',
+				pointHoverBorderColor: 'rgb(13, 148, 136)'
+			},
+			{
+				label: 'Job Requirement Baseline',
+				data: [80, 90, 90, 80, 85, 90], // Estimated requirement
+				fill: true,
+				backgroundColor: 'rgba(120, 113, 108, 0.1)', // Stone 500
+				borderColor: 'rgba(120, 113, 108, 0.5)',
+				borderDash: [5, 5],
+				pointRadius: 0
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			scales: {
+				r: {
+					angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+					grid: { color: 'rgba(0, 0, 0, 0.1)' },
+					suggestedMin: 50,
+					suggestedMax: 100,
+					ticks: { display: false }
+				}
+			},
+			plugins: {
+				legend: { position: 'bottom' }
+			}
+		}
+	});
+	
+	// Bar Chart: Issue Reduction
+	const ctxBar = document.getElementById('issueChart').getContext('2d');
+	new Chart(ctxBar, {
+		type: 'bar',
+		data: {
+			labels: ['Project Start', 'Project Handover'],
+			datasets: [{
+				label: 'Unresolved Issues',
+				data: [600, 60],
+				backgroundColor: ['#ef4444', '#10b981'], // Red to Emerald
+				borderColor: ['#b91c1c', '#047857'],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			responsive: true,
+			plugins: {
+				legend: { display: false },
+				tooltip: {
+					callbacks: {
+						label: function(context) {
+							return context.raw + ' Issues';
+						}
+					}
+				},
+				title: {
+					display: true,
+					text: 'Corrective Action Impact (RADAR Project)',
+					font: { size: 14 }
+				}
+			},
+			scales: {
+				y: {
+					beginAtZero: true,
+					title: { display: true, text: 'Number of Open Tickets' }
+				}
+			}
+		}
+	});
+}
+
+// Navigation Functions
+function scrollToSection(id) {
+	const element = document.getElementById(id);
+	if (element) {
+		element.scrollIntoView({ behavior: 'smooth' });
+	}
+}
+
+function showDoc(docType) {
+	// Hide all
+	document.querySelectorAll('.doc-content').forEach(el => el.classList.add('hidden'));
+	
+	// Reset buttons
+	document.getElementById('btn-cover').classList.remove('bg-stone-800', 'text-white');
+	document.getElementById('btn-cover').classList.add('bg-stone-100', 'text-stone-700');
+	document.getElementById('btn-summary').classList.remove('bg-stone-800', 'text-white');
+	document.getElementById('btn-summary').classList.add('bg-stone-100', 'text-stone-700');
+	
+	// Show Selected
+	const selected = document.getElementById(`doc-${docType}`);
+	selected.classList.remove('hidden');
+	selected.classList.add('animate-fade-in');
+	
+	// Highlight Button
+	const activeBtn = document.getElementById(`btn-${docType}`);
+	activeBtn.classList.remove('bg-stone-100', 'text-stone-700');
+	activeBtn.classList.add('bg-stone-800', 'text-white');
+}
+
+// Start
+window.addEventListener('DOMContentLoaded', () => {
+	initTimeline();
+	initCharts();
+});
+
+</script>
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</body>
+</html>

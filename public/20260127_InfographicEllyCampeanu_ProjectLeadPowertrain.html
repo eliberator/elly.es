@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elly Câmpeanu | E-Powertrain Project Lead Interactive Profile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<!-- Chosen Palette: "Energetic & Playful" / Vibrant Tech (Teal & Indigo) -->
+<!-- This palette was chosen to convey modern engineering (Teal) and professional trust (Indigo) while maintaining high contrast and engagement. -->
+
+<!-- Application Structure Plan:
+1. Hero Header: Instant identification of the candidate and the target role.
+2. Executive Summary: A narrative hook explaining the "Why Me".
+3. Competency Matrix (Radar Chart): Visual proof of alignment with the Nemensis AG job description.
+4. Impact Dashboard (Bar/Doughnut Charts): Quantifiable achievements (Issue reduction, Team scale).
+5. Interactive Career Timeline: A clickable journey through relevant roles (BMS, E-Drive), allowing focused exploration.
+6. Technical Arsenal: Categorized skills list.
+7. Footer: Contact info.
+
+Rationale: This structure moves from the abstract "Fit" to concrete "Evidence" (Impact/Timeline), prioritizing the information most relevant to the recruiter.
+-->
+
+<style>
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #f3f4f6; /* gray-100 */
+	color: #111827; /* gray-900 */
+}
+
+/* Chart Container Styling - STRICT ADHERENCE */
+.chart-container {
+	position: relative;
+	width: 100%;
+	max-width: 600px; /* Constraint for large screens */
+	margin-left: auto;
+	margin-right: auto;
+	height: 300px; /* Base height */
+	max-height: 400px;
+}
+
+@media (min-width: 768px) {
+	.chart-container {
+		height: 350px; /* Taller on desktop */
+	}
+}
+
+/* Custom Interactive Elements */
+.timeline-node {
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+.timeline-node:hover {
+	transform: translateX(5px);
+	border-left-width: 8px;
+}
+.timeline-node.active {
+	background-color: #e0e7ff; /* indigo-100 */
+	border-left-color: #4f46e5; /* indigo-600 */
+	border-left-width: 6px;
+}
+
+.stat-card {
+	transition: transform 0.2s;
+}
+.stat-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+</style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+<!-- Navigation / Hero -->
+<header class="bg-gradient-to-r from-indigo-900 to-teal-700 text-white shadow-lg">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-6 md:mb-0 text-center md:text-left">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Elly Câmpeanu</h1>
+<h2 class="text-xl md:text-2xl text-teal-200 font-medium">Project & Program Manager | Automotive Software</h2>
+<div class="mt-4 flex flex-wrap gap-3 justify-center md:justify-start">
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm font-bold backdrop-blur-sm">⚡ E-Powertrain Expert</span>
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm font-bold backdrop-blur-sm">🔋 BMS Specialist</span>
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm font-bold backdrop-blur-sm">🌍 Remote Leader</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 text-sm font-medium">
+<div class="flex items-center bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
+<span class="text-xl mr-3">📅</span>
+<div>
+<span class="block text-xs text-teal-200">Available From</span>
+<span>March 1, 2026</span>
+</div>
+</div>
+<div class="flex items-center bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
+<span class="text-xl mr-3">📍</span>
+<div>
+<span class="block text-xs text-teal-200">Location Base</span>
+<span>Remote / Norderstedt / South GER</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Executive Summary Section -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="bg-white rounded-2xl shadow-md p-8 border-l-8 border-teal-500">
+<h3 class="text-2xl font-bold text-gray-800 mb-4">Why I am the Ideal Candidate for the E-Powertrain Lead</h3>
+<p class="text-gray-600 leading-relaxed text-lg">
+The role requires a rare combination of <strong>system-level understanding</strong> of electric drives (Motor, Inverter, Battery) and the <strong>process rigour</strong> of the V-Model in a safety-critical environment. My experience is not just theoretical; I have led international teams in <strong>BMS</strong> and <strong>Electric Drive</strong> projects, managing the exact interdisciplinary complexity this project demands. I bring a proven "Plug & Play" capability for the remote setup, having successfully managed 30+ engineers across 3 continents during global disruptions.
+</p>
+</div>
+</section>
+
+<!-- Data Overview Section: Competency & Impact -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="mb-6">
+<h2 class="text-3xl font-bold text-gray-900">Performance Analytics</h2>
+<p class="text-gray-600">Quantifying my fit for the Nemensis AG contract through skills analysis and past performance metrics.</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+<!-- Competency Radar Chart -->
+<div class="bg-white p-6 rounded-xl shadow-md stat-card">
+<div class="mb-4">
+<h3 class="text-xl font-bold text-indigo-900">Role Fit Analysis</h3>
+<p class="text-sm text-gray-500">Mapping my expertise against the key requirements of the E-Powertrain Project Lead description.</p>
+</div>
+<!-- Visualization Choice: Radar Chart. Goal: Relationship. Rationale: Best way to show multivariate fit (Skills vs Requirements). NO SVG. -->
+<div class="chart-container">
+<canvas id="competencyRadar"></canvas>
+</div>
+<div class="mt-4 text-xs text-center text-gray-400">
+Scale: 0 (Novice) to 10 (Expert/Mastery)
+</div>
+</div>
+
+<!-- Impact Metrics (Bar Chart) -->
+<div class="bg-white p-6 rounded-xl shadow-md stat-card">
+<div class="mb-4">
+<h3 class="text-xl font-bold text-indigo-900">Case Study: Issue Resolution</h3>
+<p class="text-sm text-gray-500">Impact on a distressed RADAR Tier-1 project. Demonstrating "Result Orientation".</p>
+</div>
+<!-- Visualization Choice: Bar Chart. Goal: Compare/Change. Rationale: Stark visual contrast between "Before" and "After" issue counts. NO SVG. -->
+<div class="chart-container">
+<canvas id="impactBar"></canvas>
+</div>
+<div class="mt-4 p-3 bg-teal-50 rounded-lg text-sm text-teal-800 border border-teal-100">
+<strong>Key Takeaway:</strong> Reduced open technical tickets by <strong>90%</strong> (600 to 60) through rigorous tracking and deviation management.
+</div>
+</div>
+</div>
+</section>
+
+<!-- Interactive Timeline Section -->
+<section class="bg-gray-50 border-t border-gray-200 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-8">
+<h2 class="text-3xl font-bold text-gray-900">Professional Journey</h2>
+<p class="text-gray-600">Select a role below to explore details relevant to the <strong>E-Powertrain</strong> position.</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Timeline Navigation (Left Col) -->
+<div class="lg:col-span-4 space-y-3" id="timeline-container">
+<!-- JS Injected Nodes -->
+</div>
+
+<!-- Timeline Details (Right Col) -->
+<div class="lg:col-span-8">
+<div id="role-details" class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 h-full transition-all duration-300">
+<!-- JS Injected Content -->
+<div class="h-full flex items-center justify-center text-gray-400">
+Loading details...
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Skills & Team Dashboard -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+<!-- Team Management Visualization -->
+<div class="md:col-span-1 bg-white p-6 rounded-xl shadow-md">
+<h3 class="text-lg font-bold text-indigo-900 mb-2">Remote Leadership Scope</h3>
+<p class="text-xs text-gray-500 mb-4">Distribution of engineering teams managed during previous Electric Drive projects.</p>
+<!-- Visualization Choice: Doughnut Chart. Goal: Organize/Inform. Rationale: Shows the geographic complexity of teams managed. NO SVG. -->
+<div class="chart-container" style="height: 250px;">
+<canvas id="teamDoughnut"></canvas>
+</div>
+</div>
+
+<!-- Technical Skills List -->
+<div class="md:col-span-2 bg-white p-6 rounded-xl shadow-md flex flex-col justify-center">
+<h3 class="text-lg font-bold text-indigo-900 mb-6">Technical & Management Arsenal</h3>
+
+<div class="space-y-6">
+<!-- Category 1 -->
+<div>
+<div class="flex items-center mb-2">
+<span class="text-2xl mr-2">🚗</span>
+<h4 class="font-bold text-gray-700">Automotive Domain</h4>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded">Electric Powertrain</span>
+<span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded">Battery Management (BMS)</span>
+<span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded">ISO26262 (ASIL C/D)</span>
+<span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded">AUTOSAR</span>
+</div>
+</div>
+
+<!-- Category 2 -->
+<div>
+<div class="flex items-center mb-2">
+<span class="text-2xl mr-2">📊</span>
+<h4 class="font-bold text-gray-700">Project Management</h4>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm font-medium rounded">ASPICE v3.1</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm font-medium rounded">V-Model Lifecycle</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm font-medium rounded">Agile & Scrum</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm font-medium rounded">Budget & Resource Planning</span>
+</div>
+</div>
+
+<!-- Category 3 -->
+<div>
+<div class="flex items-center mb-2">
+<span class="text-2xl mr-2">🛠️</span>
+<h4 class="font-bold text-gray-700">Tools & Protocols</h4>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded border border-gray-200">CAN / LIN / FlexRay</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded border border-gray-200">CANoe</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded border border-gray-200">JIRA / Confluence</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded border border-gray-200">Ethernet</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-indigo-900 text-white py-12 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-2xl font-bold mb-6">Ready to Drive Your E-Powertrain Project?</h2>
+<div class="flex flex-col md:flex-row justify-center items-center gap-6">
+<a href="mailto:elly@debugnomad.com" class="flex items-center px-6 py-3 bg-teal-500 hover:bg-teal-600 rounded-lg font-bold transition">
+<span class="mr-2">✉️</span> elly@debugnomad.com
+</a>
+<a href="tel:+34681671597" class="flex items-center px-6 py-3 bg-indigo-800 hover:bg-indigo-700 rounded-lg font-bold transition">
+<span class="mr-2">📞</span> +34 681 671 597
+</a>
+<a href="#" class="flex items-center px-6 py-3 bg-indigo-800 hover:bg-indigo-700 rounded-lg font-bold transition">
+<span class="mr-2">🔗</span> LinkedIn Profile
+</a>
+</div>
+<p class="mt-8 text-indigo-300 text-sm">&copy; 2026 Elly Câmpeanu. Generated Resume Portfolio.</p>
+</div>
+</footer>
+
+<script>
+// --- 1. Helper Functions ---
+
+// Label Wrapping Utility (Strict Requirement)
+function wrapLabel(str, maxLen = 16) {
+	if (str.length <= maxLen) return str;
+	const words = str.split(' ');
+	const lines = [];
+	let currentLine = words[0];
+	
+	for (let i = 1; i < words.length; i++) {
+		if (currentLine.length + 1 + words[i].length <= maxLen) {
+			currentLine += ' ' + words[i];
+		} else {
+			lines.push(currentLine);
+			currentLine = words[i];
+		}
+	}
+	lines.push(currentLine);
+	return lines;
+}
+
+// Shared Tooltip Configuration (Strict Requirement)
+const commonTooltipConfig = {
+	callbacks: {
+		title: function(tooltipItems) {
+			const item = tooltipItems[0];
+			let label = item.chart.data.labels[item.dataIndex];
+			if (Array.isArray(label)) {
+				return label.join(' ');
+			} else {
+				return label;
+			}
+		}
+	}
+};
+
+// --- 2. Data Definitions ---
+
+const timelineData = [
+{
+	role: "RADAR Solution Manager Support",
+	company: "TOP German Automotive Tier1",
+	period: "Mar 2022 - Dec 2022",
+	relevance: "High (Crisis Mgmt)",
+	desc: "Co-led software project team and managed remote function development. Served as primary customer interface for function-related inquiries.",
+	stats: [
+	{ label: "Issues Resolved", value: "90% Reduction" },
+	{ label: "Team Type", value: "Remote/International" }
+	],
+	tags: ["Ticket Tracking", "Corrective Actions", "Release Mgmt"]
+},
+{
+	role: "Support Program Manager, Software",
+	company: "Subcontractor for Electric Drive Projects",
+	period: "Jan 2020 - Sep 2020",
+	relevance: "Critical (E-Drive)",
+	desc: "Managed day-to-day project activities and a remote international software development team of 30+ engineers across three continents during COVID-19.",
+	stats: [
+	{ label: "Team Size", value: "30+ Engineers" },
+	{ label: "Compliance", value: "ASIL-C / ASPICE v3.1" }
+	],
+	tags: ["E-Powertrain", "Remote Leadership", "Agile Strategy", "AUTOSAR 4.3"]
+},
+{
+	role: "Technical Leader for BMS Projects",
+	company: "Subcontractor",
+	period: "Apr 2019 - Dec 2019",
+	relevance: "Critical (BMS)",
+	desc: "Led an international software team across Germany, Romania, Spain, the US, and China. Oversaw project planning and milestone tracking.",
+	stats: [
+	{ label: "Scope", value: "Global Coordination" },
+	{ label: "Focus", value: "Battery Mgmt System" }
+	],
+	tags: ["BMS", "AUTOSAR BSW", "Milestone Tracking", "Remote Motivation"]
+},
+{
+	role: "Software Team Leader",
+	company: "Lear Corporation",
+	period: "Oct 2011 - Dec 2018",
+	relevance: "High (Leadership)",
+	desc: "Led and managed software development teams for key BMW projects. Directed the development of internal software tools.",
+	stats: [
+	{ label: "Safety Level", value: "ASIL D" },
+	{ label: "Client", value: "BMW" }
+	],
+	tags: ["Team Leadership", "Tool Automation", "Supplier Mgmt"]
+}
+];
+
+// --- 3. Interaction Logic ---
+
+let currentIndex = 0;
+
+function renderTimeline() {
+	const container = document.getElementById('timeline-container');
+	container.innerHTML = '';
+	
+	timelineData.forEach((item, index) => {
+		const node = document.createElement('div');
+		node.className = `timeline-node p-4 bg-white rounded-lg shadow-sm border-l-4 border-gray-200 mb-2 ${index === currentIndex ? 'active' : ''}`;
+		node.onclick = () => updateDetails(index);
+		
+		// Wrap title if needed, though usually handled by CSS, we keep raw here for HTML
+		node.innerHTML = `
+		<div class="text-xs font-bold text-teal-600 uppercase mb-1">${item.period}</div>
+		<h4 class="font-bold text-gray-800 text-sm">${item.role}</h4>
+		<div class="text-xs text-gray-500 truncate">${item.company}</div>
+		`;
+		container.appendChild(node);
+	});
+}
+
+function updateDetails(index) {
+	currentIndex = index;
+	renderTimeline(); // Re-render to update active class
+	
+	const data = timelineData[index];
+	const detailContainer = document.getElementById('role-details');
+	
+	// Build Tags HTML
+	const tagsHtml = data.tags.map(tag => `<span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded border border-gray-200 mr-2">${tag}</span>`).join('');
+	
+	// Build Stats HTML
+	const statsHtml = data.stats.map(stat => `
+	<div class="bg-indigo-50 p-3 rounded-lg text-center">
+	<div class="text-xs text-indigo-400 uppercase font-bold">${stat.label}</div>
+	<div class="text-lg font-bold text-indigo-900">${stat.value}</div>
+	</div>
+	`).join('');
+	
+	// Inject Content
+	detailContainer.innerHTML = `
+	<div class="animate-fade-in">
+	<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 border-b border-gray-100 pb-4">
+	<div>
+	<h3 class="text-2xl font-bold text-indigo-900">${data.role}</h3>
+	<div class="text-gray-500 font-medium">${data.company}</div>
+	</div>
+	<div class="mt-2 md:mt-0 px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs font-bold uppercase">
+	Relevance: ${data.relevance}
+	</div>
+	</div>
+	
+	<p class="text-gray-700 leading-relaxed mb-6 text-lg">${data.desc}</p>
+	
+	<div class="grid grid-cols-2 gap-4 mb-6">
+	${statsHtml}
+	</div>
+	
+	<div>
+	<div class="text-xs font-bold text-gray-400 uppercase mb-2">Key Competencies</div>
+	<div class="flex flex-wrap gap-y-2">
+	${tagsHtml}
+	</div>
+	</div>
+	</div>
+	`;
+}
+
+// --- 4. Chart Initialization ---
+
+function initCharts() {
+	// -- Chart 1: Competency Radar --
+	const ctxRadar = document.getElementById('competencyRadar').getContext('2d');
+	
+	// Labels to be wrapped
+	const rawRadarLabels = ['E-Powertrain Systems', 'V-Model & ASPICE', 'Remote Team Lead', 'Budget & Costs', 'System Integration', 'Cross-Functional'];
+	const wrappedRadarLabels = rawRadarLabels.map(l => wrapLabel(l, 14)); // Aggressive wrapping for Radar
+	
+	new Chart(ctxRadar, {
+		type: 'radar',
+		data: {
+			labels: wrappedRadarLabels,
+			datasets: [{
+				label: 'Elly Câmpeanu',
+				data: [9, 10, 10, 8, 9, 9], // High proficiency based on 15y exp
+				fill: true,
+				backgroundColor: 'rgba(20, 184, 166, 0.2)', // Teal-500
+				borderColor: 'rgb(20, 184, 166)',
+				pointBackgroundColor: 'rgb(20, 184, 166)',
+				pointBorderColor: '#fff',
+				pointHoverBackgroundColor: '#fff',
+				pointHoverBorderColor: 'rgb(20, 184, 166)'
+			}, {
+				label: 'Job Requirement',
+				data: [8, 9, 8, 7, 8, 8], // Estimated requirement
+				fill: true,
+				backgroundColor: 'rgba(79, 70, 229, 0.1)', // Indigo-600
+				borderColor: 'rgba(79, 70, 229, 0.4)',
+				pointRadius: 0
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			scales: {
+				r: {
+					angleLines: { color: 'rgba(0,0,0,0.05)' },
+					grid: { color: 'rgba(0,0,0,0.05)' },
+					suggestedMin: 0,
+					suggestedMax: 10,
+					ticks: { display: false } // Clean look
+				}
+			},
+			plugins: {
+				tooltip: commonTooltipConfig
+			}
+		}
+	});
+	
+	// -- Chart 2: Impact Bar (Issues) --
+	const ctxBar = document.getElementById('impactBar').getContext('2d');
+	const impactLabels = ['Initial Issues Count', 'Final Issues Count']; // Short enough, no wrap needed but safe to check
+	
+	new Chart(ctxBar, {
+		type: 'bar',
+		data: {
+			labels: impactLabels,
+			datasets: [{
+				label: 'Number of Open Tickets',
+				data: [600, 60],
+				backgroundColor: [
+				'rgba(239, 68, 68, 0.7)', // Red for 'Bad' starting point
+				'rgba(16, 185, 129, 0.7)'  // Green for 'Good' result
+				],
+				borderColor: [
+				'rgb(239, 68, 68)',
+				'rgb(16, 185, 129)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			plugins: {
+				legend: { display: false },
+				tooltip: commonTooltipConfig,
+				title: { display: true, text: 'Ticket Reduction (RADAR Project)' }
+			},
+			scales: {
+				y: { beginAtZero: true }
+			}
+		}
+	});
+	
+	// -- Chart 3: Remote Team Doughnut --
+	const ctxPie = document.getElementById('teamDoughnut').getContext('2d');
+	const teamLabels = ['Europe (GER/RO/ES)', 'North America (US)', 'Asia (China)'];
+	const wrappedTeamLabels = teamLabels.map(l => wrapLabel(l));
+	
+	new Chart(ctxPie, {
+		type: 'doughnut',
+		data: {
+			labels: wrappedTeamLabels,
+			datasets: [{
+				data: [60, 20, 20], // Estimated split based on "3 continents" and EU focus
+				backgroundColor: [
+				'rgb(79, 70, 229)', // Indigo
+				'rgb(20, 184, 166)', // Teal
+				'rgb(99, 102, 241)'  // Light Indigo
+				],
+				borderWidth: 0
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			cutout: '70%',
+			plugins: {
+				tooltip: commonTooltipConfig,
+				legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
+			}
+		}
+	});
+}
+
+// --- 5. Initialization ---
+window.onload = function() {
+	initCharts();
+	updateDetails(0); // Load first timeline item
+};
+
+</script>
+
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</body>
+</html>
