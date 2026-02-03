@@ -1,258 +1,280 @@
 <!DOCTYPE html>
 <html lang="ca">
-	<head>
-		<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<title>La Llegenda dels Dotze Apòstols - Tarragona</title>
-				<link rel="preconnect" href="https://fonts.googleapis.com">
-					<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-						<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
-							<style>
-								:root {
-								--gold: #c5a059;
-								--dark-blue: #1a2a3a;
-								--stone: #f4f1ea;
-								--text: #334155;
-								}
-								
-								* { box-sizing: border-box; }
-								
-								body {
-								background-color: #d1d5db;
-								margin: 0;
-								display: flex;
-								flex-direction: column;
-								align-items: center;
-								gap: 40px;
-								padding: 40px 20px;
-								font-family: 'Fauna One', serif;
-								}
-								
-								/* Contenidor de Diapositiva */
-								.slide {
-								width: 100%;
-								max-width: 1000px;
-								height: 600px;
-								background-color: var(--stone);
-								border-radius: 8px;
-								box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-								position: relative;
-								overflow: hidden;
-								display: flex;
-								flex-direction: column;
-								padding: 50px;
-								border: 1px solid rgba(0,0,0,0.05);
-								}
-								
-								/* Elements decoratius */
-								.slide::before {
-								content: '';
-								position: absolute;
-								top: 0; left: 0; right: 0; height: 10px;
-								background: var(--gold);
-								}
-								
-								.slide-number {
-								position: absolute;
-								bottom: 20px;
-								right: 30px;
-								color: var(--gold);
-								font-weight: bold;
-								font-size: 14px;
-								}
-								
-								/* Tipografia */
-								h1, h2 { 
-								font-family: 'Cinzel', serif; 
-								color: var(--dark-blue);
-								margin: 0;
-								}
-								
-								h1 { font-size: 56px; border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; }
-								h2 { font-size: 36px; margin-bottom: 25px; border-left: 5px solid var(--gold); padding-left: 15px; }
-								
-								p { 
-								font-size: 19px; 
-								line-height: 1.6; 
-								color: var(--text);
-								margin-bottom: 15px;
-								}
-								
-								.highlight { color: var(--gold); font-weight: bold; }
-								
-								/* Layouts */
-								.split {
-								display: grid;
-								grid-template-columns: 1.2fr 0.8fr;
-								gap: 40px;
-								align-items: center;
-								height: 100%;
-								}
-								
-								.center {
-								text-align: center;
-								justify-content: center;
-								align-items: center;
-								}
-								
-								/* Imatges SVG Integrades */
-								.svg-container {
-								width: 100%;
-								display: flex;
-								justify-content: center;
-								align-items: center;
-								}
-								
-								.illustration {
-								width: 100%;
-								max-height: 350px;
-								filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-								}
-								
-								/* Gràfics Específics */
-								.stone-texture {
-								background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.05) 1px, transparent 0);
-								background-size: 24px 24px;
-								}
-								
-								blockquote {
-								font-size: 32px;
-								font-style: italic;
-								color: var(--dark-blue);
-								border-left: none;
-								text-align: center;
-								padding: 40px;
-								position: relative;
-								}
-								
-								blockquote::before {
-								content: '“';
-								font-family: 'Cinzel';
-								font-size: 100px;
-								color: var(--gold);
-								position: absolute;
-								top: -20px;
-								left: 20px;
-								opacity: 0.3;
-								}
-							</style>
-						</head>
-						<body class="stone-texture">
-							
-							<!-- SLIDE 1: PORTADA -->
-							<div class="slide center">
-								<div class="svg-container">
-									<!-- Icona representativa de Tarragona (Catedral/Escut) -->
-									<svg class="illustration" viewBox="0 0 200 100" style="width: 200px; margin-bottom: 20px;">
-										<path d="M100 10 L130 40 L130 90 L70 90 L70 40 Z" fill="none" stroke="#c5a059" stroke-width="2"/>
-											<path d="M85 90 L85 70 Q100 60 115 70 L115 90" fill="none" stroke="#c5a059" stroke-width="2"/>
-												<circle cx="100" cy="40" r="10" fill="none" stroke="#c5a059" stroke-width="2"/>
-													<path d="M70 40 L130 40" stroke="#c5a059" stroke-width="2"/>
-													</svg>
-												</div>
-												<h1>ELS 12 APÒSTOLS</h1>
-												<p style="font-size: 24px; letter-spacing: 2px;">LA LLEGENDA DE TARRAGONA</p>
-												<p class="highlight" style="margin-top: 40px;">Una profecia de pedra a la portalada de la Catedral</p>
-												<div class="slide-number">1</div>
-											</div>
-											
-											<!-- SLIDE 2: CONTEXT -->
-											<div class="slide">
-												<h2>La Portalada de la Seu</h2>
-												<div class="split">
-													<div>
-														<p>La Catedral de Santa Tecla de Tarragona té una de les façanes gòtiques més impressionants de Catalunya.</p>
-														<p>A ambdós costats de la porta principal, dotze figures de pedra representen els <span class="highlight">Apòstols</span>, observant qui entra al temple des de fa segles.</p>
-														<p>Però aquestes estàtues guarden un secret que només es revela una vegada a l'any.</p>
-													</div>
-													<div class="svg-container">
-														<!-- Dibuix de la façana -->
-														<svg class="illustration" viewBox="0 0 200 200">
-															<rect x="40" y="40" width="120" height="150" fill="#e5e7eb" />
-																<path d="M40 40 Q100 0 160 40" fill="#d1d5db" />
-																	<rect x="85" y="100" width="30" height="90" fill="#1a2a3a" />
-																		<!-- Dotze punts representant els apòstols -->
-																		<circle cx="60" cy="110" r="5" fill="#c5a059" /> <circle cx="60" cy="130" r="5" fill="#c5a059" />
-																				<circle cx="60" cy="150" r="5" fill="#c5a059" /> <circle cx="60" cy="170" r="5" fill="#c5a059" />
-																						<circle cx="72" cy="120" r="5" fill="#c5a059" /> <circle cx="72" cy="140" r="5" fill="#c5a059" />
-																								<circle cx="140" cy="110" r="5" fill="#c5a059" /> <circle cx="140" cy="130" r="5" fill="#c5a059" />
-																										<circle cx="140" cy="150" r="5" fill="#c5a059" /> <circle cx="140" cy="170" r="5" fill="#c5a059" />
-																												<circle cx="128" cy="120" r="5" fill="#c5a059" /> <circle cx="128" cy="140" r="5" fill="#c5a059" />
-																													</svg>
-																												</div>
-																											</div>
-																											<div class="slide-number">2</div>
-																										</div>
-																										
-																										<!-- SLIDE 3: LA NIT DE CAP D'ANY -->
-																										<div class="slide">
-																											<h2>La Nit del Miracle</h2>
-																											<div class="split">
-																												<div class="svg-container">
-																													<!-- Dibuix del rellotge/campanes -->
-																													<svg class="illustration" viewBox="0 0 200 200">
-																														<circle cx="100" cy="100" r="80" fill="none" stroke="#1a2a3a" stroke-width="5" />
-																															<path d="M100 100 L100 40" stroke="#c5a059" stroke-width="4" stroke-linecap="round" />
-																																<path d="M100 100 L140 100" stroke="#1a2a3a" stroke-width="4" stroke-linecap="round" />
-																																	<circle cx="100" cy="100" r="5" fill="#c5a059" />
-																																		<text x="92" y="35" font-family="Arial" font-weight="bold">12</text>
-																																	</svg>
-																																</div>
-																																<div>
-																																	<p>La llegenda diu que cada <span class="highlight">31 de desembre</span>, quan les dotze campanades anuncien el nou any, la pedra cobra vida.</p>
-																																	<p>Mentre la ciutat celebra, els apòstols aprofiten el moment màgic de la mitjanit per moure's.</p>
-																																	<p>No és un moviment brusc, sinó un gest gairebé diví i imperceptible per a l'ull humà.</p>
-																																</div>
-																															</div>
-																															<div class="slide-number">3</div>
-																														</div>
-																														
-																														<!-- SLIDE 4: EL PAS DE PUÇA -->
-																														<div class="slide">
-																															<h2>El Pas de Puça</h2>
-																															<div class="split">
-																																<div>
-																																	<p>Saps quina distància recorren? La tradició ho anomena un <span class="highlight">"pas de puça"</span>.</p>
-																																	<p>És a dir, avancen el gruix d'un <span class="highlight">gra de sorra</span> cada any.</p>
-																																	<p>Aquest moviment és tan lent que haurien de passar segles per notar que les estàtues han canviat de lloc.</p>
-																																</div>
-																																<div class="svg-container">
-																																	<!-- Dibuix del gra de sorra i mesura -->
-																																	<svg class="illustration" viewBox="0 0 200 200">
-																																		<line x1="20" y1="150" x2="180" y2="150" stroke="#1a2a3a" stroke-width="2" />
-																																			<circle cx="100" cy="148" r="3" fill="#c5a059" />
-																																				<path d="M90 130 L100 140 L110 130" fill="none" stroke="#c5a059" stroke-width="2" />
-																																					<text x="75" y="110" font-size="12" fill="#334155">Avenç anual: 1mm</text>
-																																				</svg>
-																																			</div>
-																																		</div>
-																																		<div class="slide-number">4</div>
-																																	</div>
-																																	
-																																	<!-- SLIDE 5: LA PROFECIA -->
-																																	<div class="slide center">
-																																		<h2>La Profecia de la Fi del Món</h2>
-																																		<p>Aquest moviment té una finalitat inquietant:</p>
-																																		<blockquote>
-																																			"Quan els apòstols acabin de baixar de la portalada i els seus peus toquin terra... arribarà la fi del món."
-																																		</blockquote>
-																																		<p style="margin-top: 30px;">Per sort, al ritme d'un pas de puça per any, encara ens queden milers d'anys de tranquil·litat!</p>
-																																		<div class="slide-number">5</div>
-																																	</div>
-																																	
-																																	<!-- SLIDE 6: CONCLUSIÓ -->
-																																	<div class="slide center">
-																																		<h1>FI DE LA PRESENTACIÓ</h1>
-																																		<p>Recordeu fixar-vos-hi bé el proper Cap d'Any!</p>
-																																		<div class="svg-container" style="margin-top: 40px;">
-																																			<svg width="100" height="100" viewBox="0 0 100 100">
-																																				<circle cx="50" cy="50" r="45" fill="#c5a059" opacity="0.2" />
-																																					<path d="M30 50 L45 65 L70 35" fill="none" stroke="#c5a059" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
-																																					</svg>
-																																				</div>
-																																				<p class="highlight">Gràcies per la vostra atenció</p>
-																																				<div class="slide-number">6</div>
-																																			</div>
-																																			
-																																		</body>
-																																	</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Llegenda dels Dotze Apòstols - Tarragona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark-blue: #1a2a3a;
+            --stone: #f4f1ea;
+            --text: #334155;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            background-color: #d1d5db;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 20px;
+            font-family: 'Fauna One', serif;
+        }
+
+        /* Contenidor de Diapositiva */
+        .slide {
+            width: 100%;
+            max-width: 1000px;
+            height: 600px;
+            background-color: var(--stone);
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Elements decoratius */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 10px;
+            background: var(--gold);
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Tipografia */
+        h1, h2 { 
+            font-family: 'Cinzel', serif; 
+            color: var(--dark-blue);
+            margin: 0;
+        }
+
+        h1 { font-size: 56px; border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { font-size: 36px; margin-bottom: 25px; border-left: 5px solid var(--gold); padding-left: 15px; }
+        
+        p { 
+            font-size: 19px; 
+            line-height: 1.6; 
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .highlight { color: var(--gold); font-weight: bold; }
+
+        /* Layouts */
+        .split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            height: 100%;
+        }
+
+        .center {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Imatges SVG Integrades */
+        .svg-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .illustration {
+            width: 100%;
+            max-height: 350px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+
+        /* Gràfics Específics */
+        .stone-texture {
+            background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        blockquote {
+            font-size: 32px;
+            font-style: italic;
+            color: var(--dark-blue);
+            border-left: none;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '“';
+            font-family: 'Cinzel';
+            font-size: 100px;
+            color: var(--gold);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="stone-texture">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide center">
+        <div class="svg-container">
+            <svg class="illustration" viewBox="0 0 200 100" style="width: 200px; margin-bottom: 20px;">
+                <path d="M100 10 L130 40 L130 90 L70 90 L70 40 Z" fill="none" stroke="#c5a059" stroke-width="2"/>
+                <path d="M85 90 L85 70 Q100 60 115 70 L115 90" fill="none" stroke="#c5a059" stroke-width="2"/>
+                <circle cx="100" cy="40" r="10" fill="none" stroke="#c5a059" stroke-width="2"/>
+                <path d="M70 40 L130 40" stroke="#c5a059" stroke-width="2"/>
+            </svg>
+        </div>
+        <h1>ELS 12 APÒSTOLS</h1>
+        <p style="font-size: 24px; letter-spacing: 2px;">LA LLEGENDA DE TARRAGONA</p>
+        <p class="highlight" style="margin-top: 40px;">Una profecia de pedra a la portalada de la Catedral</p>
+        <div class="slide-number">1</div>
+    </div>
+
+    <!-- SLIDE 2: CONTEXT -->
+    <div class="slide">
+        <h2>La Portalada de la Seu</h2>
+        <div class="split">
+            <div>
+                <p>La Catedral de Santa Tecla de Tarragona té una de les façanes gòtiques més impressionants de Catalunya.</p>
+                <p>A ambdós costats de la porta principal, dotze figures de pedra representen els <span class="highlight">Apòstols</span>, observant qui entra al temple des de fa segles.</p>
+                <p>Però aquestes estàtues guarden un secret que només es revela una vegada a l'any.</p>
+            </div>
+            <div class="svg-container">
+                <svg class="illustration" viewBox="0 0 200 200">
+                    <rect x="40" y="40" width="120" height="150" fill="#e5e7eb" />
+                    <path d="M40 40 Q100 0 160 40" fill="#d1d5db" />
+                    <rect x="85" y="100" width="30" height="90" fill="#1a2a3a" />
+                    <circle cx="60" cy="110" r="5" fill="#c5a059" /> <circle cx="60" cy="130" r="5" fill="#c5a059" />
+                    <circle cx="60" cy="150" r="5" fill="#c5a059" /> <circle cx="60" cy="170" r="5" fill="#c5a059" />
+                    <circle cx="72" cy="120" r="5" fill="#c5a059" /> <circle cx="72" cy="140" r="5" fill="#c5a059" />
+                    <circle cx="140" cy="110" r="5" fill="#c5a059" /> <circle cx="140" cy="130" r="5" fill="#c5a059" />
+                    <circle cx="140" cy="150" r="5" fill="#c5a059" /> <circle cx="140" cy="170" r="5" fill="#c5a059" />
+                    <circle cx="128" cy="120" r="5" fill="#c5a059" /> <circle cx="128" cy="140" r="5" fill="#c5a059" />
+                </svg>
+            </div>
+        </div>
+        <div class="slide-number">2</div>
+    </div>
+
+    <!-- SLIDE 3: LA NIT DE CAP D'ANY (CORREGIDA) -->
+    <div class="slide">
+        <h2>La Nit del Miracle</h2>
+        <div class="split">
+            <div class="svg-container">
+                <!-- Rellotge corregit a les 12:00 -->
+                <svg class="illustration" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#1a2a3a" stroke-width="5" />
+                    <!-- Agulla dels minuts (vertical cap amunt) -->
+                    <path d="M100 100 L100 35" stroke="#1a2a3a" stroke-width="4" stroke-linecap="round" />
+                    <!-- Agulla de les hores (vertical cap amunt, més curta) -->
+                    <path d="M100 100 L100 60" stroke="#c5a059" stroke-width="6" stroke-linecap="round" />
+                    <circle cx="100" cy="100" r="5" fill="#c5a059" />
+                    <text x="92" y="30" font-family="Arial" font-weight="bold" fill="#1a2a3a">12</text>
+                    <text x="95" y="175" font-family="Arial" font-size="10" fill="#c5a059">00:00</text>
+                </svg>
+            </div>
+            <div>
+                <p>La llegenda diu que cada <span class="highlight">31 de desembre</span>, quan les dotze campanades anuncien el nou any, la pedra cobra vida.</p>
+                <p>Mentre la ciutat celebra, els apòstols aprofiten el moment màgic de la mitjanit per moure's.</p>
+                <p>No és un moviment brusc, sinó un gest gairebé diví i imperceptible per a l'ull humà.</p>
+            </div>
+        </div>
+        <div class="slide-number">3</div>
+    </div>
+
+    <!-- SLIDE 4: EL PAS DE PUÇA -->
+    <div class="slide">
+        <h2>El Pas de Puça</h2>
+        <div class="split">
+            <div>
+                <p>Saps quina distància recorren? La tradició ho anomena un <span class="highlight">"pas de puça"</span>.</p>
+                <p>És a dir, avancen el gruix d'un <span class="highlight">gra de sorra</span> cada any.</p>
+                <p>Aquest moviment és tan lent que haurien de passar segles per notar que les estàtues han canviat de lloc.</p>
+            </div>
+            <div class="svg-container">
+                <svg class="illustration" viewBox="0 0 200 200">
+                    <line x1="20" y1="150" x2="180" y2="150" stroke="#1a2a3a" stroke-width="2" />
+                    <circle cx="100" cy="148" r="3" fill="#c5a059" />
+                    <path d="M90 130 L100 140 L110 130" fill="none" stroke="#c5a059" stroke-width="2" />
+                    <text x="75" y="110" font-size="12" fill="#334155">Avenç anual: 1mm</text>
+                </svg>
+            </div>
+        </div>
+        <div class="slide-number">4</div>
+    </div>
+
+    <!-- SLIDE 5: L'ANECDOTA DE L'ANY 2000 -->
+    <div class="slide">
+        <h2>La Por del Canvi de Mil·lenni</h2>
+        <div class="split">
+            <div class="svg-container">
+                <svg class="illustration" viewBox="0 0 200 200">
+                    <path d="M40 60 L160 60 L160 160 L40 160 Z" fill="#e5e7eb" stroke="#1a2a3a" />
+                    <path d="M70 160 Q75 140 80 160 M90 160 Q95 140 100 160 M110 160 Q115 140 120 160" stroke="#c5a059" stroke-width="3" fill="none" />
+                    <circle cx="75" cy="140" r="4" fill="#1a2a3a" />
+                    <circle cx="95" cy="140" r="4" fill="#1a2a3a" />
+                    <circle cx="115" cy="140" r="4" fill="#1a2a3a" />
+                    <text x="60" y="50" font-size="14" font-weight="bold" fill="#c5a059">31-12-1999</text>
+                </svg>
+            </div>
+            <div>
+                <p>La nit del <span class="highlight">31 de desembre de 1999</span> va ser especialment intensa a Tarragona.</p>
+                <p>Amb l'arribada de l'any 2000 i la por col·lectiva a l'Efecte 2000, centenars de persones es van aplegar a la Plaça de la Seu.</p>
+                <p>Alguns tarragonins, mig de broma mig seriosament, es van agafar de les mans o van posar els peus sota les estàtues per <span class="highlight">"aguantar-les"</span> i evitar que baixessin.</p>
+            </div>
+        </div>
+        <div class="slide-number">5</div>
+    </div>
+
+    <!-- SLIDE 6: LA PROFECIA -->
+    <div class="slide center">
+        <h2>La Profecia de la Fi del Món</h2>
+        <p>Aquest moviment té una finalitat inquietant:</p>
+        <blockquote>
+            "Quan els apòstols acabin de baixar de la portalada i els seus peus toquin terra... arribarà la fi del món."
+        </blockquote>
+        <p style="margin-top: 30px;">Per sort, al ritme d'un pas de puça per any, encara ens queden milers d'anys de tranquil·litat!</p>
+        <div class="slide-number">6</div>
+    </div>
+
+    <!-- SLIDE 7: CONCLUSIÓ -->
+    <div class="slide center">
+        <h1>FI DE LA PRESENTACIÓ</h1>
+        <p>Recordeu fixar-vos-hi bé el proper Cap d'Any!</p>
+        <div class="svg-container" style="margin-top: 40px;">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#c5a059" opacity="0.2" />
+                <path d="M30 50 L45 65 L70 35" fill="none" stroke="#c5a059" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <p class="highlight">Gràcies per la vostra atenció</p>
+        <div class="slide-number">7</div>
+    </div>
+
+</body>
+</html>
