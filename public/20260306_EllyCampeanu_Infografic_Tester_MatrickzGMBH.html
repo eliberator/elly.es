@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Dashboard: Elly Câmpeanu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 380px; } }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(226, 232, 240, 0.8); }
+        .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="antialiased text-slate-900">
+
+<!-- Chosen Palette: Brilliant Blues & Energetic Orange (#2563eb, #ea580c) -->
+<!-- Application Structure Plan: The SPA is organized as a 'Candidate Intelligence Dashboard'. It starts with a High-Impact Header for immediate identification. Section 1 (Technical DNA) uses a Radar chart to quantify skill alignment. Section 2 (Professional Pedigree) uses a Doughnut chart and narrative cards to show career depth at Tier 1 suppliers. Section 3 (Role Synergy) highlights the specific cultural and location fit for Matrickz. This flow moves the user from 'What you can do' to 'Where you've done it' to 'Why you're the right fit'. -->
+<!-- Visualization & Content Choices: 1. Core Competency Radar -> Goal: Compare -> Radar Chart (Chart.js) -> Hover interaction -> Justification: Perfectly shows the balance between diverse automotive standards (AUTOSAR, ISO 26262, etc). 2. Domain Expertise -> Goal: Composition -> Doughnut Chart (Chart.js) -> Hover interaction -> Justification: Shows variety in automotive modules handled. 3. Strategic Fit Cards -> Goal: Inform -> Styled HTML/CSS -> Justification: Highlighting soft-skills and remote readiness. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+<div class="max-w-6xl mx-auto px-4 py-8 md:py-16 space-y-12">
+
+    <!-- Header Section -->
+    <header class="glass-card rounded-3xl p-8 md:p-12 shadow-xl border-t-8 border-blue-600 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-slate-900">Elly Câmpeanu</h1>
+            <p class="text-xl md:text-2xl font-bold text-orange-600 mt-2 uppercase tracking-wide">Embedded Software Tester</p>
+            <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
+                <span class="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">&#128205; Remote / Spain</span>
+                <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold border border-slate-200">&#128222; +34 681 671 597</span>
+                <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold border border-slate-200">&#9993; elly@debugnomad.com</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-inner border border-slate-100">
+            <span class="text-5xl font-black text-blue-600">15+</span>
+            <span class="text-xs font-bold text-slate-500 uppercase mt-1">Years in Automotive</span>
+        </div>
+    </header>
+
+    <!-- Technical DNA Section -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-5 space-y-6">
+            <div class="glass-card p-8 rounded-3xl shadow-md">
+                <h2 class="text-2xl font-extrabold text-slate-800 mb-4 border-b-4 border-orange-500 pb-2 inline-block">Technical DNA</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    My technical foundation is built on the most rigorous automotive standards. This profile highlights my readiness for <strong>ASIL-D</strong> safety-critical testing and <strong>ASPICE</strong> compliant workflows.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                        <span class="text-2xl">&#9881;</span>
+                        <div>
+                            <p class="font-bold text-blue-900">AUTOSAR Expert</p>
+                            <p class="text-xs text-blue-700">Deep understanding of SWC & BSW stacks</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-orange-50 rounded-xl border border-orange-100">
+                        <span class="text-2xl">&#128680;</span>
+                        <div>
+                            <p class="font-bold text-orange-900">ISO 26262 Specialist</p>
+                            <p class="text-xs text-orange-700">Safety-critical systems up to ASIL-D</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-7 glass-card p-8 rounded-3xl shadow-md">
+            <h3 class="text-center font-bold text-slate-500 uppercase tracking-widest text-sm mb-6">Competency Alignment Map</h3>
+            <div class="chart-container">
+                <canvas id="competencyRadar"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Pedigree Section -->
+    <section class="space-y-8">
+        <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-3xl font-black text-slate-900">Professional Pedigree</h2>
+            <p class="text-slate-500 mt-2 italic">Forged in Tier 1 suppliers, refined in global leadership roles.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-2xl hover-lift">
+                <div class="text-3xl mb-3">&#128269;</div>
+                <h4 class="font-bold text-lg text-slate-800">Detective Mindset</h4>
+                <p class="text-sm text-slate-600 mt-2">Specialized in root cause analysis for complex system integration failures. I don't just find bugs; I find their origins.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl hover-lift">
+                <div class="text-3xl mb-3">&#128295;</div>
+                <h4 class="font-bold text-lg text-slate-800">Hands-on Testing</h4>
+                <p class="text-sm text-slate-600 mt-2">Expert user of <strong>CANoe</strong>. Proficient in Embedded C structures and hardware-in-the-loop environments.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl hover-lift">
+                <div class="text-3xl mb-3">&#127981;</div>
+                <h4 class="font-bold text-lg text-slate-800">Tier 1 History</h4>
+                <p class="text-sm text-slate-600 mt-2">Proven track record at <strong>Continental</strong> and <strong>Lear Corporation</strong>, delivering high-quality automotive solutions.</p>
+            </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl shadow-md">
+            <h3 class="text-center font-bold text-slate-500 uppercase tracking-widest text-sm mb-8">Software Quality & Domain Distribution</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="chart-container">
+                    <canvas id="domainDoughnut"></canvas>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold text-blue-600">Why Matrickz?</h4>
+                    <p class="text-slate-600">
+                        Your focus on <strong>high-end automotive engineering</strong> aligns with my passion for software excellence. I am excited to bring my remote-ready, 15-year background to help Matrickz ensure absolute reliability for top-tier clients.
+                    </p>
+                    <div class="p-4 bg-slate-900 rounded-2xl text-white">
+                        <p class="text-xs uppercase font-bold text-slate-400">Current Readiness</p>
+                        <p class="text-lg font-medium mt-1">Ready for Immediate Remote Collaboration from Spain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Helper for multi-line labels
+    const wrapLabel = (label) => {
+        if (label.length <= 16) return label;
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+            if ((currentLine + word).length > 16) {
+                lines.push(currentLine.trim());
+                currentLine = word + ' ';
+            } else {
+                currentLine += word + ' ';
+            }
+        });
+        if (currentLine) lines.push(currentLine.trim());
+        return lines;
+    };
+
+    // Global Tooltip Config
+    const tooltipConfig = {
+        callbacks: {
+            title: function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                return Array.isArray(label) ? label.join(' ') : label;
+            }
+        },
+        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+        titleFont: { size: 14, weight: 'bold' },
+        padding: 12,
+        cornerRadius: 8
+    };
+
+    // 1. Competency Radar Chart
+    const ctxRadar = document.getElementById('competencyRadar').getContext('2d');
+    new Chart(ctxRadar, {
+        type: 'radar',
+        data: {
+            labels: [
+                'AUTOSAR Stack', 
+                'ISO 26262 / ASIL-D', 
+                'ASPICE Standards', 
+                'Embedded C Code', 
+                'Testing', 
+                'Root Cause Analysis'
+            ].map(wrapLabel),
+            datasets: [{
+                label: 'Candidate Proficiency (%)',
+                data: [95, 90, 85, 95, 88, 92],
+                fill: true,
+                backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                borderColor: 'rgb(37, 99, 235)',
+                pointBackgroundColor: 'rgb(234, 88, 12)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(234, 88, 12)'
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(203, 213, 225, 0.5)' },
+                    grid: { color: 'rgba(203, 213, 225, 0.5)' },
+                    pointLabels: {
+                        font: { size: 12, weight: '600', family: 'Inter' },
+                        color: '#475569'
+                    },
+                    ticks: { display: false, stepSize: 20 }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: tooltipConfig
+            }
+        }
+    });
+
+    // 2. Domain Doughnut Chart
+    const ctxDoughnut = document.getElementById('domainDoughnut').getContext('2d');
+    new Chart(ctxDoughnut, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Tier 1 QA Workflows', 
+                'Safety Critical Systems', 
+                'Integration Testing', 
+                'Build Management'
+            ].map(wrapLabel),
+            datasets: [{
+                data: [40, 30, 20, 10],
+                backgroundColor: [
+                    '#2563eb', 
+                    '#ea580c', 
+                    '#3b82f6', 
+                    '#f97316'
+                ],
+                borderWidth: 0,
+                hoverOffset: 20
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        usePointStyle: true,
+                        font: { size: 12, weight: '600' }
+                    }
+                },
+                tooltip: tooltipConfig
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
