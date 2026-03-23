@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elly Câmpeanu | Technical Operations Infographic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: linear-gradient(135deg, #060b1a 0%, #0d1530 40%, #0a0f25 100%);
+      color: #f8fafc;
+      min-height: 100vh;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0d1530; }
+    ::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.4); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.7); }
+
+    /* Gradient text utility */
+    .text-gradient {
+      background: linear-gradient(100deg, #06b6d4 0%, #8b5cf6 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .text-gradient-footer {
+      background: linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Glass card */
+    .glass {
+      background: rgba(13, 20, 45, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    /* KPI card hover */
+    .kpi-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .kpi-card:hover {
+      transform: scale(1.05) translateY(-4px);
+    }
+
+    /* Section header accent bar */
+    .accent-bar {
+      display: inline-block;
+      width: 4px;
+      height: 1.5rem;
+      border-radius: 9999px;
+      flex-shrink: 0;
+    }
+
+    /* Skill badge */
+    .skill-badge {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+    }
+
+    /* Stat bar track */
+    .stat-track {
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(30, 41, 59, 0.8);
+      overflow: hidden;
+    }
+    .stat-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Timeline */
+    .tl-line {
+      position: absolute;
+      left: 19px;
+      top: 44px;
+      bottom: 0;
+      width: 2px;
+    }
+    .tl-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 10;
+      margin-top: 4px;
+    }
+    .tl-dot-inner {
+      width: 12px;
+      height: 12px;
+      border-radius: 9999px;
+    }
+
+    /* Doughnut centre label */
+    .donut-wrapper { position: relative; }
+    .donut-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    /* Bar annotation badge */
+    .bar-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(6,182,212,0.12);
+      border: 1px solid rgba(6,182,212,0.3);
+      border-radius: 0.5rem;
+      padding: 6px 12px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    /* Orbs */
+    .orb {
+      position: fixed;
+      border-radius: 9999px;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient orbs -->
+  <div class="orb" style="width:380px;height:380px;top:-80px;left:-80px;background:radial-gradient(circle,#8b5cf6,transparent);opacity:0.18;"></div>
+  <div class="orb" style="width:320px;height:320px;top:33%;right:-60px;background:radial-gradient(circle,#06b6d4,transparent);opacity:0.13;"></div>
+  <div class="orb" style="width:280px;height:280px;bottom:25%;left:25%;background:radial-gradient(circle,#ec4899,transparent);opacity:0.09;"></div>
+
+  <div style="max-width:1280px;margin:0 auto;padding:3rem 1.5rem 4rem;">
+
+    <!-- ═══════════════════════════════════════════════════
+         HEADER
+    ═══════════════════════════════════════════════════ -->
+    <header style="text-align:center;margin-bottom:5rem;margin-top:1.5rem;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:9999px;margin-bottom:1.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.3);color:#06b6d4;">
+        Technical Operations Infographic
+      </div>
+      <h1 class="text-gradient" style="font-size:clamp(2.5rem,8vw,5rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin:0 0 1rem;">
+        Elly Câmpeanu
+      </h1>
+      <h2 style="font-size:clamp(1rem,3vw,1.5rem);font-weight:300;color:#22d3ee;margin:0 0 1.5rem;letter-spacing:0.05em;">
+        Technical Software Operations Engineer
+      </h2>
+      <div style="width:6rem;height:1px;margin:0 auto 1.5rem;background:linear-gradient(90deg,transparent,#8b5cf6,transparent);"></div>
+      <p style="max-width:48rem;margin:0 auto;color:#94a3b8;font-size:1rem;line-height:1.8;">
+        A comprehensive overview of a <span style="color:#22d3ee;font-weight:600;">15-year career</span> optimizing
+        full hardware and software development lifecycles within high-pressure, regulated
+        <span style="color:#a78bfa;font-weight:600;">Automotive Tier 1</span> industries.
+        Specializing in technical triage, continuous integration workflows, and leading global deployment teams.
+      </p>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════
+         KPI CARDS
+    ═══════════════════════════════════════════════════ -->
+    <section style="margin-bottom:5rem;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;">
+
+        <!-- Cyan -->
+        <div class="glass kpi-card" style="padding:1.5rem;text-align:center;border:1px solid rgba(6,182,212,0.2);border-top:3px solid #06b6d4;box-shadow:0 0 40px rgba(6,182,212,0.08),0 20px 40px rgba(0,0,0,0.4);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-2rem;right:-2rem;width:8rem;height:8rem;border-radius:9999px;background:#06b6d4;opacity:0.08;filter:blur(24px);"></div>
+          <div style="font-size:2.25rem;margin-bottom:0.75rem;">⏱️</div>
+          <div style="font-size:3rem;font-weight:900;color:#06b6d4;line-height:1;margin-bottom:0.5rem;">15+</div>
+          <p style="color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;font-size:0.7rem;font-weight:700;margin:0;">Years Experience</p>
+        </div>
+
+        <!-- Purple -->
+        <div class="glass kpi-card" style="padding:1.5rem;text-align:center;border:1px solid rgba(139,92,246,0.2);border-top:3px solid #8b5cf6;box-shadow:0 0 40px rgba(139,92,246,0.08),0 20px 40px rgba(0,0,0,0.4);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-2rem;right:-2rem;width:8rem;height:8rem;border-radius:9999px;background:#8b5cf6;opacity:0.08;filter:blur(24px);"></div>
+          <div style="font-size:2.25rem;margin-bottom:0.75rem;">🌍</div>
+          <div style="font-size:3rem;font-weight:900;color:#8b5cf6;line-height:1;margin-bottom:0.5rem;">40+</div>
+          <p style="color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;font-size:0.7rem;font-weight:700;margin:0;">FTEs Managed</p>
+        </div>
+
+        <!-- Pink -->
+        <div class="glass kpi-card" style="padding:1.5rem;text-align:center;border:1px solid rgba(236,72,153,0.2);border-top:3px solid #ec4899;box-shadow:0 0 40px rgba(236,72,153,0.08),0 20px 40px rgba(0,0,0,0.4);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-2rem;right:-2rem;width:8rem;height:8rem;border-radius:9999px;background:#ec4899;opacity:0.08;filter:blur(24px);"></div>
+          <div style="font-size:2.25rem;margin-bottom:0.75rem;">🚀</div>
+          <div style="font-size:3rem;font-weight:900;color:#ec4899;line-height:1;margin-bottom:0.5rem;">800+</div>
+          <p style="color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;font-size:0.7rem;font-weight:700;margin:0;">Hours Saved / Month</p>
+        </div>
+
+        <!-- Blue -->
+        <div class="glass kpi-card" style="padding:1.5rem;text-align:center;border:1px solid rgba(59,130,246,0.2);border-top:3px solid #3b82f6;box-shadow:0 0 40px rgba(59,130,246,0.08),0 20px 40px rgba(0,0,0,0.4);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-2rem;right:-2rem;width:8rem;height:8rem;border-radius:9999px;background:#3b82f6;opacity:0.08;filter:blur(24px);"></div>
+          <div style="font-size:2.25rem;margin-bottom:0.75rem;">💰</div>
+          <div style="font-size:3rem;font-weight:900;color:#3b82f6;line-height:1;margin-bottom:0.5rem;">€30k</div>
+          <p style="color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;font-size:0.7rem;font-weight:700;margin:0;">Cost Reduction</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         DEPLOYMENT & TRIAGE CHARTS
+    ═══════════════════════════════════════════════════ -->
+    <section style="margin-bottom:5rem;">
+      <!-- Section header -->
+      <div style="margin-bottom:2.5rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <span class="accent-bar" style="background:#06b6d4;"></span>
+          <h2 style="font-size:clamp(1.25rem,3vw,1.75rem);font-weight:800;color:#fff;margin:0;letter-spacing:-0.01em;">System Optimization &amp; Incident Triage</h2>
+        </div>
+        <p style="color:#64748b;font-size:1rem;line-height:1.7;padding-left:1rem;margin:0;">
+          Quantifiable improvements in deployment speeds and critical issue resolution through automation, structured analysis, and operational leadership.
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;">
+
+        <!-- Bar Chart -->
+        <div class="glass" style="padding:2rem;border:1px solid rgba(6,182,212,0.18);display:flex;flex-direction:column;">
+          <h3 style="color:#06b6d4;font-size:1.1rem;font-weight:700;text-align:center;margin:0 0 0.75rem;">CI/CD Deployment Acceleration</h3>
+          <p style="color:#64748b;font-size:0.8rem;text-align:center;line-height:1.6;margin:0 0 1.5rem;">
+            VW Electric Drive Unit project: continuous integration protocols cut the release cycle from 7 days to 1 — a <strong style="color:#06b6d4;">7× improvement</strong>.
+          </p>
+          <div style="position:relative;flex:1;min-height:280px;">
+            <div class="bar-badge">
+              <div style="font-size:1.5rem;font-weight:900;color:#06b6d4;line-height:1;">7×</div>
+              <div style="font-size:0.65rem;color:#64748b;font-weight:600;">Faster</div>
+            </div>
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Doughnut Chart -->
+        <div class="glass" style="padding:2rem;border:1px solid rgba(236,72,153,0.18);display:flex;flex-direction:column;">
+          <h3 style="color:#ec4899;font-size:1.1rem;font-weight:700;text-align:center;margin:0 0 0.75rem;">BMW RADAR Incident Triage</h3>
+          <p style="color:#64748b;font-size:0.8rem;text-align:center;line-height:1.6;margin:0 0 1.5rem;">
+            Leading structured debugging under high-pressure SOP deadlines, a 600-issue backlog was cut to 60 — a <strong style="color:#ec4899;">90% resolution rate</strong>.
+          </p>
+          <div class="donut-wrapper" style="flex:1;min-height:280px;display:flex;align-items:center;justify-content:center;position:relative;">
+            <div class="donut-center">
+              <div style="font-size:2rem;font-weight:900;color:#fff;line-height:1;">90%</div>
+              <div style="font-size:0.7rem;color:#64748b;font-weight:600;margin-top:2px;">Resolved</div>
+            </div>
+            <div style="width:100%;max-width:320px;height:280px;position:relative;">
+              <canvas id="doughnutChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         LANGUAGES & SKILLS CHARTS
+    ═══════════════════════════════════════════════════ -->
+    <section style="margin-bottom:5rem;">
+      <div style="margin-bottom:2.5rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <span class="accent-bar" style="background:#8b5cf6;"></span>
+          <h2 style="font-size:clamp(1.25rem,3vw,1.75rem);font-weight:800;color:#fff;margin:0;letter-spacing:-0.01em;">Multinational Capabilities &amp; Technical Arsenal</h2>
+        </div>
+        <p style="color:#64748b;font-size:1rem;line-height:1.7;padding-left:1rem;margin:0;">
+          Executing complex international projects requires robust cross-cultural communication alongside a deep, specialized engineering toolkit.
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;">
+
+        <!-- Radar Chart -->
+        <div class="glass" style="padding:2rem;border:1px solid rgba(139,92,246,0.18);display:flex;flex-direction:column;">
+          <h3 style="color:#a78bfa;font-size:1.1rem;font-weight:700;text-align:center;margin:0 0 0.75rem;">Global Communication Metrics</h3>
+          <p style="color:#64748b;font-size:0.8rem;text-align:center;line-height:1.6;margin:0 0 1.5rem;">
+            CEFR-mapped proficiency enabling seamless stakeholder management across European engineering hubs from Munich to Barcelona.
+          </p>
+          <div style="flex:1;min-height:300px;position:relative;">
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Skills: Bars + Polar -->
+        <div class="glass" style="padding:2rem;border:1px solid rgba(59,130,246,0.18);display:flex;flex-direction:column;">
+          <h3 style="color:#60a5fa;font-size:1.1rem;font-weight:700;text-align:center;margin:0 0 0.75rem;">Core Engineering Competencies</h3>
+          <p style="color:#64748b;font-size:0.8rem;text-align:center;line-height:1.6;margin:0 0 1.5rem;">
+            Deep mastery across Linux deployment, automation scripting, CI/CD image delivery, and rigorous process documentation.
+          </p>
+
+          <!-- Stat Bars -->
+          <div style="margin-bottom:1.5rem;">
+            <div style="margin-bottom:1rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <span style="color:#cbd5e1;font-size:0.8rem;font-weight:500;">OS &amp; Linux Administration</span>
+                <span style="color:#06b6d4;font-size:0.75rem;font-weight:700;">98%</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill" data-width="98" style="width:0%;background:linear-gradient(90deg,rgba(6,182,212,0.6),#06b6d4);box-shadow:0 0 10px rgba(6,182,212,0.5);"></div></div>
+            </div>
+            <div style="margin-bottom:1rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <span style="color:#cbd5e1;font-size:0.8rem;font-weight:500;">Image Deployment &amp; CI/CD</span>
+                <span style="color:#ec4899;font-size:0.75rem;font-weight:700;">95%</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill" data-width="95" style="width:0%;background:linear-gradient(90deg,rgba(236,72,153,0.6),#ec4899);box-shadow:0 0 10px rgba(236,72,153,0.5);"></div></div>
+            </div>
+            <div style="margin-bottom:1rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <span style="color:#cbd5e1;font-size:0.8rem;font-weight:500;">Documentation &amp; Runbooks</span>
+                <span style="color:#3b82f6;font-size:0.75rem;font-weight:700;">90%</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill" data-width="90" style="width:0%;background:linear-gradient(90deg,rgba(59,130,246,0.6),#3b82f6);box-shadow:0 0 10px rgba(59,130,246,0.5);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <span style="color:#cbd5e1;font-size:0.8rem;font-weight:500;">Automation Scripting &amp; Python</span>
+                <span style="color:#8b5cf6;font-size:0.75rem;font-weight:700;">85%</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill" data-width="85" style="width:0%;background:linear-gradient(90deg,rgba(139,92,246,0.6),#8b5cf6);box-shadow:0 0 10px rgba(139,92,246,0.5);"></div></div>
+            </div>
+          </div>
+
+          <!-- Polar Chart -->
+          <div style="flex:1;min-height:200px;position:relative;">
+            <canvas id="polarChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         TOOLS & TECHNOLOGIES
+    ═══════════════════════════════════════════════════ -->
+    <section style="margin-bottom:5rem;">
+      <div style="margin-bottom:2.5rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <span class="accent-bar" style="background:#10b981;"></span>
+          <h2 style="font-size:clamp(1.25rem,3vw,1.75rem);font-weight:800;color:#fff;margin:0;letter-spacing:-0.01em;">Tools &amp; Technologies</h2>
+        </div>
+        <p style="color:#64748b;font-size:1rem;line-height:1.7;padding-left:1rem;margin:0;">
+          A curated stack refined across Tier 1 automotive environments, OEM integrations, and industrial IoT deployments.
+        </p>
+      </div>
+      <div class="glass" style="padding:2rem;border:1px solid rgba(16,185,129,0.18);">
+        <div id="toolsBadges" style="display:flex;flex-wrap:wrap;gap:0.75rem;"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         TIMELINE
+    ═══════════════════════════════════════════════════ -->
+    <section style="margin-bottom:5rem;">
+      <div style="margin-bottom:2.5rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <span class="accent-bar" style="background:#ec4899;"></span>
+          <h2 style="font-size:clamp(1.25rem,3vw,1.75rem);font-weight:800;color:#fff;margin:0;letter-spacing:-0.01em;">Critical Operations Timeline</h2>
+        </div>
+        <p style="color:#64748b;font-size:1rem;line-height:1.7;padding-left:1rem;margin:0;">
+          A chronological breakdown of key milestones leading software engineering teams and managing complex deployments across Europe.
+        </p>
+      </div>
+
+      <div class="glass" style="padding:2rem 2.5rem;border:1px solid rgba(236,72,153,0.12);">
+        <div id="timeline"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════════════ -->
+    <footer style="text-align:center;border-top:1px solid rgba(51,65,85,0.5);padding-top:2rem;">
+      <div class="text-gradient-footer" style="font-size:1.125rem;font-weight:700;margin-bottom:0.25rem;">
+        Elly Câmpeanu
+      </div>
+      <p style="color:#475569;font-size:0.8rem;margin:0;">
+        Structured data visualization based on professional experience record · 2024
+      </p>
+    </footer>
+
+  </div><!-- /container -->
+
+  <script>
+    // ─── COLORS ────────────────────────────────────────────────────────────────
+    const C = {
+      cyan:    '#06b6d4',
+      purple:  '#8b5cf6',
+      pink:    '#ec4899',
+      blue:    '#3b82f6',
+      emerald: '#10b981',
+    };
+
+    // ─── TOOLTIP DEFAULTS ──────────────────────────────────────────────────────
+    const tooltipDefaults = {
+      backgroundColor: 'rgba(8,15,35,0.95)',
+      titleColor: C.cyan,
+      bodyColor: '#f1f5f9',
+      borderColor: 'rgba(139,92,246,0.4)',
+      borderWidth: 1,
+      padding: 14,
+      cornerRadius: 10,
+      titleFont: { family: 'Inter, sans-serif', size: 13, weight: 'bold' },
+      bodyFont:  { family: 'Inter, sans-serif', size: 12 },
+    };
+
+    function makeTooltip(title) {
+      return {
+        ...tooltipDefaults,
+        callbacks: {
+          title: (items) => {
+            const lbl = items[0]?.label ?? title;
+            return Array.isArray(lbl) ? lbl.join(' ') : lbl.replace(/\n/g, ' ');
+          },
+        },
+      };
+    }
+
+    // ─── BAR CHART ─────────────────────────────────────────────────────────────
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Legacy Manual\nIntegration Cycle', 'Automated CI/CD\nPipeline'],
+        datasets: [{
+          label: 'Days Required',
+          data: [7, 1],
+          backgroundColor: ['rgba(236,72,153,0.85)', 'rgba(6,182,212,0.85)'],
+          borderRadius: 10,
+          borderSkipped: false,
+          borderWidth: 0,
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          tooltip: makeTooltip('Days Required for Integration'),
+          legend: { display: false },
+        },
+        scales: {
+          y: {
+            beginAtZero: true, max: 8,
+            grid: { color: 'rgba(51,65,85,0.4)' },
+            ticks: { color: '#94a3b8', font: { size: 11 }, callback: v => v + 'd' },
+            border: { color: 'transparent' },
+          },
+          x: {
+            grid: { display: false },
+            ticks: { color: '#94a3b8', font: { size: 11 } },
+            border: { color: 'transparent' },
+          },
+        },
+        animation: { duration: 1200, easing: 'easeOutQuart' },
+      },
+    });
+
+    // ─── DOUGHNUT CHART ────────────────────────────────────────────────────────
+    new Chart(document.getElementById('doughnutChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Unresolved Blockers', 'Successfully Triaged'],
+        datasets: [{
+          data: [60, 540],
+          backgroundColor: ['rgba(236,72,153,0.9)', 'rgba(139,92,246,0.85)'],
+          hoverBackgroundColor: [C.pink, C.purple],
+          borderWidth: 0,
+          hoverOffset: 12,
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        cutout: '72%',
+        plugins: {
+          tooltip: makeTooltip('BMW RADAR Incidents'),
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#cbd5e1',
+              font: { family: 'Inter, sans-serif', size: 12 },
+              padding: 18,
+              usePointStyle: true,
+              pointStyleWidth: 10,
+            },
+          },
+        },
+        animation: { animateRotate: true, duration: 1200 },
+      },
+    });
+
+    // ─── RADAR CHART ───────────────────────────────────────────────────────────
+    new Chart(document.getElementById('radarChart'), {
+      type: 'radar',
+      data: {
+        labels: ['Romanian\n(Native)', 'English\n(C1)', 'Spanish\n(C1)', 'German\n(B1/B2)', 'French\n(B1)', 'Catalan\n(B1)'],
+        datasets: [{
+          label: 'Proficiency',
+          data: [5, 4, 4, 3, 2, 2],
+          backgroundColor: 'rgba(6,182,212,0.2)',
+          borderColor: C.cyan,
+          borderWidth: 2.5,
+          pointBackgroundColor: C.pink,
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          fill: true,
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          tooltip: makeTooltip('Language Proficiency'),
+          legend: { display: false },
+        },
+        scales: {
+          r: {
+            min: 0, max: 5,
+            angleLines: { color: 'rgba(51,65,85,0.7)' },
+            grid: { color: 'rgba(51,65,85,0.7)' },
+            pointLabels: { color: '#cbd5e1', font: { size: 11, family: 'Inter, sans-serif' } },
+            ticks: { display: false },
+          },
+        },
+        animation: { duration: 1200 },
+      },
+    });
+
+    // ─── POLAR CHART ───────────────────────────────────────────────────────────
+    new Chart(document.getElementById('polarChart'), {
+      type: 'polarArea',
+      data: {
+        labels: ['OS & Linux Admin', 'Automation & Python', 'Image Deploy & CI/CD', 'Docs & Runbooks'],
+        datasets: [{
+          data: [98, 85, 95, 90],
+          backgroundColor: [
+            'rgba(6,182,212,0.75)',
+            'rgba(139,92,246,0.75)',
+            'rgba(236,72,153,0.75)',
+            'rgba(59,130,246,0.75)',
+          ],
+          hoverBackgroundColor: [C.cyan, C.purple, C.pink, C.blue],
+          borderWidth: 0,
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          tooltip: makeTooltip('Competency Score'),
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#cbd5e1',
+              font: { family: 'Inter, sans-serif', size: 11 },
+              padding: 14,
+              usePointStyle: true,
+              pointStyleWidth: 10,
+            },
+          },
+        },
+        scales: {
+          r: {
+            grid: { color: 'rgba(51,65,85,0.4)' },
+            ticks: { display: false },
+          },
+        },
+        animation: { duration: 1200 },
+      },
+    });
+
+    // ─── TOOLS BADGES ──────────────────────────────────────────────────────────
+    const tools = [
+      { label: 'Linux / Ubuntu',   color: C.cyan    },
+      { label: 'Python',           color: C.purple  },
+      { label: 'Bash / Shell',     color: C.pink    },
+      { label: 'Jenkins',          color: C.blue    },
+      { label: 'Git / GitLab',     color: C.emerald },
+      { label: 'JIRA / Confluence',color: C.cyan    },
+      { label: 'Docker',           color: C.purple  },
+      { label: 'AUTOSAR',          color: C.pink    },
+      { label: 'CANoe',            color: C.blue    },
+      { label: 'Vector Tools',     color: C.emerald },
+      { label: 'DOORS',            color: C.cyan    },
+      { label: 'LIN / CAN',        color: C.purple  },
+      { label: 'AURIX MCU',        color: C.pink    },
+      { label: 'Agile / Scrum',    color: C.blue    },
+      { label: 'Rational DOORS',   color: C.emerald },
+    ];
+    const toolsContainer = document.getElementById('toolsBadges');
+    tools.forEach(({ label, color }) => {
+      const span = document.createElement('span');
+      span.className = 'skill-badge';
+      span.textContent = label;
+      span.style.cssText = `background:${color}18;border:1px solid ${color}40;color:${color};`;
+      toolsContainer.appendChild(span);
+    });
+
+    // ─── TIMELINE ──────────────────────────────────────────────────────────────
+    const timelineItems = [
+      {
+        period: 'APR 2019 – PRESENT',
+        role: 'CEO & Technical Operations Consultant',
+        company: 'Debug Nomad SLU',
+        desc: 'Leading first-pass debugging and incident management for programs involving up to 40 FTEs. Developed process automation tools saving over 800 hours monthly across global teams.',
+        color: C.cyan,
+        isLast: false,
+      },
+      {
+        period: 'APR 2023 – JUN 2024',
+        role: 'Product & Operations Manager',
+        company: 'Industrial IoT & AI Deployment',
+        desc: 'Spearheaded the digitalization of an industrial production line, deploying real-time measurement systems and maintaining strict technical runbooks aligned with ISO standards.',
+        color: C.purple,
+        isLast: false,
+      },
+      {
+        period: 'MAR 2022 – DEC 2022',
+        role: 'Solution Manager / Technical Lead',
+        company: 'BMW — RADAR Project',
+        desc: 'Managed critical escalations under high-pressure SOP deadlines. Reduced unresolved technical issues from 600 down to 60 for a major German OEM launch — a 90% triage success rate.',
+        color: C.blue,
+        isLast: false,
+      },
+      {
+        period: 'JAN 2020 – SEP 2020',
+        role: 'Software Program Manager',
+        company: 'VW — Electric Drive Unit',
+        desc: 'Accelerated deployment speed from 1 week to 1 day. Led the transition to new AURIX hardware and optimized test-bench allocation, saving €30k in recurring infrastructure costs.',
+        color: C.pink,
+        isLast: false,
+      },
+      {
+        period: '2006 – 2019',
+        role: 'Lead Engineering Roles',
+        company: 'Lear Corporation & Continental',
+        desc: 'Supported 700+ developers with core tooling and integration environments. Acted as Resident On-site Engineer at VW production plants, managing integration testing and deep technical debugging.',
+        color: C.emerald,
+        isLast: true,
+      },
+    ];
+
+    const tlContainer = document.getElementById('timeline');
+    timelineItems.forEach(({ period, role, company, desc, color, isLast }) => {
+      const wrapper = document.createElement('div');
+      wrapper.style.cssText = `display:flex;gap:1.5rem;position:relative;${!isLast ? 'padding-bottom:2.5rem;' : ''}`;
+
+      // Connecting line
+      if (!isLast) {
+        const line = document.createElement('div');
+        line.style.cssText = `position:absolute;left:19px;top:44px;bottom:0;width:2px;background:linear-gradient(to bottom,${color}70,transparent);`;
+        wrapper.appendChild(line);
+      }
+
+      // Dot
+      const dotWrap = document.createElement('div');
+      dotWrap.style.cssText = `flex-shrink:0;position:relative;z-index:10;margin-top:4px;`;
+      const dot = document.createElement('div');
+      dot.className = 'tl-dot';
+      dot.style.cssText = `background:${color}18;border:2px solid ${color};box-shadow:0 0 16px ${color}50;`;
+      const dotInner = document.createElement('div');
+      dotInner.className = 'tl-dot-inner';
+      dotInner.style.cssText = `background:${color};`;
+      dot.appendChild(dotInner);
+      dotWrap.appendChild(dot);
+      wrapper.appendChild(dotWrap);
+
+      // Content
+      const content = document.createElement('div');
+      content.style.cssText = `flex:1;min-width:0;`;
+      content.innerHTML = `
+        <span style="display:inline-block;padding:4px 12px;border-radius:9999px;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;margin-bottom:8px;background:${color}18;color:${color};">${period}</span>
+        <h3 style="font-size:1.15rem;font-weight:700;color:#f8fafc;margin:0 0 2px;">${role}</h3>
+        <h4 style="font-size:0.85rem;font-weight:500;color:#64748b;margin:0 0 0.75rem;">${company}</h4>
+        <p style="color:#94a3b8;font-size:0.85rem;line-height:1.7;margin:0;">${desc}</p>
+      `;
+      wrapper.appendChild(content);
+      tlContainer.appendChild(wrapper);
+    });
+
+    // ─── ANIMATE STAT BARS ON SCROLL ──────────────────────────────────────────
+    function animateBars() {
+      document.querySelectorAll('.stat-fill').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && el.style.width === '0%') {
+          el.style.width = el.dataset.width + '%';
+        }
+      });
+    }
+    window.addEventListener('scroll', animateBars, { passive: true });
+    // Trigger once on load in case already in view
+    setTimeout(animateBars, 300);
+  </script>
+</body>
+</html>
