@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elly Câmpeanu | PMO Lead & Portfolio Delivery Director</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+	theme: {
+		extend: {
+			colors: {
+				navy: {
+					50: '#f4f6f9',
+					100: '#e9edf3',
+					800: '#162A45',
+					900: '#0F1E36',
+				},
+				gold: {
+					100: '#f5efe6',
+					500: '#C5A880',
+					600: '#B2936C',
+					700: '#9E7F5A',
+				}
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
+			}
+		}
+	}
+}
+</script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+<!-- Inline SVG & Print Styles -->
+<style>
+.gold-border-gradient {
+	border-image: linear-gradient(to right, #C5A880, #0F1E36) 1;
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+	background: #C5A880;
+	border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #B2936C;
+}
+/* Print Styles */
+@media print {
+	body {
+		background: white !important;
+		color: black !important;
+	}
+	.no-print {
+		display: none !important;
+	}
+	.print-full-width {
+		width: 100% !important;
+		max-width: 100% !important;
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+	.page-break {
+		page-break-before: always;
+	}
+	.card-shadow {
+		box-shadow: none !important;
+		border: 1px solid #e5e7eb !important;
+	}
+}
+</style>
+</head>
+<body class="bg-[#FAF9F6] text-slate-800 font-sans antialiased min-h-screen transition-colors duration-200">
+
+<!-- TOP NAVIGATION BAR (NO-PRINT) -->
+<header class="no-print bg-navy-900 text-white sticky top-0 z-50 border-b border-gold-500/20 shadow-md">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<span class="text-xl font-bold font-serif tracking-widest text-gold-500">EC</span>
+<span class="text-sm tracking-wider uppercase font-medium border-l border-slate-600 pl-3 hidden sm:inline text-slate-300">Executive CV Portfolio</span>
+</div>
+
+<div class="flex items-center space-x-4">
+<!-- Print Page Button -->
+<button onclick="window.print()" class="flex items-center space-x-2 bg-gold-500 hover:bg-gold-600 text-navy-900 px-4 py-2 rounded font-semibold text-sm transition-all shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+<span>Print / Save as PDF</span>
+</button>
+</div>
+</div>
+</header>
+
+<!-- MAIN CONTAINER -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 print-full-width">
+
+<!-- EXECUTIVE BIO HEADER -->
+<section class="bg-navy-900 text-white p-8 lg:p-12 rounded-xl shadow-xl relative overflow-hidden mb-8 border-l-8 border-gold-500">
+<!-- Decorative Accent Circle -->
+<div class="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-gold-500/5 pointer-events-none"></div>
+
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div>
+<span class="text-gold-500 font-bold uppercase tracking-widest text-xs md:text-sm">Candidate Profile</span>
+<h1 class="text-3xl md:text-5xl font-serif font-bold tracking-tight mt-1 mb-3">Elly Câmpeanu</h1>
+<p class="text-lg md:text-xl text-slate-300 font-light max-w-3xl leading-relaxed">
+PMO Lead & Director of Portfolio Delivery <span class="text-gold-500">|</span> Digital Transformation & Enterprise Systems
+</p>
+<div class="flex flex-wrap gap-2 mt-4 text-xs">
+<span class="bg-navy-800 border border-gold-500/30 text-gold-500 px-3 py-1 rounded-full font-medium">15+ Years Cycle Experience</span>
+<span class="bg-navy-800 border border-gold-500/30 text-gold-500 px-3 py-1 rounded-full font-medium">8+ Years Program/PMO Manager</span>
+<span class="bg-navy-800 border border-gold-500/30 text-gold-500 px-3 py-1 rounded-full font-medium">Agile SAFe & Lean Expert</span>
+</div>
+</div>
+
+<!-- Contact & Language Details -->
+<div class="w-full md:w-auto shrink-0 bg-navy-800/80 backdrop-blur border border-slate-700/50 p-6 rounded-lg space-y-3 text-sm">
+<div class="flex items-center space-x-3 text-slate-300">
+<svg class="w-4 h-4 text-gold-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+<span>Barcelona, Spain (Hybrid / Travel)</span>
+</div>
+<div class="flex items-center space-x-3 text-slate-300">
+<svg class="w-4 h-4 text-gold-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+<span class="italic text-slate-400">[Email available upon request]</span>
+</div>
+<div class="flex items-center space-x-3 text-slate-300">
+<svg class="w-4 h-4 text-gold-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+<span class="italic text-slate-400">[LinkedIn Connected]</span>
+</div>
+<hr class="border-slate-700">
+<div class="text-xs space-y-1">
+<p class="text-gold-500 font-semibold uppercase tracking-wider">Languages:</p>
+<p class="text-slate-300">EN (C1), ES (C1), RO (Native), DE (B1/B2), FR (B1), CAT (B1)</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TWO-COLUMN CV GRID -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+<!-- LEFT COLUMN: SIDEBAR DETAILS -->
+<div class="space-y-6">
+
+<!-- EXECUTIVE PROFILE DETAILS -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow">
+<h4 class="font-serif font-bold text-navy-900 mb-4 flex items-center gap-2">
+<span class="w-1 h-5 bg-gold-500 inline-block"></span> Core Expertise
+</h4>
+<ul class="space-y-3 text-sm text-slate-600">
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-0.5">✔</span>
+<span><strong>PMO Portfolio Governance:</strong> Resource management, capacity modeling, and risk frameworks.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-0.5">✔</span>
+<span><strong>Process Optimization:</strong> Standardized Agile SAFe models, Lean "Muda" waste elimination.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-0.5">✔</span>
+<span><strong>Enterprise Integrations:</strong> ERP systems, SaaS rollouts, and CRM toolchains.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-0.5">✔</span>
+<span><strong>Highly Regulated Delivery:</strong> ASPICE, Functional Safety (ISO 26262), and GxP standards.</span>
+</li>
+</ul>
+</div>
+
+<!-- FOCUS FILTER (NO-PRINT) -->
+<div class="no-print bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+<h4 class="font-serif font-bold text-navy-900 mb-2">Focus Filter</h4>
+<p class="text-xs text-slate-500 mb-4">Isolate accomplishments by operational segment:</p>
+
+<div class="space-y-2">
+<button onclick="filterExperience('all')" class="filter-btn w-full text-left px-4 py-2 rounded text-sm font-semibold transition bg-gold-100 text-gold-700">
+⚡ Show All Experience
+</button>
+<button onclick="filterExperience('mgt')" class="filter-btn w-full text-left px-4 py-2 rounded text-sm font-semibold transition text-slate-600 hover:bg-slate-50">
+💼 PMO & Portfolio Management
+</button>
+<button onclick="filterExperience('digital')" class="filter-btn w-full text-left px-4 py-2 rounded text-sm font-semibold transition text-slate-600 hover:bg-slate-50">
+☁️ Cloud, IoT & Digitization
+</button>
+<button onclick="filterExperience('regulated')" class="filter-btn w-full text-left px-4 py-2 rounded text-sm font-semibold transition text-slate-600 hover:bg-slate-50">
+🛡️ Regulated Systems Compliance
+</button>
+</div>
+</div>
+
+<!-- PORTFOLIO METRICS -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow">
+<h4 class="font-serif font-bold text-navy-900 mb-4 flex items-center gap-2">
+<span class="w-1 h-5 bg-gold-500 inline-block"></span> Portfolio Impact
+</h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<span class="text-xs text-slate-500">Max Direct Team Size</span>
+<span class="text-sm font-bold text-navy-900">40+ FTE</span>
+</div>
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<span class="text-xs text-slate-500">Monthly Capacity Recovered</span>
+<span class="text-sm font-bold text-green-600">800h / Month</span>
+</div>
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<span class="text-xs text-slate-500">Software Integration Speed</span>
+<span class="text-sm font-bold text-navy-900">1 Day (from 1 Wk)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Unresolved Bug Backlog</span>
+<span class="text-sm font-bold text-green-600">-90% (600 to 60)</span>
+</div>
+</div>
+</div>
+
+<!-- TECHNICAL TOOL STACK -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow">
+<h4 class="font-serif font-bold text-navy-900 mb-4 flex items-center gap-2">
+<span class="w-1 h-5 bg-gold-500 inline-block"></span> Technical Tool Stack
+</h4>
+<div class="space-y-4 text-xs text-slate-600">
+<div>
+<span class="font-bold text-navy-900 block mb-1">Portfolio & PMO</span>
+<span>MS Project, Jira, Confluence, Wrike</span>
+</div>
+<div>
+<span class="font-bold text-navy-900 block mb-1">Architecture & Data</span>
+<span>Cloud Infrastructure, IoT Systems, ERP systems, API Integrations, SVN, GIT</span>
+</div>
+<div>
+<span class="font-bold text-navy-900 block mb-1">Languages & Logic</span>
+<span>C, C++, Python, XML, Shell scripting</span>
+</div>
+<div>
+<span class="font-bold text-navy-900 block mb-1">Generative AI Governance</span>
+<span>Prompt Engineering, ChatGPT, Gemini, Claude, Automated Workflows</span>
+</div>
+</div>
+</div>
+
+<!-- CERTIFICATIONS & SPECIAL TRAINING -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow">
+<h4 class="font-serif font-bold text-navy-900 mb-4 flex items-center gap-2">
+<span class="w-1 h-5 bg-gold-500 inline-block"></span> Certifications
+</h4>
+<div class="space-y-3 text-xs text-slate-600">
+<div class="border-l-2 border-gold-500 pl-2">
+<strong class="text-navy-900 block">Advanced Agile Project Management Program</strong>
+<span>90h - Nov 2025</span>
+</div>
+<div class="border-l-2 border-gold-500 pl-2">
+<strong class="text-navy-900 block">Teaching for Vocational Education (VET)</strong>
+<span>420h Professional Cert - 2025</span>
+</div>
+<div class="border-l-2 border-gold-500 pl-2">
+<strong class="text-navy-900 block">Introduction to Medical Software</strong>
+<span>Yale University via Coursera</span>
+</div>
+<div class="border-l-2 border-gold-500 pl-2">
+<strong class="text-navy-900 block">KNX Protocol (Home Automation)</strong>
+<span>Dec 2025</span>
+</div>
+<div class="border-l-2 border-gold-500 pl-2">
+<strong class="text-navy-900 block">ASPICE 4.0 & Cybersecurity Upgrade</strong>
+<span>Yellow Book Alignment</span>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- RIGHT COLUMN: EXECUTIVE SUMMARY & PROFESSIONAL EXPERIENCE -->
+<div class="lg:col-span-2 space-y-8 print-full-width">
+
+<!-- SUMMARY -->
+<div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 card-shadow">
+<h3 class="text-xl font-serif font-bold text-navy-900 mb-4 flex items-center gap-2">
+<span class="w-1 h-6 bg-gold-500 inline-block"></span> Executive Summary
+</h3>
+<p class="text-slate-600 leading-relaxed text-base">
+An operations-driven, highly technical Technology Portfolio Leader with over 15 years of experience leading complex hardware/software system development cycles and digital transformation programs in ultra-regulated industries. He has spent 8+ years executing international project and program management frameworks using Agile (SAFe), Lean, and ASPICE, frequently serving as the operational right-hand to COOs. He specializes in managing cross-functional, global remote teams of up to 40+ FTE, delivering system digitalizations, SaaS solutions, and ERP/CRM integrations for tier-1 enterprise clients. Highly specialized in optimizing margins, capacity planning, standardizing PMO methodologies, and eliminating operational waste (Muda) to unlock hundreds of hours of monthly productivity. He seamlessly bridges the gap between commercial strategy, pre-sales scope validation, C-suite stakeholders, and technical delivery.
+</p>
+</div>
+
+<!-- EXPERIENCE TIMELINE -->
+<div class="space-y-6">
+<h3 class="text-xl font-serif font-bold text-navy-900 flex items-center gap-2">
+<span class="w-1 h-6 bg-gold-500 inline-block"></span> Professional History
+</h3>
+
+<!-- ROLE 1 -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow transition-all duration-300">
+<div class="flex flex-col sm:flex-row justify-between items-start mb-4">
+<div>
+<span class="text-gold-600 text-xs uppercase font-bold tracking-wider">Independent Advisory</span>
+<h4 class="text-xl font-bold text-navy-900">Managing Director & Portfolio Delivery Consultant</h4>
+<span class="text-slate-500 text-sm">DEBUG NOMAD SLU</span>
+</div>
+<span class="mt-2 sm:mt-0 bg-navy-50 text-navy-900 font-bold px-3 py-1 rounded text-xs shrink-0">Apr 2019 – Present</span>
+</div>
+<p class="text-sm text-slate-600 mb-4 font-light">
+Provides strategic PMO consulting, delivery governance, and compliance advisory for global Tier-1 industrial and e-mobility suppliers navigating highly regulated, complex system lifecycles.
+</p>
+<ul class="space-y-2 text-sm text-slate-600">
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Manages a global technical software program and remote cross-functional teams (40+ FTE) spread across China, India, Romania, Poland, Germany, Spain, and the US.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Acts as the operational partner to client COOs and Engineering Heads to automate development processes, align multi-vendor sub-suppliers, and implement modern Agile/SAFe governance.</span>
+</li>
+</ul>
+</div>
+
+<!-- ROLE 2 -->
+<div data-tags="mgt,digital" class="exp-card bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow transition-all duration-300">
+<div class="flex flex-col sm:flex-row justify-between items-start mb-4">
+<div>
+<span class="text-gold-600 text-xs uppercase font-bold tracking-wider">Digital Transformation</span>
+<h4 class="text-xl font-bold text-navy-900">Program & Delivery Manager (IoT & AI Portfolio)</h4>
+<span class="text-slate-500 text-sm">Agribusiness Modernization Portfolio</span>
+</div>
+<span class="mt-2 sm:mt-0 bg-navy-50 text-navy-900 font-bold px-3 py-1 rounded text-xs shrink-0">Apr 2023 – Jun 2024</span>
+</div>
+<ul class="space-y-2 text-sm text-slate-600">
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Orchestrated the end-to-end digital transformation and Cloud/IoT/AI migration of an agricultural production facility, upgrading legacy operations to support high-volume supply chains (FMCG-adjacent).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Designed the delivery framework integrating Edge-to-Cloud architecture, establishing real-time operational data pipelines, BI analytics, and quality-control measurements.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Governed end-to-end project finances, resource scheduling, sub-supplier SLAs, and logistics, serving as the primary interface to the customer’s Quality, Finance, and Operations departments.</span>
+</li>
+</ul>
+</div>
+
+<!-- ROLE 3 -->
+<div data-tags="mgt,regulated" class="exp-card bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow transition-all duration-300">
+<div class="flex flex-col sm:flex-row justify-between items-start mb-4">
+<div>
+<span class="text-gold-600 text-xs uppercase font-bold tracking-wider">Client Facing Delivery</span>
+<h4 class="text-xl font-bold text-navy-900">Senior Delivery Lead & Solution Consultant</h4>
+<span class="text-slate-500 text-sm">RADAR Program for BMW</span>
+</div>
+<span class="mt-2 sm:mt-0 bg-navy-50 text-navy-900 font-bold px-3 py-1 rounded text-xs shrink-0">Mar 2022 – Dec 2022</span>
+</div>
+<ul class="space-y-2 text-sm text-slate-600">
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Led requirements management, function development, and multi-track delivery schedules for a key BMW radar integration project.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Standardized ticket tracking, operational metrics, and delivery KPIs (Jira/Confluence), identifying and proactively mitigating performance bottlenecks.</span>
+</li>
+<li class="bg-green-50/50 border-l-4 border-green-600 p-3 rounded text-green-950 font-medium flex flex-col mt-2">
+<span class="text-xs uppercase font-bold text-green-800">Key Milestone</span>
+<span>Spearheaded a critical recovery plan that decreased unresolved system and software integration issues from 600 to approximately 60 within 9 months, restoring client trust and meeting critical launch windows.</span>
+</li>
+</ul>
+</div>
+
+<!-- ROLE 4 -->
+<div data-tags="mgt,regulated" class="exp-card bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow transition-all duration-300">
+<div class="flex flex-col sm:flex-row justify-between items-start mb-4">
+<div>
+<span class="text-gold-600 text-xs uppercase font-bold tracking-wider">Operations & Optimization</span>
+<h4 class="text-xl font-bold text-navy-900">Enterprise Portfolio & Software Program Manager</h4>
+<span class="text-slate-500 text-sm">Electric Drive Unit for VW</span>
+</div>
+<span class="mt-2 sm:mt-0 bg-navy-50 text-navy-900 font-bold px-3 py-1 rounded text-xs shrink-0">Jan 2020 – Sep 2020</span>
+</div>
+<ul class="space-y-2 text-sm text-slate-600">
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Spearheaded the complex platform migration of legacy systems to next-generation hardware architecture, leading an international team of 40 FTE (SW Engineers and System Testers).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span><strong class="text-navy-900">Margin & Capacity Optimization:</strong> Restructured cross-team handoffs to eliminate "Muda" (operational waiting time), recovering <strong class="text-green-600">more than 800 hours per month</strong> in productive capacity.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span><strong class="text-navy-900">Industrialized Integration:</strong> Reduced software integration and build cycles from 1 week to 1 day by proposing CI/CD and automated checking tools.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span><strong class="text-navy-900">Budget Maximization:</strong> Negotiated licenses with suppliers to accelerate infrastructure setup by 1 month, saving <strong class="text-navy-900">€30,000</strong> in direct toolchain costs.</span>
+</li>
+</ul>
+</div>
+
+<!-- ROLE 5 -->
+<div data-tags="mgt,regulated" class="exp-card bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow transition-all duration-300">
+<div class="flex flex-col sm:flex-row justify-between items-start mb-4">
+<div>
+<span class="text-gold-600 text-xs uppercase font-bold tracking-wider">Technical Coordination</span>
+<h4 class="text-xl font-bold text-navy-900">Technical Delivery Lead & Consultant</h4>
+<span class="text-slate-500 text-sm">BMS Program for SAIC-GM & AUDI</span>
+</div>
+<span class="mt-2 sm:mt-0 bg-navy-50 text-navy-900 font-bold px-3 py-1 rounded text-xs shrink-0">Apr 2019 – Nov 2019</span>
+</div>
+<ul class="space-y-2 text-sm text-slate-600">
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span>Coached and directed distributed Agile development teams across Romania, Spain, and Germany on AUTOSAR systems and diagnostics.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span><strong class="text-navy-900">Scale & Mobilization:</strong> Successfully managed a local software office ramp-up, expanding regional delivery capacity by 5 FTEs in less than 30 days.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-gold-500 mt-1 shrink-0">▪</span>
+<span><strong class="text-navy-900">Standardization:</strong> Documented and packaged proprietary technical know-how into reusable software modules, scaling quality benchmarks and deploying the technology base across 3 parallel client projects.</span>
+</li>
+</ul>
+</div>
+
+<!-- ROLE 6 -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow transition-all duration-300">
+<div class="flex flex-col sm:flex-row justify-between items-start mb-4">
+<div>
+<span class="text-gold-600 text-xs uppercase font-bold tracking-wider">Historical Leadership Roles</span>
+<h4 class="text-xl font-bold text-navy-900">LEAR CORPORATION</h4>
+<span class="text-slate-500 text-sm">Valls, Spain / Munich, Germany</span>
+</div>
+<span class="mt-2 sm:mt-0 bg-navy-50 text-navy-900 font-bold px-3 py-1 rounded text-xs shrink-0">Feb 2010 – Nov 2018</span>
+</div>
+<div class="space-y-4 text-sm text-slate-600">
+<div>
+<h5 class="font-semibold text-navy-800">Enterprise Tools Engineering Lead <span class="font-normal text-xs text-slate-400">| 1 yr 1 mo</span></h5>
+<p class="text-xs">Directed tools architecture and technical support for a global community of 700+ developers, auditing LDAP controls alongside corporate IT security.</p>
+</div>
+<div>
+<h5 class="font-semibold text-navy-800">Software Team Leader (BMS Program for BMW) <span class="font-normal text-xs text-slate-400">| 3 yrs 7 mos</span></h5>
+<p class="text-xs">Led software and validation teams for BMW Battery Management (SBOX). Controlled milestones, resource schedules, and client-facing risk metrics.</p>
+</div>
+<div>
+<h5 class="font-semibold text-navy-800">Software Problem Resolution Manager <span class="font-normal text-xs text-slate-400">| 1 yr 3 mos</span></h5>
+<p class="text-xs">Governed high-priority anomaly and SLA resolution pathways for key automotive accounts (BMW Body Control, Daimler Lights).</p>
+</div>
+<div>
+<h5 class="font-semibold text-navy-800">Resident Engineer & Features Owner <span class="font-normal text-xs text-slate-400">| 4 yrs 11 mos</span></h5>
+<p class="text-xs">Embedded at VW Pamplona production plant & IDIADA Proving grounds executing vehicle integration, debugging comfort systems, and leading offshore development groups.</p>
+</div>
+</div>
+</div>
+
+<!-- EDUCATION & DEGREES -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-shadow">
+<h4 class="text-xl font-serif font-bold text-navy-900 mb-6 flex items-center gap-2">
+<span class="w-1 h-6 bg-gold-500 inline-block"></span> Academic Background
+</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 bg-navy-50/50 rounded border border-slate-100">
+<span class="text-xs text-gold-600 font-bold uppercase tracking-wider block">2024 - 2025</span>
+<strong class="text-navy-900 block text-sm mt-1">MBA in New Technologies</strong>
+<span class="text-xs text-slate-500">Business Management & Modern Tech Integration</span>
+</div>
+<div class="p-4 bg-navy-50/50 rounded border border-slate-100">
+<span class="text-xs text-gold-600 font-bold uppercase tracking-wider block">2007 - 2008</span>
+<strong class="text-navy-900 block text-sm mt-1">Master of Science (M.Sc.)</strong>
+<span class="text-xs text-slate-500">Digital Telecommunications Engineering</span>
+</div>
+<div class="p-4 bg-navy-50/50 rounded border border-slate-100 md:col-span-2">
+<span class="text-xs text-gold-600 font-bold uppercase tracking-wider block">2000 - 2006</span>
+<strong class="text-navy-900 block text-sm mt-1">Bachelor of Science (B.Sc.)</strong>
+<span class="text-xs text-slate-500">Electrical Engineering & Computer Science (6-Year Degree)</span>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-navy-900 text-slate-400 text-center py-8 mt-12 border-t border-slate-800 no-print">
+<p class="text-xs tracking-wider">
+&copy; 2026 Elly Câmpeanu. Designed for High-Impact Executive Leadership Roles.
+</p>
+</footer>
+
+<!-- INTERACTIVE SCRIPTS -->
+<script>
+function filterExperience(tag) {
+	const cards = document.querySelectorAll('.exp-card');
+	
+	// Reset filter button styles
+	const filterBtns = document.querySelectorAll('.filter-btn');
+	filterBtns.forEach(btn => {
+		btn.className = "filter-btn w-full text-left px-4 py-2 rounded text-sm font-semibold transition text-slate-600 hover:bg-slate-50";
+	});
+	
+	// Set active filter button styling
+	event.target.className = "filter-btn w-full text-left px-4 py-2 rounded text-sm font-semibold transition bg-gold-100 text-gold-700";
+	
+	cards.forEach(card => {
+		if (tag === 'all') {
+			card.classList.remove('hidden');
+		} else {
+			const cardTags = card.getAttribute('data-tags') || '';
+			if (cardTags.includes(tag)) {
+				card.classList.remove('hidden');
+			} else {
+				card.classList.add('hidden');
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>

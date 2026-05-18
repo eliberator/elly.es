@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elly Câmpeanu | PMO Executive Impact Dashboard</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+	theme: {
+		extend: {
+			colors: {
+				navy: {
+					50: '#f4f6f9',
+					100: '#e9edf3',
+					800: '#162A45',
+					900: '#0F1E36',
+				},
+				gold: {
+					50: '#fdfbf7',
+					100: '#f5efe6',
+					500: '#C5A880',
+					600: '#B2936C',
+					700: '#9E7F5A',
+				}
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
+			}
+		}
+	}
+}
+</script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#FAF9F6] text-slate-800 font-sans antialiased min-h-screen">
+
+<!-- HEADER NAVIGATION -->
+<header class="bg-navy-900 text-white sticky top-0 z-50 border-b border-gold-500/20 shadow-md">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<span class="text-xl font-bold font-serif tracking-widest text-gold-500">EC</span>
+<span class="text-xs sm:text-sm tracking-wider uppercase font-semibold border-l border-slate-600 pl-3 text-slate-300">PMO Impact Dashboard</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-xs text-slate-300 font-semibold uppercase tracking-wider hidden sm:inline">Active Portfolio</span>
+</div>
+</div>
+</header>
+
+<!-- MAIN BODY -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+<!-- EXECUTIVE HERO BLOCK -->
+<section class="bg-navy-900 text-white p-8 lg:p-12 rounded-2xl shadow-xl relative overflow-hidden border-l-8 border-gold-500">
+<div class="absolute -right-16 -bottom-16 w-72 h-72 rounded-full bg-gold-500/5 pointer-events-none"></div>
+
+<div class="relative z-10 space-y-3 max-w-4xl">
+<span class="text-gold-500 font-bold uppercase tracking-widest text-xs">COO-Level Portfolio Summary</span>
+<h1 class="text-3xl md:text-5xl font-serif font-bold tracking-tight">Elly Câmpeanu: PMO Leader</h1>
+<p class="text-base md:text-lg text-slate-300 font-light leading-relaxed">
+A visual walkthrough of Elly's concrete capacity optimization metrics, global coordination achievements, and proven financial savings delivered to highly regulated enterprises.
+</p>
+</div>
+</section>
+
+<!-- PORTFOLIO HIGHLIGHT METRICS (Grounded in Fixed Historical Data) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+<!-- CARD 1: VW CAPACITY -->
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between hover:border-gold-500/30 transition duration-300">
+<div class="space-y-3">
+<span class="text-xs text-gold-600 font-bold uppercase tracking-wider block">Volkswagen Portfolio</span>
+<div class="flex items-baseline space-x-2">
+<span class="text-4xl font-extrabold text-navy-900 font-serif">700h</span>
+<span class="text-sm font-semibold text-emerald-600">Saved / Mo</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full" style="width: 85%"></div>
+</div>
+</div>
+<p class="text-xs text-slate-500 leading-relaxed mt-4 border-t border-slate-50 pt-3">
+Reclaimed productive capacity compared to previous unoptimized operation, streamlining multi-site engineering lines.
+</p>
+</div>
+
+<!-- CARD 2: BMW DEFECT RESCUE -->
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between hover:border-gold-500/30 transition duration-300">
+<div class="space-y-3">
+<span class="text-xs text-gold-600 font-bold uppercase tracking-wider block">BMW RADAR Portfolio</span>
+<div class="flex items-baseline space-x-2">
+<span class="text-4xl font-extrabold text-navy-900 font-serif">60 Left</span>
+<span class="text-sm font-semibold text-emerald-600">From 600 Issues</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full" style="width: 90%"></div>
+</div>
+</div>
+<p class="text-xs text-slate-500 leading-relaxed mt-4 border-t border-slate-50 pt-3">
+Slashed unresolved technical defects down to just 60 remaining issues in a 3-month cleanup drive.
+</p>
+</div>
+
+<!-- CARD 3: VW direct cash -->
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between hover:border-gold-500/30 transition duration-300">
+<div class="space-y-3">
+<span class="text-xs text-gold-600 font-bold uppercase tracking-wider block">Enterprise Tooling</span>
+<div class="flex items-baseline space-x-2">
+<span class="text-4xl font-extrabold text-navy-900 font-serif">€30k</span>
+<span class="text-sm font-semibold text-navy-800">Saved in Tools</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-navy-900 h-full" style="width: 75%"></div>
+</div>
+</div>
+<p class="text-xs text-slate-500 leading-relaxed mt-4 border-t border-slate-50 pt-3">
+Eliminated redundant licenses and optimized physical testbed sharing protocols.
+</p>
+</div>
+
+</section>
+
+<!-- INTERNATIONAL OPERATIONS DIRECTORY -->
+<section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-sm space-y-6">
+<div class="max-w-3xl">
+<span class="text-xs text-gold-600 font-bold uppercase tracking-wider block mb-1">Interactive Global Footprint</span>
+<h3 class="text-2xl font-serif font-bold text-navy-900">International Operations Directory</h3>
+<p class="text-sm text-slate-500 mt-2">
+Elly has successfully governed distributed technical lines, offshore engineering groups, and critical vendor networks. Click on any regional hub to review his operational impact:
+</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+<!-- HUB BUTTON SELECTION GRID (Left Column) -->
+<div class="lg:col-span-5 flex flex-col gap-3">
+
+<!-- HUB 1 -->
+<button onclick="setHub('eu')" id="btn-eu" class="hub-btn text-left p-4 rounded-xl border transition-all duration-200 bg-navy-900 border-navy-900 text-white shadow-md">
+<div class="flex justify-between items-center">
+<strong class="text-sm font-bold block">European Operations</strong>
+<span class="text-[10px] uppercase tracking-wider font-bold bg-gold-500 text-navy-900 px-2 py-0.5 rounded">Primary Hub</span>
+</div>
+<span class="text-xs text-slate-300 mt-1 block">Germany, Spain, Romania, Poland, Austria</span>
+</button>
+
+<!-- HUB 2 -->
+<button onclick="setHub('us')" id="btn-us" class="hub-btn text-left p-4 rounded-xl border border-slate-100 bg-slate-50 text-slate-700 hover:border-gold-500/40 transition-all duration-200">
+<div class="flex justify-between items-center">
+<strong class="text-sm font-bold block">North America Interface</strong>
+<span class="text-[10px] uppercase tracking-wider font-bold bg-slate-200 text-slate-600 px-2 py-0.5 rounded">Onsite/Remote</span>
+</div>
+<span class="text-xs text-slate-400 mt-1 block">Detroit Hub Engineering Lines</span>
+</button>
+
+<!-- HUB 3 -->
+<button onclick="setHub('in')" id="btn-in" class="hub-btn text-left p-4 rounded-xl border border-slate-100 bg-slate-50 text-slate-700 hover:border-gold-500/40 transition-all duration-200">
+<div class="flex justify-between items-center">
+<strong class="text-sm font-bold block">India Tech Delivery</strong>
+<span class="text-[10px] uppercase tracking-wider font-bold bg-slate-200 text-slate-600 px-2 py-0.5 rounded">Offshore Devs</span>
+</div>
+<span class="text-xs text-slate-400 mt-1 block">5-FTE Team Coordination</span>
+</button>
+
+<!-- HUB 4 -->
+<button onclick="setHub('cn')" id="btn-cn" class="hub-btn text-left p-4 rounded-xl border border-slate-100 bg-slate-50 text-slate-700 hover:border-gold-500/40 transition-all duration-200">
+<div class="flex justify-between items-center">
+<strong class="text-sm font-bold block">China JV Integrations</strong>
+<span class="text-[10px] uppercase tracking-wider font-bold bg-slate-200 text-slate-600 px-2 py-0.5 rounded">Joint Ventures</span>
+</div>
+<span class="text-xs text-slate-400 mt-1 block">SAIC-GM Diagnostic Specifications</span>
+</button>
+
+<!-- HUB 5 -->
+<button onclick="setHub('mo')" id="btn-mo" class="hub-btn text-left p-4 rounded-xl border border-slate-100 bg-slate-50 text-slate-700 hover:border-gold-500/40 transition-all duration-200">
+<div class="flex justify-between items-center">
+<strong class="text-sm font-bold block">Moroccan Logistics</strong>
+<span class="text-[10px] uppercase tracking-wider font-bold bg-slate-200 text-slate-600 px-2 py-0.5 rounded">SLA Governance</span>
+</div>
+<span class="text-xs text-slate-400 mt-1 block">Sub-Supplier SLA Optimizations</span>
+</button>
+
+</div>
+
+<!-- HUB GRAPHICAL DISPLAY SCREEN (Right Column) -->
+<!-- FIXED: Background now correctly uses bg-navy-900 (defined #0F1E36) to prevent standard white-on-white text bleeding -->
+<div class="lg:col-span-7 bg-navy-900 text-white rounded-xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden border border-navy-800 shadow-lg">
+<div class="absolute right-0 top-0 opacity-5 pointer-events-none">
+<!-- Abstract Globe Line Icon -->
+<svg class="w-80 h-80 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+</div>
+
+<div class="relative z-10 space-y-6">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-lg bg-gold-500/10 text-gold-500 flex items-center justify-center border border-gold-500/20">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h2.5M15 21l-3-3m0 0l-3-3m3 3h8M3 3l18 18"/></svg>
+</div>
+<div>
+<span class="text-gold-500 font-bold uppercase tracking-widest text-[10px] block">Active Operations Node</span>
+<h4 class="text-lg font-bold font-serif" id="display-title">European Operations Hub</h4>
+</div>
+</div>
+
+<!-- Highlights Section -->
+<div class="grid grid-cols-2 gap-4 border-y border-slate-800/80 py-4">
+<div>
+<span class="text-[10px] text-slate-400 block uppercase font-bold">Scope of Oversight</span>
+<span class="text-sm font-semibold text-slate-200" id="display-scope">40+ FTE Engineers / Multi-Site</span>
+</div>
+<div>
+<!-- UPDATED HEADER: More specific to Safety & Compliance Frameworks -->
+<span class="text-[10px] text-slate-400 block uppercase font-bold">Safety & Compliance Framework</span>
+<span class="text-sm font-semibold text-gold-500" id="display-tier">Functional Safety ISO 26262 | ASPICE L3/4.0 Audit Alignment</span>
+</div>
+</div>
+
+<div class="space-y-2">
+<span class="text-[10px] text-slate-400 block uppercase font-bold">Operational Impact Summary</span>
+<p class="text-sm text-slate-300 leading-relaxed font-light" id="display-desc">
+Served as his primary localized program hub. Directed 40+ engineering and validation professionals across Germany and Spain. Overhauled the standard engineering processes to successfully align complex battery management (BMS) and control systems with stringent ISO 26262 compliance regulations, preventing late audit roadblocks.
+</p>
+</div>
+</div>
+
+<div class="text-[10px] text-slate-500 mt-6 border-t border-slate-800 pt-3">
+*Global setups aligned strictly under international multi-site agile coordination frameworks.
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- REDESIGNED STATIC COMPONENT: PROVEN CASE STUDIES & RECLAIMED MARGINS -->
+<section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-sm space-y-8">
+<div class="max-w-3xl">
+<span class="text-xs text-gold-600 font-bold uppercase tracking-wider block mb-1">Historical Optimization Audits</span>
+<h3 class="text-2xl font-serif font-bold text-navy-900">Proven Case Studies & Reclaimed Margins</h3>
+<p class="text-sm text-slate-500 mt-2">
+A detailed graphical layout mapping Elly's exact historical deliverables. These are fixed accomplishments verified across major Tier-1 automotive and industrial portfolios.
+</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+<!-- CASE STUDY 1: BACKLOG LIQUIDATION -->
+<div class="bg-slate-50 rounded-xl border border-slate-200/60 p-6 flex flex-col justify-between space-y-6">
+<div class="space-y-4">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 bg-navy-900 rounded-lg flex items-center justify-center text-gold-500 border border-gold-500/20 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+</div>
+<div>
+<span class="text-[10px] text-slate-400 font-bold uppercase block">BMW RADAR Program</span>
+<h4 class="text-base font-bold text-navy-900 font-serif">Backlog Liquidation</h4>
+</div>
+</div>
+
+<!-- Graphical comparison lanes -->
+<div class="space-y-3 pt-2">
+<div class="space-y-1">
+<div class="flex justify-between text-xs text-slate-500">
+<span>Initial Backlog</span>
+<span class="font-bold text-navy-900">600 Issues</span>
+</div>
+<div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+<div class="bg-navy-800 h-full w-full"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs text-slate-500">
+<span>Remaining (After 3 Months)</span>
+<span class="font-bold text-emerald-600">60 Issues Left</span>
+</div>
+<div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-navy-900 text-white p-4 rounded-lg text-xs leading-relaxed">
+<span class="text-gold-500 font-bold block mb-1">Operational Fix:</span>
+Implemented structured ticket ownership, automated verification checks, and daily triage models to eliminate bottlenecks and restore client trust.
+</div>
+</div>
+
+<!-- CASE STUDY 2: WASTE ELIMINATION -->
+<div class="bg-slate-50 rounded-xl border border-slate-200/60 p-6 flex flex-col justify-between space-y-6">
+<div class="space-y-4">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 bg-navy-900 rounded-lg flex items-center justify-center text-gold-500 border border-gold-500/20 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+</div>
+<div>
+<span class="text-[10px] text-slate-400 font-bold uppercase block">VW platform migration</span>
+<h4 class="text-base font-bold text-navy-900 font-serif">Process Re-Engineering</h4>
+</div>
+</div>
+
+<!-- Graphical Capacity Reclaim Gauge -->
+<div class="bg-white border border-slate-100 rounded-lg p-4 flex items-center justify-between shadow-sm">
+<div class="space-y-1">
+<span class="text-[10px] text-slate-400 block uppercase font-bold">Monthly capacity saved</span>
+<span class="text-2xl font-extrabold text-emerald-600 font-serif">700 Hours</span>
+<span class="text-[10px] text-slate-400 block leading-none">compared to legacy ops</span>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-slate-100 border-t-emerald-500 animate-spin-slow flex items-center justify-center shrink-0">
+<svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+</div>
+</div>
+</div>
+
+<div class="bg-navy-900 text-white p-4 rounded-lg text-xs leading-relaxed">
+<span class="text-gold-500 font-bold block mb-1">Muda Reduction:</span>
+Identified and eliminated waiting cycles between remote locations, maximizing team velocity without adding headcount.
+</div>
+</div>
+
+<!-- CASE STUDY 3: ASSET OPTIMIZATION -->
+<div class="bg-slate-50 rounded-xl border border-slate-200/60 p-6 flex flex-col justify-between space-y-6">
+<div class="space-y-4">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 bg-navy-900 rounded-lg flex items-center justify-center text-gold-500 border border-gold-500/20 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+</div>
+<div>
+<span class="text-[10px] text-slate-400 font-bold uppercase block">Infrastructure Rationalization</span>
+<h4 class="text-base font-bold text-navy-900 font-serif">Financial Recovery</h4>
+</div>
+</div>
+
+<!-- Graphical Budget Savings Card -->
+<div class="bg-white border border-slate-100 rounded-lg p-4 flex items-center justify-between shadow-sm">
+<div class="space-y-1">
+<span class="text-[10px] text-slate-400 block uppercase font-bold">Unneeded tool licensing cut</span>
+<span class="text-2xl font-extrabold text-navy-900 font-serif">€30,000</span>
+<span class="text-[10px] text-slate-400 block leading-none">Returned directly to budget</span>
+</div>
+</div>
+</div>
+
+<div class="bg-navy-900 text-white p-4 rounded-lg text-xs leading-relaxed">
+<span class="text-gold-500 font-bold block mb-1">Licensing & Hardware sharing:</span>
+Negotiated early licensing structures with tool suppliers and structured shared testbed schedules across global internal teams.
+</div>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-navy-900 text-slate-400 text-center py-8 mt-12 border-t border-slate-800">
+<p class="text-xs tracking-wider">
+&copy; 2026 Elly Câmpeanu. Executive Portfolio Visualization Tool. All rights reserved.
+</p>
+</footer>
+
+<!-- INTERACTIVE APP LOGIC -->
+<script>
+// Interactive Hub Data Directory
+const hubs = {
+	eu: {
+		title: "European Operations Hub",
+		scope: "40+ FTE Engineers / Multi-Site",
+		tier: "Functional Safety ISO 26262 | ASPICE L3/4.0 Audit Alignment",
+		desc: "Directed 40+ engineering and validation professionals across Germany and Spain. Overhauled standard engineering processes to successfully align complex battery management (BMS) and control systems with stringent ISO 26262 compliance regulations, preventing late audit roadblocks."
+	},
+	us: {
+		title: "North America Interface Hub",
+		scope: "Client Advisory & Technical Alignment",
+		tier: "Zero-Defect Safety Regulations & Risk Mitigation",
+		desc: "Governed on-site and remote alignment nodes with major US distributors. Integrated custom validation gates and strict technical diagnostic standards, mitigating key launch risks before delivery."
+	},
+	in: {
+		title: "India Tech Delivery Node",
+		scope: "5-FTE Software Development Team",
+		tier: "Quality Assurance Auditing & Traceability Controls",
+		desc: "Established robust, end-to-end traceability protocols for offshore development cells. Aligned developers to meet safety-critical diagnostic definitions under strict KWP2000 and UDS specifications."
+	},
+	cn: {
+		title: "China JV Integrations Hub",
+		scope: "SAIC-GM Program Spec Alignment",
+		tier: "AUTOSAR Diagnostics & Process Safety Standard Compliance",
+		desc: "Navigated cross-border diagnostic standards and failure-safety integrations (AUTOSAR) for joint venture clients, securing zero-defect regulatory releases on high-volume production lines."
+	},
+	mo: {
+		title: "Moroccan Logistics Node",
+		scope: "Sub-Supplier SLA Optimizations",
+		tier: "SLA Safety Audits & Regulatory Compliance Guidelines",
+		desc: "Audited third-party sub-suppliers on SLA safety parameters. Standardized contract delivery milestones to ensure multi-vendor integrations met international quality compliance standards."
+	}
+};
+
+function setHub(hubId) {
+	// Update Active Class styling on Buttons
+	const buttons = document.querySelectorAll('.hub-btn');
+	buttons.forEach(btn => {
+		btn.className = "hub-btn text-left p-4 rounded-xl border border-slate-100 bg-slate-50 text-slate-700 hover:border-gold-500/40 transition-all duration-200";
+		// Reset child badges color
+		const badge = btn.querySelector('span');
+		if (badge) {
+			badge.className = "text-[10px] uppercase tracking-wider font-bold bg-slate-200 text-slate-600 px-2 py-0.5 rounded";
+		}
+	});
+	
+	// Set Active State on Selected Button
+	const selectedBtn = document.getElementById(`btn-${hubId}`);
+	selectedBtn.className = "hub-btn text-left p-4 rounded-xl border transition-all duration-200 bg-navy-900 border-navy-900 text-white shadow-md";
+	const selectedBadge = selectedBtn.querySelector('span');
+	if (selectedBadge) {
+		selectedBadge.className = "text-[10px] uppercase tracking-wider font-bold bg-gold-500 text-navy-900 px-2 py-0.5 rounded";
+	}
+	
+	// Update display fields with corresponding Hub properties
+	document.getElementById('display-title').innerText = hubs[hubId].title;
+	document.getElementById('display-scope').innerText = hubs[hubId].scope;
+	document.getElementById('display-tier').innerText = hubs[hubId].tier;
+	document.getElementById('display-desc').innerText = hubs[hubId].desc;
+}
+</script>
+</body>
+</html>
