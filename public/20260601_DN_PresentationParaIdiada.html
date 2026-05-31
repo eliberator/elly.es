@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELITE by DN | IDIADA Intelligence OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chosen Palette: IDIADA Pure Identity (Red #E30613, White #FFFFFF, Deep Charcoal #1A1A1A) -->
+    <!-- Application Structure Plan: 
+        1. Hero Architecture: Branding "AURELITE by DN" con fecha de lanzamiento 01/06/2026.
+        2. Intelligence Grid: Cuadrícula modular con KPIs en tiempo real de los departamentos (ADAS, BMS, Crash).
+        3. Capability Radar: Visualización técnica del expertise OEM (BMW, VAG, SAIC-GM).
+        4. Conversational Engine: Interfaz de chat avanzada para consultas de homologación universal.
+        5. The Stack: Visualización limpia de la arquitectura .NET, Django y Angular.
+    -->
+    <!-- Visualization & Content Choices:
+        - Radar Chart: Desempeño por dominio técnico.
+        - Dynamic Line Chart: Ingesta de datos en tiempo real (Simulada).
+        - UI: Estética de "Panel de Control de Ingeniería" con bordes afilados y espaciado generoso.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        :root {
+            --idiada-red: #E30613;
+            --idiada-dark: #1A1A1A;
+            --idiada-gray: #F4F4F4;
+            --idiada-border: #E5E7EB;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: white;
+            color: var(--idiada-dark);
+            scroll-behavior: smooth;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        .bento-card {
+            background: white;
+            border: 1px solid var(--idiada-border);
+            transition: all 0.3s ease;
+        }
+
+        .bento-card:hover {
+            border-color: var(--idiada-red);
+            box-shadow: 0 10px 30px -10px rgba(227, 6, 19, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--idiada-red);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #c40510;
+            transform: translateY(-1px);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--idiada-red);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: #FEE2E2;
+            color: var(--idiada-red);
+            font-size: 0.7rem;
+            font-weight: 800;
+        }
+
+        .cursor-blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--idiada-red); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+        <div class="max-w-[1400px] mx-auto px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-6">
+                <div class="flex flex-col">
+                    <span class="text-2xl font-extrabold tracking-tighter leading-none">AURELITE <span class="text-[#E30613]">by DN</span></span>
+                    <span class="text-[9px] font-bold tracking-[0.3em] uppercase opacity-50">Intelligence OS for IDIADA</span>
+                </div>
+            </div>
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="#vision" class="nav-link">Visión</a>
+                <a href="#capabilities" class="nav-link">Capacidades</a>
+                <a href="#engine" class="nav-link">Motor AI</a>
+                <a href="#stack" class="nav-link">Arquitectura</a>
+                <div class="h-6 w-px bg-gray-200"></div>
+                <div class="flex flex-col items-end">
+                    <span class="text-[10px] font-bold">FECHA PRESENTACIÓN</span>
+                    <span class="text-xs font-black text-[#E30613]">01 / JUNIO / 2026</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="vision" class="pt-44 pb-24 px-8 border-b border-gray-50">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-end">
+                <div class="lg:col-span-7">
+                    <div class="status-pill mb-8">
+                        <span class="w-2 h-2 bg-[#E30613] rounded-full animate-pulse"></span>
+                        SISTEMA OPERATIVO DE TEST ACTIVO
+                    </div>
+                    <h1 class="text-6xl lg:text-8xl font-black tracking-tighter mb-10 leading-[0.9]">
+                        La Evolución <br><span class="text-[#E30613]">Digital</span> del Test.
+                    </h1>
+                    <p class="text-xl text-gray-500 max-w-2xl leading-relaxed">
+                        AURELITE es la plataforma soberana de DN para IDIADA. Unificamos la complejidad de BMW, VAG y SAIC-GM en una única capa de inteligencia conversacional on-the-edge.
+                    </p>
+                </div>
+                <div class="lg:col-span-5 pb-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 border-l-4 border-[#E30613] bg-gray-50">
+                            <span class="text-[10px] font-bold text-gray-400 uppercase">Reducción Post-Procesado</span>
+                            <div class="text-4xl font-black mt-1">-85%</div>
+                        </div>
+                        <div class="p-6 border-l-4 border-black bg-gray-50">
+                            <span class="text-[10px] font-bold text-gray-400 uppercase">Precisión en Reporte</span>
+                            <div class="text-4xl font-black mt-1">99.9%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-[1400px] mx-auto px-8 py-24 space-y-32">
+
+        <!-- Intelligence Hub -->
+        <section id="capabilities">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-extrabold mb-4 uppercase tracking-tighter">Verticales de Ingeniería Automotriz</h2>
+                    <p class="text-gray-500">AURELITE digitaliza cada rincón de IDIADA. Desde la validación de sensores RADAR hasta el análisis de intrusión en crash tests, integrando protocolos internacionales de homologación.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="switchTab('adas')" id="tab-adas" class="px-6 py-3 border font-bold text-xs uppercase tracking-widest bg-[#E30613] text-white">ADAS / RADAR</button>
+                    <button onclick="switchTab('ev')" id="tab-ev" class="px-6 py-3 border font-bold text-xs uppercase tracking-widest hover:bg-gray-50">EV / BMS</button>
+                    <button onclick="switchTab('safety')" id="tab-safety" class="px-6 py-3 border font-bold text-xs uppercase tracking-widest hover:bg-gray-50">Passive Safety</button>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bento-card p-8 rounded-sm">
+                        <h4 id="feature-title" class="text-xl font-black mb-4 uppercase">Validación ADAS & RADAR</h4>
+                        <p id="feature-desc" class="text-sm text-gray-500 leading-relaxed mb-8">Especialización en sistemas BMW. Procesamiento de nubes de puntos y validación de protocolos Euro NCAP mediante IA predictiva.</p>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-[10px] font-bold border-b pb-2">
+                                <span>EXPERTISE OEM</span>
+                                <span class="text-[#E30613]">BMW GROUP</span>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-bold border-b pb-2">
+                                <span>PROTOCOLOS</span>
+                                <span>UN/ECE R152</span>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-bold border-b pb-2">
+                                <span>HARDWARE</span>
+                                <span>NVIDIA DRIVE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 bg-[#1A1A1A] text-white">
+                        <div class="text-[10px] font-bold text-[#E30613] mb-2 uppercase tracking-widest">Estado del Sensor</div>
+                        <div class="mono text-xs opacity-80 leading-relaxed">
+                            > Ingesting RAW_DATA... <br>
+                            > Filtering Noise... [OK] <br>
+                            > Detecting Objects... [12] <br>
+                            > Precision: 0.9984
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 bento-card p-10 flex items-center justify-center min-h-[500px]">
+                    <div class="chart-container">
+                        <canvas id="mainRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conversational Engine (DataStrive Inspired) -->
+        <section id="engine" class="py-24 bg-gray-50 -mx-8 px-8">
+            <div class="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-5xl font-black mb-8 tracking-tighter uppercase leading-none">Ingeniería <br><span class="text-[#E30613]">Conversacional</span></h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                        Eliminamos la fricción entre el dato y el ingeniero. AURELITE permite interrogar a cualquier banco de pruebas de IDIADA y obtener reportes de homologación en segundos.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white border flex items-center justify-center font-bold text-[#E30613]">01</div>
+                            <div>
+                                <h5 class="font-bold uppercase text-sm">Acceso Unificado</h5>
+                                <p class="text-xs text-gray-500">Un solo punto de entrada para Crash, Emisiones y Dinámica.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white border flex items-center justify-center font-bold text-[#E30613]">02</div>
+                            <div>
+                                <h5 class="font-bold uppercase text-sm">Soberanía de Datos</h5>
+                                <p class="text-xs text-gray-500">Procesamiento 100% On-Premise. El dato nunca sale de IDIADA.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white border flex items-center justify-center font-bold text-[#E30613]">03</div>
+                            <div>
+                                <h5 class="font-bold uppercase text-sm">Reportes Certificados</h5>
+                                <p class="text-xs text-gray-500">Exportación automática a PDF bajo estándares de cliente.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-[#1A1A1A] text-white border flex items-center justify-center font-bold text-[#E30613]">04</div>
+                            <div>
+                                <h5 class="font-bold uppercase text-sm">Seguridad IT & VPN</h5>
+                                <p class="text-xs text-gray-500">El acceso y la descarga de reportes PDF están restringidos exclusivamente a través de la VPN corporativa de la compañía.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#1A1A1A] rounded-sm p-2 shadow-2xl">
+                    <div class="bg-white p-8 min-h-[550px] flex flex-col">
+                        <div class="flex items-center justify-between mb-8 border-b pb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-[#E30613] rounded-full"></div>
+                                <span class="font-black text-xs uppercase tracking-tighter">AURELITE Intelligence Terminal</span>
+                            </div>
+                            <span class="mono text-[10px] text-gray-400">SESSION_LIVE_2026</span>
+                        </div>
+
+                        <div id="chat-output" class="flex-grow space-y-6 overflow-y-auto pr-4 mb-6 scrollbar-hide">
+                            <div class="flex flex-col gap-1">
+                                <span class="text-[9px] font-bold text-[#E30613] uppercase">AURELITE CORE</span>
+                                <div class="bg-gray-50 p-4 border text-sm leading-relaxed italic">
+                                    Bienvenido, Ingeniero. Estoy conectado a los bancos de ADAS (BMW), BMS (SAIC-GM) y Passive Safety. ¿Qué reporte desea generar?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <input id="chat-input" type="text" placeholder="Consultar BMS post-impacto lateral..." 
+                                class="w-full bg-gray-50 border-b-2 border-gray-200 focus:border-[#E30613] py-4 px-0 outline-none text-sm transition-all font-medium">
+                            <button onclick="handleChat()" class="absolute right-0 top-1/2 -translate-y-1/2 btn-primary px-6 py-2 text-xs font-black uppercase">Run Query</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Stack -->
+        <section id="stack" class="pb-24">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black uppercase tracking-tighter mb-4">The Engineering DNA</h2>
+                <div class="w-20 h-1.5 bg-[#E30613] mx-auto mb-6"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto">Capacidad Full-Stack integral para orquestar desde la captura de hardware de bajo nivel hasta la interfaz corporativa y despliegues seguros IT.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+                <!-- AI & Deep Learning (Consultant Skills) -->
+                <div class="bento-card p-8">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-[#E30613] mb-4 border-b pb-2">AI & Deep Learning</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">TensorFlow</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">PyTorch</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">BERT (Language Model)</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Python (Programming Language)</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">C (Programming Language)</span>
+                    </div>
+                </div>
+
+                <!-- Core & Frameworks -->
+                <div class="bento-card p-8">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-[#E30613] mb-4 border-b pb-2">Core & Frameworks</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Django / Flask / Celery</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Angular / React / VueJS</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Node / Javascript / Dart</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Java / Spring / PHP</span>
+                    </div>
+                </div>
+
+                <!-- Database & ORM -->
+                <div class="bento-card p-8">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-[#E30613] mb-4 border-b pb-2">Databases & ORM</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">PostgreSQL</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">MySQL</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">MongoDB / SQLite</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">DjangoORM</span>
+                    </div>
+                </div>
+
+                <!-- DevOps & Cloud -->
+                <div class="bento-card p-8">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-[#E30613] mb-4 border-b pb-2">DevOps & Cloud</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Amazon Web Services (AWS)</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Docker Products</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">CI/CD / Gitlab / Github</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Nginx / Apache</span>
+                        <span class="px-2 py-1 border border-[#E30613] text-[#E30613] text-[10px] font-black rounded-sm shadow-sm">Corporate VPN Auth</span>
+                    </div>
+                </div>
+
+                <!-- Architecture & Enterprise -->
+                <div class="bento-card p-8">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-[#E30613] mb-4 border-b pb-2">Architecture & Enterprise</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Event-driven / Modern Arch</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">TDD / Unit & Int Tests</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Agile (SCRUM/Kanban)</span>
+                        <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold rounded-sm">Microsoft Office</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#1A1A1A] text-white py-24 px-8">
+        <div class="max-w-[1400px] mx-auto grid md:grid-cols-3 gap-20">
+            <div>
+                <div class="text-3xl font-black tracking-tighter mb-6 uppercase">AURELITE <span class="text-[#E30613]">by DN</span></div>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Transformando la infraestructura de IDIADA mediante inteligencia artificial soberana. Expertos en integración OEM y ciberseguridad industrial.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                    <h6 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mb-6">Expertise</h6>
+                    <ul class="text-xs font-bold space-y-4 uppercase tracking-tighter">
+                        <li>BMW ELECTRIC</li>
+                        <li>VAG GATEWAY</li>
+                        <li>SAIC-GM BMS</li>
+                        <li>PASSIVE SAFETY</li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mb-6">Equipo DN</h6>
+                    <ul class="text-xs font-bold space-y-4 uppercase tracking-tighter">
+                        <li>PostDoc AI</li>
+                        <li>PostDoc Cyber</li>
+                        <li>MSc Systems</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col items-end justify-between">
+                <div class="text-right">
+                    <div class="text-[10px] font-black uppercase text-gray-500 mb-2">Próximo Hito</div>
+                    <div class="text-xl font-black text-[#E30613]">GO-LIVE: 01.06.2026</div>
+                </div>
+                <div class="text-[10px] font-bold opacity-30 uppercase tracking-widest text-right">
+                    © 2026 DN AUTOMOTIVE CONSULTING <br> EXCLUSIVO PARA IDIADA CORPORATE CATSUD
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data Configuration
+        const capabilities = {
+            adas: {
+                title: "ADAS & RADAR PERCEPTION",
+                desc: "Optimizado para protocolos BMW. AURELITE procesa señales crudas de RADAR para validar sistemas AEB y LKA en milisegundos.",
+                data: [98, 92, 95, 88, 90]
+            },
+            ev: {
+                title: "EV POWERTRAIN & BMS",
+                desc: "Expertise con SAIC-GM. Monitorización del estado de salud (SoH) de celdas durante ciclos de carga/descarga extrema.",
+                data: [95, 98, 90, 94, 96]
+            },
+            safety: {
+                title: "PASSIVE SAFETY & CRASH",
+                desc: "Análisis de intrusión estructural mediante Computer Vision (NVIDIA). Automatización de reportes post-impacto.",
+                data: [92, 90, 98, 96, 94]
+            }
+        };
+
+        // Radar Chart Initialization
+        let radarChart;
+        function initChart(data) {
+            const ctx = document.getElementById('mainRadarChart').getContext('2d');
+            if (radarChart) radarChart.destroy();
+            
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['PRECISIÓN', 'LATENCIA', 'INTEGRACIÓN', 'SEGURIDAD', 'AUTOMATIZACIÓN'],
+                    datasets: [{
+                        label: 'Performance AURELITE',
+                        data: data,
+                        backgroundColor: 'rgba(227, 6, 19, 0.1)',
+                        borderColor: '#E30613',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#1A1A1A',
+                        pointBorderColor: '#fff',
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#eee' },
+                            grid: { color: '#eee' },
+                            pointLabels: { font: { family: 'JetBrains Mono', size: 10, weight: 'bold' }, color: '#1A1A1A' },
+                            ticks: { display: false },
+                            suggestedMin: 50,
+                            suggestedMax: 100
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        function switchTab(key) {
+            // UI Toggle
+            ['adas', 'ev', 'safety'].forEach(k => {
+                const btn = document.getElementById(`tab-${k}`);
+                if (k === key) {
+                    btn.classList.add('bg-[#E30613]', 'text-white');
+                    btn.classList.remove('hover:bg-gray-50');
+                } else {
+                    btn.classList.remove('bg-[#E30613]', 'text-white');
+                    btn.classList.add('hover:bg-gray-50');
+                }
+            });
+
+            // Content Update
+            const item = capabilities[key];
+            document.getElementById('feature-title').innerText = item.title;
+            document.getElementById('feature-desc').innerText = item.desc;
+            initChart(item.data);
+        }
+
+        // Chat Interaction Logic
+        const chatOutput = document.getElementById('chat-output');
+        const chatInput = document.getElementById('chat-input');
+
+        function handleChat() {
+            const msg = chatInput.value.trim();
+            if (!msg) return;
+
+            // User Message
+            const uDiv = document.createElement('div');
+            uDiv.className = "flex flex-col items-end";
+            uDiv.innerHTML = `<span class="text-[9px] font-bold text-gray-400 uppercase">INGENIERO IDIADA</span>
+                              <div class="bg-black text-white p-4 border text-sm leading-relaxed">${msg}</div>`;
+            chatOutput.appendChild(uDiv);
+            chatInput.value = '';
+
+            // Aura Response
+            setTimeout(() => {
+                const aDiv = document.createElement('div');
+                aDiv.className = "flex flex-col animate-in fade-in slide-in-from-bottom-2 duration-500";
+                
+                let response = "Análisis completado. He procesado los logs de telemetría del Banco #4. El reporte PDF de homologación está encriptado y listo para descarga segura a través de la VPN corporativa.";
+                
+                if (msg.toLowerCase().includes('crash') || msg.toLowerCase().includes('choque')) {
+                    response = "Protocolo PASSIVE SAFETY detectado. Análisis de deformación de pilar B completado (Computer Vision NVIDIA). Intrusión máxima: 12.4mm. Cumple estándar Euro NCAP. [🔗 Enlace PDF generado en red VPN]";
+                } else if (msg.toLowerCase().includes('bms') || msg.toLowerCase().includes('bateria')) {
+                    response = "BMS DATA ANALYTICS: Curva de descarga SAIC-GM estable. Degradación proyectada < 0.2% anual. Reporte térmico exportado exitosamente a la intranet (Acceso VPN requerido).";
+                } else if (msg.toLowerCase().includes('radar') || msg.toLowerCase().includes('bmw')) {
+                    response = "ADAS RADAR: Nube de puntos filtrada. Tiempo de reacción AEB: 44ms. Validado contra escenario de 'Peatón en cruce'. PDF compilado en el nodo seguro IT-VPN.";
+                }
+
+                aDiv.innerHTML = `<span class="text-[9px] font-bold text-[#E30613] uppercase">AURELITE CORE AI</span>
+                                  <div class="bg-gray-50 p-4 border text-sm leading-relaxed italic border-l-4 border-l-[#E30613]">${response}</div>`;
+                chatOutput.appendChild(aDiv);
+                chatOutput.scrollTop = chatOutput.scrollHeight;
+            }, 1000);
+        }
+
+        chatInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleChat(); });
+
+        // Initializer
+        window.onload = () => initChart(capabilities.adas.data);
+    </script>
+</body>
+</html>
