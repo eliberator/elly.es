@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The £25,000 "High-Tier Wife" Course — Completely FREE</title>
+
+<!-- SEO & Social Sharing Meta Tags -->
+<meta name="description" content="We reverse-engineered Laura Zachary's £25,000 High-Tier Wife coaching programme so you don't have to pay for it. All 10 modules. Free.">
+<meta property="og:title" content="The £25,000 High-Tier Wife Course — FREE 👀">
+<meta property="og:description" content="A British trad wife charges £25,000 for this. We're giving it away free. All 10 modules reverse-engineered.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The £25,000 High-Tier Wife Course — FREE 👀">
+<meta name="twitter:description" content="We reverse-engineered the entire £25,000 programme. Read it free. Share it wider.">
+
+<style>
+/* ============================================
+RESET & BASE
+============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+	--gold: #C9A84C;
+	--gold-light: #E8C97A;
+	--gold-dark: #8B6914;
+	--cream: #FDF8F0;
+	--dark: #1A1208;
+	--dark-mid: #2D2010;
+	--mid: #4A3520;
+	--soft: #7A6045;
+	--white: #FFFFFF;
+	--red: #C0392B;
+	--green: #27AE60;
+	--blue: #2980B9;
+	--purple: #8E44AD;
+	--shadow: rgba(0,0,0,0.3);
+	--glow: rgba(201,168,76,0.4);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+	font-family: 'Georgia', serif;
+	background: var(--dark);
+	color: var(--cream);
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+/* ============================================
+ANIMATED BACKGROUND
+============================================ */
+.bg-particles {
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	pointer-events: none;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.particle {
+	position: absolute;
+	width: 4px; height: 4px;
+	background: var(--gold);
+	border-radius: 50%;
+	opacity: 0;
+	animation: float-up linear infinite;
+}
+
+@keyframes float-up {
+	0% { opacity: 0; transform: translateY(100vh) scale(0); }
+	10% { opacity: 0.6; }
+	90% { opacity: 0.2; }
+	100% { opacity: 0; transform: translateY(-10vh) scale(1.5); }
+}
+
+/* ============================================
+HERO SECTION
+============================================ */
+.hero {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 40px 20px;
+	background: radial-gradient(ellipse at center, #2D2010 0%, #1A1208 60%, #0D0904 100%);
+	z-index: 1;
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background: 
+	radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+	radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
+	pointer-events: none;
+}
+
+.hero-badge {
+	display: inline-block;
+	background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+	color: var(--dark);
+	font-family: 'Arial', sans-serif;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	padding: 8px 20px;
+	border-radius: 100px;
+	margin-bottom: 30px;
+	box-shadow: 0 0 30px var(--glow);
+	animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+	0%, 100% { box-shadow: 0 0 20px var(--glow); }
+	50% { box-shadow: 0 0 50px var(--glow), 0 0 80px rgba(201,168,76,0.2); }
+}
+
+.hero-price-crossed {
+	font-family: 'Arial', sans-serif;
+	font-size: 20px;
+	color: var(--soft);
+	text-decoration: line-through;
+	letter-spacing: 2px;
+	margin-bottom: 10px;
+	opacity: 0.8;
+}
+
+.hero-title {
+	font-size: clamp(36px, 7vw, 80px);
+	line-height: 1.1;
+	margin-bottom: 20px;
+	background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	filter: drop-shadow(0 0 20px rgba(201,168,76,0.5));
+}
+
+.hero-subtitle {
+	font-size: clamp(16px, 2.5vw, 22px);
+	color: rgba(253,248,240,0.8);
+	max-width: 650px;
+	line-height: 1.7;
+	margin-bottom: 40px;
+}
+
+.hero-subtitle strong {
+	color: var(--gold-light);
+}
+
+.hero-cta-group {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+.btn-primary {
+	background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+	color: var(--dark);
+	border: none;
+	padding: 16px 36px;
+	font-size: 16px;
+	font-weight: 800;
+	font-family: 'Arial', sans-serif;
+	border-radius: 100px;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+	transition: all 0.3s ease;
+	letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+	transform: translateY(-3px) scale(1.02);
+	box-shadow: 0 15px 50px rgba(201,168,76,0.6);
+}
+
+.btn-secondary {
+	background: transparent;
+	color: var(--gold);
+	border: 2px solid var(--gold);
+	padding: 14px 34px;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: 'Arial', sans-serif;
+	border-radius: 100px;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+	background: rgba(201,168,76,0.1);
+	transform: translateY(-2px);
+}
+
+.hero-stats {
+	display: flex;
+	gap: 40px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.stat-item {
+	text-align: center;
+}
+
+.stat-number {
+	font-size: 32px;
+	font-weight: bold;
+	color: var(--gold);
+	display: block;
+}
+
+.stat-label {
+	font-size: 12px;
+	color: var(--soft);
+	font-family: 'Arial', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.scroll-indicator {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	color: var(--soft);
+	font-family: 'Arial', sans-serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+	width: 24px;
+	height: 24px;
+	border-right: 2px solid var(--gold);
+	border-bottom: 2px solid var(--gold);
+	transform: rotate(45deg);
+}
+
+@keyframes bounce {
+	0%, 100% { transform: translateX(-50%) translateY(0); }
+	50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ============================================
+VIRAL BANNER
+============================================ */
+.viral-banner {
+	position: relative;
+	z-index: 1;
+	background: linear-gradient(135deg, #8B0000, #C0392B, #8B0000);
+	padding: 20px;
+	text-align: center;
+	font-family: 'Arial', sans-serif;
+}
+
+.viral-banner p {
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: white;
+}
+
+.viral-banner span {
+	font-size: 20px;
+}
+
+/* ============================================
+NAVIGATION
+============================================ */
+.nav-sticky {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: rgba(26,18,8,0.95);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(201,168,76,0.2);
+	padding: 15px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+}
+
+.nav-logo {
+	font-size: 14px;
+	font-weight: bold;
+	color: var(--gold);
+	font-family: 'Arial', sans-serif;
+	white-space: nowrap;
+}
+
+.nav-progress-bar {
+	flex: 1;
+	height: 4px;
+	background: rgba(201,168,76,0.2);
+	border-radius: 100px;
+	overflow: hidden;
+}
+
+.nav-progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+	border-radius: 100px;
+	width: 0%;
+	transition: width 0.1s linear;
+}
+
+.nav-share-btn {
+	background: var(--gold);
+	color: var(--dark);
+	border: none;
+	padding: 8px 16px;
+	font-size: 12px;
+	font-weight: 800;
+	font-family: 'Arial', sans-serif;
+	border-radius: 100px;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: all 0.2s ease;
+}
+
+.nav-share-btn:hover { transform: scale(1.05); }
+
+/* ============================================
+MAIN CONTAINER
+============================================ */
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 20px;
+	position: relative;
+	z-index: 1;
+}
+
+/* ============================================
+SECTION HEADERS
+============================================ */
+.section-header {
+	text-align: center;
+	padding: 80px 20px 50px;
+}
+
+.section-tag {
+	display: inline-block;
+	background: rgba(201,168,76,0.15);
+	border: 1px solid rgba(201,168,76,0.3);
+	color: var(--gold);
+	font-family: 'Arial', sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	padding: 6px 16px;
+	border-radius: 100px;
+	margin-bottom: 20px;
+}
+
+.section-title {
+	font-size: clamp(28px, 5vw, 48px);
+	color: var(--cream);
+	line-height: 1.2;
+	margin-bottom: 15px;
+}
+
+.section-title span {
+	color: var(--gold);
+}
+
+.section-subtitle {
+	font-size: 17px;
+	color: rgba(253,248,240,0.6);
+	max-width: 600px;
+	margin: 0 auto;
+	line-height: 1.7;
+	font-family: 'Arial', sans-serif;
+}
+
+/* ============================================
+MODULE CARDS
+============================================ */
+.modules-grid {
+	padding: 0 20px 80px;
+}
+
+.module-card {
+	background: linear-gradient(135deg, rgba(45,32,16,0.8), rgba(26,18,8,0.9));
+	border: 1px solid rgba(201,168,76,0.15);
+	border-radius: 20px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.module-card:hover {
+	border-color: rgba(201,168,76,0.4);
+	box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.1);
+	transform: translateY(-2px);
+}
+
+.module-card.active {
+	border-color: var(--gold);
+	box-shadow: 0 15px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,168,76,0.15);
+}
+
+.module-header {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 25px 30px;
+}
+
+.module-number {
+	min-width: 60px;
+	height: 60px;
+	background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Arial', sans-serif;
+	font-size: 11px;
+	font-weight: 900;
+	color: var(--dark);
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.module-number-big {
+	font-size: 20px;
+	line-height: 1;
+}
+
+.module-title-group {
+	flex: 1;
+}
+
+.module-eyebrow {
+	font-family: 'Arial', sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: var(--gold);
+	margin-bottom: 5px;
+}
+
+.module-title {
+	font-size: clamp(18px, 3vw, 24px);
+	color: var(--cream);
+	line-height: 1.2;
+}
+
+.module-subtitle {
+	font-size: 13px;
+	color: var(--soft);
+	font-family: 'Arial', sans-serif;
+	margin-top: 5px;
+}
+
+.module-toggle {
+	width: 36px;
+	height: 36px;
+	background: rgba(201,168,76,0.1);
+	border: 1px solid rgba(201,168,76,0.2);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	color: var(--gold);
+	transition: all 0.3s ease;
+	flex-shrink: 0;
+}
+
+.module-card.active .module-toggle {
+	background: var(--gold);
+	color: var(--dark);
+	transform: rotate(45deg);
+}
+
+.module-content {
+	display: none;
+	padding: 0 30px 30px;
+	border-top: 1px solid rgba(201,168,76,0.1);
+}
+
+.module-card.active .module-content {
+	display: block;
+}
+
+.module-content-inner {
+	padding-top: 25px;
+}
+
+/* ============================================
+CONTENT BLOCKS
+============================================ */
+.content-block {
+	margin-bottom: 30px;
+}
+
+.content-block-title {
+	font-family: 'Arial', sans-serif;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: var(--gold);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.philosophy-text {
+	font-size: 15px;
+	line-height: 1.8;
+	color: rgba(253,248,240,0.85);
+}
+
+.philosophy-text strong {
+	color: var(--gold-light);
+}
+
+.behaviors-list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.behaviors-list li {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+	font-size: 14px;
+	line-height: 1.6;
+	color: rgba(253,248,240,0.8);
+	font-family: 'Arial', sans-serif;
+}
+
+.behaviors-list li::before {
+	content: '◆';
+	color: var(--gold);
+	font-size: 10px;
+	margin-top: 4px;
+	flex-shrink: 0;
+}
+
+.behaviors-list li strong {
+	color: var(--cream);
+}
+
+/* ============================================
+COMPARISON TABLE
+============================================ */
+.comparison-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-family: 'Arial', sans-serif;
+	font-size: 13px;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.comparison-table thead tr {
+	background: rgba(201,168,76,0.1);
+}
+
+.comparison-table thead th {
+	padding: 14px 16px;
+	text-align: left;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.comparison-table thead th:first-child {
+	color: var(--red);
+	width: 48%;
+}
+
+.comparison-table thead th:last-child {
+	color: var(--green);
+	width: 52%;
+}
+
+.comparison-table tbody tr {
+	border-bottom: 1px solid rgba(201,168,76,0.08);
+	transition: background 0.2s ease;
+}
+
+.comparison-table tbody tr:hover {
+	background: rgba(201,168,76,0.04);
+}
+
+.comparison-table tbody tr:last-child {
+	border-bottom: none;
+}
+
+.comparison-table td {
+	padding: 14px 16px;
+	vertical-align: top;
+	line-height: 1.5;
+}
+
+.comparison-table td:first-child {
+	color: rgba(192,57,43,0.9);
+	border-right: 1px solid rgba(201,168,76,0.1);
+}
+
+.comparison-table td:last-child {
+	color: rgba(39,174,96,0.9);
+}
+
+.comparison-table td em {
+	color: rgba(253,248,240,0.4);
+	font-style: italic;
+}
+
+.x-mark::before { content: '✗ '; font-weight: bold; color: var(--red); }
+.check-mark::before { content: '✓ '; font-weight: bold; color: var(--green); }
+
+/* ============================================
+SCRIPTURE QUOTE
+============================================ */
+.scripture-quote {
+	background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));
+	border-left: 3px solid var(--gold);
+	border-radius: 0 12px 12px 0;
+	padding: 20px 24px;
+	margin: 20px 0;
+	font-style: italic;
+	color: rgba(253,248,240,0.8);
+	line-height: 1.7;
+	font-size: 15px;
+}
+
+.scripture-quote cite {
+	display: block;
+	font-size: 12px;
+	font-family: 'Arial', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: 2px;
+	color: var(--gold);
+	margin-top: 10px;
+	text-transform: uppercase;
+}
+
+/* ============================================
+PRICING SECTION
+============================================ */
+.pricing-section {
+	padding: 80px 20px;
+	background: linear-gradient(180deg, transparent, rgba(201,168,76,0.03), transparent);
+}
+
+.pricing-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+	margin-top: 40px;
+}
+
+.pricing-card {
+	background: rgba(45,32,16,0.6);
+	border: 1px solid rgba(201,168,76,0.2);
+	border-radius: 16px;
+	padding: 25px 20px;
+	text-align: center;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.pricing-card.featured {
+	border-color: var(--gold);
+	background: linear-gradient(135deg, rgba(45,32,16,0.9), rgba(74,53,32,0.8));
+}
+
+.pricing-card.featured::before {
+	content: 'FLAGSHIP';
+	position: absolute;
+	top: 12px;
+	right: -20px;
+	background: var(--gold);
+	color: var(--dark);
+	font-family: 'Arial', sans-serif;
+	font-size: 9px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	padding: 4px 30px;
+	transform: rotate(45deg);
+}
+
+.pricing-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.pricing-tier {
+	font-family: 'Arial', sans-serif;
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: var(--gold);
+	margin-bottom: 10px;
+}
+
+.pricing-name {
+	font-size: 18px;
+	color: var(--cream);
+	margin-bottom: 15px;
+	line-height: 1.3;
+}
+
+.pricing-amount {
+	font-size: 32px;
+	font-weight: bold;
+	color: var(--gold);
+	font-family: 'Arial', sans-serif;
+	margin-bottom: 5px;
+}
+
+.pricing-amount-free {
+	font-size: 32px;
+	font-weight: bold;
+	color: var(--green);
+	font-family: 'Arial', sans-serif;
+	margin-bottom: 5px;
+}
+
+.pricing-crossed {
+	font-size: 14px;
+	color: var(--soft);
+	text-decoration: line-through;
+	font-family: 'Arial', sans-serif;
+	margin-bottom: 15px;
+}
+
+.pricing-desc {
+	font-size: 13px;
+	color: rgba(253,248,240,0.6);
+	line-height: 1.6;
+	font-family: 'Arial', sans-serif;
+}
+
+/* ============================================
+CRITICAL ANALYSIS
+============================================ */
+.analysis-section {
+	padding: 80px 20px;
+}
+
+.analysis-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+	.analysis-grid { grid-template-columns: 1fr; }
+}
+
+.analysis-card {
+	border-radius: 16px;
+	padding: 25px;
+}
+
+.analysis-card.positive {
+	background: rgba(39,174,96,0.08);
+	border: 1px solid rgba(39,174,96,0.2);
+}
+
+.analysis-card.negative {
+	background: rgba(192,57,43,0.08);
+	border: 1px solid rgba(192,57,43,0.2);
+}
+
+.analysis-card-title {
+	font-family: 'Arial', sans-serif;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.analysis-card.positive .analysis-card-title { color: var(--green); }
+.analysis-card.negative .analysis-card-title { color: var(--red); }
+
+.analysis-list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.analysis-list li {
+	font-size: 14px;
+	line-height: 1.6;
+	color: rgba(253,248,240,0.8);
+	font-family: 'Arial', sans-serif;
+	padding-left: 20px;
+	position: relative;
+}
+
+.analysis-card.positive .analysis-list li::before {
+	content: '✓';
+	position: absolute;
+	left: 0;
+	color: var(--green);
+	font-weight: bold;
+}
+
+.analysis-card.negative .analysis-list li::before {
+	content: '✗';
+	position: absolute;
+	left: 0;
+	color: var(--red);
+	font-weight: bold;
+}
+
+/* ============================================
+SAVINGS CALCULATOR
+============================================ */
+.savings-section {
+	padding: 80px 20px;
+	text-align: center;
+}
+
+.savings-box {
+	background: linear-gradient(135deg, rgba(39,174,96,0.1), rgba(39,174,96,0.05));
+	border: 2px solid rgba(39,174,96,0.3);
+	border-radius: 24px;
+	padding: 50px 40px;
+	max-width: 600px;
+	margin: 40px auto 0;
+}
+
+.savings-amount {
+	font-size: clamp(60px, 12vw, 100px);
+	font-weight: bold;
+	color: var(--green);
+	font-family: 'Arial', sans-serif;
+	line-height: 1;
+	margin-bottom: 10px;
+	text-shadow: 0 0 40px rgba(39,174,96,0.4);
+}
+
+.savings-label {
+	font-size: 18px;
+	color: var(--cream);
+	margin-bottom: 20px;
+}
+
+.savings-breakdown {
+	font-family: 'Arial', sans-serif;
+	font-size: 14px;
+	color: var(--soft);
+	line-height: 2;
+}
+
+.savings-breakdown span {
+	color: var(--cream);
+}
+
+/* ============================================
+SHARE SECTION
+============================================ */
+.share-section {
+	padding: 80px 20px;
+	text-align: center;
+	background: radial-gradient(ellipse at center, rgba(201,168,76,0.05) 0%, transparent 70%);
+}
+
+.share-buttons {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.share-btn {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 24px;
+	border-radius: 100px;
+	font-family: 'Arial', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-decoration: none;
+}
+
+.share-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+.share-btn.twitter { background: #000000; color: white; }
+.share-btn.whatsapp { background: #25D366; color: white; }
+.share-btn.facebook { background: #1877F2; color: white; }
+.share-btn.copy { background: rgba(201,168,76,0.2); color: var(--gold); border: 1px solid var(--gold); }
+.share-btn.copy.copied { background: var(--green); color: white; border-color: var(--green); }
+
+.share-icon { font-size: 18px; }
+
+/* ============================================
+TOAST NOTIFICATION
+============================================ */
+.toast {
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%) translateY(100px);
+	background: var(--green);
+	color: white;
+	padding: 14px 28px;
+	border-radius: 100px;
+	font-family: 'Arial', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	z-index: 1000;
+	transition: transform 0.3s ease;
+	box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ============================================
+FOOTER
+============================================ */
+footer {
+	background: rgba(13,9,4,0.8);
+	border-top: 1px solid rgba(201,168,76,0.1);
+	padding: 40px 20px;
+	text-align: center;
+}
+
+footer p {
+	font-family: 'Arial', sans-serif;
+	font-size: 13px;
+	color: var(--soft);
+	line-height: 1.7;
+	max-width: 700px;
+	margin: 0 auto 10px;
+}
+
+footer a {
+	color: var(--gold);
+	text-decoration: none;
+}
+
+/* ============================================
+BACK TO TOP
+============================================ */
+.back-to-top {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 50px;
+	height: 50px;
+	background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 20px;
+	color: var(--dark);
+	box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+	transition: all 0.3s ease;
+	opacity: 0;
+	pointer-events: none;
+	z-index: 99;
+}
+
+.back-to-top.visible {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.back-to-top:hover { transform: translateY(-3px) scale(1.1); }
+
+/* ============================================
+RESPONSIVE
+============================================ */
+@media (max-width: 600px) {
+	.module-header { padding: 20px; flex-wrap: wrap; }
+	.module-content { padding: 0 20px 20px; }
+	.hero-stats { gap: 25px; }
+	.comparison-table { font-size: 12px; }
+	.comparison-table td { padding: 10px 12px; }
+	.pricing-grid { grid-template-columns: 1fr 1fr; }
+	.savings-box { padding: 35px 25px; }
+}
+
+@media (max-width: 400px) {
+	.pricing-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+ANIMATIONS
+============================================ */
+.fade-in {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* ============================================
+SCORECARD
+============================================ */
+.scorecard {
+	background: rgba(45,32,16,0.5);
+	border: 1px solid rgba(201,168,76,0.2);
+	border-radius: 16px;
+	overflow: hidden;
+	margin-top: 20px;
+}
+
+.scorecard-row {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 14px 20px;
+	border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+
+.scorecard-row:last-child { border-bottom: none; }
+
+.scorecard-label {
+	flex: 1;
+	font-family: 'Arial', sans-serif;
+	font-size: 13px;
+	color: rgba(253,248,240,0.8);
+}
+
+.scorecard-bar {
+	width: 120px;
+	height: 6px;
+	background: rgba(201,168,76,0.15);
+	border-radius: 100px;
+	overflow: hidden;
+}
+
+.scorecard-fill {
+	height: 100%;
+	background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+	border-radius: 100px;
+	transition: width 1s ease;
+}
+
+.scorecard-score {
+	font-family: 'Arial', sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--gold);
+	width: 35px;
+	text-align: right;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Animated background particles -->
+<div class="bg-particles" id="particles"></div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">✓ Link copied to clipboard!</div>
+
+<!-- Back to top button -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ==========================================
+HERO SECTION
+=========================================== -->
+<section class="hero" id="top">
+<div class="hero-badge">🔓 Exclusive — Now Public</div>
+<div class="hero-price-crossed">£25,000</div>
+<h1 class="hero-title">The "High-Tier Wife"<br>Course — FREE</h1>
+<p class="hero-subtitle">
+A British trad wife charges up to <strong>£25,000</strong> for private mentoring on how to become a "high-tier wife." We reverse-engineered all <strong>10 modules</strong> of her curriculum so you don't have to pay a penny.
+</p>
+<div class="hero-cta-group">
+<a href="#modules" class="btn-primary">Read the Full Course →</a>
+<a href="#analysis" class="btn-secondary">See the Critique</a>
+</div>
+<div class="hero-stats">
+<div class="stat-item">
+<span class="stat-number">10</span>
+<span class="stat-label">Full Modules</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">£25K</span>
+<span class="stat-label">Price Tag</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">£0</span>
+<span class="stat-label">Your Cost</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">100%</span>
+<span class="stat-label">Free Forever</span>
+</div>
+</div>
+<div class="scroll-indicator">
+<span>Scroll to read</span>
+<div class="scroll-arrow"></div>
+</div>
+</section>
+
+<!-- Viral Banner -->
+<div class="viral-banner">
+<p><span>😲</span> &nbsp; She charges £25,000. We're giving it away free. Share this with everyone. &nbsp; <span>👀</span></p>
+</div>
+
+<!-- Sticky Navigation -->
+<nav class="nav-sticky">
+<div class="nav-logo">💍 High-Tier Wife — FREE</div>
+<div class="nav-progress-bar">
+<div class="nav-progress-fill" id="progressFill"></div>
+</div>
+<button class="nav-share-btn" onclick="shareNative()">Share 🔗</button>
+</nav>
+
+<!-- ==========================================
+MODULES SECTION
+=========================================== -->
+<section id="modules">
+<div class="container">
+<div class="section-header fade-in">
+<div class="section-tag">The Complete Curriculum</div>
+<h2 class="section-title">All 10 Modules — <span>Reverse Engineered</span></h2>
+<p class="section-subtitle">Click each module to expand the full content. This is what £25,000 actually buys you.</p>
+</div>
+</div>
+
+<div class="container modules-grid">
+
+<!-- MODULE 1 -->
+<div class="module-card fade-in" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">01</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Foundation</div>
+<h3 class="module-title">The Crown of Surrender</h3>
+<div class="module-subtitle">Understanding God's Design for the Feminine Role</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">This is the theological foundation. The framework draws from <strong>Ephesians 5:22-24</strong> ("Wives, submit yourselves to your own husbands as you do to the Lord"), <strong>Proverbs 31</strong> (the virtuous woman), and <strong>Titus 2:3-5</strong>. The "High-Tier" distinction: an ordinary wife may intellectually agree with submission but still fights for control in micro-moments. A High-Tier Wife has <strong>internalised surrender as identity</strong>, not just behaviour.</p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 Actionable Behaviours</div>
+<ul class="behaviors-list">
+<li><strong>Morning Scripture Protocol:</strong> Wake before your husband. Spend the first hour in Bible study focused on passages about womanhood, submission, and God's order. This pre-empts the day's temptations to assert control.</li>
+<li><strong>The Surrender Journal:</strong> Each evening, write down every moment where you felt the urge to correct, redirect, or overrule your husband. Do not act on these urges. Document them as "flesh nature" needing sanctification.</li>
+<li><strong>The "Not My Position" Principle:</strong> When your husband makes a decision you disagree with, internally repeat: "If he does something where he needs to correct it, God corrects him. That is not my position."</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"I think you're making a mistake with that investment."</td><td>"I trust you to make the right decision. I'm praying for wisdom for both of us."</td></tr>
+<tr><td>"We need to talk about how you handled that."</td><td><em>Silence. Pray privately. Wait for God to convict him.</em></td></tr>
+<tr><td>"I don't agree with that decision."</td><td>"I see it differently, but I want to follow your lead. What would you like me to do?"</td></tr>
+<tr><td>"You never listen to me."</td><td>"I'd love to share something with you when the time feels right for you."</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 2 -->
+<div class="module-card fade-in delay-1" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">02</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Headship</div>
+<h3 class="module-title">The Lord of the House</h3>
+<div class="module-subtitle">Establishing & Honouring Male Headship in Every Interaction</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">Laura explicitly calls Zion the <strong>"Lord"</strong> of their household — a deliberate theological mapping of the Christ-Church relationship onto the marriage. The "High-Tier" distinction: ordinary wives may say "he's the head" publicly but undermine it through tone, body language, or passive-aggressive compliance. A High-Tier Wife treats headship as <strong>sacred protocol in every micro-interaction.</strong></p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 The Decision Hierarchy</div>
+<ul class="behaviors-list">
+<li><strong>Tier 1 (Wife decides autonomously):</strong> What to cook, which cleaning products to buy, daily household logistics.</li>
+<li><strong>Tier 2 (Wife researches, husband decides):</strong> Children's activities, social calendar, home decor purchases above a threshold.</li>
+<li><strong>Tier 3 (Husband decides fully):</strong> Major financial decisions, car purchases, housing, career moves, family strategy. <em>"We have recently been considering getting a new car so he has made all the calls, gone on test drives and has dealt with it all."</em></li>
+<li><strong>The Mistake Protocol:</strong> When he makes a bad decision — say nothing. Allow natural consequences or God's correction to teach him. Your silence in this moment is your highest act of respect.</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"We should get the Honda, it's more practical."</td><td>"What are you leaning toward? I'll support whatever you choose."</td></tr>
+<tr><td>"Actually, what happened was..." (correcting him publicly)</td><td><em>Smile. Nod. Let his version stand.</em></td></tr>
+<tr><td>"You forgot to pay the electricity bill again."</td><td>"Is there anything on the admin side I can help you stay on top of?"</td></tr>
+<tr><td>"Let me handle it, you always mess this up."</td><td>"I know you've got this. Let me know if you'd like any help."</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 3 -->
+<div class="module-card fade-in" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">03</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Emotions</div>
+<h3 class="module-title">The Silent Garden</h3>
+<div class="module-subtitle">Mastering Emotional Self-Containment (The Anti-Therapy Rule)</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">Laura's most controversial teaching: <em>"Some women use their husbands as a therapist and share their feelings daily. Men are not designed to hear all this. He has enough things to do in his day."</em> The High-Tier distinction: ordinary wives believe emotional intimacy means sharing <strong>everything</strong>. A High-Tier Wife understands that <strong>emotional dumping is a burden disguised as connection.</strong></p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 The Emotional Triage System</div>
+<ul class="behaviors-list">
+<li><strong>Category A — Process Alone (with God):</strong> Daily frustrations, anxieties, sadness about friendships, body image struggles. These go into prayer, journaling, or conversations with a female mentor — never to the husband.</li>
+<li><strong>Category B — Share Sparingly:</strong> Concerns about children's wellbeing, a relational conflict that directly affects the family. Shared after he has eaten, is relaxed, and presented as brief informational updates — not emotional processing sessions.</li>
+<li><strong>Category C — Escalate Immediately:</strong> Physical safety issues, serious financial emergencies, children's immediate danger. These override all timing protocols.</li>
+<li><strong>The 24-Hour Rule:</strong> If something upsets you, wait 24 hours. If it still matters after prayer and reflection, consider whether it's Category B. Most of the time, it will dissolve on its own.</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"I had the worst day. Let me tell you everything..."</td><td>"I had a bit of a day, but I'm okay. How was yours?"</td></tr>
+<tr><td>"I just need to vent. Don't try to fix it."</td><td><em>Don't vent to him at all. Call a girlfriend or write in your journal.</em></td></tr>
+<tr><td>"You don't even care about how I feel."</td><td><em>Examine whether you are placing unrealistic emotional expectations on him. Pray about it.</em></td></tr>
+<tr><td>"We need to talk about our relationship."</td><td>"I appreciate you so much. Is there anything I can do better for you?"</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 4 -->
+<div class="module-card fade-in delay-1" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">04</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Appearance</div>
+<h3 class="module-title">The Polished Vessel</h3>
+<div class="module-subtitle">Appearance, Grooming & the Art of Visual Respect</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">Laura states: <em>"Looking unkept is disrespectful. Women represent their husbands."</em> The operative word is <strong>represent.</strong> In this framework, a wife's appearance is not self-expression — it is a reflection of her husband's status. An unkempt wife signals a man who cannot provide. A High-Tier Wife treats her daily appearance as an act of <strong>honour toward her husband and glory toward God.</strong></p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 The Weekly Grooming Rhythm</div>
+<ul class="behaviors-list">
+<li><strong>Daily:</strong> Skincare routine (AM and PM), styled hair, light makeup, fragrance, clean and pressed clothing. Wake before your husband — complete basic grooming before he sees you.</li>
+<li><strong>Twice weekly:</strong> Full hair wash and style, manicure maintenance, home facial treatment.</li>
+<li><strong>Weekly:</strong> Deep conditioning, full maintenance, wardrobe review (remove anything stained, pilling, or ill-fitting).</li>
+<li><strong>Monthly:</strong> Hair appointment, brow maintenance, skin assessment.</li>
+<li><strong>Quarterly:</strong> Wardrobe audit, seasonal refresh, dental cleaning, aesthetic treatments aligned with husband's preferences.</li>
+<li><strong>The "Leaving the House" Rule:</strong> You are always representing your husband in public. Always look "put together" — as if someone might photograph you and caption it "[Husband]'s wife."</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"I don't care what I look like, he should love me as I am."</td><td>"Looking my best for him is one way I show love and respect."</td></tr>
+<tr><td>"I'm too tired to get dressed up just to stay home."</td><td>"He works hard to provide for me. The least I can do is look nice for him."</td></tr>
+<tr><td>"He never notices what I wear anyway."</td><td><em>Continue regardless. This is about discipline and honour, not applause.</em></td></tr>
+<tr><td>"Stop telling me what to wear."</td><td>"What do you like seeing me in? I want to make you proud."</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 5 -->
+<div class="module-card fade-in" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">05</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Encouragement</div>
+<h3 class="module-title">The Art of Praise</h3>
+<div class="module-subtitle">Becoming Your Husband's Greatest Encourager</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">Laura says: <em>"I teach women to praise their husbands, enjoy being married and to remove modern feminism thinking from their marriage."</em> The High-Tier framework positions the wife as the <strong>primary source of her husband's confidence, morale, and sense of purpose.</strong> Where the world may challenge or criticise him, his home should be a fortress of affirmation.</p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 The Daily Praise Protocol</div>
+<ul class="behaviors-list">
+<li><strong>Morning praise:</strong> Acknowledge something about who he is. <em>"I feel so safe being married to you."</em></li>
+<li><strong>Midday praise:</strong> Acknowledge something he does. <em>"Thank you for working so hard for our family."</em></li>
+<li><strong>Evening praise:</strong> Acknowledge something specific from that day. <em>"The way you handled that call was really impressive."</em></li>
+<li><strong>The Public Praise Rule:</strong> In social settings, speak about your husband with visible admiration. Never participate in "husband bashing." You are his public relations department.</li>
+<li><strong>The Remove Feminism Exercise:</strong> Identify adversarial beliefs and replace them. "Marriage should be 50/50" → "Marriage is 100/100 with different roles." "I shouldn't have to cook for him" → "Cooking for him is my privilege and my craft."</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"You finally fixed the shelf."</td><td>"Thank you for taking care of that. I love that I can depend on you."</td></tr>
+<tr><td>(To friends) "Ugh, my husband is useless."</td><td>(To friends) "I'm really blessed. He works so hard for our family."</td></tr>
+<tr><td>"You don't do enough around here."</td><td>"I see how much you carry for us and I'm so grateful."</td></tr>
+<tr><td>(Thinking it but not saying it.)</td><td>"I just want you to know — I respect you deeply and I'm proud to be your wife."</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 6 -->
+<div class="module-card fade-in delay-1" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">06</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Peace</div>
+<h3 class="module-title">The Peaceful Kingdom</h3>
+<div class="module-subtitle">Eliminating Drama, Conflict & Nagging from Your Home</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">Laura is emphatic: <em>"She doesn't argue with her husband or bring drama into the home. She keeps it peaceful."</em> Peace is not passive — it is an <strong>active, deliberate, skilled creation</strong> that the High-Tier Wife engineers every single day. If the home is full of conflict, the wife has failed in her primary assignment.</p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 The Nagging Elimination Protocol</div>
+<ul class="behaviors-list">
+<li><strong>Ask once.</strong> Clearly, kindly, at the right time.</li>
+<li><strong>If it doesn't happen,</strong> pray about it. Ask: Is this truly important, or is this about control?</li>
+<li><strong>If still important after 72 hours,</strong> raise it once more: "I know you're busy, and I don't want to add to your plate, but when you get a chance..."</li>
+<li><strong>If it still doesn't happen,</strong> release it. Either do it yourself without resentment, or accept that his timeline is different from yours.</li>
+<li><strong>The Re-Entry Protocol:</strong> When he comes home from work — stop what you're doing, greet him near the door with a smile, offer physical affection, allow 5 minutes to decompress before anything logistical.</li>
+<li><strong>The Atmosphere Audit:</strong> Each morning: Is the lighting warm? Is there clutter creating visual stress? Is there pleasant music or a good scent? Curate your home like a five-star hotel.</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"You said you'd take the bins out THREE days ago!"</td><td><em>Either take the bins out yourself, cheerfully, or wait.</em></td></tr>
+<tr><td>"We need to talk." (at 10pm, with intensity)</td><td>"There's something on my mind. When would be a good time for you to chat?"</td></tr>
+<tr><td>"Why do I have to do everything around here?"</td><td><em>Recognise this as victim mentality. Reframe: I am blessed to have a home to care for.</em></td></tr>
+<tr><td>(Launching into complaints when he walks in)</td><td>"Welcome home. I missed you. Can I get you anything?"</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 7 -->
+<div class="module-card fade-in" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">07</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Grace</div>
+<h3 class="module-title">The Forgiveness Furnace</h3>
+<div class="module-subtitle">Releasing Resentment & Practising Radical Grace</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">Laura specifically mentions teaching <strong>forgiveness.</strong> This is structurally essential — in a framework where the wife doesn't argue, doesn't criticise, and doesn't emotionally burden her husband, unresolved hurts will accumulate. Without a robust forgiveness practice, the entire system collapses into silent resentment or explosive rage. Forgiveness is the <strong>pressure valve</strong> of the High-Tier framework.</p>
+<div class="scripture-quote">
+"Because of the Lord's great love we are not consumed, for his compassions never fail. They are new every morning."
+<cite>— Lamentations 3:22-23</cite>
+</div>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 Actionable Behaviours</div>
+<ul class="behaviors-list">
+<li><strong>Daily Forgiveness Practice:</strong> Each evening, identify any moment your husband hurt or disappointed you. Pray specifically: "Lord, I choose to forgive [Name] for [specific action]. I release my right to hold this against him."</li>
+<li><strong>Monthly Resentment Inventory:</strong> Are you holding grudges? Keeping a mental scorecard? Write them all out, pray through each one, and symbolically destroy the list — burn it, shred it.</li>
+<li><strong>The "Fresh Mercy" Principle:</strong> Each morning is a clean slate. Whatever happened yesterday is forgiven. You greet your husband each day as though he is starting fresh.</li>
+<li><strong>The No-Scorecard Rule:</strong> Never say "Last time you..." or "You always..." or "Remember when you...". A High-Tier Wife has no catalogue. The ledger is burned each night.</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"You always do this. Remember last Christmas?"</td><td>"I'm choosing to let this go. I love you."</td></tr>
+<tr><td>"I'm still upset about what you said last week."</td><td><em>Process it with God or a mentor. Release it. Move forward.</em></td></tr>
+<tr><td>"I'll forgive you when you apologise properly."</td><td><em>Forgive immediately, with or without apology. Grace is unconditional.</em></td></tr>
+<tr><td>"Fine." (cold silence for 3 days)</td><td>"I felt hurt by that, but I've prayed about it and I want to move forward. I love you."</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 8 -->
+<div class="module-card fade-in delay-1" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">08</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Business</div>
+<h3 class="module-title">The Virtuous Enterprise</h3>
+<div class="module-subtitle">Building a Business That Serves — Not Competes With — Your Marriage</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">Laura teaches clients to <em>"build a business that runs itself so it doesn't interfere with taking care of her home and family."</em> The High-Tier distinction: ordinary entrepreneurial wives let their business consume their time and identity, leaving husbands feeling like a secondary priority. A High-Tier Wife ensures her business <strong>never competes with her domestic duties, never generates more identity than her role as wife,</strong> and ideally serves her husband's vision.</p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 The Business Boundary Framework</div>
+<ul class="behaviors-list">
+<li><strong>Work hours only</strong> during the window when household duties are complete — Laura works on her business after chores are done.</li>
+<li><strong>No work during "his time"</strong> — evenings, weekends, meals. No calls, emails, or social media.</li>
+<li><strong>Revenue goes into the household pot</strong> managed by the husband, or an account he has oversight of.</li>
+<li><strong>Build systems, not obligations.</strong> Create courses, digital products, and frameworks that sell without requiring constant presence. Tiered product ecosystem (£49.99 one-off → £10,000 annual → £25,000 private) that largely runs on autopilot.</li>
+<li><strong>Revenue positioning:</strong> Even if your business earns more than his salary, he is the provider. Your income is "extra blessing," not the foundation.</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"I made £5,000 this month from my course."</td><td>"God has blessed our household through the academy this month. Thank you for supporting me in building it."</td></tr>
+<tr><td>"I can't cook tonight, I have a client call."</td><td><em>Schedule client calls during daytime work hours only. Dinner is non-negotiable.</em></td></tr>
+<tr><td>"My business, my money, my decision."</td><td>"This is our family's resource. What do you think we should do with it?"</td></tr>
+<tr><td>"I don't need your permission to run my own business."</td><td>"I'd love your input on a decision I'm making for the academy."</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 9 -->
+<div class="module-card fade-in" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">09</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Motherhood</div>
+<h3 class="module-title">The Generational Crown</h3>
+<div class="module-subtitle">Raising Children Within God's Design</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">Within the High-Tier framework, motherhood is the <strong>ultimate expression</strong> of the wife's calling — but it must never displace her role as <strong>wife first.</strong> The hierarchy is: God → Husband → Children → Everything else. Laura and Zion plan to homeschool, encouraging children to follow their natural talents rather than traditional educational expectations.</p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 Actionable Behaviours</div>
+<ul class="behaviors-list">
+<li><strong>The Wife-First Principle:</strong> Children are a blessing, but they are not the centre of the household. The marriage is. Children have a bedtime that allows for couple time. Husband's needs are not neglected because of child-rearing exhaustion.</li>
+<li><strong>The Daughter Protocol:</strong> Laura says a High-Tier Wife "raises daughters to do the same." Model submission, service, grooming, praise, and peacemaking so that daughters absorb it as normal.</li>
+<li><strong>The Son Protocol:</strong> "She raises sons to follow their call from God also." Sons are raised to see leadership and provision as their divine mandate. They observe their father leading and their mother supporting.</li>
+<li><strong>Homeschooling as Values Transmission:</strong> The decision to homeschool is not merely educational — it is about controlling the ideological environment. It ensures children absorb the High-Tier worldview rather than secular egalitarian alternatives.</li>
+<li><strong>No Weaponising Children:</strong> Never use children as emotional allies, messengers between spouses, or leverage in disagreements.</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"The kids come first, you're an adult."</td><td>"You are my first priority. The children benefit from our strong marriage."</td></tr>
+<tr><td>(To children) "Your dad said no? Let me talk to him."</td><td>(To children) "Your father has made a decision. We're going to respect it."</td></tr>
+<tr><td>"I'm too exhausted from the kids to [connect]."</td><td><em>Plan your energy. Nap when children nap. Prioritise your husband's experience in the evening.</em></td></tr>
+<tr><td>(Undermining his discipline in front of children)</td><td><em>Discuss approaches privately. Present a united front always.</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODULE 10 -->
+<div class="module-card fade-in delay-1" onclick="toggleModule(this)">
+<div class="module-header">
+<div class="module-number">
+<span>MOD</span>
+<span class="module-number-big">10</span>
+</div>
+<div class="module-title-group">
+<div class="module-eyebrow">Integration</div>
+<h3 class="module-title">The High-Tier Transformation</h3>
+<div class="module-subtitle">Integration, Accountability & the Lifelong Practice</div>
+</div>
+<div class="module-toggle">+</div>
+</div>
+<div class="module-content">
+<div class="module-content-inner">
+<div class="content-block">
+<div class="content-block-title">⚡ Core Philosophy</div>
+<p class="philosophy-text">This final module is the <strong>ongoing maintenance programme</strong> — the real reason the £25,000 tier exists. Information alone doesn't transform behaviour; <strong>accountability, community, and repetition</strong> do. This module turns the curriculum into a lifestyle operating system with built-in checkpoints, self-assessments, and mentoring touchpoints. Laura says: <em>"She learns her husband and what he needs."</em> This is a never-finished project.</p>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 The Weekly Self-Assessment Scorecard</div>
+<div class="scorecard" id="scorecard">
+<div class="scorecard-row">
+<span class="scorecard-label">Surrender & Submission</span>
+<div class="scorecard-bar"><div class="scorecard-fill" style="width:0%" data-width="80%"></div></div>
+<span class="scorecard-score">8/10</span>
+</div>
+<div class="scorecard-row">
+<span class="scorecard-label">Emotional Self-Containment</span>
+<div class="scorecard-bar"><div class="scorecard-fill" style="width:0%" data-width="70%"></div></div>
+<span class="scorecard-score">7/10</span>
+</div>
+<div class="scorecard-row">
+<span class="scorecard-label">Appearance & Grooming</span>
+<div class="scorecard-bar"><div class="scorecard-fill" style="width:0%" data-width="90%"></div></div>
+<span class="scorecard-score">9/10</span>
+</div>
+<div class="scorecard-row">
+<span class="scorecard-label">Praise & Encouragement</span>
+<div class="scorecard-bar"><div class="scorecard-fill" style="width:0%" data-width="85%"></div></div>
+<span class="scorecard-score">8.5/10</span>
+</div>
+<div class="scorecard-row">
+<span class="scorecard-label">Peace & Conflict Elimination</span>
+<div class="scorecard-bar"><div class="scorecard-fill" style="width:0%" data-width="75%"></div></div>
+<span class="scorecard-score">7.5/10</span>
+</div>
+<div class="scorecard-row">
+<span class="scorecard-label">Forgiveness Practice</span>
+<div class="scorecard-bar"><div class="scorecard-fill" style="width:0%" data-width="80%"></div></div>
+<span class="scorecard-score">8/10</span>
+</div>
+<div class="scorecard-row">
+<span class="scorecard-label">Business Boundaries</span>
+<div class="scorecard-bar"><div class="scorecard-fill" style="width:0%" data-width="65%"></div></div>
+<span class="scorecard-score">6.5/10</span>
+</div>
+<div class="scorecard-row">
+<span class="scorecard-label">Mothering in God's Design</span>
+<div class="scorecard-bar"><div class="scorecard-fill" style="width:0%" data-width="90%"></div></div>
+<span class="scorecard-score">9/10</span>
+</div>
+</div>
+</div>
+<div class="content-block">
+<div class="content-block-title">🎯 The "Learn Your Husband" Study</div>
+<ul class="behaviors-list">
+<li>What does he like for breakfast? What is his stress level right now? What time of day is he most receptive to conversation?</li>
+<li>What are his current goals and worries (observed, not interrogated)? What physical affection does he most respond to?</li>
+<li>Keep a private "husband study" journal. Update it regularly. Treat it like a professional development file — because in this framework, <strong>he is your life's work.</strong></li>
+<li><strong>The Monthly Check-In:</strong> Once per month, humbly ask: "Is there anything I can do better as your wife?" Accept the answer without defensiveness. Implement changes immediately.</li>
+<li><strong>The Relapse Protocol:</strong> When you fail — recognise it, repent to God, apologise simply if it affected your husband, do not spiral into self-pity, return to standards immediately.</li>
+</ul>
+</div>
+<div class="content-block">
+<div class="content-block-title">💬 Communication Scripts</div>
+<table class="comparison-table">
+<thead><tr><th class="x-mark">Ordinary Wife</th><th class="check-mark">High-Tier Wife</th></tr></thead>
+<tbody>
+<tr><td>"I'm doing my best, take it or leave it."</td><td>"I'm always growing. Tell me how I can love you better."</td></tr>
+<tr><td>"This is just who I am."</td><td>"God is still working on me. I'm committed to becoming the wife you deserve."</td></tr>
+<tr><td>(After arguing) "Well, you provoked me."</td><td>"I fell short today. I'm sorry. Tomorrow, by God's grace, I'll do better."</td></tr>
+<tr><td>"We're fine. Every couple argues."</td><td>"I don't want ordinary. I want extraordinary. What can we improve?"</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- end modules-grid -->
+</section>
+
+<!-- ==========================================
+PRICING SECTION
+=========================================== -->
+<section class="pricing-section" id="pricing">
+<div class="container">
+<div class="section-header fade-in">
+<div class="section-tag">What It Actually Costs</div>
+<h2 class="section-title">The <span>Real</span> Pricing Structure</h2>
+<p class="section-subtitle">Here's how the £25,000 price ladder works — and what each tier actually delivers.</p>
+</div>
+<div class="pricing-grid">
+<div class="pricing-card fade-in">
+<div class="pricing-tier">Entry</div>
+<div class="pricing-name">The Assignment</div>
+<div class="pricing-amount">£49.99</div>
+<div class="pricing-desc">A single module delivered as a PDF/video with one written exercise. Entry-level. Tests commitment before the upsell.</div>
+</div>
+<div class="pricing-card fade-in delay-1">
+<div class="pricing-tier">Mid Tier</div>
+<div class="pricing-name">The Foundations</div>
+<div class="pricing-amount">~£2K</div>
+<div class="pricing-desc">Self-paced digital course covering Modules 1-6. Pre-recorded videos, worksheets, private community group access.</div>
+</div>
+<div class="pricing-card fade-in delay-2">
+<div class="pricing-tier">Annual</div>
+<div class="pricing-name">Full Programme</div>
+<div class="pricing-amount">£10,000</div>
+<div class="pricing-desc">All 10 modules over 12 months with group coaching calls, community access, and periodic Q&A with Laura.</div>
+</div>
+<div class="pricing-card featured fade-in delay-3">
+<div class="pricing-tier">Private</div>
+<div class="pricing-name">1-on-1 Mentoring</div>
+<div class="pricing-amount-free">FREE</div>
+<div class="pricing-crossed">Was: £25,000</div>
+<div class="pricing-desc">You're reading it right now. All 10 modules. Every script. Every protocol. On this page. For free.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==========================================
+CRITICAL ANALYSIS
+=========================================== -->
+<section class="analysis-section" id="analysis">
+<div class="container">
+<div class="section-header fade-in">
+<div class="section-tag">Our Honest Take</div>
+<h2 class="section-title">What's <span>Worth Keeping</span> & What's <span>Concerning</span></h2>
+<p class="section-subtitle">Before you adopt any framework, here's a balanced critical analysis of what the evidence actually says.</p>
+</div>
+<div class="analysis-grid">
+<div class="analysis-card positive fade-in">
+<div class="analysis-card-title">✓ Genuinely Valuable</div>
+<ul class="analysis-list">
+<li>Intentional kindness toward a spouse — Gottman research shows a 5:1 positive-to-negative ratio predicts marital success</li>
+<li>Emotional regulation — not dumping every frustration on your partner is genuinely good advice, regardless of gender</li>
+<li>Creating a calm, pleasant home environment benefits everyone in it</li>
+<li>Taking care of your personal appearance is healthy self-respect</li>
+<li>Forgiveness practices are universally recommended by therapists and spiritual leaders alike</li>
+<li>Having clear role divisions — when agreed upon freely — reduces household conflict</li>
+</ul>
+</div>
+<div class="analysis-card negative fade-in delay-1">
+<div class="analysis-card-title">✗ Seriously Concerning</div>
+<ul class="analysis-list">
+<li>Eliminating the wife's voice in major decisions — Gottman shows marriages where both partners have influence are significantly more stable</li>
+<li>The anti-therapy positioning directly contradicts Emotionally Focused Therapy, which is built on vulnerable emotional sharing between partners</li>
+<li>Confusing "peace" with "silence" — a quiet home can be deeply unhealthy if one partner suppresses all needs</li>
+<li>Having zero financial autonomy or oversight is a documented risk factor for financial abuse</li>
+<li>The caste language ("above all ordinary wives") creates shame, competition, and an exhausting performance standard with no finish line</li>
+<li>Paying £25,000 for information available in books for £10-15 each</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==========================================
+SAVINGS SECTION
+=========================================== -->
+<section class="savings-section" id="savings">
+<div class="container">
+<div class="section-header fade-in">
+<div class="section-tag">The Bottom Line</div>
+<h2 class="section-title">How Much You <span>Just Saved</span></h2>
+</div>
+<div class="savings-box fade-in">
+<div class="savings-amount">£24,940</div>
+<div class="savings-label">Saved by reading this page instead</div>
+<div class="savings-breakdown">
+Laura's private mentoring: <span>£25,000</span><br>
+Alternative reading list (5 books): <span>~£60</span><br>
+This page: <span>£0.00</span><br><br>
+<strong style="color: var(--gold); font-size: 16px;">You're welcome. Now share it.</strong>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==========================================
+SHARE SECTION
+=========================================== -->
+<section class="share-section">
+<div class="container">
+<div class="section-header fade-in">
+<div class="section-tag">Spread the Word</div>
+<h2 class="section-title">Share This <span>With Everyone</span></h2>
+<p class="section-subtitle">If this saved you £25,000 — or even just made you think — share it with someone who needs to see it.</p>
+</div>
+<div class="share-buttons">
+<a href="#" class="share-btn twitter" onclick="shareTwitter(); return false;">
+<span class="share-icon">𝕏</span> Share on X
+</a>
+<a href="#" class="share-btn whatsapp" onclick="shareWhatsApp(); return false;">
+<span class="share-icon">💬</span> WhatsApp
+</a>
+<a href="#" class="share-btn facebook" onclick="shareFacebook(); return false;">
+<span class="share-icon">f</span> Facebook
+</a>
+<button class="share-btn copy" id="copyBtn" onclick="copyLink()">
+<span class="share-icon">🔗</span> Copy Link
+</button>
+</div>
+</div>
+</section>
+
+<!-- ==========================================
+FOOTER
+=========================================== -->
+<footer>
+<p>
+This page is an independent academic and satirical reverse-engineering of publicly reported information about Laura Zachary's coaching programme, as described in <a href="https://www.mirror.co.uk/lifestyle/sex-relationships/im-trad-wife-hubby-lord-37313619" target="_blank" rel="noopener">The Mirror (June 2026)</a>. We neither endorse nor condemn the lifestyle described.
+</p>
+<p>
+Our goal is transparency so that individuals can make informed choices about whether this framework aligns with their values, relationship goals, and psychological wellbeing.
+</p>
+<p style="margin-top: 20px; color: rgba(122,96,69,0.5); font-size: 12px;">
+Made with 💛 and £0 of Laura's money.
+</p>
+</footer>
+
+<!-- ==========================================
+JAVASCRIPT
+=========================================== -->
+<script>
+// ============================================
+// PARTICLES
+// ============================================
+(function createParticles() {
+	const container = document.getElementById('particles');
+	for (let i = 0; i < 40; i++) {
+		const p = document.createElement('div');
+		p.classList.add('particle');
+		p.style.left = Math.random() * 100 + '%';
+		p.style.width = p.style.height = (Math.random() * 4 + 2) + 'px';
+		p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+		p.style.animationDelay = (Math.random() * 15) + 's';
+		p.style.opacity = Math.random() * 0.5;
+		container.appendChild(p);
+	}
+})();
+
+// ============================================
+// SCROLL PROGRESS
+// ============================================
+window.addEventListener('scroll', function () {
+	const scrollTop = window.scrollY;
+	const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+	const progress = (scrollTop / docHeight) * 100;
+	document.getElementById('progressFill').style.width = progress + '%';
+	
+	// Back to top visibility
+	const btn = document.getElementById('backToTop');
+	if (scrollTop > 500) {
+		btn.classList.add('visible');
+	} else {
+		btn.classList.remove('visible');
+	}
+});
+
+// ============================================
+// MODULE TOGGLE
+// ============================================
+function toggleModule(card) {
+	const isActive = card.classList.contains('active');
+	
+	// Close all
+	document.querySelectorAll('.module-card.active').forEach(function(c) {
+		c.classList.remove('active');
+	});
+	
+	// Open clicked if it was closed
+	if (!isActive) {
+		card.classList.add('active');
+		
+		// Animate scorecard bars if Module 10
+		const scorecard = card.querySelector('#scorecard');
+		if (scorecard) {
+			setTimeout(function() {
+				scorecard.querySelectorAll('.scorecard-fill').forEach(function(bar) {
+					bar.style.width = bar.dataset.width;
+				});
+			}, 300);
+		}
+		
+		// Smooth scroll to card
+		setTimeout(function() {
+			card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}, 100);
+	}
+}
+
+// ============================================
+// FADE IN OBSERVER
+// ============================================
+const observer = new IntersectionObserver(function(entries) {
+	entries.forEach(function(entry) {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('visible');
+			observer.unobserve(entry.target);
+		}
+	});
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(function(el) {
+	observer.observe(el);
+});
+
+// ============================================
+// SHARE FUNCTIONS
+// ============================================
+const shareText = "She charges £25,000 for her 'High-Tier Wife' course. Someone reverse-engineered all 10 modules and it's FREE 👀😲";
+const shareUrl = window.location.href;
+
+function shareTwitter() {
+	window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl), '_blank');
+}
+
+function shareWhatsApp() {
+	window.open('https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl), '_blank');
+}
+
+function shareFacebook() {
+	window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank');
+}
+
+function copyLink() {
+	navigator.clipboard.writeText(shareUrl).then(function() {
+		const btn = document.getElementById('copyBtn');
+		btn.classList.add('copied');
+		btn.innerHTML = '<span class="share-icon">✓</span> Copied!';
+		showToast('✓ Link copied to clipboard!');
+		setTimeout(function() {
+			btn.classList.remove('copied');
+			btn.innerHTML = '<span class="share-icon">🔗</span> Copy Link';
+		}, 3000);
+	}).catch(function() {
+		showToast('Please copy the URL from your browser address bar.');
+	});
+}
+
+function shareNative() {
+	if (navigator.share) {
+		navigator.share({
+			title: "The £25,000 High-Tier Wife Course — FREE",
+			text: shareText,
+			url: shareUrl
+		}).catch(function() {});
+	} else {
+		copyLink();
+	}
+}
+
+function showToast(message) {
+	const toast = document.getElementById('toast');
+	toast.textContent = message;
+	toast.classList.add('show');
+	setTimeout(function() {
+		toast.classList.remove('show');
+	}, 3000);
+}
+
+// ============================================
+// AUTO OPEN FIRST MODULE
+// ============================================
+window.addEventListener('load', function() {
+	setTimeout(function() {
+		const firstModule = document.querySelector('.module-card');
+		if (firstModule) {
+			firstModule.classList.add('active');
+		}
+	}, 800);
+});
+</script>
+
+</body>
+</html>
