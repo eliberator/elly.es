@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#/plan -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMO//PREP — Teladoc Interview Command Center (Offline)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./EMO__PREP — Teladoc Interview Command Center (Offline)_files/css2" rel="stylesheet">
+<style>
+:root{
+  --ink950:#04090f;--ink900:#060d14;--ink850:#0a141d;--ink800:#0d1a26;--ink700:#132434;
+  --ink600:#1d3548;--ink500:#2c4a63;--ink400:#4b6b85;--ink300:#7b98ad;--ink200:#aec3d2;
+  --ink100:#dce8f0;--ink50:#f0f6fa;
+  --pulse300:#5eead4;--pulse400:#2dd4bf;--pulse500:#14b8a6;
+  --beam400:#38bdf8;--beam500:#0ea5e9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink900);color:var(--ink100);font-family:'Inter',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(45,212,191,.35)}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--ink900)}
+::-webkit-scrollbar-thumb{background:var(--ink600);border-radius:8px;border:2px solid var(--ink900)}
+button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font-family:inherit}
+a{color:inherit;text-decoration:none}
+
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.display{font-family:'Sora',ui-sans-serif,system-ui,sans-serif}
+.grad{background:linear-gradient(100deg,#5eead4,#38bdf8 55%,#5eead4);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.app{display:flex;min-height:100vh}
+.side{position:fixed;inset:0 auto 0 0;width:268px;z-index:40;display:flex;flex-direction:column;justify-content:space-between;
+  border-right:1px solid rgba(19,36,52,.6);background:rgba(4,9,15,.92);backdrop-filter:blur(16px);padding:20px}
+.brand{display:flex;align-items:center;gap:12px;padding:0 6px}
+.brand-badge{position:relative;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);color:var(--pulse400)}
+.brand-badge span{position:absolute;right:-4px;top:-4px;width:8px;height:8px;border-radius:99px;background:var(--pulse400);box-shadow:0 0 12px 2px rgba(45,212,191,.55)}
+.brand-name{font-family:'Sora';font-weight:800;font-size:14px;color:var(--ink50)}
+.brand-sub{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink400);margin-top:2px}
+.nav{display:flex;flex-direction:column;gap:4px;margin-top:32px;flex:1}
+.navlink{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;font-size:14px;font-weight:500;color:var(--ink300);transition:all .2s;border:1px solid transparent}
+.navlink:hover{color:var(--ink100);background:rgba(19,36,52,.4)}
+.navlink.active{color:var(--pulse300);border-color:rgba(20,184,166,.3);background:rgba(20,184,166,.1)}
+.navlink.active .dot{margin-left:auto;width:6px;height:6px;border-radius:99px;background:var(--pulse400);box-shadow:0 0 12px 2px rgba(45,212,191,.55)}
+.navlink svg{color:var(--ink400);flex-shrink:0}
+.navlink.active svg{color:var(--pulse400)}
+.offlink{display:flex;align-items:center;gap:10px;margin:12px 4px 0;padding:11px 14px;border-radius:12px;border:1px dashed rgba(75,107,133,.5);font-size:12px;font-weight:600;color:var(--ink200);transition:all .2s}
+.offlink:hover{border-color:rgba(45,212,191,.5);color:var(--pulse300)}
+.idcard{border-radius:16px;border:1px solid rgba(123,152,173,.14);background:linear-gradient(145deg,rgba(19,36,52,.55),rgba(10,20,29,.75));padding:16px}
+.idcard h5{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--ink400);font-weight:600}
+.idcard .who{font-family:'Sora';font-weight:700;font-size:14px;color:var(--ink50);margin-top:6px}
+.idcard .role{font-size:12px;color:var(--ink300);margin-top:3px}
+.idcard .addr{display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(29,53,72,.5);font-size:11px;line-height:1.5;color:var(--ink400)}
+.reset{margin-top:10px;width:100%;text-align:center;font-size:10px;color:var(--ink500);padding:6px;border-radius:8px}
+.reset:hover{color:#fb7185}
+
+.mobilebar{display:none;position:sticky;top:0;z-index:40;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(19,36,52,.6);background:rgba(4,9,15,.9);backdrop-filter:blur(16px);padding:12px 16px}
+.backdrop{position:fixed;inset:0;background:rgba(4,9,15,.8);backdrop-filter:blur(4px);z-index:45;opacity:0;pointer-events:none;transition:opacity .25s}
+
+.main{flex:1;padding:40px 32px 80px;max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1}
+.bgfx{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(123,152,173,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(123,152,173,.045) 1px,transparent 1px);
+  background-size:44px 44px}
+.bgfx::before{content:"";position:absolute;top:-160px;left:25%;width:420px;height:420px;border-radius:50%;background:rgba(20,184,166,.06);filter:blur(120px)}
+.bgfx::after{content:"";position:absolute;bottom:0;right:0;width:380px;height:380px;border-radius:50%;background:rgba(14,165,233,.05);filter:blur(120px)}
+
+@media(min-width:1024px){.main{margin-left:268px;max-width:calc(1100px)}}
+@media(max-width:1023px){
+  .side{transform:translateX(-100%);transition:transform .3s cubic-bezier(.22,1,.36,1)}
+  body.drawer .side{transform:translateX(0)}
+  body.drawer .backdrop{opacity:1;pointer-events:auto}
+  .mobilebar{display:flex}
+  .app{flex-direction:column}
+  .main{padding:28px 18px 80px}
+}
+
+/* typography */
+.kicker{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.25em;color:var(--pulse400);margin-bottom:12px}
+.kicker::before{content:"";width:32px;height:1px;background:rgba(20,184,166,.6)}
+.h1{font-family:'Sora';font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.1;color:var(--ink50)}
+.desc{margin-top:16px;max-width:680px;font-size:15px;line-height:1.65;color:var(--ink300)}
+.h3{font-family:'Sora';font-weight:700;font-size:20px;color:var(--ink50)}
+.h4{font-family:'Sora';font-weight:700;font-size:15px;color:var(--ink50)}
+.lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--ink400)}
+.lbl.p{color:var(--pulse400)}.lbl.b{color:var(--beam400)}.lbl.v{color:#c4b5fd}.lbl.a{color:#fbbf24}
+
+/* panels */
+.panel{border-radius:20px;border:1px solid rgba(123,152,173,.14);background:linear-gradient(145deg,rgba(19,36,52,.55),rgba(10,20,29,.75));backdrop-filter:blur(12px)}
+.panel.hover{transition:border-color .25s,box-shadow .25s,transform .25s}
+.panel.hover:hover{border-color:rgba(45,212,191,.32);box-shadow:0 12px 40px -18px rgba(45,212,191,.25)}
+.panel.p5{padding:20px}.panel.p6{padding:24px}.panel.p7{padding:28px}.panel.p8{padding:32px}
+.subcard{border-radius:14px;border:1px solid rgba(29,53,72,.45);background:rgba(10,20,29,.6);padding:16px}
+.callout-b{border-radius:14px;border:1px solid rgba(56,189,248,.2);background:rgba(56,189,248,.05);padding:16px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:12px 22px;font-size:14px;font-weight:600;transition:all .2s}
+.btn.primary{background:var(--pulse500);color:var(--ink950)}
+.btn.primary:hover{background:var(--pulse400)}
+.btn.ghost{border:1px solid rgba(44,74,99,.7);color:var(--ink200)}
+.btn.ghost:hover{border-color:rgba(123,152,173,.7)}
+.btn.danger-ghost{border:1px solid rgba(251,113,133,.4);color:#fda4af}
+.btn.danger-ghost:hover{background:rgba(251,113,133,.1)}
+.btn.solid-lg{padding:16px 32px;border-radius:16px;font-family:'Sora';font-weight:700}
+.btn:disabled{opacity:.55;cursor:default}
+.pillbtn{border-radius:999px;border:1px solid rgba(44,74,99,.6);padding:7px 16px;font-size:12px;font-weight:600;color:var(--ink300);transition:all .2s}
+.pillbtn:hover{color:var(--ink100)}
+.pillbtn.active{border-color:rgba(45,212,191,.5);background:rgba(20,184,166,.15);color:var(--pulse300)}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid;padding:3px 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.b-motivation{border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.1);color:#c4b5fd}
+.b-role{border-color:rgba(56,189,248,.3);background:rgba(56,189,248,.1);color:var(--beam400)}
+.b-behavioral{border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.1);color:#fcd34d}
+.b-situational{border-color:rgba(251,113,133,.3);background:rgba(251,113,133,.1);color:#fda4af}
+.b-company{border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.1);color:var(--pulse300)}
+.b-logistics{border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.1);color:#6ee7b7}
+.diff{border-radius:6px;padding:3px 8px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.d-core{background:rgba(20,184,166,.15);color:var(--pulse300)}
+.d-medium{background:rgba(251,191,36,.15);color:#fcd34d}
+.d-tough{background:rgba(251,113,133,.15);color:#fda4af}
+.pill-status{border-radius:999px;border:1px solid;padding:4px 12px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.s-strong{border-color:rgba(45,212,191,.4);background:rgba(45,212,191,.1);color:var(--pulse300)}
+.s-good{border-color:rgba(56,189,248,.4);background:rgba(56,189,248,.1);color:var(--beam400)}
+.s-stretch{border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.1);color:#fcd34d}
+
+/* accordion */
+.acc{overflow:hidden}
+.acc-head{display:flex;width:100%;align-items:flex-start;gap:16px;padding:20px;text-align:left}
+.acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.22,1,.36,1)}
+.acc.open .acc-body{grid-template-rows:1fr}
+.acc-body>div{overflow:hidden;min-height:0}
+.chev{flex-shrink:0;color:var(--ink400);transition:transform .3s;margin-top:2px}
+.acc.open .chev{transform:rotate(180deg)}
+
+/* confidence dots */
+.dots{display:flex;align-items:center;gap:6px}
+.dot{width:14px;height:14px;border-radius:50%;transition:transform .15s}
+.dot:hover{transform:scale(1.25)}
+.dot-sm{width:12px;height:12px}
+
+/* ring */
+.ringwrap{position:relative;display:inline-block}
+.ringc{transform:rotate(-90deg)}
+.ringc .prog{transition:stroke-dashoffset 1.3s cubic-bezier(.22,1,.36,1)}
+.ringlabel{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+
+/* inputs */
+.field{width:100%;border-radius:12px;border:1px solid rgba(29,53,72,.5);background:rgba(6,13,20,.7);padding:13px 16px;font-size:14px;color:var(--ink100);outline:none;transition:border-color .2s}
+.field:focus{border-color:rgba(20,184,166,.55)}
+.field::placeholder{color:var(--ink400)}
+textarea.field{resize:vertical;line-height:1.55}
+select.field{appearance:none;cursor:pointer}
+.searchwrap{position:relative}
+.searchwrap svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--ink400)}
+.searchwrap input{padding-left:44px}
+
+/* grids */
+.g2{display:grid;gap:16px}@media(min-width:640px){.g2{grid-template-columns:1fr 1fr}}
+.g3{display:grid;gap:16px}@media(min-width:640px){.g3{grid-template-columns:1fr 1fr}}@media(min-width:1024px){.g3{grid-template-columns:1fr 1fr 1fr}}
+.g-hero{display:grid;gap:20px}@media(min-width:1024px){.g-hero{grid-template-columns:1.1fr 1fr}}
+.g4{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}@media(min-width:640px){.g4{grid-template-columns:repeat(4,1fr)}}
+.g7{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}@media(min-width:640px){.g7{grid-template-columns:repeat(4,1fr)}}@media(min-width:1024px){.g7{grid-template-columns:repeat(7,1fr)}}
+.flexrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.between{justify-content:space-between}
+.stack3{display:flex;flex-direction:column;gap:12px}
+.stack4{display:flex;flex-direction:column;gap:16px}
+.mt2{margin-top:8px}.mt3{margin-top:12px}.mt4{margin-top:16px}.mt6{margin-top:24px}.mt8{margin-top:32px}.mt12{margin-top:48px}.mb4{margin-bottom:16px}.mb6{margin-bottom:24px}.mb8{margin-bottom:32px}
+
+/* anim */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp .55s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--d,0s)}
+
+/* practice/mock */
+.reveal-box{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;border:2px dashed rgba(44,74,99,.7);border-radius:24px;padding:56px 24px;text-align:center;transition:all .25s}
+.reveal-box:hover{border-color:rgba(20,184,166,.5);background:rgba(20,184,166,.05)}
+.rategrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(min-width:640px){.rategrid{grid-template-columns:repeat(4,1fr)}}
+.ratebtn{border-radius:16px;border:1px solid rgba(44,74,99,.6);background:rgba(6,13,20,.6);padding:16px;transition:all .2s;text-align:center}
+.ratebtn:hover{transform:translateY(-2px)}
+.track{height:8px;border-radius:99px;background:rgba(29,53,72,.6);overflow:hidden}
+.fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pulse400),var(--beam400));transition:width .5s}
+.progdots{display:flex;gap:6px}
+.progdot{height:6px;width:24px;border-radius:99px;background:var(--ink700);transition:background .3s}
+
+/* plan */
+.pitem{display:flex;width:100%;align-items:flex-start;gap:14px;border-radius:14px;border:1px solid rgba(29,53,72,.45);background:rgba(10,20,29,.5);padding:16px;text-align:left;transition:all .2s}
+.pitem:hover{border-color:rgba(123,152,173,.5)}
+.pitem.done{border-color:rgba(20,184,166,.3);background:rgba(20,184,166,.05)}
+.chkbox{margin-top:2px;display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;border:1px solid var(--ink500);color:transparent;flex-shrink:0;transition:all .2s}
+.pitem.done .chkbox{border-color:var(--pulse400);background:var(--pulse500);color:var(--ink950)}
+.pitem .pt{font-size:14px;font-weight:500;color:var(--ink100)}
+.pitem.done .pt{color:var(--ink400);text-decoration:line-through}
+.pitem .pd{font-size:12px;line-height:1.55;color:var(--ink400);margin-top:4px}
+
+/* toast */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;z-index:60;
+  background:var(--ink700);border:1px solid rgba(45,212,191,.4);color:var(--ink100);padding:10px 20px;border-radius:999px;font-size:13px;font-weight:500;
+  transition:all .3s;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.keyhint{display:none;align-items:center;gap:6px;border-radius:999px;border:1px solid rgba(44,74,99,.6);padding:6px 12px;font-size:10px;color:var(--ink400)}
+@media(min-width:768px){.keyhint{display:inline-flex}}
+.centerbox{text-align:center}
+.bigicon{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:18px;margin:0 auto}
+.listbullets li{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.6;color:var(--ink300);margin-bottom:6px}
+.tpq{display:inline-block;border-radius:999px;border:1px solid rgba(167,139,250,.25);background:rgba(167,139,250,.1);padding:6px 12px;font-size:11px;color:#ddd0fe;margin:3px}
+</style>
+</head>
+<body>
+<noscript><div style="padding:40px;font-family:sans-serif;color:#dce8f0">This offline app needs JavaScript enabled.</div></noscript>
+<div class="bgfx"></div>
+
+<div class="app">
+  <aside class="side" id="side">
+    <div>
+      <div class="brand">
+        <div class="brand-badge" id="brandIcon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg><span></span></div>
+        <div><div class="brand-name">EMO<span style="color:var(--pulse400)">//</span>PREP</div><div class="brand-sub">Interview Command</div></div>
+      </div>
+      <nav class="nav" id="nav"><a class="navlink" data-nav="overview" href="file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#/overview"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg><span>Overview</span><span class="dot"></span></a><a class="navlink" data-nav="match" href="file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#/match"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="22" x2="18" y1="12" y2="12"></line><line x1="6" x2="2" y1="12" y2="12"></line><line x1="12" x2="12" y1="6" y2="2"></line><line x1="12" x2="12" y1="22" y2="18"></line></svg><span>Match Analysis</span><span class="dot"></span></a><a class="navlink" data-nav="questions" href="file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#/questions"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg><span>Question Bank</span><span class="dot"></span></a><a class="navlink" data-nav="practice" href="file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#/practice"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg><span>Practice Mode</span><span class="dot"></span></a><a class="navlink" data-nav="mock" href="file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#/mock"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="14" y1="2" y2="2"></line><line x1="12" x2="15" y1="14" y2="11"></line><circle cx="12" cy="14" r="8"></circle></svg><span>Mock Interview</span><span class="dot"></span></a><a class="navlink" data-nav="star" href="file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#/star"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" stroke="none" d="M12 2.5l2.95 5.97 6.6.96-4.78 4.65 1.13 6.58L12 17.57l-5.9 3.1 1.13-6.59L2.45 9.43l6.6-.96L12 2.5z"></path></svg><span>STAR Stories</span><span class="dot"></span></a><a class="navlink active" data-nav="plan" href="file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#/plan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg><span>Interview Plan</span><span class="dot"></span></a></nav>
+      <a class="offlink mono" href="file:///C:/Users/Florence%20Kibe/teladoc-emo-interview-prep.html#" onclick="return downloadSelf()" id="offlink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg><span>Save this file offline</span></a>
+    </div>
+    <div>
+      <div class="idcard">
+        <h5>Candidate</h5>
+        <div class="who">Florence Kibe</div>
+        <div class="role">Administration · Expert Medical Opinion</div>
+        <div class="addr"><span id="pinIcon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span>Teladoc Health International<br>Via Augusta 252, Barcelona</span></div>
+      </div>
+      <button class="reset" onclick="resetAll()">reset all progress data</button>
+    </div>
+  </aside>
+
+  <div class="backdrop" onclick="document.body.classList.remove(&#39;drawer&#39;)"></div>
+
+  <div style="flex:1;display:flex;flex-direction:column;min-height:100vh">
+    <header class="mobilebar">
+      <div class="brand"><div class="brand-badge" id="brandIcon2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg><span></span></div><div><div class="brand-name">EMO<span style="color:var(--pulse400)">//</span>PREP</div><div class="brand-sub">Interview Command</div></div></div>
+      <button onclick="document.body.classList.toggle(&#39;drawer&#39;)" style="border:1px solid rgba(44,74,99,.6);border-radius:10px;padding:8px;color:var(--ink200)" id="menuBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button>
+    </header>
+    <main class="main" id="view"><div class="fade"><p class="kicker">The campaign plan</p></div><div class="fade" style="--d:.05s"><h1 class="h1">Interview plan</h1></div><div class="fade" style="--d:.1s"><p class="desc">Four fronts: research, practice, logistics and mindset. Check items off as you complete them — every tick feeds your readiness score. Nothing on this page is optional.</p></div><div class="mb8"></div><div id="planroot" class="fade" style="--d:.12s"><div class="panel p6 mb8 flexrow" style="gap:20px"><span style="color:var(--pulse400);flex-shrink:0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg></span><div style="flex:1"><div class="flexrow between"><p class="h4">Overall preparation</p><span class="mono" style="font-size:14px;color:var(--pulse300)">0/24</span></div><div class="track mt3"><div class="fill" style="width:0%"></div></div></div></div><div class="g2"><div class="panel p6 fade" style="--d:0s"><div class="flexrow mb4"><div style="border-radius:12px;padding:10px;border:1px solid #38bdf855;background:#38bdf812;color:#38bdf8"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div><div style="flex:1"><h4 class="h4">Know the battlefield</h4><p style="font-size:11px;color:var(--ink400);margin-top:2px">Research deep enough that nothing they say surprises you.</p></div><span class="mono" style="font-size:12px;color:var(--ink300)">0/6</span></div><div class="stack3"><button class="pitem" data-check="c1"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Read Teladoc's EMO service pages end to end</span><span class="pd">Visit teladochealth.com and the International EMO pages. Be able to explain the patient journey in your own words in 60 seconds.</span></span></button><button class="pitem" data-check="c2"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Know the company story: 2002 → NYSE → Livongo (2020) → Barcelona EMO hub</span><span class="pd">Founded 2002 as a telemedicine pioneer; Livongo merger in 2020; EMO service with roots in Barcelona's Advance Medical on Via Augusta.</span></span></button><button class="pitem" data-check="c3"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Re-read the job description and highlight every keyword</span><span class="pd">Coordination, SLA, eligibility verification, stakeholders, billing, data accuracy. Your answers should echo these words back.</span></span></button><button class="pitem" data-check="c4"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Look up your interviewer(s) on LinkedIn, if named</span><span class="pd">Note their role, tenure and background. One genuine reference to their work builds instant rapport.</span></span></button><button class="pitem" data-check="c5"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Re-read your own CV until every number is reflex</span><span class="pd">20+ shipments/month. 100+ invoices. 200+ records. 30 calls/day. 90% claims in 2 weeks. Zero audit discrepancies. Say them without looking.</span></span></button><button class="pitem" data-check="c6"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Prepare the logistics → healthcare translation</span><span class="pd">Practice saying: shipment → case, forwarder → expert, claim → dispute, customs window → SLA. Speak their language all interview long.</span></span></button></div></div><div class="panel p6 fade" style="--d:0.06s"><div class="flexrow mb4"><div style="border-radius:12px;padding:10px;border:1px solid #a78bfa55;background:#a78bfa12;color:#a78bfa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg></div><div style="flex:1"><h4 class="h4">Rehearse the performance</h4><p style="font-size:11px;color:var(--ink400);margin-top:2px">Answers are not written, they are drilled — out loud.</p></div><span class="mono" style="font-size:12px;color:var(--ink300)">0/7</span></div><div class="stack3"><button class="pitem" data-check="c7"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Drill "Tell me about yourself" out loud — 3 full runs</span><span class="pd">90 seconds max. Past (logistics/AP) → present (BBA Barcelona) → future (EMO mission). Use the model answer in the question bank.</span></span></button><button class="pitem" data-check="c8"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Bring every core question to Confident level in Practice Mode</span><span class="pd">Focus on the six 'core' difficulty cards first — they are the statistically certain questions.</span></span></button><button class="pitem" data-check="c9"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Complete 2 full Mock Interview sessions</span><span class="pd">Timed answers, no pausing to 'fix' an answer mid-way — trains recovery, not perfection.</span></span></button><button class="pitem" data-check="c10"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Record yourself answering 3 questions and watch it back</span><span class="pd">Check pace, filler words and posture. One honest recording session changes more than five silent rehearsals.</span></span></button><button class="pitem" data-check="c11"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Polish your 6 STAR stories to 2 minutes each</span><span class="pd">Situation and Task in 15 seconds each; Action carries the detail; Result ends with a number wherever possible.</span></span></button><button class="pitem" data-check="c12"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Rehearse the three compliance answers: shifts, salary, fixed-term</span><span class="pd">These must sound easy and short. Clean yes, one brief reason, move on. Hesitation here costs more than a wrong answer elsewhere.</span></span></button><button class="pitem" data-check="c13"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Prepare your questions FOR the interviewer</span><span class="pd">Use the curated list in the Plan section. Asking zero questions reads as low interest; asking about logistics only reads as low ambition.</span></span></button></div></div><div class="panel p6 fade" style="--d:0.12s"><div class="flexrow mb4"><div style="border-radius:12px;padding:10px;border:1px solid #fbbf2455;background:#fbbf2412;color:#fbbf24"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><div style="flex:1"><h4 class="h4">Own the day</h4><p style="font-size:11px;color:var(--ink400);margin-top:2px">Remove every avoidable variable from interview day.</p></div><span class="mono" style="font-size:12px;color:var(--ink300)">0/6</span></div><div class="stack3"><button class="pitem" data-check="c14"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Plan the route to Via Augusta 252, 08017 Barcelona</span><span class="pd">Sarrià-Sant Gervasi area. FGC stations Plaça Molina / Sant Gervasi are nearby. Do a dry run or map the exact door beforehand.</span></span></button><button class="pitem" data-check="c15"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Choose and prepare your outfit the night before</span><span class="pd">Business-smart, comfortable for a 10-minute walk from the station. Lay it out; eliminate morning decisions.</span></span></button><button class="pitem" data-check="c16"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Prepare your document folder</span><span class="pd">Two printed CV copies, a copy of the job description with your notes, ID/NIE, certificates, and a pen + notebook for after-action notes.</span></span></button><button class="pitem" data-check="c17"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Confirm the interview time, format and contact person</span><span class="pd">Save recruiter/hiring manager phone numbers. Confirm whether it is onsite at Via Augusta, video call, or hybrid first round.</span></span></button><button class="pitem" data-check="c18"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Arrive 10 minutes early — not 30, not 2</span><span class="pd">Ten minutes signals eagerness without pressuring reception. Use waiting time to re-read your numbers, not your phone.</span></span></button><button class="pitem" data-check="c19"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Test your tech if any round is remote</span><span class="pd">Camera at eye level, clean background, charged laptop, headphones ready, stable Wi-Fi with phone hotspot as backup.</span></span></button></div></div><div class="panel p6 fade" style="--d:0.18s"><div class="flexrow mb4"><div style="border-radius:12px;padding:10px;border:1px solid #2dd4bf55;background:#2dd4bf12;color:#2dd4bf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div><div style="flex:1"><h4 class="h4">Win the head game</h4><p style="font-size:11px;color:var(--ink400);margin-top:2px">Walk in as the solution to their hiring need, not a hopeful guest.</p></div><span class="mono" style="font-size:12px;color:var(--ink300)">0/5</span></div><div class="stack3"><button class="pitem" data-check="c20"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Sleep 7–8 hours before interview day</span><span class="pd">One more rehearsal the night before is worth less than a rested, sharp mind. Stop prep by 21:00.</span></span></button><button class="pitem" data-check="c21"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Do 4-7-8 breathing before you enter</span><span class="pd">Inhale 4 seconds, hold 7, exhale 8. Three cycles lowers heart rate and steadies your voice for the first answer.</span></span></button><button class="pitem" data-check="c22"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Frame the day: they invited YOU</span><span class="pd">Out of all applicants, your CV won this meeting. You are not asking for a favour — you are presenting a solution to their hiring need.</span></span></button><button class="pitem" data-check="c23"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Prepare your follow-up thank-you email draft</span><span class="pd">Within 24 hours: thank them, reference one specific topic you enjoyed discussing, restate enthusiasm and shift/contract confirmation.</span></span></button><button class="pitem" data-check="c24"><span class="chkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex:1;min-width:0"><span class="pt">Plan your close</span><span class="pd">End with: "Based on everything we discussed, I'm confident I can deliver from week one, and I'd genuinely love to join the EMO team. What are the next steps?"</span></span></button></div></div></div><div class="panel p6 mt8 flexrow fade" style="--d:.15s;gap:12px"><span style="color:var(--pulse400);flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg></span><input class="field" id="newcheck" placeholder="Add your own prep task — e.g. &#39;Translate my answers into simpler English&#39;" style="flex:1;min-width:180px"><select class="field" id="newcheckg" style="width:auto"><option value="research">Know the battlefield</option><option value="practice">Rehearse the performance</option><option value="logistics">Own the day</option><option value="mindset">Win the head game</option></select><button class="btn primary" onclick="planAdd()">Add</button></div></div><div class="mt12 fade" style="--d:.2s"><div class="flexrow mb6"><div style="border-radius:12px;border:1px solid rgba(167,139,250,.4);background:rgba(167,139,250,.1);padding:10px;color:#c4b5fd"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg></div><div><h3 class="h3">When they ask: “Do you have any questions for us?”</h3><p style="font-size:12px;color:var(--ink400);margin-top:2px">Never say no. Pick three of these — each one makes you sound like you already work there.</p></div></div><div class="g3"><div class="panel hover p5 fade" style="--d:0s;display:flex;flex-direction:column"><p class="mono lbl v" style="letter-spacing:.25em">Ask 01</p><p class="mt2" style="flex:1;font-size:14px;font-weight:500;line-height:1.4">“What does a typical caseload look like for an administrator on the EMO team, and how are cases distributed?”</p><p class="mt3" style="border-top:1px solid rgba(19,36,52,.6);padding-top:12px;font-size:11px;line-height:1.55;color:var(--ink400)">Shows you are already visualising yourself doing the job.</p></div><div class="panel hover p5 fade" style="--d:0.05s;display:flex;flex-direction:column"><p class="mono lbl v" style="letter-spacing:.25em">Ask 02</p><p class="mt2" style="flex:1;font-size:14px;font-weight:500;line-height:1.4">“Which systems and tools does the team use for case tracking? And how is the initial training structured?”</p><p class="mt3" style="border-top:1px solid rgba(19,36,52,.6);padding-top:12px;font-size:11px;line-height:1.55;color:var(--ink400)">Signals you take the training promise seriously and plan for ramp-up.</p></div><div class="panel hover p5 fade" style="--d:0.1s;display:flex;flex-direction:column"><p class="mono lbl v" style="letter-spacing:.25em">Ask 03</p><p class="mt2" style="flex:1;font-size:14px;font-weight:500;line-height:1.4">“What does success look like in the first 90 days of this role?”</p><p class="mt3" style="border-top:1px solid rgba(19,36,52,.6);padding-top:12px;font-size:11px;line-height:1.55;color:var(--ink400)">Turns the interview into a performance conversation — memorable.</p></div><div class="panel hover p5 fade" style="--d:0.15000000000000002s;display:flex;flex-direction:column"><p class="mono lbl v" style="letter-spacing:.25em">Ask 04</p><p class="mt2" style="flex:1;font-size:14px;font-weight:500;line-height:1.4">“How do the morning and afternoon shift rotations interact? Do teams rotate together?”</p><p class="mt3" style="border-top:1px solid rgba(19,36,52,.6);padding-top:12px;font-size:11px;line-height:1.55;color:var(--ink400)">Practical interest in teamwork, not just in the schedule.</p></div><div class="panel hover p5 fade" style="--d:0.2s;display:flex;flex-direction:column"><p class="mono lbl v" style="letter-spacing:.25em">Ask 05</p><p class="mt2" style="flex:1;font-size:14px;font-weight:500;line-height:1.4">“How do administrators typically grow here — toward case management, quality, or team coordination?”</p><p class="mt3" style="border-top:1px solid rgba(19,36,52,.6);padding-top:12px;font-size:11px;line-height:1.55;color:var(--ink400)">Confirms ambition pointed inside their org chart.</p></div><div class="panel hover p5 fade" style="--d:0.25s;display:flex;flex-direction:column"><p class="mono lbl v" style="letter-spacing:.25em">Ask 06</p><p class="mt2" style="flex:1;font-size:14px;font-weight:500;line-height:1.4">“What is the most common failure point in a new admin's first weeks — and what separates those who get past it?”</p><p class="mt3" style="border-top:1px solid rgba(19,36,52,.6);padding-top:12px;font-size:11px;line-height:1.55;color:var(--ink400)">A mature question that invites the interviewer to coach you already.</p></div></div></div><div class="g3 mt12 mb4 fade" style="--d:.25s"><div class="panel hover p6"><div style="display:inline-flex;padding:11px;border-radius:12px;border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.1);color:#fcd34d;margin-bottom:16px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h4 class="h4" style="font-size:15px">The destination</h4><p class="mt2" style="font-size:14px;line-height:1.65;color:var(--ink300)">Teladoc Health International<br>Calle Via Augusta 252<br>08017 Barcelona — Sarrià-Sant Gervasi</p><p class="mt3" style="font-size:12px;line-height:1.6;color:var(--ink400)">FGC Plaça Molina / Sant Gervasi are the nearby stations. Scout the exact entrance beforehand; arrive ten minutes early, exactly.</p></div><div class="panel hover p6"><div style="display:inline-flex;padding:11px;border-radius:12px;border:1px solid rgba(56,189,248,.4);background:rgba(56,189,248,.1);color:var(--beam400);margin-bottom:16px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><h4 class="h4" style="font-size:15px">The kit</h4><ul class="listbullets mt2"><li><span style="color:var(--beam400);flex-shrink:0">·</span><span style="font-size:14px">Two printed CVs + the JD with your notes</span></li><li><span style="color:var(--beam400);flex-shrink:0">·</span><span style="font-size:14px">ID / NIE and certificates folder</span></li><li><span style="color:var(--beam400);flex-shrink:0">·</span><span style="font-size:14px">Notebook + pen for after-action notes</span></li><li><span style="color:var(--beam400);flex-shrink:0">·</span><span style="font-size:14px">Recruiter contact saved in your phone</span></li><li><span style="color:var(--beam400);flex-shrink:0">·</span><span style="font-size:14px">Business-smart outfit, ready the night before</span></li></ul></div><div class="panel hover p6" style="position:relative;overflow:hidden"><div style="position:absolute;right:-12px;top:-12px;color:rgba(20,184,166,.07)"><svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg></div><div style="display:inline-flex;padding:11px;border-radius:12px;border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);color:var(--pulse400);margin-bottom:16px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg></div><h4 class="h4" style="font-size:15px">The close — memorize this</h4><p class="mt2" style="font-size:14px;font-style:italic;line-height:1.7;color:var(--ink200)">“Based on everything we discussed, I am confident I can deliver from week one — the coordination, the accuracy, the SLA discipline. I would genuinely love to join the EMO team. What are the next steps?”</p></div></div></main>
+  </div>
+</div>
+
+<div id="toast" class="">Use Ctrl/Cmd+S to save this page as a file</div>
+
+<script>
+/* ============================================================
+   EMO//PREP — offline single-file build
+   All data embedded. Progress persists in localStorage.
+   ============================================================ */
+
+/* ---------------- ICONS ---------------- */
+const ICONS = {
+  activity:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  dash:'<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>',
+  cross:'<circle cx="12" cy="12" r="10"/><line x1="22" x2="18" y1="12" y2="12"/><line x1="6" x2="2" y1="12" y2="12"/><line x1="12" x2="12" y1="6" y2="2"/><line x1="12" x2="12" y1="22" y2="18"/>',
+  book:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
+  timer:'<line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/>',
+  star:'<path fill="currentColor" stroke="none" d="M12 2.5l2.95 5.97 6.6.96-4.78 4.65 1.13 6.58L12 17.57l-5.9 3.1 1.13-6.59L2.45 9.43l6.6-.96L12 2.5z"/>',
+  clip:'<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
+  chev:'<path d="m6 9 6 6 6-6"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>',
+  target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  play:'<polygon fill="currentColor" stroke="none" points="7 4 20 12 7 20 7 4"/>',
+  mic:'<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>',
+  stop:'<rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor" stroke="none"/>',
+  save:'<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/>',
+  edit:'<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>',
+  trash:'<path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+  x:'<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  arrow:'<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+  bulb:'<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+  eye:'<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+  trophy:'<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
+  zap:'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+  brief:'<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+  help:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
+  menu:'<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>',
+  search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  plus:'<circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/>',
+  list:'<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>',
+  rotate:'<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
+  swap:'<path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/>',
+  alert:'<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+  shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  quote:'<path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>',
+  hist:'<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
+  trend:'<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>',
+  dl:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>',
+  keyboard:'<rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M18 12h.01M8 16h8"/>'
+};
+function ic(n, size){
+  const s = size || 16;
+  return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+ICONS[n]+'</svg>';
+}
+
+/* ---------------- META ---------------- */
+const CATS = {motivation:"Motivation & Fit", role:"Role Mastery", behavioral:"Behavioral · STAR", situational:"Situational", company:"Company Intel", logistics:"Conditions & Terms"};
+const DIFFS = {core:"Core", medium:"Likely", tough:"Curveball"};
+const CONF = ["Not tried","Shaky","Getting there","Confident","Mastered"];
+const CONFC = ["#7b98ad","#fb7185","#fbbf24","#38bdf8","#2dd4bf"];
+
+/* ---------------- DATA: QUESTION BANK ---------------- */
+const QUESTIONS = [
+{id:1,cat:"motivation",diff:"core",q:`Tell me about yourself.`,
+tip:`This is your 90-second trailer, not your autobiography. They want to map your story onto the role: coordination, administration, communication, and care. Walk past → present → future, and always land on why you are sitting in this chair.`,
+ans:`I am an operations and administration professional with more than ten years of experience coordinating complex, time-critical processes. For the last four years at Big Dutchman International I coordinated imports for their Nairobi office: managing shipping documentation, customs clearance, and communication between suppliers, freight forwarders and customers — more than twenty shipments every month, always error-free. Before that I spent two years in Accounts Payable, processing over a hundred invoices a month with perfect three-way matching and zero audit discrepancies.
+
+What connects all of it is that I am the person who keeps many moving parts organised and everyone informed. That is exactly what drew me to the Expert Medical Opinion team: the role is about receiving cases, verifying information, coordinating between case managers, experts and insurers, and keeping every deadline. The subject changes — the discipline does not.
+
+I recently completed an Executive BBA at EU Business School here in Barcelona, and now I want to put this coordination experience to work where the outcome matters most: helping people get the right medical answers.`,
+pts:[`Open with identity: 10+ years operations & administration`,`Big Dutchman: imports coordination — shipments, customs, stakeholders`,`Accounts Payable: 100 invoices/month, zero audit findings`,`Bridge sentence: "The subject changes, the discipline does not"`,`Close on mission: helping people get the right medical answers`]},
+{id:2,cat:"motivation",diff:"core",q:`Why do you want to work at Teladoc Health?`,
+tip:`They are testing whether you did your homework and whether you genuinely connect with virtual healthcare. Name specifics: the EMO service, the scale, the Barcelona hub, the mission.`,
+ans:`Three reasons. First, the mission: Teladoc Health connects people with primary care, mental health and expert medical opinions around the world — expertise that many patients could never reach otherwise. The EMO service in particular gives someone facing a serious diagnosis a second opinion from a world-leading expert. That is real, life-changing work, and I want my daily coordination to serve something that meaningful.
+
+Second, the environment: Teladoc is the global leader in virtual care, and this Barcelona office is a genuine hub for the Expert Medical Opinion business — an international, multilingual, multicultural team. Having lived and worked in international companies across two continents and being a native English speaker, that is exactly the environment where I do my best work.
+
+Third, the growth: Teladoc invests in initial and ongoing training and offers real prospects of continuity. I am looking for a company where I can become excellent at my role and grow, not just pass through.`,
+pts:[`Mission first — EMO changes health outcomes`,`Global leader in virtual care; Barcelona is the EMO hub`,`Your international + English background fits their multicultural team`,`Training & continuity = long-term commitment from your side`]},
+{id:3,cat:"motivation",diff:"tough",q:`Your background is in logistics. Why should we hire you for a healthcare role?`,
+tip:`This WILL be asked — it is the make-or-break question. Do not apologise for your background. Reframe: EMO case coordination is logistics of medical expertise. Show you already speak their language.`,
+ans:`Because I have spent ten years doing the same job in a different industry. Look at what an EMO administrator actually does: receives incoming requests, verifies information and eligibility, coordinates between many parties who have different priorities — case managers, experts, insurers, patients — and follows every case against strict deadlines and SLAs. That is precisely what I did with shipments. A customs authority is a gatekeeper, a freight forwarder is an external partner, a claim is a case dispute. I learned to keep twenty-plus shipments a month moving without losing a document, a deadline or my composure.
+
+Healthcare adds two things: confidentiality and care. My Accounts Payable years taught me discipline with sensitive financial data — the same discipline medical data demands. And my customer service years taught me how to speak to people on their worst day, which in healthcare is not an exception, it is the norm.
+
+What I do not yet know — the clinical vocabulary, the EMO workflow — is learnable, and Teladoc provides training. What Teladoc cannot train is ten years of organisation, ownership and calm under pressure. I bring that on day one.`,
+pts:[`Reframe: "same job, different industry"`,`Map: shipment → case, forwarder → expert, claim → dispute`,`Confidentiality: payment data discipline → patient data discipline`,`Care: customer service years = speaking to people on their worst day`,`Gaps are learnable and covered by Teladoc training`]},
+{id:4,cat:"motivation",diff:"medium",q:`What do you understand about our Expert Medical Opinion (EMO) service?`,
+tip:`Prove you understand what you are applying for. Describe the service from the patient's perspective and show you know the admin's role in the chain.`,
+ans:`The EMO service gives patients access to a second opinion from world-leading medical experts on a diagnosis or treatment plan. A patient contacts us — often through their insurance company or employer benefit — and asks for an independent review of their case. From there, the case is opened, medical records are collected, a case manager works with a matched expert, and the expert delivers a written opinion.
+
+Where I fit in: the admin team is the operational backbone of that chain. We receive the incoming requests by phone, email or portal, create and assign the cases, verify patient information and service eligibility, chase complete documentation, support the communication between case managers, experts and insurers, watch every deadline and SLA, and coordinate with Finance on the payment side. When the admin work is excellent, the patient never feels the complexity behind their case — they just receive their answer on time.`,
+pts:[`Patient story: second opinion from world-leading experts`,`Journey: intake → records → expert match → written opinion`,`Admin = operational backbone of the chain`,`Closing line: patient never feels the complexity`]},
+{id:5,cat:"motivation",diff:"medium",q:`Where do you see yourself in two or three years?`,
+tip:`They are checking retention risk against a fixed-term contract and whether your ambition stays inside their structure. Answer: mastery first, growth within EMO operations.`,
+ans:`In two years I want to be the administrator the team trusts with the complex cases — the person who knows the systems deeply, supports new colleagues, and understands the EMO operation end to end. Teladoc mentions prospects of continuity in this role, and I take that seriously: I want to earn that continuity through performance, then grow — for example toward senior administration or case coordination.
+
+My career pattern supports it: at Big Dutchman I started in Accounts Payable and was later trusted with full import coordination. I grow by becoming reliable first, then indispensable. And with my Executive BBA background, over time I would love to contribute to process improvement and quality projects inside the operations team.`,
+pts:[`Year 1-2: mastery + trusted with complex cases`,`Earn the continuity clause through performance`,`Evidence: grew from AP to import coordination at Big Dutchman`,`Long-term: case coordination / process improvement via your BBA`]},
+{id:6,cat:"role",diff:"core",q:`Walk me through how you would handle a new EMO case from arrival to closure.`,
+tip:`This tests whether you understand the workflow. Structure your answer in clear numbered steps and show you know where the admin adds value: intake quality, tracking, communication, documentation.`,
+ans:`I would follow six steps.
+
+One — intake: the request arrives by phone, email or portal. I create the case in the system immediately, capturing every required field correctly, because a case that starts with clean data rarely goes wrong later.
+
+Two — verification: I confirm the patient's identity details and check service eligibility against the client's plan before anything moves forward.
+
+Three — documentation: I review what we have received, identify what is missing — medical records, reports, consent — and contact the patient or the requesting party with a clear, friendly list of what we need and by when.
+
+Four — coordination: I assign or route the case to the case manager, support communication with the expert and the insurance company, and make sure everyone has what they need to act.
+
+Five — tracking: I monitor the case daily against its SLA, send structured follow-ups before deadlines become incidents, and escalate early when something stalls.
+
+Six — closure and administration: I verify the opinion was delivered, support the Finance team with any billing or expert payment coordination, update the records, and review any quality feedback so the next case runs even smoother.`,
+pts:[`6 steps: intake → verify → documents → coordinate → track → close`,`Clean data at intake prevents downstream errors`,`Chase documents with friendly clarity + deadline`,`Daily SLA monitoring; escalate EARLY, not at breach`,`Close loop: billing support + quality feedback`]},
+{id:7,cat:"role",diff:"core",q:`How do you prioritize when several cases have competing deadlines?`,
+tip:`They need someone who triages instead of panicking. Show a method: SLA + urgency + dependency-based blocking, then prove it from your shipment days.`,
+ans:`I triage on three criteria: the deadline itself, the urgency behind it, and what is blocking it. A case due today that is waiting on one email from me always beats a case due Friday that is already in the expert's hands. I review my queue at the start of the day, flag anything at risk, and protect focus time for deadline-critical items before absorbing new work.
+
+The second discipline is escalation: if an SLA is genuinely at risk despite my effort, I raise it to the right person while there is still time to fix it — a late escalation helps nobody. And the third is batching: I group similar tasks like verification calls or document checks to keep efficiency without losing accuracy.
+
+This is exactly how I worked as an Imports Coordinator: twenty-plus shipments per month, each with customs windows, transport cut-offs and waiting customers. My rule was simple — never let a deadline find out it was forgotten. I will bring the same rule to your cases.`,
+pts:[`Triage: deadline + urgency + blockers`,`Morning queue review; flag risks early`,`Escalate while there is still time to fix`,`Batch similar tasks (calls, verifications)`,`Proof: 20+ shipments/month with customs windows`]},
+{id:8,cat:"role",diff:"medium",q:`How do you make sure case information stays accurate and up to date in the system?`,
+tip:`Your Accounts Payable years are the ace here. Translate three-way matching and reconciliation into case-data hygiene.`,
+ans:`Three habits. First, verify at the point of entry: names, dates of birth, policy numbers, contact details — confirmed against the source, not assumed. A typo at intake becomes a wrong expert file or a failed billing match later.
+
+Second, write for the next reader: structured fields instead of free text where possible, and every interaction — calls, emails, document arrivals — logged the same day, with the status updated so anyone opening the case sees the truth in seconds.
+
+Third, reconcile regularly: in Accounts Payable I closed every month by reconciling vendor accounts to catch inconsistencies before they grew. I would apply the same ritual to my case queue — a short review cycle where I compare the system state against emails and documents and correct discrepancies immediately. Accuracy is not one perfect moment, it is a maintenance routine.`,
+pts:[`Verify at entry: identity + policy data against source`,`Log every interaction same-day; status always current`,`Reconciliation habit from AP → periodic case reviews`,`"Accuracy is a maintenance routine"`]},
+{id:9,cat:"role",diff:"medium",q:`A case needs input from a Case Manager, a Medical Expert and an insurance company — and nobody is replying. What do you do?`,
+tip:`They want structured persistence, not nagging. Show a follow-up ladder: clarify the ask, tighten the loop, escalate correctly.`,
+ans:`First I make it easy to reply. Non-response often means the request is unclear or the person is overloaded, so my follow-ups give one precise question, the case reference, the deadline, and exactly what I need from them — sent through the channel they actually use, with the right context attached.
+
+Second, I keep a documented trail and a rhythm: first follow-up, second follow-up with a slightly raised flag, and a time-box after which I escalate through the defined internal channel — to the case manager lead or team coordinator depending on who is blocking. While anything is pending, the patient-facing side is protected: if the patient or insurer calls, I can tell them honestly where the case stands without blaming colleagues.
+
+In imports I lived this daily — suppliers, forwarders and customs officers, all busy, all critical. The administrators who succeed are the ones whose follow-ups are impossible to misread and whose case files make escalation easy because everything is documented.`,
+pts:[`Make replying effortless: one clear ask + reference + deadline`,`Follow-up ladder with time-boxed escalation path`,`Document everything — the trail IS your case`,`Protect the patient from internal friction`,`Experience: wrangling suppliers/forwarders/customs daily`]},
+{id:10,cat:"role",diff:"medium",q:`What do you know about handling confidential medical information?`,
+tip:`Non-negotiable topic in healthcare. Show GDPR awareness, need-to-know discipline, and relate it to your history of handling sensitive financial/vendor data.`,
+ans:`I understand that EMO cases contain some of the most sensitive data that exists: medical records, diagnoses, identity documents. In Spain and across the EU this is protected by GDPR, and Teladoc has its own strict privacy policies on top. Practically, for me it means: only accessing cases I work on, sharing the minimum necessary with each party, using only approved systems and channels, never discussing case content outside work, and reporting anything that looks like a breach immediately.
+
+In Accounts Payable I handled supplier bank details, contracts and payment records with zero audit findings in two years — discipline with sensitive data is a habit I already have. The difference now is only the category of the data, and I take that category very seriously: behind every file there is a person at a vulnerable moment.`,
+pts:[`GDPR + Teladoc privacy policies`,`Need-to-know access, minimum-necessary sharing`,`Approved channels only; report suspected breaches`,`Track record: 2 years, zero audit findings with financial data`,`Human frame: a person at a vulnerable moment`]},
+{id:11,cat:"role",diff:"medium",q:`This role involves coordinating with Finance on payments. What payment experience do you bring?`,
+tip:`This is arguably your strongest direct match. Be concrete with numbers: invoice volumes, matching process, payment cycles, reconciliation.`,
+ans:`Substantial experience. In Accounts Payable at Big Dutchman I processed more than a hundred invoices per month. Every one went through three-way matching — invoice against purchase order against delivery note — which is the same verification mindset as matching an expert invoice to a completed case before payment. I achieved 100% accuracy and supported internal and external audits with zero discrepancies.
+
+I also owned the payment cycles: scheduling weekly and monthly runs, prioritising due dates, keeping cash-flow discipline, and reconciling vendor accounts every month to keep the books clean. On top of that, I negotiated rates and contracts with carriers and logistics providers, so talking to external parties about fees and terms is familiar ground.
+
+For the EMO team that translates directly: expert fee verification against delivered opinions, clean payment records for Finance, and confident handling of any billing question from an insurer or expert.`,
+pts:[`100+ invoices/month, 100% accuracy`,`Three-way matching → expert fee vs. delivered opinion`,`Weekly/monthly payment scheduling + vendor reconciliation`,`Rate & contract negotiation experience`,`Zero discrepancies across internal and external audits`]},
+{id:12,cat:"role",diff:"medium",q:`A patient's documents arrive incomplete. How do you handle it?`,
+tip:`Customs clearance is the perfect story: incomplete docs = stuck shipment = stuck case. Show empathy plus checklist discipline.`,
+ans:`First, empathy: if someone's case is stuck, they are anxious, and often they do not know what is missing or why we need it. So my contact is friendly and crystal clear — one message listing exactly which documents are missing, in the exact format we need, why each one matters for their expert review, and the date we need them by to protect their timeline.
+
+Second, I make it easy: give the upload or email instructions, offer to confirm receipt, and if someone struggles — language, technology, slow hospital administration — I work with them on alternatives rather than repeating the same request louder.
+
+Third, I log every attempt and keep the case visible. In import coordination, a single missing certificate held an entire shipment at the port, so I built checklists that told customers upfront everything we would need. If your team has a standard requirements checklist, I would champion it at first contact so incompleteness is prevented instead of chased.`,
+pts:[`One friendly message: what's missing, why, by when`,`Make responding easy; offer alternatives for struggling patients`,`Log every contact attempt`,`Customs parallel: one missing certificate = stuck shipment`,`Prevention: upfront checklists at first contact`]},
+{id:13,cat:"role",diff:"medium",q:`What systems and tools are you comfortable with, and how fast do you learn new software?`,
+tip:`They use custom case-management systems you have never seen. Assure them on Office + CRM/ERP fluency and prove learning speed with your career pivots.`,
+ans:`My daily toolkit is Microsoft Office — Excel for tracking and reconciliation, Outlook for high-volume professional correspondence, Word and PowerPoint for documentation. Across my roles I have worked in CRM and ERP systems for orders, vendor management and accounting, so navigating structured databases, case queues and audit trails is second nature.
+
+On learning speed: I have rebuilt my skillset three times — from customer service into administration, from administration into accounts payable, and from accounting into international logistics coordination, most recently complemented by an Executive BBA. Each time I was productive within weeks because I learn systems the same way every time: master the daily flow first, understand where the data lives, then ask why each field exists. If Teladoc trains me on your case-management platform, I will treat the training with the seriousness of a certification and I will be asking for increasingly complex cases early.`,
+pts:[`Office suite daily-driver; Excel for tracking & reconciliation`,`CRM/ERP experience: structured data, queues, audit trails`,`Three successful career pivots = proof of learning speed`,`Learning method: flow → data → purpose of each field`]},
+{id:14,cat:"behavioral",diff:"core",q:`Tell me about a time you managed many deadlines at once.`,
+tip:`Classic STAR. Use the 20+ shipments/month story with a concrete week. Structure: Situation → Task → Action → Result, and quantify.`,
+ans:`At Big Dutchman, as Imports Coordinator, I typically managed more than twenty international shipments per month, each moving through supplier, freight forwarder, sea or air transit, customs clearance and final delivery — with five different parties to coordinate per shipment.
+
+There was a period where several shipments landed within the same fortnight while our warehouse was at reduced capacity. I sat down with the full list, ranked every shipment by its customs window and customer delivery date, and built a day-by-day plan: which documents had to be finalised first, which forwarders needed pre-alert calls, and which customer deliveries could be rescheduled honestly rather than missed silently. I added a simple daily ten-minute checkpoint to catch drift early.
+
+Result: every shipment cleared its customs window, records stayed error-free, and no customer received a late surprise. The habit I built there — rank by deadline, plan backwards, checkpoint daily — is exactly how I would treat a queue of EMO cases with different SLAs.`,
+pts:[`S: 20+ shipments/month, five coordination points each`,`T: fortnight with warehouse capacity squeeze`,`A: ranked by customs window & delivery date; pre-alert calls; daily checkpoint`,`R: all windows met, error-free records, no late surprises`]},
+{id:15,cat:"behavioral",diff:"medium",q:`Describe a time you caught an error before it caused a problem.`,
+tip:`Detail-orientation is in the JD twice. Use the three-way matching / audit story. Show the system you use, not just luck.`,
+ans:`In Accounts Payable I processed over a hundred invoices per month through three-way matching — invoice, purchase order and delivery note must agree before payment. One month, a recurring supplier invoice came in with figures that technically matched the purchase order, but the delivery note showed a partial delivery. Paying it would have meant paying for goods we had not received.
+
+Because matching was a line-by-line habit for me, not a formality, I caught the mismatch, held the payment, and contacted both the supplier and our warehouse the same day. The supplier corrected the invoice and re-billed the balance on actual delivery.
+
+Beyond that single save, I kept the documentation so clean that our internal and external audits across two years closed with zero discrepancies. For EMO work, the equivalent reflex is checking that an expert fee matches a case that was actually completed — and I already have that reflex.`,
+pts:[`S: 100+ invoices/month with three-way matching`,`A: line-by-line habit → caught partial-delivery mismatch`,`A: held payment, same-day contact with both parties`,`R: corrected invoice; zero discrepancies in 2 years of audits`]},
+{id:16,cat:"behavioral",diff:"medium",q:`Tell me about a time you dealt with a difficult external stakeholder.`,
+tip:`The customs/claims story is ideal: regulated party, high stakes, emotions contained, result quantified — 90% of claims resolved within 2 weeks.`,
+ans:`As Imports Coordinator I handled shipping and customs claims — disputes with carriers, forwarders or customs authorities about damaged, delayed or blocked goods. The instinct in these disputes is often to argue. My approach was to document first: photographs, delivery notes, correspondence timelines — everything assembled into a file that made our position undeniable and easy to assess.
+
+There was a case where a forwarder disputed responsibility for a delayed, partially damaged delivery that a customer was waiting on. Instead of trading emails of blame, I sent one structured claim pack laying out the timeline and evidence, proposed an immediate interim solution for the customer's stuck delivery, and scheduled a call to close the liability question. The forwarder accepted responsibility, compensation was agreed, and the customer's replacement moved in parallel.
+
+Over my time in that role, around ninety percent of claims were resolved within two weeks. The lesson I keep: difficult stakeholders soften when you make the facts easy to see and the next step easy to take. That is how I would approach a disputed invoice from an expert or a contested eligibility question from an insurer.`,
+pts:[`S: customs & shipping claims — carriers, forwarders, authorities`,`A: evidence pack (photos, notes, timeline) instead of blame`,`A: interim solution for the waiting customer + closure call`,`R: ~90% of claims resolved within 2 weeks`,`Bridge: same approach with experts / insurers disputes`]},
+{id:17,cat:"behavioral",diff:"medium",q:`Give me an example of a time you helped a team member or improved how a team worked.`,
+tip:`Teamwork & collaboration is in the JD's competency list. The onboarding story shows proactivity beyond your job description.`,
+ans:`When I worked as Administrative Assistant at Algar Aguilar, I noticed that every new employee's onboarding depended entirely on whoever had time that day — sometimes it went well, sometimes people spent their first week asking for basic information. I volunteered to build a small onboarding pack: welcome materials, the key contacts, the processes they would touch in week one, and an orientation schedule coordinated with the managers they needed to meet.
+
+New colleagues then arrived to a structured first week instead of improvisation, and the managers got their time back because the template handled the predictable parts. It also raised the bar for consistency: everyone received the same correct information.
+
+I would bring the same instinct to the EMO team. Once I know the workflow well, I would happily help keep shared guides, templates and checklists current — administration work scales through good documentation.`,
+pts:[`S: inconsistent onboarding depending on who was free`,`A: built onboarding pack + orientation schedule proactively`,`R: structured first weeks; managers' time freed; consistent info`,`Bridge: eagerness to maintain shared guides/templates in EMO`]},
+{id:18,cat:"behavioral",diff:"medium",q:`Tell me about a time you dealt with an upset customer.`,
+tip:`In healthcare, distressed people are the daily reality. The Mitanna call-centre years are your proof: 30 calls/day, high satisfaction. Emphasise calm, listening, and fixing the root cause.`,
+ans:`At Mitanna Gases I spent nearly five years as the first voice customers heard — more than thirty calls a day from people with delivery problems, billing questions or urgent orders. Some callers arrived already angry.
+
+My method was consistent: let them finish completely, because an interrupted complaint doubles in size; reflect the problem back so they know they were understood; then tell them exactly what happens next and actually do it — including calling back when I said I would, even if the update was "still working on it."
+
+One pattern I changed stood out: several recurring complaints traced back to wrong account information in our records. So beyond soothing each caller, I started cleaning the data — ultimately updating and maintaining more than two hundred customer records. Complaints on those accounts stopped recurring, and our satisfaction stayed high. Same principle in EMO: soothe the patient on the phone, then fix the record so the problem never rings again.`,
+pts:[`S: 30+ calls/day, distressed callers, delivery & billing issues`,`A: listen fully → reflect → concrete next steps → call back as promised`,`A: traced recurring complaints to bad records; cleaned 200+ accounts`,`R: high satisfaction maintained; recurring issues eliminated`]},
+{id:19,cat:"behavioral",diff:"medium",q:`Describe a time you worked under serious time pressure.`,
+tip:`Customs windows are real, unmovable deadlines. Show composure, sequencing and communication during pressure, not heroics.`,
+ans:`Import coordination lives inside immovable deadlines: customs windows, vessel cut-offs, truck bookings that expire. Once, documentation for a shipment arrived from the supplier with errors discovered late on a Friday, with the customs window closing and the customer delivery already announced.
+
+Under that pressure I did three things in order: I immediately informed my manager and the customer with the honest risk and a proposed fallback slot — silence is the only failure nobody forgives; I contacted the supplier with a precise, itemised list of the corrections needed, with a deadline expressed in hours; and I pre-booked every step that did not depend on those documents so nothing else would slow us once they landed.
+
+The corrected documents arrived in time, clearance was filed inside the window, and the delivery held. Pressure, for me, is a signal to become more structured, not less — shorter checklists, clearer messages, earlier warnings. That muscle will serve EMO cases with tight SLAs exactly the same way.`,
+pts:[`S: wrong supplier documents, closing customs window`,`A: honest risk communication + fallback slot to customer`,`A: itemised correction list with hour-level deadline`,`A: pre-booked independent steps in parallel`,`R: cleared within window; delivery held`]},
+{id:20,cat:"behavioral",diff:"tough",q:`Tell me about a mistake you made and what you learned from it.`,
+tip:`A trap question: no catastrophic confessions, no fake virtues. Choose a small early-career controlled mistake, own it, show the permanent fix.`,
+ans:`Early in my logistics career, I processed a shipping document set assuming the supplier's reference numbers were consistent with the purchase order — they were not. The mismatch surfaced at customs and cost us a delay while papers were corrected.
+
+No one lost a client and the shipment recovered, but I remember the feeling clearly because it was preventable. From that day I changed two things. First, I stopped treating reference data as "usually right" and started verifying identifier-by-identifier at intake — the habit that later made my Accounts Payable record audit-clean. Second, I built a personal pre-submission checklist so that verification happened before anything left my desk, not at a port.
+
+The deeper lesson: errors in coordination work travel far from their origin, so early verification is the cheapest insurance there is. In EMO, a mistyped policy number or a wrong consent form version has the same physics — which is exactly why I take intake so seriously.`,
+pts:[`Real but contained: ID mismatch caught at customs`,`Owned fully; no excuses`,`Fix 1: verify identifiers at intake, always`,`Fix 2: personal pre-submission checklist`,`Lesson: errors travel; early verification is cheapest`]},
+{id:21,cat:"behavioral",diff:"medium",q:`Give an example of working with people from different teams or cultures.`,
+tip:`The Barcelona EMO hub is multicultural and matrixed. You have a genuinely international story — use it: Nairobi HQ teams, German corporate culture, Spanish studies, global customers.`,
+ans:`At Big Dutchman — a German multinational — I coordinated daily between our Nairobi office, German headquarters processes, international suppliers, regional freight forwarders and customers across markets. The same shipment could involve German process discipline, local port realities in Mombasa, and a customer expecting updates in their own style. I learned to adapt register: concise and documented for corporate, direct and phone-based for port operations, reassuring and plain-language for customers.
+
+More recently, completing my Executive BBA at EU Business School in Barcelona put me in classrooms with classmates from dozens of countries, and I am learning Spanish to integrate fully into life here. The EMO team is international by design — case managers, experts and insurers across countries. Navigating that variety is not new to me; it is genuinely where I feel at home.`,
+pts:[`German HQ × Nairobi operations × global suppliers`,`Adapting communication register per stakeholder`,`EU Business School: dozens of nationalities`,`Learning Spanish = commitment to integrate in Barcelona`]},
+{id:22,cat:"situational",diff:"medium",q:`A Medical Expert has not delivered an opinion and the case SLA expires tomorrow. What do you do?`,
+tip:`They want: act before the breach, informed escalation, transparency with stakeholders. Never wait for the SLA to die.`,
+ans:`I act today, not at the breach. First, I check the case file: when the request went out, what was sent, and whether any previous follow-up exists. Then I contact the expert with a short, precise message — the case reference, exactly what is outstanding, and the deadline — through the communication channel agreed for experts.
+
+In parallel, I inform the case manager that the SLA is at risk and ask for guidance: some cases have flexibility, others are clinically time-sensitive, and deciding which is their call, not mine. If contact with the expert remains absent near the deadline, I escalate through the defined expert-coordination channel with the whole trail attached, so the escalation lands with full context.
+
+Finally, whoever is waiting — patient, insurer — can receive an honest interim status: the case is actively being followed up, a revised expectation will be confirmed as soon as possible. No vague silence. Once resolved, I would log what happened, because repeat offenders are found in the records.`,
+pts:[`Act before breach; inspect the trail first`,`Precise expert nudge: reference + outstanding item + deadline`,`Inform case manager; they own clinical urgency calls`,`Escalate via defined channel with documented trail`,`Honest interim status to patient/insurer — no silence`]},
+{id:23,cat:"situational",diff:"medium",q:`A worried patient calls for an update on their case and sounds very anxious. How do you respond?`,
+tip:`Customer orientation is in the JD. Show the human script first (listen, acknowledge, honest info) and the limits (no medical advice, correct escalation).`,
+ans:`First, I slow the call down. Anxiety makes people talk fast and hold their breath at the same time — so I let them say everything, I use their name, and I acknowledge what they have told me in my own words before I touch the system. People calm down when they feel heard, not when they hear a process.
+
+Then I give what I actually can: a clear, truthful status of their case — where it is, who currently holds it, and the next expected step with a realistic timeframe. I will not guess dates I cannot keep, and I will never comment on medical content — that belongs to the medical team, and saying so confidently protects both the patient and the company.
+
+If their anxiety suggests the case itself needs clinical attention, or their question is medical, I escalate to the case manager and make sure the handover happens. Before ending the call I summarise what will happen next and when they will hear from us — and if I promise a callback, that callback happens, even if the news is "still in progress."`,
+pts:[`Slow down, listen fully, use their name, reflect back`,`Truthful status + realistic next step; no invented dates`,`Never give medical opinions — confident boundary`,`Escalate medical/anxious cases to the case manager`,`Summarise + keep every callback promise`]},
+{id:24,cat:"situational",diff:"tough",q:`An insurance company disputes whether a case is eligible for the EMO service. What do you do?`,
+tip:`Combines eligibility verification with a potentially adversarial conversation. You have both: eligibility logic and claims/dispute experience.`,
+ans:`My first move is back to the source: pull the client's plan terms and the case intake record and verify exactly what the patient requested against what the plan covers. Before any debate, I want to know whether we are right, partly right, or wrong — because each branch is handled differently.
+
+If eligibility is confirmed, I respond to the insurer with the factual basis, calmly and documented: the plan reference, the covered service, and the case identifiers, and I propose the concrete next step to move the case forward. This is where my claims experience is directly useful: at Big Dutchman, disputes with carriers and forwarders resolved fastest — around ninety percent within two weeks — when I led with an evidence pack instead of an argument.
+
+If there is genuine ambiguity or possible ineligibility, I do not negotiate alone: I brief my lead or the case manager with the facts and let the appropriate owner take the commercial decision. Either way, the patient is not left as a hostage of the dispute — their status communication stays honest and human throughout.`,
+pts:[`Verify plan terms + intake record before responding`,`Three branches: right / partly right / wrong — handled differently`,`Evidence pack style from your claims experience (90% in 2 weeks)`,`Escalate ambiguous cases; don't negotiate commercial calls alone`,`Protect the patient from the dispute`]},
+{id:25,cat:"situational",diff:"medium",q:`You notice incorrect patient information in the system, but the case deadline is today. Fix or proceed?`,
+tip:`The correct answer protects BOTH integrity and the deadline. They want to hear that wrong data never proceeds silently, and that fixing plus escalating beats either extreme alone.`,
+ans:`Wrong data never proceeds silently — but the deadline is not abandoned either. The answer is to do both things explicitly.
+
+First I assess what kind of error it is. If it is identity or clinical data — a name, a date of birth, a wrong document attached — it affects the expert's opinion itself or patient safety, so it must be corrected before delivery, even if that means an informed, documented delay: I fix it with the verified source, flag the correction to the case manager immediately, and we communicate a revised status.
+
+If it is an administrative field that does not touch the medical content, I still correct it — quickly — and log what I changed and why, so the record is honest. Either way I never ship truth I know to be false into a case, and I never sit on a correction to protect a deadline without telling the owner of the case. Integrity of the record comes first; transparency protects the deadline where it can be protected.`,
+pts:[`Never release known-wrong data silently`,`Split: clinical/identity errors vs. administrative errors`,`Correct with verified source; inform case manager; log the change`,`Transparency with the case owner protects the SLA`]},
+{id:26,cat:"situational",diff:"tough",q:`Two requests arrive at once and both are marked urgent. How do you decide what to do first?`,
+tip:`Tests judgement beyond first-come-first-served. Answer with a defensible rubric and communication — and show you know when to ask.`,
+ans:`"Urgent" is a label, so I replace it with facts. For each request I check four things quickly: what is actually at stake — a clinical deadline versus a process milestone; the real SLA or commitment date behind it; what each case needs from me — a two-minute verification versus a long document chase; and who else can act — is someone else unblockable-by-me meanwhile.
+
+From there I sequence so that risk falls fastest: typically the item with the nearest real consequence goes first, but if my first action on the other request only takes two minutes — sending an acknowledgement, checking one field — I clear it, because an acknowledged request stops producing chase calls.
+
+And if both are genuinely equal and my bandwidth only covers one, that is exactly the moment to ask my coordinator or supervisor two sentences: here is case A, here is case B, which takes priority? Asking early is professionalism, not weakness — it protects the patient either way.`,
+pts:[`Replace the urgent label with facts: stakes, SLA, effort, ownership`,`Sequence to reduce risk fastest`,`Quick acknowledgements stop chase calls`,`Genuine tie → 2-sentence question to the coordinator`]},
+{id:27,cat:"company",diff:"medium",q:`What do you know about Teladoc Health as a company?`,
+tip:`Show curated knowledge with a narrative, not wiki facts: founding story → virtual care leadership → Livongo merger → EMO heritage in Barcelona. Land on the Barcelona connection.`,
+ans:`Teladoc Health was founded in 2002 in the United States and pioneered telemedicine — connecting patients with doctors by phone and video when the idea was still radical. Today it is the global leader in virtual care, listed on the New York Stock Exchange, and delivering services across the whole spectrum of healthcare: primary and general medical care, mental health through BetterHelp, chronic condition management through Livongo — which joined Teladoc in 2020 — and expert medical opinions.
+
+The EMO business has a particularly meaningful story for this office: it grew out of Advance Medical, the expert medical opinion pioneer, which had its hub right here in Barcelona on Via Augusta before becoming part of the Teladoc family. So this role is not a satellite job — it sits in the home of the EMO service.
+
+What impresses me is the through-line: taking expertise that used to depend on where you live, and making it reachable for anyone. I would be proud to be the operational part of that promise.`,
+pts:[`Founded 2002, telemedicine pioneer, NYSE-listed`,`Spectrum: primary care, BetterHelp (mental), Livongo (chronic), EMO`,`EMO heritage: Advance Medical, hub on Via Augusta, Barcelona`,`"Not a satellite job — the home of the EMO service"`]},
+{id:28,cat:"company",diff:"tough",q:`Who do you think our competitors are, and where is virtual healthcare heading?`,
+tip:`A curveball for an admin role — answer it humbly but show commercial awareness. Name the category's players, then trends: hybrid care, AI triage, insurer partnerships, data-driven quality.`,
+ans:`At my level of the industry the honest answer is that I see the category more than the leaderboard — but I follow it. In virtual consultations, companies like Amwell and MDLive operate globally, while in the expert opinion space there are specialised players such as Included Health. Increasingly, the real competition is also local: national health systems and insurers building their own tele-services.
+
+Where I see the industry heading: first, hybrid care — virtual plus physical working together rather than replacing each other. Second, data and AI supporting the front of every journey — smarter intake, faster routing of cases to the right expert — which makes accurate intake data, the administrator's work, even more valuable. Third, deeper partnerships with employers and insurers, which is exactly the client structure in EMO work.
+
+In all three trends, the differentiator that cannot be automated is trustworthy, human case handling — and that is the part I am here to do exceptionally well.`,
+pts:[`Named players: Amwell, MDLive, Included Health`,`Real competition: insurers & national systems going virtual`,`Trend 1: hybrid care; Trend 2: AI in intake & routing`,`Trend 3: employer/insurer partnerships = the EMO client model`,`Close: human case handling cannot be automated`]},
+{id:29,cat:"company",diff:"medium",q:`What do you think excellent service looks like for an EMO patient?`,
+tip:`A values question in disguise. Describe the patient's emotional journey and anchor service excellence in communication quality, not just speed.`,
+ans:`For an EMO patient, the stakes are not a late parcel — it may be a diagnosis that frightened them or a treatment decision the rest of their life depends on. So excellent service starts with respect for that weight: from the first call, they should feel that a competent, calm person is holding their case.
+
+Concretely, excellence looks like: fast acknowledgement that the request arrived; absolute clarity on what we need from them and why; honest updates before they have to ask — silence reads as neglect from the patient's side; accuracy in every detail, because a typo in a medical file is a breach of trust; and delivery of the expert opinion on time, in plain delivery language, with a human handover.
+
+Everything in that list is exactly what I trained in logistics — proactive status, zero-error documentation, deadline discipline — but with the empathy switch set to maximum. That combination is what I would bring to your patients.`,
+pts:[`Acknowledge the emotional weight first`,`Fast acknowledgement, crystal-clear requirements`,`Proactive updates: silence reads as neglect`,`Accuracy = trust; on-time delivery with human handover`,`Your logistics discipline + empathy at maximum`]},
+{id:30,cat:"logistics",diff:"core",q:`The role rotates between morning (7:00–15:00) and afternoon (15:00–22:00) shifts. Is that workable for you?`,
+tip:`Answer YES cleanly and completely, then briefly explain the practical arrangement. Interviewers hear hesitation in padding — keep it short.`,
+ans:`Yes, completely workable. I have planned my commitments around this role — my Executive BBA schedule is organised so it does not conflict with either shift, and I live in Barcelona with a realistic commute to Via Augusta at both ends of the day.
+
+I have also worked in environments where the clock sets the rhythm — customs windows do not move for anyone — so working to a fixed shift structure is natural to me. Honestly, the two-shift rotation has an advantage for me personally: morning weeks are highly productive weeks, and afternoon weeks give me daylight for my studies and life admin. I am genuinely comfortable with both.`,
+pts:[`Clean "yes" first, no hedging`,`BBA schedule organised around both shifts`,`Barcelona-based; commute realistic at both hours`,`Positives of each shift — show you thought it through`]},
+{id:31,cat:"logistics",diff:"core",q:`The salary for this role is approximately €22,700 gross per year. Does that align with your expectations?`,
+tip:`The number is published — they are filtering mismatches, not negotiating. Confirm alignment, then redirect to total value: training, continuity, global brand, growth.`,
+ans:`Yes, that aligns with my expectations — it is consistent with the range I researched for administrative operations roles in Barcelona, and it works for my situation.
+
+What matters to me beyond the number is the package around it: initial and ongoing training, the prospect of continuity, and the chance to build a career inside the world's leading virtual healthcare company. For me this role is the entry point I have been deliberately working towards — my relocation to Barcelona and my BBA were investments in exactly this kind of opportunity. So on salary, we are aligned.`,
+pts:[`Direct confirmation — no squirming`,`Market-aware: consistent with Barcelona admin ranges`,`Redirect: training, continuity, global brand`,`Frame: you invested (move + BBA) to be exactly here`]},
+{id:32,cat:"logistics",diff:"medium",q:`This is a fixed-term contract initially. How do you feel about that?`,
+tip:`They want enthusiasm, not anxiety. Frame the fixed-term as your audition: performance creates continuity.`,
+ans:`Comfortably. I read the offer honestly: a fixed-term start with genuine prospects of continuity, in a company that says it invests in developing people. I take that at face value — and it is exactly the kind of proposition that suits me, because I am confident in what my performance looks like within a few months.
+
+My career so far has been built the same way: at Big Dutchman I entered in Accounts Payable and earned my way into import coordination; trust followed performance. So I see the fixed term as a period in which Teladoc gets to know my work, and I get to prove I am someone you will want to keep. That is a fair arrangement, and I accept it with enthusiasm.`,
+pts:[`Read it honestly: fixed term + stated continuity prospects`,`Confidence: performance within months`,`Career pattern: AP → imports — trust follows performance`,`Close: "a fair arrangement, accepted with enthusiasm"`]},
+{id:33,cat:"logistics",diff:"medium",q:`The role is hybrid at our Via Augusta office. How do you structure productive hybrid work?`,
+tip:`Show maturity: office for collaboration, home for focused documentation — and honesty that you live locally and like office culture.`,
+ans:`I live in Barcelona, and the commute to Via Augusta 252 is simple for me, so the office days are genuinely easy to commit to. I use office time for what it is best at — quick coordination with case managers and teammates, training, alignment — and home days for deep-focus queue work: documentation, verification, the detailed follow-ups that benefit from silence.
+
+What does not change between locations is my system: the morning queue review, the same checklist discipline, and end-of-day status updates. My organisational habits travel with me — they are in my head and in my process, not in a desk. I also enjoy being around a team; after years as the coordination point in busy offices, presence is where some of my best value shows up.`,
+pts:[`Local commute — office days are easy`,`Office = coordination & training; home = deep-focus queue work`,`Habits are portable: queue review + checklists + status updates`,`You genuinely enjoy team presence`]},
+{id:34,cat:"logistics",diff:"tough",q:`Your CV says your Spanish is basic. Will that be a problem here?`,
+tip:`Address head-on, no defensiveness: working language is English in this international team; you are learning Spanish; you know when to route Spanish-heavy cases appropriately.`,
+ans:`Honestly and practically. For the role itself: the working language of the international EMO team is English — cases, documentation and communication with experts and global insurers run in English — and I am a native English speaker, so that side is fully covered from day one.
+
+For life and integration: my Spanish is basic but actively improving — I am learning it as part of building my long-term future in Barcelona, which is a decision I made deliberately when I moved here for my BBA. I am comfortable handling courtesy interactions and everyday Spanish, and where a case would genuinely require fluent Spanish with a patient or a local provider, the team structure exists for that — I would handle it with a colleague rather than improvise past my level at a patient's expense.
+
+In short: no risk to the work, visible commitment to the country, and honesty about my level. That, I believe, is what you want to hear.`,
+pts:[`Working language = English; you are native`,`Spanish improving, deliberately, as part of your Barcelona plan`,`Courtesy/everyday Spanish: fine`,`Fluent-Spanish case: route to a colleague, never improvise`]}
+];
+
+/* ---------------- DATA: STAR ---------------- */
+const STARS = [
+{id:"s1",title:`The blocked shipment: 90% of claims resolved in under two weeks`,comp:`Problem-solving`,s:`As Imports Coordinator at Big Dutchman, I was responsible for shipping and customs claims — disputes with carriers, freight forwarders and customs authorities over delayed, damaged or blocked goods. These disputes directly affected customers waiting on deliveries.`,t:`Resolve claims as fast and as fairly as possible while protecting both the company's position and the customer relationship.`,a:`I developed a documentation-first method: photographs, delivery notes and a clean correspondence timeline assembled into a single claim pack before any contested conversation. I separated the customer's immediate need — getting their goods moving — from the liability discussion, solving both in parallel, then closing liability with a structured call.`,r:`Around 90% of claims and disputes were resolved within two weeks, customers stayed informed throughout, and carrier relationships remained professional and constructive.`},
+{id:"s2",title:`Zero audit discrepancies across two years of Accounts Payable`,comp:`Attention to detail`,s:`In Accounts Payable at Big Dutchman I processed 100+ invoices per month and supported internal and external audits of our books and vendor records.`,t:`Guarantee that every payment and every record could withstand full audit scrutiny.`,a:`Every invoice passed line-by-line three-way matching against its purchase order and delivery note — never a formality. I meticulously registered new vendors with complete documentation, reconciled vendor accounts monthly, and corrected inconsistencies the moment they appeared rather than at period end.`,r:`Internal and external audits closed with zero discrepancies, and invoice processing ran at 100% accuracy.`},
+{id:"s3",title:`Twenty shipments a month, zero lost deadlines`,comp:`Prioritisation & time management`,s:`As Imports Coordinator I managed 20+ international shipments monthly, each crossing five coordination points: supplier, forwarder, transit, customs, customer — with immovable customs windows and delivery promises.`,t:`Keep every shipment on schedule and every record error-free, even when multiple shipments stacked up in the same week.`,a:`I ranked the full queue by customs window and customer delivery date, planned backwards from each deadline, made pre-alert calls to forwarders before problems existed, and held a daily ten-minute checkpoint to catch drift early. Honest early communication replaced silent slippage.`,r:`Shipments met their windows consistently, documentation stayed error-free across 20+ monthly movements, and customers received proactive updates instead of surprises.`},
+{id:"s4",title:`Thirty anxious calls a day — and records that stopped the repeat calls`,comp:`Customer orientation`,s:`At Mitanna Gases I was the first voice of the company for nearly five years, answering 30+ calls daily from customers with delivery problems, billing questions and urgent orders.`,t:`Resolve each caller's problem, keep satisfaction high, and reduce avoidable repeat contacts.`,a:`I let every caller finish completely, reflected their issue back before acting, made concrete next-step promises and kept them — including callbacks with 'no news yet'. I noticed recurring complaints traced to bad account data, so I cleaned and maintained 200+ customer records.`,r:`Customer satisfaction stayed consistently high, data integrity improved visibly, and entire categories of repeat complaints disappeared.`},
+{id:"s5",title:`Building onboarding from scratch so every new colleague started right`,comp:`Proactivity & teamwork`,s:`As Administrative Assistant at Algar Aguilar, new employee onboarding depended entirely on whoever happened to be free — inconsistent and slow.`,t:`Create a reliable way for every new hire to start productively, without waiting on volunteer availability.`,a:`I proactively prepared structured training materials and coordinated orientation schedules with the managers each hire needed to meet, turning improvisation into a repeatable first week.`,r:`New employees integrated smoothly and consistently, managers reclaimed their time, and the template became the office standard.`},
+{id:"s6",title:`Friday documents, closing customs window: pressure handled with structure`,comp:`Composure under pressure`,s:`Documentation for a live shipment arrived from a supplier with errors discovered late on a Friday, while the customs window was closing and the customer delivery was already announced.`,t:`Recover the shipment inside the window — or give the customer the earliest honest recovery plan.`,a:`I informed my manager and the customer immediately with the honest risk and a fallback slot, sent the supplier an itemised correction list with a deadline in hours, and pre-booked every downstream step that did not depend on the corrected papers.`,r:`Corrected documents landed in time, clearance was filed inside the window, and the delivery held. The rule I still keep: under pressure, become more structured, not less.`}
+];
+
+/* ---------------- DATA: CHECKLIST ---------------- */
+const CHECKLIST = [
+{id:"c1",g:"research",label:`Read Teladoc's EMO service pages end to end`,detail:`Visit teladochealth.com and the International EMO pages. Be able to explain the patient journey in your own words in 60 seconds.`},
+{id:"c2",g:"research",label:`Know the company story: 2002 → NYSE → Livongo (2020) → Barcelona EMO hub`,detail:`Founded 2002 as a telemedicine pioneer; Livongo merger in 2020; EMO service with roots in Barcelona's Advance Medical on Via Augusta.`},
+{id:"c3",g:"research",label:`Re-read the job description and highlight every keyword`,detail:`Coordination, SLA, eligibility verification, stakeholders, billing, data accuracy. Your answers should echo these words back.`},
+{id:"c4",g:"research",label:`Look up your interviewer(s) on LinkedIn, if named`,detail:`Note their role, tenure and background. One genuine reference to their work builds instant rapport.`},
+{id:"c5",g:"research",label:`Re-read your own CV until every number is reflex`,detail:`20+ shipments/month. 100+ invoices. 200+ records. 30 calls/day. 90% claims in 2 weeks. Zero audit discrepancies. Say them without looking.`},
+{id:"c6",g:"research",label:`Prepare the logistics → healthcare translation`,detail:`Practice saying: shipment → case, forwarder → expert, claim → dispute, customs window → SLA. Speak their language all interview long.`},
+{id:"c7",g:"practice",label:`Drill "Tell me about yourself" out loud — 3 full runs`,detail:`90 seconds max. Past (logistics/AP) → present (BBA Barcelona) → future (EMO mission). Use the model answer in the question bank.`},
+{id:"c8",g:"practice",label:`Bring every core question to Confident level in Practice Mode`,detail:`Focus on the six 'core' difficulty cards first — they are the statistically certain questions.`},
+{id:"c9",g:"practice",label:`Complete 2 full Mock Interview sessions`,detail:`Timed answers, no pausing to 'fix' an answer mid-way — trains recovery, not perfection.`},
+{id:"c10",g:"practice",label:`Record yourself answering 3 questions and watch it back`,detail:`Check pace, filler words and posture. One honest recording session changes more than five silent rehearsals.`},
+{id:"c11",g:"practice",label:`Polish your 6 STAR stories to 2 minutes each`,detail:`Situation and Task in 15 seconds each; Action carries the detail; Result ends with a number wherever possible.`},
+{id:"c12",g:"practice",label:`Rehearse the three compliance answers: shifts, salary, fixed-term`,detail:`These must sound easy and short. Clean yes, one brief reason, move on. Hesitation here costs more than a wrong answer elsewhere.`},
+{id:"c13",g:"practice",label:`Prepare your questions FOR the interviewer`,detail:`Use the curated list in the Plan section. Asking zero questions reads as low interest; asking about logistics only reads as low ambition.`},
+{id:"c14",g:"logistics",label:`Plan the route to Via Augusta 252, 08017 Barcelona`,detail:`Sarrià-Sant Gervasi area. FGC stations Plaça Molina / Sant Gervasi are nearby. Do a dry run or map the exact door beforehand.`},
+{id:"c15",g:"logistics",label:`Choose and prepare your outfit the night before`,detail:`Business-smart, comfortable for a 10-minute walk from the station. Lay it out; eliminate morning decisions.`},
+{id:"c16",g:"logistics",label:`Prepare your document folder`,detail:`Two printed CV copies, a copy of the job description with your notes, ID/NIE, certificates, and a pen + notebook for after-action notes.`},
+{id:"c17",g:"logistics",label:`Confirm the interview time, format and contact person`,detail:`Save recruiter/hiring manager phone numbers. Confirm whether it is onsite at Via Augusta, video call, or hybrid first round.`},
+{id:"c18",g:"logistics",label:`Arrive 10 minutes early — not 30, not 2`,detail:`Ten minutes signals eagerness without pressuring reception. Use waiting time to re-read your numbers, not your phone.`},
+{id:"c19",g:"logistics",label:`Test your tech if any round is remote`,detail:`Camera at eye level, clean background, charged laptop, headphones ready, stable Wi-Fi with phone hotspot as backup.`},
+{id:"c20",g:"mindset",label:`Sleep 7–8 hours before interview day`,detail:`One more rehearsal the night before is worth less than a rested, sharp mind. Stop prep by 21:00.`},
+{id:"c21",g:"mindset",label:`Do 4-7-8 breathing before you enter`,detail:`Inhale 4 seconds, hold 7, exhale 8. Three cycles lowers heart rate and steadies your voice for the first answer.`},
+{id:"c22",g:"mindset",label:`Frame the day: they invited YOU`,detail:`Out of all applicants, your CV won this meeting. You are not asking for a favour — you are presenting a solution to their hiring need.`},
+{id:"c23",g:"mindset",label:`Prepare your follow-up thank-you email draft`,detail:`Within 24 hours: thank them, reference one specific topic you enjoyed discussing, restate enthusiasm and shift/contract confirmation.`},
+{id:"c24",g:"mindset",label:`Plan your close`,detail:`End with: "Based on everything we discussed, I'm confident I can deliver from week one, and I'd genuinely love to join the EMO team. What are the next steps?"`}
+];
+
+/* ---------------- DATA: MATCH ---------------- */
+const REQUIREMENTS = [
+{label:`Administration & operations experience`,jd:`Experience in administration, operations or coordination`,st:"strong",ev:`10+ years across operations: administrative assistant, accounts payable, imports/distribution coordination at three companies.`,ad:`Lead with the decade number and the three-company arc — it shows progression, not repetition.`},
+{label:`Coordination of cases, shipments & stakeholders`,jd:`Create, assign and follow up on EMO cases … coordinate communications between Case Managers, Medical Experts, insurers`,st:"strong",ev:`Coordinated 20+ shipments/month across suppliers, forwarders, customs and customers — five-party coordination with zero lost records.`,ad:`Draw the parallel explicitly in the interview: 'a case is a shipment; the expert is my forwarder; the SLA is my customs window.'`},
+{label:`Billing & payment processes`,jd:`Coordinate with the Finance team regarding payment-related matters`,st:"strong",ev:`2 years of Accounts Payable: 100+ invoices/month, three-way matching, weekly/monthly payment cycles, monthly vendor reconciliation.`,ad:`This is your most direct JD match — quantify every time it comes up.`},
+{label:`Data accuracy & system upkeep`,jd:`Maintain accurate and up-to-date case information in the relevant systems`,st:"strong",ev:`Zero audit discrepancies across two years; cleaned and maintained 200+ customer records; 100% invoice accuracy.`,ad:`Phrase it as: 'accuracy is my maintenance routine — verify at entry, log same-day, reconcile regularly.'`},
+{label:`Customer support & multichannel communication`,jd:`Manage incoming requests (calls, emails, apps/portal) … contact customers when additional information is required`,st:"strong",ev:`Nearly 5 years front-line: 30+ calls/day, correspondence for 50+ clients and staff weekly, high customer satisfaction.`,ad:`Healthcare customers are worried people. Say: 'my customer service years taught me to talk to people on their worst day.'`},
+{label:`Prioritisation & deadline management`,jd:`Ensure deadlines and SLAs are met … prioritise multiple tasks and deadlines`,st:"strong",ev:`Immovable customs windows, weekly payment runs and 20+ concurrent shipments managed by ranking, backward planning and daily checkpoints.`,ad:`Give the method, then the proof: 'rank by deadline, plan backwards, checkpoint daily.'`},
+{label:`Communication & stakeholder management`,jd:`Strong communication and interpersonal skills … collaborate effectively with different stakeholders`,st:"strong",ev:`German HQ ↔ Nairobi operations ↔ international suppliers ↔ forwarders ↔ customers — adapted register daily per audience.`,ad:`Mention you adapt tone: documented and precise for corporate, plain-language for customers.`},
+{label:`Problem-solving & incident handling`,jd:`Assist with incidents … escalate cases when necessary`,st:"strong",ev:`Resolved ~90% of shipping/customs claims within 2 weeks via documentation-first claim packs and parallel interim solutions.`,ad:`Show you know escalation timing: 'escalate while there is still time to fix, not at the breach.'`},
+{label:`Fluent English`,jd:`Fluent in English`,st:"strong",ev:`Native-level English; entire career conducted in English in multinational environments.`,ad:`Simply confirm — then let the interview itself be the proof.`},
+{label:`Highly organised & detail-oriented`,jd:`Highly organized, detail-oriented`,st:"good",ev:`Customs documentation at 100% compliance; personal pre-submission checklists; audit-clean AP records.`,ad:`Back the adjective with a system: 'I run pre-submission checklists before anything leaves my desk.'`},
+{label:`Bachelor's degree or equivalent`,jd:`Bachelor's degree or equivalent`,st:"good",ev:`Executive BBA at EU Business School Barcelona plus a Diploma in Business Management (Kenya Institute of Management).`,ad:`Frame the BBA as an investment aligned with this move into international operations.`},
+{label:`Healthcare industry familiarity`,jd:`Preferably in healthcare … review quality feedback … Teladoc Health policies`,st:"stretch",ev:`No healthcare employer yet — but compliance-heavy regulated work (customs, trade law) and confidentiality practice with financial data.`,ad:`Acknowledge honestly, then point at the mechanics: regulated-process discipline transfers; clinical vocabulary is covered by Teladoc's initial training.`},
+{label:`Additional languages`,jd:`Knowledge of additional languages is a plus`,st:"stretch",ev:`Native Swahili plus basic, actively-improving Spanish.`,ad:`Swahili is a genuine plus for African-market cases. Spanish: state level honestly + 'courtesy Spanish fine, fluent-Spanish cases routed to colleagues.'`}
+];
+
+const BRIDGE = [
+{a:`Shipment`,b:`Case`,n:`One tracked unit of work with an owner, a status and a deadline.`},
+{a:`Freight forwarder / supplier`,b:`Medical Expert`,n:`External specialist you must brief precisely and chase politely.`},
+{a:`Customer`,b:`Patient / insurer`,n:`The person waiting — proactive updates matter more than speed alone.`},
+{a:`Customs window`,b:`SLA`,n:`An immovable deadline you plan backwards from and never let die silently.`},
+{a:`Claim / dispute`,b:`Incident / escalation`,n:`Resolved with an evidence pack and a calm, documented trail.`},
+{a:`Bill of lading / shipping docs`,b:`Medical records & consent forms`,n:`Complete documentation at intake prevents every downstream delay.`},
+{a:`Three-way matching`,b:`Eligibility & data verification`,n:`Invoice↔PO↔delivery note becomes case↔plan↔documents.`},
+{a:`Vendor reconciliation`,b:`Quality review & case hygiene`,n:`Regular review cycles that keep the record honest.`},
+{a:`Trade compliance`,b:`GDPR & Teladoc policies`,n:`Adapting to regulated frameworks without errors, every time.`}
+];
+
+const INTEL = [
+{t:`The pioneer`,b:`Founded in 2002 in the US, Teladoc essentially invented telemedicine at scale and is today the global leader in virtual healthcare, listed on the NYSE as TDOC.`},
+{t:`Whole-person care`,b:`Services span the full spectrum: primary and general medical care, mental health through BetterHelp, chronic condition management through Livongo (merged 2020), and Expert Medical Opinions.`},
+{t:`The Barcelona connection`,b:`The EMO business grew from Advance Medical — the expert opinion pioneer whose international hub was right here on Via Augusta, Barcelona, before joining the Teladoc family. This office is the home of EMO.`},
+{t:`What EMO does`,b:`Connects patients facing serious diagnoses or treatment decisions with world-leading medical experts for independent second opinions — changing outcomes for people who could never otherwise reach that expertise.`},
+{t:`The admin's place in the chain`,b:`Intake across calls, email and portal → case creation → eligibility verification → documentation chasing → coordination between case managers, experts and insurers → SLA tracking → billing support with Finance → quality feedback.`},
+{t:`Why it fits you`,b:`An international, multicultural, English-first team where ten years of coordination discipline plus native English is exactly the profile the machine runs on.`}
+];
+
+const ASK = [
+{q:`What does a typical caseload look like for an administrator on the EMO team, and how are cases distributed?`,w:`Shows you are already visualising yourself doing the job.`},
+{q:`Which systems and tools does the team use for case tracking? And how is the initial training structured?`,w:`Signals you take the training promise seriously and plan for ramp-up.`},
+{q:`What does success look like in the first 90 days of this role?`,w:`Turns the interview into a performance conversation — memorable.`},
+{q:`How do the morning and afternoon shift rotations interact? Do teams rotate together?`,w:`Practical interest in teamwork, not just in the schedule.`},
+{q:`How do administrators typically grow here — toward case management, quality, or team coordination?`,w:`Confirms ambition pointed inside their org chart.`},
+{q:`What is the most common failure point in a new admin's first weeks — and what separates those who get past it?`,w:`A mature question that invites the interviewer to coach you already.`}
+];
+
+const NUMBERS = [
+{v:`10+`,l:`years of operations & administration`},{v:`20+`,l:`shipments coordinated per month`},{v:`100+`,l:`invoices processed monthly at 100% accuracy`},{v:`200+`,l:`customer records cleaned & maintained`},{v:`30`,l:`customer calls handled daily`},{v:`90%`,l:`of claims resolved within 2 weeks`},{v:`0`,l:`audit discrepancies across two years`}
+];
+
+const REDFLAGS = [
+{t:`Apologizing for 'only' a logistics background`,f:`Reframe instantly: same job, different industry. You are not explaining a weakness — you are presenting a translation.`},
+{t:`Vague answers about healthcare motivation`,f:`Anchor to EMO specifically: second opinions from world experts for people who could not reach them otherwise.`},
+{t:`Hesitating on the €22,700 salary or fixed-term contract`,f:`Both are published. Clean yes + one sentence + redirect to training/continuity.`},
+{t:`Overpromising your Spanish`,f:`State basic + actively learning. Promise honesty: fluent-Spanish cases get routed, never improvised.`},
+{t:`Speaking badly of customs, forwarders or past employers`,f:`Even disputes were 'professional problem-solving'. Positivity reads as what they will experience from you.`},
+{t:`Asking questions only about holidays or schedule logistics`,f:`Ask about caseload, training, 90-day success and growth paths first. Logistics questions last, if at all.`}
+];
+
+const MODULES = [
+{r:"match",i:"cross",t:`Match Analysis`,d:`13 job requirements scored against your CV — with the exact reframe for every gap.`,c:"var(--pulse400)"},
+{r:"questions",i:"book",t:`Question Bank`,d:`34 questions they are statistically likely to ask, each with a model answer written from your CV.`,c:"#c4b5fd"},
+{r:"practice",i:"repeat",t:`Practice Mode`,d:`Flashcard-style drilling: answer aloud, reveal the model, rate yourself, move on.`,c:"#fcd34d"},
+{r:"mock",i:"timer",t:`Mock Interview`,d:`A timed simulation across all categories, logged to your history.`,c:"#fda4af"},
+{r:"star",i:"star",t:`STAR Stories`,d:`Six pre-built stories from your real experience, plus a builder for your own.`,c:"var(--beam400)"},
+{r:"plan",i:"clip",t:`Interview Plan`,d:`Research, practice, logistics and mindset checklists — everything before the door opens.`,c:"#6ee7b7"}
+];
+
+const GROUPS = {
+  research:{label:`Know the battlefield`,icon:"book",color:"#38bdf8",blurb:`Research deep enough that nothing they say surprises you.`},
+  practice:{label:`Rehearse the performance`,icon:"repeat",color:"#a78bfa",blurb:`Answers are not written, they are drilled — out loud.`},
+  logistics:{label:`Own the day`,icon:"pin",color:"#fbbf24",blurb:`Remove every avoidable variable from interview day.`},
+  mindset:{label:`Win the head game`,icon:"zap",color:"#2dd4bf",blurb:`Walk in as the solution to their hiring need, not a hopeful guest.`}
+};
+
+/* ---------------- STATE ---------------- */
+const KEY = "emoPrepV1";
+let S;
+function defaultState(){ return {conf:{}, notes:{}, attempts:{}, checks:{}, customCheck:[], customStars:[], starEdits:{}, sessions:[]}; }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+function load(){ try{ const raw = localStorage.getItem(KEY); if(raw){ const p = JSON.parse(raw); return Object.assign(defaultState(), p); } }catch(e){} return defaultState(); }
+S = load();
+
+/* ---------------- HELPERS ---------------- */
+const $ = s => document.querySelector(s);
+function esc(s){ return String(s).replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m])); }
+function conf(qid){ return S.conf[qid] || 0; }
+function attempts(qid){ return S.attempts[qid] || 0; }
+function fmt(s){ return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); }
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800); }
+function rateQuestion(qid, level){ S.conf[qid]=level; save(); }
+function recordAttempt(qid){ S.attempts[qid]=(S.attempts[qid]||0)+1; save(); }
+
+function head(kicker, title, desc){
+  return '<div class="fade"><p class="kicker">'+esc(kicker)+'</p></div>'
+    +'<div class="fade" style="--d:.05s"><h1 class="h1">'+title+'</h1></div>'
+    +'<div class="fade" style="--d:.1s"><p class="desc">'+esc(desc)+'</p></div><div class="mb8"></div>';
+}
+function catBadge(c){ return '<span class="badge b-'+c+'">'+CATS[c]+'</span>'; }
+function diffBadge(d){ return '<span class="diff d-'+d+'">'+DIFFS[d]+'</span>'; }
+function confDots(qid, small){
+  const lv = conf(qid);
+  let h='<span class="dots" data-qdots="'+qid+'">';
+  for(let n=1;n<=4;n++){
+    const on = lv>=n;
+    h+='<button class="dot'+(small?' dot-sm':'')+'" data-rate="'+qid+':'+n+'" title="'+CONF[n]+'" style="background:'+(on?CONFC[n]:'rgba(123,152,173,.25)')+';box-shadow:'+(on?('0 0 10px '+CONFC[n]+'55'):'none')+'"></button>';
+  }
+  h+='</span>';
+  return h;
+}
+function updateDots(qid){
+  document.querySelectorAll('[data-qdots="'+qid+'"]').forEach(w=>{
+    const lv=conf(qid);
+    w.querySelectorAll(".dot").forEach((d,i)=>{
+      const n=i+1, on=lv>=n;
+      d.style.background=on?CONFC[n]:'rgba(123,152,173,.25)';
+      d.style.boxShadow=on?('0 0 10px '+CONFC[n]+'55'):'none';
+    });
+  });
+}
+function paragraphs(txt){ return txt.split("\n\n").map(p=>'<p style="font-size:14px;line-height:1.7;color:var(--ink100);margin-bottom:12px">'+esc(p)+'</p>').join(""); }
+
+function stats(){
+  const total=QUESTIONS.length;
+  const practiced=QUESTIONS.filter(q=>attempts(q.id)>0).length;
+  const mastered=QUESTIONS.filter(q=>conf(q.id)>=3).length;
+  const avg=QUESTIONS.reduce((a,q)=>a+conf(q.id),0)/total;
+  const allChecks=CHECKLIST.length+S.customCheck.length;
+  const doneChecks=CHECKLIST.filter(c=>S.checks[c.id]).length + S.customCheck.filter(c=>c.done).length;
+  const readiness=Math.round((avg/4)*70 + (practiced/total)*20 + (allChecks? (doneChecks/allChecks)*10:0));
+  const cats={};
+  QUESTIONS.forEach(q=>{ cats[q.cat]=cats[q.cat]||{t:0,m:0}; cats[q.cat].t++; if(conf(q.id)>=3) cats[q.cat].m++; });
+  let weakest="", wr=1.1;
+  Object.keys(cats).forEach(c=>{ const r=cats[c].m/cats[c].t; if(r<wr){wr=r;weakest=c;} });
+  return {total,practiced,mastered,readiness,allChecks,doneChecks,weakest,sessions:S.sessions.length};
+}
+
+/* ---------------- NAV ---------------- */
+const NAV = [
+  {r:"overview",l:"Overview",i:"dash"},{r:"match",l:"Match Analysis",i:"cross"},
+  {r:"questions",l:"Question Bank",i:"book"},{r:"practice",l:"Practice Mode",i:"repeat"},
+  {r:"mock",l:"Mock Interview",i:"timer"},{r:"star",l:"STAR Stories",i:"star"},
+  {r:"plan",l:"Interview Plan",i:"clip"}
+];
+function buildNav(){
+  $("#nav").innerHTML = NAV.map(n=>'<a class="navlink" data-nav="'+n.r+'" href="#/'+n.r+'">'+ic(n.i,18)+'<span>'+n.l+'</span><span class="dot"></span></a>').join("");
+  $("#brandIcon").innerHTML = ic("activity",20)+"<span></span>";
+  $("#brandIcon2").innerHTML = ic("activity",20)+"<span></span>";
+  $("#pinIcon").innerHTML = ic("pin",12);
+  $("#menuBtn").innerHTML = ic("menu",18);
+  $("#offlink").innerHTML = ic("dl",14)+"<span>Save this file offline</span>";
+}
+function setActiveNav(route){
+  document.querySelectorAll("[data-nav]").forEach(a=>a.classList.toggle("active", a.dataset.nav===route));
+}
+
+/* ============================================================
+   VIEWS
+   ============================================================ */
+
+/* ---------- OVERVIEW ---------- */
+function vOverview(){
+  const st = stats();
+  const r = 79, c = 2*Math.PI*r;
+  let h = head("Teladoc Health · Administration EMO · Barcelona","Walk in undeniable.",
+    "Everything in this command center is built from two documents: your CV and their job description. The mission is simple — turn ten years of logistics, payments and coordination into the most prepared EMO administration candidate they have ever met.");
+
+  h += '<div class="g-hero fade" style="--d:.12s">'
+    + '<div class="panel hover p8" style="display:flex;flex-direction:column;justify-content:space-between">'
+    + '<div><p class="lbl">Mission briefing</p><h2 class="display" style="font-size:24px;margin-top:12px">Administration — <span class="grad">Expert Medical Opinion</span></h2>'
+    + '<p style="margin-top:12px;max-width:440px;font-size:14px;line-height:1.65;color:var(--ink300)">The operational backbone of the second-opinion service: receive requests, verify patients and eligibility, coordinate case managers, experts and insurers, hit every SLA, and support Finance on payments.</p></div>'
+    + '<div class="g4 mt6">'
+    + [["Contract","Fixed-term → continuity"],["Shifts","7–15 & 15–22 rotation"],["Salary","≈ €22,700 gross/yr"],["Mode","Hybrid · Via Augusta 252"]].map(x=>'<div class="subcard"><p class="lbl">'+x[0]+'</p><p class="mt2" style="font-size:12px;font-weight:500">'+x[1]+'</p></div>').join("")
+    + '</div></div>'
+    + '<div class="panel hover p8" style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center">'
+    + '<div class="ringwrap"><svg class="ringc" width="180" height="180"><circle cx="90" cy="90" r="'+r+'" stroke="rgba(123,152,173,.14)" stroke-width="10" fill="none"/>'
+    + '<circle class="prog" id="readyRing" cx="90" cy="90" r="'+r+'" stroke="url(#rg)" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="'+c+'" stroke-dashoffset="'+c+'"/>'
+    + '<defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient></defs></svg>'
+    + '<div class="ringlabel"><span class="display" style="font-size:36px;font-weight:800">'+st.readiness+'<span style="font-size:16px;color:var(--ink300)">%</span></span>'
+    + '<span class="lbl p mt2">Readiness</span><span style="font-size:11px;color:var(--ink400);margin-top:2px">'+st.mastered+'/'+st.total+' mastered</span></div></div>'
+    + '<div class="stack3" style="min-width:180px">'
+    + statRow("trend","var(--pulse400)",st.practiced+'<span style="font-size:12px;color:var(--ink400)">/'+st.total+'</span>',"questions practiced")
+    + statRow("list","var(--beam400)",st.doneChecks+'<span style="font-size:12px;color:var(--ink400)">/'+st.allChecks+'</span>',"prep items done")
+    + statRow("shield","#fcd34d",String(st.sessions),"mock interviews logged")
+    + '</div></div></div>';
+
+  h += '<div class="panel p6 fade mt6" style="--d:.2s;border-color:rgba(20,184,166,.25);background:linear-gradient(90deg,rgba(20,184,166,.1),transparent,rgba(56,189,248,.08));display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between">'
+    + '<div style="display:flex;gap:16px;align-items:flex-start"><div style="border-radius:12px;border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);padding:12px;color:var(--pulse400)">'+ic("target",20)+'</div>'
+    + '<div><p class="lbl p">Recommended next rep</p><p class="display mt2" style="font-size:17px;font-weight:600">'
+    + (st.practiced===0 ? 'Start with "Tell me about yourself" — the opener decides the tone of everything after it.' : 'Your weakest zone is '+CATS[st.weakest]+'. Take it into Practice Mode now.')
+    + '</p></div></div>'
+    + '<a class="btn primary" href="#/'+(st.practiced===0?'questions':'practice')+'">'+(st.practiced===0?'Open question bank':'Practice now')+' '+ic("arrow",15)+'</a></div>';
+
+  h += '<div class="mt12 fade" style="--d:.25s"><div class="flexrow between mb6"><div><p class="lbl">Ammunition</p><h3 class="h3 mt2">Know your numbers cold</h3></div>'
+    + '<p style="max-width:300px;font-size:12px;color:var(--ink400)">Interviewers remember numbers. These seven are yours — weave them into every answer.</p></div>'
+    + '<div class="g7">'+NUMBERS.map((n,i)=>'<div class="panel hover p5 centerbox fade" style="--d:'+(0.28+i*0.04)+'s"><span class="mono grad" style="font-size:24px;font-weight:700">'+n.v+'</span><p class="mt2" style="font-size:10px;line-height:1.4;color:var(--ink300)">'+n.l+'</p></div>').join("")+'</div></div>';
+
+  h += '<div class="mt12 fade" style="--d:.3s"><p class="lbl">Training modules</p><h3 class="h3 mt2 mb6">Six rooms, one door out: their door</h3>'
+    + '<div class="g3">'+MODULES.map((m,i)=>'<a class="panel hover p6 fade" style="--d:'+(0.32+i*0.05)+'s;display:block" href="#/'+m.r+'">'
+    + '<div style="display:flex;justify-content:space-between;align-items:center"><div style="border-radius:12px;border:1px solid rgba(29,53,72,.5);background:rgba(10,20,29,.7);padding:12px;color:'+m.c+'">'+ic(m.i,20)+'</div>'+ic("arrow",16)+'</div>'
+    + '<h4 class="h4 mt4">'+m.t+'</h4><p class="mt2" style="font-size:12px;line-height:1.6;color:var(--ink300)">'+m.d+'</p></a>').join("")+'</div></div>';
+
+  h += '<div class="subcard centerbox mt12 fade" style="--d:.35s"><p style="font-size:12px;color:var(--ink400)">Offline build · your progress is saved privately in this browser (localStorage) · <a href="javascript:window.print()" style="color:var(--pulse300);font-weight:600">print / save as PDF</a></p></div>';
+  return h;
+}
+function statRow(icon,color,big,label){
+  return '<div class="subcard" style="display:flex;gap:12px;align-items:center"><span style="color:'+color+'">'+ic(icon,16)+'</span><div><div class="display" style="font-size:18px;font-weight:700">'+big+'</div><div style="font-size:11px;color:var(--ink400)">'+label+'</div></div></div>';
+}
+function bindOverview(){
+  const ring=$("#readyRing");
+  if(ring){ const c=2*Math.PI*79, v=stats().readiness; requestAnimationFrame(()=>setTimeout(()=>{ ring.style.strokeDashoffset = c-(c*v/100); },80)); }
+}
+
+/* ---------- MATCH ---------- */
+let matchFilter="all", matchOpen=0;
+function vMatch(){
+  const counts={strong:0,good:0,stretch:0};
+  REQUIREMENTS.forEach(r=>counts[r.st]++);
+  const score=Math.round(((counts.strong+counts.good*0.75+counts.stretch*0.4)/REQUIREMENTS.length)*100);
+  const meta={strong:["Strong evidence","#2dd4bf"],good:["Solid","#38bdf8"],stretch:["Needs a reframe","#fbbf24"]};
+
+  let h=head("CV ↔ Job Description","Match analysis","Every requirement in the Teladoc posting, cross-examined against your career. Expand each row to see the evidence and the exact framing to use in the room.");
+
+  h+='<div class="panel p6 mb8 fade" style="--d:.12s"><div class="flexrow" style="gap:32px"><div><p class="display grad" style="font-size:48px;font-weight:800">'+score+'<span style="font-size:22px">%</span></p><p class="lbl mt2">CV ↔ JD alignment</p></div>'
+    +'<div style="width:1px;height:64px;background:rgba(44,74,99,.5)"></div>'
+    +'<div class="flexrow" style="gap:28px">'+["strong","good","stretch"].map(s=>'<div class="centerbox"><p class="mono" style="font-size:24px;font-weight:700">'+counts[s]+'</p><p class="lbl mt2">'+meta[s][0]+'</p></div>').join("")+'</div></div>'
+    +'<div class="track mt4" style="display:flex;gap:0;height:12px">'
+    +'<div id="mb1" style="background:#2dd4bf;width:0;transition:width 1s .3s"></div><div id="mb2" style="background:#38bdf8;width:0;transition:width 1s .5s"></div><div id="mb3" style="background:#fbbf24;width:0;transition:width 1s .7s"></div></div>'
+    +'<p class="mt3" style="font-size:12px;line-height:1.6;color:var(--ink300)">Nine of thirteen requirements are backed by direct evidence from your career. The two stretch items — healthcare familiarity and additional languages — are handled with honest reframes, not apologies.</p></div>';
+
+  h+='<div class="flexrow mb6 fade" style="--d:.16s;gap:8px">'
+    +['all','strong','good','stretch'].map(f=>'<button class="pillbtn'+(matchFilter===f?' active':'')+'" data-mf="'+f+'">'+(f==='all'?('All ('+REQUIREMENTS.length+')'):(meta[f][0]+' ('+counts[f]+')'))+'</button>').join("")+'</div>';
+
+  h+='<div class="stack3 fade" style="--d:.2s">';
+  REQUIREMENTS.forEach((r,i)=>{
+    if(matchFilter!=="all" && r.st!==matchFilter) return;
+    const open=matchOpen===i, color=meta[r.st][1];
+    h+='<div class="panel acc'+(open?' open':'')+'" data-acc="m'+i+'">'
+      +'<button class="acc-head" data-to="m'+i+'"><span style="width:6px;height:40px;border-radius:99px;background:'+color+';flex-shrink:0"></span>'
+      +'<span style="flex:1;min-width:0"><span class="h4" style="display:block;font-size:15px">'+esc(r.label)+'</span><span style="display:block;margin-top:4px;font-size:12px;font-style:italic;color:var(--ink400);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">“'+esc(r.jd)+'”</span></span>'
+      +'<span class="pill-status s-'+r.st+'" style="align-self:center">'+meta[r.st][0]+'</span>'
+      +'<span class="chev">'+ic("chev",18)+'</span></button>'
+      +'<div class="acc-body"><div><div class="g2" style="border-top:1px solid rgba(19,36,52,.6);padding:20px">'
+      +'<div class="subcard"><p class="lbl p mb4" style="display:flex;gap:8px;align-items:center">'+ic("book",12)+' From your CV</p><p style="font-size:14px;line-height:1.65">'+esc(r.ev)+'</p></div>'
+      +'<div class="subcard"><p class="lbl b mb4" style="display:flex;gap:8px;align-items:center">'+ic("bulb",12)+' Say it like this</p><p style="font-size:14px;line-height:1.65">'+esc(r.ad)+'</p></div>'
+      +'</div></div></div></div>';
+  });
+  h+='</div>';
+
+  h+='<div class="mt12 fade" style="--d:.1s"><div class="flexrow mb6"><div style="border-radius:12px;border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);padding:10px;color:var(--pulse400)">'+ic("swap",18)+'</div><div><h3 class="h3">Speak their language</h3><p style="font-size:12px;color:var(--ink400);margin-top:2px">Your career is already a match — the vocabulary just needs translating. Make these swaps until they are reflex.</p></div></div>'
+    +'<div class="g3">'+BRIDGE.map((r,i)=>'<div class="panel hover p5 fade" style="--d:'+(0.05*i)+'s"><div class="display" style="display:flex;gap:8px;align-items:center;font-size:14px;font-weight:600;flex-wrap:wrap"><span style="color:var(--ink300);text-decoration:line-through;text-decoration-color:rgba(251,113,133,.6)">'+esc(r.a)+'</span><span style="color:var(--pulse400)">'+ic("arrow",14)+'</span><span class="grad">'+esc(r.b)+'</span></div><p class="mt2" style="font-size:12px;line-height:1.55;color:var(--ink300)">'+esc(r.n)+'</p></div>').join("")+'</div></div>';
+
+  h+='<div class="mt12 fade" style="--d:.1s"><div class="flexrow mb6"><div style="border-radius:12px;border:1px solid rgba(56,189,248,.4);background:rgba(56,189,248,.1);padding:10px;color:var(--beam400)">'+ic("book",18)+'</div><div><h3 class="h3">Company intelligence</h3><p style="font-size:12px;color:var(--ink400);margin-top:2px">Six facts to memorize — enough to sound informed, enough to ask smart follow-ups.</p></div></div>'
+    +'<div class="g3">'+INTEL.map((c,i)=>'<div class="panel hover p6 fade" style="--d:'+(0.05*i)+'s"><p class="mono lbl" style="letter-spacing:.25em">'+String(i+1).padStart(2,"0")+'</p><h4 class="h4 mt2" style="color:var(--pulse300)">'+esc(c.t)+'</h4><p class="mt2" style="font-size:14px;line-height:1.6;color:var(--ink300)">'+esc(c.b)+'</p></div>').join("")+'</div></div>';
+
+  h+='<div class="mt12 mb4 fade" style="--d:.1s"><div class="flexrow mb6"><div style="border-radius:12px;border:1px solid rgba(251,113,133,.4);background:rgba(251,113,133,.1);padding:10px;color:#fda4af">'+ic("alert",18)+'</div><div><h3 class="h3">Self-sabotage patterns to avoid</h3><p style="font-size:12px;color:var(--ink400);margin-top:2px">The six ways strong candidates lose this specific interview.</p></div></div>'
+    +'<div class="g2">'+REDFLAGS.map((r,i)=>'<div class="panel hover p5 fade" style="--d:'+(0.05*i)+'s;display:flex;gap:16px"><span style="width:4px;height:32px;border-radius:99px;background:rgba(251,113,133,.7);flex-shrink:0;margin-top:4px"></span><div><p class="h4" style="font-size:14px">'+esc(r.t)+'</p><p class="mt2" style="font-size:12px;line-height:1.55;color:var(--ink300)">'+esc(r.f)+'</p></div></div>').join("")+'</div></div>';
+  return h;
+}
+function bindMatch(){
+  const counts={strong:0,good:0,stretch:0}; REQUIREMENTS.forEach(r=>counts[r.st]++);
+  setTimeout(()=>{ const t=REQUIREMENTS.length;
+    const a=$("#mb1"),b=$("#mb2"),c=$("#mb3");
+    if(a) a.style.width=(counts.strong/t*100)+"%"; if(b) b.style.width=(counts.good/t*100)+"%"; if(c) c.style.width=(counts.stretch/t*100)+"%";
+  },60);
+}
+
+/* ---------- QUESTIONS ---------- */
+let qQuery="", qCat="all", qOpen=null;
+function vQuestions(){
+  return head(QUESTIONS.length+" tailored questions · 6 categories","Question bank",
+    "Not generic interview fluff — every model answer is written from your CV and aimed at this exact job description. Expand a card, internalize the structure, add your own notes, then rate yourself honestly.")
+    +'<div class="searchwrap mb4 fade" style="--d:.12s">'+ic("search",16)+'<input class="field" id="qsearch" placeholder="Search questions or answers… e.g. salary, SLA, GDPR" value="'+esc(qQuery)+'"/></div>'
+    +'<div class="flexrow mb6 fade" style="--d:.16s;gap:8px" id="qpills"></div>'
+    +'<div class="stack3 fade" style="--d:.2s" id="qlist"></div>';
+}
+function drawQPills(){
+  const cats=["all","motivation","role","behavioral","situational","company","logistics"];
+  $("#qpills").innerHTML = cats.map(c=>{
+    const n = c==="all"?QUESTIONS.length:QUESTIONS.filter(q=>q.cat===c).length;
+    return '<button class="pillbtn'+(qCat===c?' active':'')+'" data-qc="'+c+'">'+(c==="all"?"All":CATS[c])+' ('+n+')</button>';
+  }).join("");
+}
+function drawQList(){
+  const term=qQuery.trim().toLowerCase();
+  const list=QUESTIONS.filter(q=>{
+    const mcat=qCat==="all"||q.cat===qCat;
+    const mq=!term||q.q.toLowerCase().includes(term)||q.ans.toLowerCase().includes(term);
+    return mcat&&mq;
+  });
+  if(!list.length){ $("#qlist").innerHTML='<div class="panel p8 centerbox" style="color:var(--ink400);font-size:14px">No questions match your filters. Try clearing the search.</div>'; return; }
+  $("#qlist").innerHTML=list.map(q=>{
+    const open=qOpen===q.id, a=attempts(q.id);
+    let h='<div class="panel acc'+(open?' open':'')+'" data-acc="q'+q.id+'"'+(conf(q.id)>=3?' style="border-color:rgba(20,184,166,.25)"':'')+'>'
+      +'<div class="acc-head" data-to="q'+q.id+'" role="button" tabindex="0"><div style="flex:1;min-width:0">'
+      +'<div class="flexrow mb4" style="gap:8px">'+catBadge(q.cat)+diffBadge(q.diff)
+      +(a>0?'<span style="display:inline-flex;align-items:center;gap:4px;border-radius:6px;background:rgba(29,53,72,.5);padding:3px 8px;font-size:10px;font-weight:500;color:var(--ink300)">'+ic("hist",10)+' '+a+' '+(a===1?'rep':'reps')+'</span>':'')
+      +'</div><p class="h4" style="font-size:15px;line-height:1.4">'+esc(q.q)+'</p></div>'
+      +'<div style="display:flex;align-items:center;gap:12px;flex-shrink:0;margin-top:2px">'+confDots(q.id,true)+'<span class="chev">'+ic("chev",18)+'</span></div></div>'
+      +'<div class="acc-body"><div><div class="stack4" style="border-top:1px solid rgba(19,36,52,.6);padding:20px">'
+      +'<div class="callout-b"><p class="lbl b mb4" style="display:flex;gap:8px;align-items:center">'+ic("bulb",12)+' Why they ask this</p><p style="font-size:14px;line-height:1.65;color:var(--ink200)">'+esc(q.tip)+'</p></div>'
+      +'<div class="subcard"><p class="lbl p mb4" style="display:flex;gap:8px;align-items:center">'+ic("quote",12)+' Model answer — your voice, your facts</p>'+paragraphs(q.ans)+'</div>'
+      +'<div class="subcard"><p class="lbl v mb4" style="display:flex;gap:8px;align-items:center">'+ic("list",12)+' Checkpoints to hit</p><ul class="listbullets">' + q.pts.map(p=>'<li><span style="width:6px;height:6px;border-radius:99px;background:#c4b5fd;margin-top:6px;flex-shrink:0"></span><span>'+esc(p)+'</span></li>').join("")+'</ul></div>'
+      +'<div class="g2"><div class="subcard"><p class="lbl a mb4" style="display:flex;gap:8px;align-items:center">'+ic("edit",12)+' Your private notes</p>'
+      +'<textarea class="field" rows="3" data-notes="'+q.id+'" placeholder="Your twists, phrases in your own voice, numbers to quote…">'+esc(S.notes[q.id]||"")+'</textarea></div>'
+      +'<div class="subcard"><p class="lbl mb4">Rate your answer</p><div class="flexrow">'+confDots(q.id,false)+'<span style="font-size:11px;font-weight:500;color:var(--ink300)" data-qdlabel="'+q.id+'">'+CONF[conf(q.id)]+'</span></div>'
+      +'<p class="mt2" style="font-size:11px;line-height:1.5;color:var(--ink400);max-width:220px">Be honest — mastered means you could answer this cold, under pressure, today.</p></div></div>'
+      +'</div></div></div></div>';
+    return h;
+  }).join("");
+}
+function bindQuestions(){
+  drawQPills(); drawQList();
+  $("#qsearch").addEventListener("input", e=>{ qQuery=e.target.value; drawQList(); });
+  $("#qpills").addEventListener("click", e=>{ const b=e.target.closest("[data-qc]"); if(!b) return; qCat=b.dataset.qc; drawQPills(); drawQList(); });
+}
+
+/* ---------- PRACTICE ---------- */
+let PR=null;
+function practiceDeck(weakFirst){
+  const d=[...QUESTIONS];
+  if(weakFirst) d.sort((a,b)=>(conf(a.id)-conf(b.id))||a.id-b.id); else d.sort((a,b)=>a.id-b.id);
+  return d;
+}
+function vPractice(){
+  if(!PR) PR={weakFirst:true, deck:practiceDeck(true), idx:0, revealed:false, ratings:{}, done:false};
+  return head("Rapid-fire drilling","Practice mode",
+    "One question. Answer it out loud before revealing the model — the gap between what you said and what you should have said is where learning happens. Rate yourself honestly; your weakest questions automatically float to the top next session.")
+    +'<div id="pstage"></div>';
+}
+function drawPractice(){
+  const st=$("#pstage"); if(!st) return;
+  if(PR.done){
+    const vals=Object.values(PR.ratings);
+    const counts=[1,2,3,4].map(n=>vals.filter(v=>v===n).length);
+    st.innerHTML='<div class="panel p8 centerbox fade" style="max-width:600px;margin:0 auto">'
+      +'<div class="bigicon" style="border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);color:var(--pulse400)">'+ic("trophy",28)+'</div>'
+      +'<h3 class="h3 display mt4" style="font-size:24px">Session complete</h3>'
+      +'<p class="mt2" style="font-size:14px;color:var(--ink300)">'+vals.length+' questions rated this run. Every rep is banked into your readiness score.</p>'
+      +'<div class="g4 mt6">'+counts.map((c,i)=>'<div class="subcard"><p class="display" style="font-size:22px;font-weight:700;color:'+CONFC[i+1]+'">'+c+'</p><p class="lbl mt2">'+CONF[i+1]+'</p></div>').join("")+'</div>'
+      +'<button class="btn primary mt8" onclick="practiceRestart()">'+ic("rotate",16)+' Run it again</button></div>';
+    return;
+  }
+  const q=PR.deck[PR.idx];
+  const lv=conf(q.id);
+  let h='<div class="flexrow between mb6 fade">'
+    +'<div class="flexrow"><span class="mono" style="font-size:14px;color:var(--ink300)">'+String(PR.idx+1).padStart(2,"0")+' / '+PR.deck.length+'</span>'
+    +'<div class="track" style="width:200px"><div class="fill" style="width:'+((PR.idx+1)/PR.deck.length*100)+'%"></div></div></div>'
+    +'<div class="flexrow" style="gap:8px"><button class="pillbtn'+(PR.weakFirst?' active':'')+'" onclick="practiceWeakToggle()">Weakest first</button>'
+    +'<span class="keyhint">'+ic("keyboard",11)+' Space = reveal · 1–4 = rate · → = skip</span></div></div>';
+
+  h+='<div class="panel p8 fade" style="--d:.05s"><div class="flexrow mb4" style="gap:8px">'+catBadge(q.cat)+diffBadge(q.diff)
+    +(lv>0?'<span class="diff" style="color:'+CONFC[lv]+';background:'+CONFC[lv]+'18">currently '+CONF[lv]+'</span>':'')
+    +'</div><h2 class="display" style="font-size:clamp(20px,3vw,30px);font-weight:800;line-height:1.3">'+esc(q.q)+'</h2>'
+    +'<p class="mt4" style="display:flex;gap:8px;font-size:14px;font-style:italic;color:var(--ink300)"><span style="color:var(--beam400);flex-shrink:0;margin-top:2px">'+ic("bulb",15)+'</span>'+esc(q.tip)+'</p></div>';
+
+  if(!PR.revealed){
+    h+='<button class="reveal-box mt4 fade" style="--d:.1s" onclick="practiceReveal()"><span class="bigicon" style="width:56px;height:56px;border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);color:var(--pulse400)">'+ic("eye",22)+'</span>'
+      +'<span class="h4">Answer out loud first — then tap to reveal the model</span>'
+      +'<span style="font-size:12px;color:var(--ink400)">Say it like the interview is today. Then compare honestly.</span></button>';
+  } else {
+    h+='<div class="stack4 mt4 fade">'
+      +'<div class="panel p7"><p class="lbl p mb4" style="display:flex;gap:8px;align-items:center">'+ic("quote",12)+' Model answer</p>'+paragraphs(q.ans)+'</div>'
+      +'<div class="panel p6"><p class="lbl v mb4" style="display:flex;gap:8px;align-items:center">'+ic("list",12)+' Checkpoints</p><div>'+q.pts.map(p=>'<span class="tpq">'+esc(p)+'</span>').join("")+'</div></div>'
+      +'<div class="panel p6" style="border-color:rgba(20,184,166,.3);background:linear-gradient(90deg,rgba(20,184,166,.1),rgba(56,189,248,.08))">'
+      +'<p class="centerbox lbl" style="color:var(--ink200);margin-bottom:16px">Honestly — how did that go?</p>'
+      +'<div class="rategrid">'+[1,2,3,4].map(n=>'<button class="ratebtn" onclick="practiceRate('+n+')"><div style="display:flex;justify-content:center;color:'+CONFC[n]+'">'+ic("check",18)+'</div><p style="margin-top:8px;font-size:12px;font-weight:600">'+CONF[n]+'</p><p class="mono" style="font-size:10px;color:var(--ink500);margin-top:2px">key '+n+'</p></button>').join("")+'</div></div></div>';
+  }
+  h+='<div style="display:flex;justify-content:flex-end;margin-top:16px"><button onclick="practiceSkip()" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--ink400)" onmouseover="this.style.color=\'var(--ink100)\'" onmouseout="this.style.color=\'var(--ink400)\'">Skip this one '+ic("arrow",14)+'</button></div>';
+  st.innerHTML=h;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function practiceReveal(){ PR.revealed=true; drawPractice(); }
+function practiceNext(){ if(PR.idx+1>=PR.deck.length){PR.done=true;} else {PR.idx++; PR.revealed=false;} drawPractice(); }
+function practiceRate(n){ const q=PR.deck[PR.idx]; PR.ratings[q.id]=n; rateQuestion(q.id,n); recordAttempt(q.id); practiceNext(); }
+function practiceSkip(){ practiceNext(); }
+function practiceWeakToggle(){ PR.weakFirst=!PR.weakFirst; PR.deck=practiceDeck(PR.weakFirst); PR.idx=0; PR.revealed=false; drawPractice(); }
+function practiceRestart(){ PR={weakFirst:PR.weakFirst, deck:practiceDeck(PR.weakFirst), idx:0, revealed:false, ratings:{}, done:false}; drawPractice(); }
+function bindPractice(){ drawPractice(); }
+
+/* ---------- MOCK ---------- */
+let MK=null;
+const TARGET=150;
+function mockPick(n){
+  const byCat={};
+  QUESTIONS.forEach(q=>{ (byCat[q.cat]=byCat[q.cat]||[]).push(q); });
+  Object.values(byCat).forEach(a=>a.sort(()=>Math.random()-0.5));
+  const cats=Object.values(byCat), deck=[];
+  while(deck.length<n && cats.some(c=>c.length)){ for(const arr of cats){ const q=arr.shift(); if(q) deck.push(q); if(deck.length>=n) break; } }
+  return deck;
+}
+function vMock(){
+  if(!MK) MK={stage:"setup", count:8, deck:[], idx:0, phase:"reading", elapsed:0, results:[], timer:null, saved:false, reflection:""};
+  return head("Full simulation · timed","Mock interview",
+    "The closest thing to the real chair. Random questions across all categories, a running clock, and no redos. Rate each answer and log the session — your history shows the trajectory.")
+    +'<div id="mstage"></div>';
+}
+function stopMockTimer(){ if(MK && MK.timer){ clearInterval(MK.timer); MK.timer=null; } }
+function drawMock(){
+  const st=$("#mstage"); if(!st) return;
+  stopMockTimer();
+
+  if(MK.stage==="setup"){
+    let h='<div class="g2 fade">';
+    h+='<div class="panel p8" style="display:flex;flex-direction:column;justify-content:space-between">'
+      +'<div><div style="display:inline-flex;padding:14px;border-radius:16px;border:1px solid rgba(251,113,133,.4);background:rgba(251,113,133,.1);color:#fda4af">'+ic("mic",24)+'</div>'
+      +'<h3 class="h3 display mt4" style="font-size:22px">Simulation protocol</h3><ul class="listbullets mt4">'
+      +["Questions drawn randomly across all six categories — just like the real thing.",
+        "Read the question, press START, and answer out loud. Aim for about two minutes; the ring turns amber past target.",
+        "When you finish, rate yourself honestly. No redoing answers mid-run — recovery under pressure is the skill.",
+        "At the end, write a reflection and log the session to build your history."].map((t,i)=>'<li><span class="mono" style="flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:6px;border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);font-size:10px;color:var(--pulse400)">'+(i+1)+'</span><span>'+t+'</span></li>').join("")
+      +'</ul></div><div class="mt8"><p class="lbl mb4">Session length</p><div class="flexrow" style="gap:8px">'+[5,8,10].map(n=>'<button class="pillbtn mono'+(MK.count===n?' active':'')+'" data-mc="'+n+'">'+n+' questions</button>').join("")+'</div>'
+      +'<button class="btn primary solid-lg mt6" onclick="mockStart()">'+ic("play",16)+' Begin simulation</button></div></div>';
+
+    h+='<div class="panel p8"><p class="lbl mb4" style="display:flex;gap:8px;align-items:center">'+ic("hist",13)+' Session history</p>';
+    if(!S.sessions.length){
+      h+='<div class="centerbox" style="padding:40px 0"><div style="display:flex;justify-content:center;color:var(--ink500)">'+ic("alert",22)+'</div><p class="mt3" style="font-size:14px;color:var(--ink300)">No simulations logged yet.</p><p style="font-size:12px;color:var(--ink500);margin-top:4px">Your first run becomes the baseline everything improves from.</p></div>';
+    } else {
+      h+='<div class="stack3">'+S.sessions.slice(-6).reverse().map(s=>'<div class="subcard"><div class="flexrow between"><span class="mono" style="font-size:12px;color:var(--ink300)">'+s.d+'</span><span style="font-size:12px;color:var(--ink400)">'+s.n+' questions</span></div>'
+        +'<div class="flexrow mt2"><div class="track" style="flex:1"><div class="fill" style="width:'+(s.avg/4*100)+'%"></div></div><span class="mono" style="font-size:12px;color:var(--pulse300)">'+s.avg.toFixed(1)+'/4</span></div>'
+        +(s.ref?'<p class="mt2" style="font-size:11px;font-style:italic;color:var(--ink400)">“'+esc(s.ref)+'”</p>':'')+'</div>').join("")+'</div>';
+    }
+    h+='</div></div>';
+    st.innerHTML=h;
+    return;
+  }
+
+  if(MK.stage==="done"){
+    const total=MK.results.reduce((a,r)=>a+r.sec,0);
+    const avg=MK.results.length? MK.results.reduce((a,r)=>a+r.rating,0)/MK.results.length : 0;
+    let h='<div class="centerbox fade"><div class="panel p8" style="max-width:760px;margin:0 auto">'
+      +'<div class="bigicon" style="border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);color:var(--pulse400)">'+ic("timer",26)+'</div>'
+      +'<h3 class="h3 display mt4" style="font-size:24px">Interview complete</h3>'
+      +'<p class="mt2" style="font-size:14px;color:var(--ink300)">'+MK.results.length+' questions · '+fmt(total)+' total speaking time · average confidence <strong style="color:var(--pulse300)">'+avg.toFixed(1)+'/4</strong></p></div>';
+    h+='<div class="stack3 mt4" style="max-width:760px;margin:16px auto 0">'
+      +MK.results.map((r,i)=>'<div class="panel p5 fade" style="--d:'+(i*0.05)+'s;display:flex;gap:16px;align-items:center"><span style="width:6px;height:32px;border-radius:99px;background:'+CONFC[r.rating]+';flex-shrink:0"></span>'
+        +'<div style="flex:1;min-width:0"><p style="font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+esc(r.q)+'</p><p style="font-size:11px;color:var(--ink400);margin-top:2px">answered in '+fmt(r.sec)+' · '+CONF[r.rating]+'</p></div>'+catBadge(r.cat)+'</div>').join("")+'</div>';
+    h+='<div class="panel p6 mt4" style="max-width:760px;margin:16px auto 0;text-align:left"><p class="lbl mb4">Reflection — what will you do differently?</p>'
+      +'<textarea class="field" id="mockref" rows="3" placeholder="e.g. I blanked on the GDPR answer; my salary response was solid; slow down on the opener…">'+esc(MK.reflection)+'</textarea>'
+      +'<div class="flexrow mt4"><button class="btn primary" id="mocksave" onclick="mockSave()">'+(MK.saved?ic("check",16)+" Logged to history":ic("save",16)+" Log this session")+'</button>'
+      +'<button class="btn ghost" onclick="mockReset()">'+ic("rotate",16)+' New simulation</button></div></div></div>';
+    st.innerHTML=h;
+    if(MK.saved){ const b=$("#mocksave"); if(b) b.disabled=true; }
+    return;
+  }
+
+  // RUN
+  const q=MK.deck[MK.idx];
+  const r=62, c=2*Math.PI*r, prog=Math.min(1, MK.elapsed/TARGET), over=MK.elapsed>TARGET;
+  let h='<div class="flexrow between mb4 fade"><span class="mono" style="font-size:14px;color:var(--ink300)">Question '+(MK.idx+1)+' of '+MK.deck.length+'</span>'
+    +'<div class="progdots">'+MK.deck.map((d,i)=>'<span class="progdot" style="background:'+(i<MK.idx?'var(--pulse500)':i===MK.idx?'var(--beam400)':'')+'"></span>').join("")+'</div></div>';
+
+  h+='<div class="panel p8 fade" style="--d:.05s;max-width:760px;margin:0 auto">'
+    +'<div class="flexrow mb4" style="gap:8px">'+catBadge(q.cat)+diffBadge(q.diff)+'</div>'
+    +'<h2 class="display" style="font-size:clamp(18px,2.6vw,26px);font-weight:800;line-height:1.35">'+esc(q.q)+'</h2>'
+    +'<div class="centerbox mt8"><div class="ringwrap"><svg class="ringc" width="150" height="150"><circle cx="75" cy="75" r="'+r+'" stroke="rgba(123,152,173,.15)" stroke-width="8" fill="none"/>'
+    +'<circle id="mring" cx="75" cy="75" r="'+r+'" stroke="'+(over?'#fbbf24':'#2dd4bf')+'" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="'+c+'" stroke-dashoffset="'+((1-prog)*c)+'" style="transition:stroke-dashoffset 1s linear, stroke .3s"/>'
+    +'</svg><div class="ringlabel"><span class="mono" id="mtime" style="font-size:30px;font-weight:700;color:'+(over?'#fbbf24':'var(--ink50)')+'">'+fmt(MK.elapsed)+'</span>'
+    +'<span class="lbl" id="msub" style="margin-top:2px">'+(MK.phase==="answering"?(over?'wrap it up':'speaking'):'target ~2 min')+'</span></div></div></div>';
+
+  h+='<div class="mt6 centerbox">';
+  if(MK.phase==="reading"){
+    h+='<button class="btn primary solid-lg" onclick="mockAnswer()">'+ic("mic",18)+' Start answering — out loud</button>';
+  } else if(MK.phase==="answering"){
+    h+='<button class="btn solid-lg" style="border:1px solid rgba(251,113,133,.5);background:rgba(251,113,133,.1);color:#fda4af" onclick="mockFinish()">'+ic("stop",16)+' I finished my answer</button>';
+  } else if(MK.phase==="rating"){
+    h+='<p class="lbl" style="color:var(--ink200);margin-bottom:16px">You spoke for '+fmt(MK.elapsed)+'. Rate it honestly.</p>'
+      +'<div class="rategrid">'+[1,2,3,4].map(n=>'<button class="ratebtn" onclick="mockRate('+n+')"><div style="display:flex;justify-content:center;color:'+CONFC[n]+'">'+ic("check",18)+'</div><p style="margin-top:8px;font-size:12px;font-weight:600">'+CONF[n]+'</p></button>').join("")+'</div>';
+  }
+  h+='</div>'
+    +'<div class="flexrow between mt6" style="font-size:11px;color:var(--ink500)"><span>No pausing. No re-reading notes. Real conditions.</span>'
+    +'<button onclick="mockAbort()" style="color:var(--ink500);display:inline-flex;gap:4px;align-items:center" onmouseover="this.style.color=\'var(--ink200)\'" onmouseout="this.style.color=\'var(--ink500)\'">Abort session '+ic("chev",12)+'</button></div></div>';
+  st.innerHTML=h;
+
+  if(MK.phase==="answering"){
+    MK.timer=setInterval(()=>{
+      MK.elapsed++;
+      const t=$("#mtime"), ring=$("#mring"), sub=$("#msub");
+      if(t){ const over2=MK.elapsed>TARGET; t.textContent=fmt(MK.elapsed); t.style.color=over2?'#fbbf24':'var(--ink50)';
+        if(sub) sub.textContent=over2?'wrap it up':'speaking';
+        if(ring){ const c2=2*Math.PI*62, p2=Math.min(1,MK.elapsed/TARGET); ring.style.strokeDashoffset=(1-p2)*c2; ring.style.stroke=over2?'#fbbf24':'#2dd4bf'; } }
+    },1000);
+  }
+}
+function mockStart(){ MK.deck=mockPick(MK.count); MK.idx=0; MK.results=[]; MK.phase="reading"; MK.elapsed=0; MK.stage="run"; MK.saved=false; MK.reflection=""; drawMock(); }
+function mockAnswer(){ MK.phase="answering"; MK.elapsed=0; drawMock(); }
+function mockFinish(){ MK.phase="rating"; drawMock(); }
+function mockRate(n){ const q=MK.deck[MK.idx]; MK.results.push({q:q.q,cat:q.cat,sec:MK.elapsed,rating:n}); rateQuestion(q.id,n); recordAttempt(q.id);
+  if(MK.idx+1>=MK.deck.length){ MK.stage="done"; } else { MK.idx++; MK.phase="reading"; MK.elapsed=0; } drawMock(); }
+function mockAbort(){ MK.stage="setup"; drawMock(); }
+function mockReset(){ MK.stage="setup"; drawMock(); }
+function mockSave(){ const avg=MK.results.length?MK.results.reduce((a,r)=>a+r.rating,0)/MK.results.length:0;
+  const ref=($("#mockref")?$("#mockref").value:"")||"";
+  MK.reflection=ref;
+  S.sessions.push({d:new Date().toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}),n:MK.results.length,avg:avg,ref:ref});
+  save(); MK.saved=true; toast("Session logged to history"); drawMock(); }
+function bindMock(){ drawMock(); }
+
+/* ---------- STAR ---------- */
+let starOpen=null, starEditing=null, starBuilder=false;
+function allStars(){
+  const builtins=STARS.map(s=>Object.assign({},s,S.starEdits[s.id]||{}, {builtin:true}));
+  const customs=S.customStars.map(s=>Object.assign({},s,{builtin:false}));
+  return [...builtins,...customs];
+}
+function vStar(){
+  const list=allStars();
+  let h=head("Situation · Task · Action · Result","STAR story library",
+    "Behavioral questions all feed from the same well. These six stories are built from your real career and mapped to the competencies in the job description — problem-solving, detail, customer orientation, teamwork. Expand, internalize the details, and adapt them live.");
+  h+='<div class="flexrow between mb6 fade" style="--d:.12s"><p style="font-size:14px;color:var(--ink300)"><strong style="color:var(--ink50)">'+list.length+'</strong> stories in your arsenal — treat each as a modular weapon, not a script.</p>'
+    +'<button class="btn" style="border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);color:var(--pulse300);padding:10px 16px;font-size:12px" onclick="starBuilderToggle()">'+ic("plus",14)+' Build your own</button></div>';
+  h+='<div id="starbuilder"></div><div class="stack3 fade" style="--d:.2s" id="starlist"></div>';
+  return h;
+}
+function starFormHTML(d, onsave, oncancel, saveLabel){
+  const secs=[["title","Title","e.g. The auditor who found nothing",1],["comp","Competency","e.g. Adaptability",1],["s","Situation","Set the scene in 2–3 sentences",3],["t","Task","What was YOUR responsibility?",3],["a","Action","The detail lives here — what YOU did",3],["r","Result","End with a number wherever possible",3]];
+  return '<div class="stack3">'+secs.map(x=>{
+    if(x[3]===1) return '<input class="field" data-sf="'+x[0]+'" placeholder="'+x[1]+' — '+x[2]+'" value="'+esc(d[x[0]]||"")+'"/>';
+    return '<textarea class="field" rows="3" data-sf="'+x[0]+'" placeholder="'+x[1]+' — '+x[2]+'">'+esc(d[x[0]]||"")+'</textarea>';
+  }).join("")+'<div class="flexrow"><button class="btn primary" style="padding:10px 20px;font-size:12px" onclick="'+onsave+'">'+ic("save",14)+' '+saveLabel+'</button>'
+    +'<button class="btn ghost" style="padding:10px 20px;font-size:12px" onclick="'+oncancel+'">'+ic("x",14)+' Cancel</button></div></div>';
+}
+function readStarForm(root){
+  const d={};
+  root.querySelectorAll("[data-sf]").forEach(el=>{ d[el.dataset.sf]=el.value; });
+  return d;
+}
+function drawStarList(){
+  const list=allStars();
+  $("#starlist").innerHTML=list.map(s=>{
+    const open=starOpen===s.id, editing=starEditing===s.id;
+    let h='<div class="panel acc'+(open?' open':'')+'" data-acc="st'+s.id+'">'
+      +'<button class="acc-head" data-to="st'+s.id+'"><span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.1);color:#fcd34d;flex-shrink:0">'+ic("star",16)+'</span>'
+      +'<span style="flex:1;min-width:0"><span class="h4" style="display:block;font-size:14px">'+esc(s.title)+'</span><span class="lbl p" style="display:block;margin-top:4px">'+esc(s.comp)+'</span></span>'
+      +'<span class="chev">'+ic("chev",18)+'</span></button>'
+      +'<div class="acc-body"><div><div style="border-top:1px solid rgba(19,36,52,.6);padding:20px">';
+    if(editing){
+      h+='<div data-staredit="'+s.id+'">'+starFormHTML(s,'starSave(\''+s.id+'\', this)','starCancelEdit()','Save')+'</div>';
+    } else {
+      const rows=[["s","Situation"],["t","Task"],["a","Action"],["r","Result"]];
+      h+='<div class="g2">'+rows.map((x,i)=>'<div class="subcard"'+(x[0]==="a"?' style="grid-column:1/-1"':'')+'><p class="mono lbl p" style="margin-bottom:6px">'+x[0].toUpperCase()+' · '+x[1]+'</p><p style="font-size:14px;line-height:1.65">'+(esc(s[x[0]]||"—"))+'</p></div>').join("")+'</div>'
+        +'<div class="flexrow mt4"><button class="btn ghost" style="padding:8px 16px;font-size:12px" onclick="event.stopPropagation();starEdit(\''+s.id+'\')">'+ic("edit",13)+' Edit</button>'
+        +(!s.builtin?'<button class="btn danger-ghost" style="padding:8px 16px;font-size:12px" onclick="event.stopPropagation();starDelete(\''+s.id+'\')">'+ic("trash",13)+' Delete</button>':'')+'</div>';
+    }
+    h+='</div></div></div></div>';
+    return h;
+  }).join("");
+}
+function drawStarBuilder(){
+  const el=$("#starbuilder"); if(!el) return;
+  el.innerHTML = starBuilder? '<div class="panel p6 mb6" style="border-color:rgba(20,184,166,.3)" data-staredit="new"><p class="h4 mb4">New STAR story</p>'+starFormHTML({},'starCreate(this)','starBuilderToggle()','Save story')+'</div>':'';
+}
+function starBuilderToggle(){ starBuilder=!starBuilder; drawStarBuilder(); }
+function starEdit(id){ starEditing=id; drawStarList(); }
+function starCancelEdit(){ starEditing=null; drawStarList(); }
+function starSave(id, btn){
+  const root=btn.closest("[data-staredit]"); const d=readStarForm(root);
+  if(!d.title.trim()) return;
+  if(String(id).startsWith("cx")){ const i=S.customStars.findIndex(s=>s.id===id); if(i>-1) S.customStars[i]=Object.assign({},S.customStars[i],d); }
+  else { S.starEdits[id]=d; }
+  save(); starEditing=null; drawStarList(); toast("Story saved");
+}
+function starCreate(btn){
+  const root=btn.closest("[data-staredit]"); const d=readStarForm(root);
+  if(!d.title.trim()) return;
+  S.customStars.push(Object.assign({id:"cx"+Date.now()},d)); save(); starBuilder=false; drawStarBuilder(); drawStarList(); toast("Story added");
+}
+function starDelete(id){ S.customStars=S.customStars.filter(s=>s.id!==id); save(); drawStarList(); toast("Story deleted"); }
+function bindStar(){ drawStarBuilder(); drawStarList(); }
+
+/* ---------- PLAN ---------- */
+function vPlan(){
+  return head("The campaign plan","Interview plan",
+    "Four fronts: research, practice, logistics and mindset. Check items off as you complete them — every tick feeds your readiness score. Nothing on this page is optional.")
+    +'<div id="planroot" class="fade" style="--d:.12s"></div>'
+    +'<div class="mt12 fade" style="--d:.2s"><div class="flexrow mb6"><div style="border-radius:12px;border:1px solid rgba(167,139,250,.4);background:rgba(167,139,250,.1);padding:10px;color:#c4b5fd">'+ic("help",18)+'</div>'
+    +'<div><h3 class="h3">When they ask: “Do you have any questions for us?”</h3><p style="font-size:12px;color:var(--ink400);margin-top:2px">Never say no. Pick three of these — each one makes you sound like you already work there.</p></div></div>'
+    +'<div class="g3">'+ASK.map((q,i)=>'<div class="panel hover p5 fade" style="--d:'+(0.05*i)+'s;display:flex;flex-direction:column"><p class="mono lbl v" style="letter-spacing:.25em">Ask '+String(i+1).padStart(2,"0")+'</p><p class="mt2" style="flex:1;font-size:14px;font-weight:500;line-height:1.4">“'+esc(q.q)+'”</p><p class="mt3" style="border-top:1px solid rgba(19,36,52,.6);padding-top:12px;font-size:11px;line-height:1.55;color:var(--ink400)">'+esc(q.w)+'</p></div>').join("")+'</div></div>'
+    +'<div class="g3 mt12 mb4 fade" style="--d:.25s">'
+    +'<div class="panel hover p6"><div style="display:inline-flex;padding:11px;border-radius:12px;border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.1);color:#fcd34d;margin-bottom:16px">'+ic("pin",18)+'</div><h4 class="h4" style="font-size:15px">The destination</h4><p class="mt2" style="font-size:14px;line-height:1.65;color:var(--ink300)">Teladoc Health International<br/>Calle Via Augusta 252<br/>08017 Barcelona — Sarrià-Sant Gervasi</p><p class="mt3" style="font-size:12px;line-height:1.6;color:var(--ink400)">FGC Plaça Molina / Sant Gervasi are the nearby stations. Scout the exact entrance beforehand; arrive ten minutes early, exactly.</p></div>'
+    +'<div class="panel hover p6"><div style="display:inline-flex;padding:11px;border-radius:12px;border:1px solid rgba(56,189,248,.4);background:rgba(56,189,248,.1);color:var(--beam400);margin-bottom:16px">'+ic("brief",18)+'</div><h4 class="h4" style="font-size:15px">The kit</h4><ul class="listbullets mt2">'+["Two printed CVs + the JD with your notes","ID / NIE and certificates folder","Notebook + pen for after-action notes","Recruiter contact saved in your phone","Business-smart outfit, ready the night before"].map(x=>'<li><span style="color:var(--beam400);flex-shrink:0">·</span><span style="font-size:14px">'+x+'</span></li>').join("")+'</ul></div>'
+    +'<div class="panel hover p6" style="position:relative;overflow:hidden"><div style="position:absolute;right:-12px;top:-12px;color:rgba(20,184,166,.07)">'+ic("quote",90)+'</div><div style="display:inline-flex;padding:11px;border-radius:12px;border:1px solid rgba(20,184,166,.4);background:rgba(20,184,166,.1);color:var(--pulse400);margin-bottom:16px">'+ic("quote",18)+'</div><h4 class="h4" style="font-size:15px">The close — memorize this</h4><p class="mt2" style="font-size:14px;font-style:italic;line-height:1.7;color:var(--ink200)">“Based on everything we discussed, I am confident I can deliver from week one — the coordination, the accuracy, the SLA discipline. I would genuinely love to join the EMO team. What are the next steps?”</p></div>'
+    +'</div>';
+}
+function allCheckItems(){ return [...CHECKLIST.map(c=>({id:c.id,g:c.g,label:c.label,detail:c.detail,done:!!S.checks[c.id],custom:false})), ...S.customCheck.map(c=>({id:c.id,g:c.g,label:c.label,detail:c.detail||"Custom task",done:c.done,custom:true}))]; }
+function drawPlan(){
+  const items=allCheckItems();
+  const done=items.filter(i=>i.done).length;
+  let h='<div class="panel p6 mb8 flexrow" style="gap:20px"><span style="color:var(--pulse400);flex-shrink:0">'+ic("clip",26)+'</span><div style="flex:1"><div class="flexrow between"><p class="h4">Overall preparation</p><span class="mono" style="font-size:14px;color:var(--pulse300)">'+done+'/'+items.length+'</span></div>'
+    +'<div class="track mt3"><div class="fill" style="width:'+(items.length?done/items.length*100:0)+'%"></div></div></div></div>';
+  h+='<div class="g2">'+Object.keys(GROUPS).map((g,gi)=>{
+    const meta=GROUPS[g], gi2=items.filter(i=>i.g===g), gd=gi2.filter(i=>i.done).length;
+    return '<div class="panel p6 fade" style="--d:'+(0.06*gi)+'s"><div class="flexrow mb4"><div style="border-radius:12px;padding:10px;border:1px solid '+meta.color+'55;background:'+meta.color+'12;color:'+meta.color+'">'+ic(meta.icon,16)+'</div>'
+      +'<div style="flex:1"><h4 class="h4">'+meta.label+'</h4><p style="font-size:11px;color:var(--ink400);margin-top:2px">'+meta.blurb+'</p></div><span class="mono" style="font-size:12px;color:var(--ink300)">'+gd+'/'+gi2.length+'</span></div>'
+      +'<div class="stack3">'+gi2.map(item=>'<button class="pitem'+(item.done?' done':'')+'" data-check="'+item.id+'"><span class="chkbox">'+ic("check",14)+'</span><span style="flex:1;min-width:0"><span class="pt">'+esc(item.label)+'</span><span class="pd">'+esc(item.detail)+'</span></span></button>').join("")+'</div></div>';
+  }).join("")+'</div>';
+  h+='<div class="panel p6 mt8 flexrow fade" style="--d:.15s;gap:12px"><span style="color:var(--pulse400);flex-shrink:0">'+ic("plus",18)+'</span>'
+    +'<input class="field" id="newcheck" placeholder="'+ "Add your own prep task — e.g. 'Translate my answers into simpler English'" +'" style="flex:1;min-width:180px"/>'
+    +'<select class="field" id="newcheckg" style="width:auto">'+Object.keys(GROUPS).map(g=>'<option value="'+g+'">'+GROUPS[g].label+'</option>').join("")+'</select>'
+    +'<button class="btn primary" onclick="planAdd()">Add</button></div>';
+  $("#planroot").innerHTML=h;
+}
+function bindPlan(){
+  drawPlan();
+  $("#planroot").addEventListener("click", e=>{
+    const b=e.target.closest("[data-check]"); if(!b) return;
+    const id=b.dataset.check;
+    if(S.customCheck.find(c=>c.id===id)){ const it=S.customCheck.find(c=>c.id===id); it.done=!it.done; }
+    else { S.checks[id]=!S.checks[id]; if(!S.checks[id]) delete S.checks[id]; }
+    save(); drawPlan();
+  });
+  $("#planroot").addEventListener("keydown", e=>{ if(e.key==="Enter" && e.target.id==="newcheck") planAdd(); });
+}
+function planAdd(){
+  const inp=$("#newcheck"), sel=$("#newcheckg");
+  if(!inp || !inp.value.trim()) return;
+  S.customCheck.push({id:"cc"+Date.now(), g:sel.value, label:inp.value.trim(), detail:"Custom task", done:false});
+  save(); drawPlan(); toast("Task added");
+}
+
+/* ============================================================
+   ROUTER & GLOBAL BINDINGS
+   ============================================================ */
+const VIEWS={overview:vOverview, match:vMatch, questions:vQuestions, practice:vPractice, mock:vMock, star:vStar, plan:vPlan};
+const BINDS={overview:bindOverview, match:bindMatch, questions:bindQuestions, practice:bindPractice, mock:bindMock, star:bindStar, plan:bindPlan};
+
+function currentRoute(){
+  const h=location.hash.replace(/^#\/?/,"");
+  return VIEWS[h]?h:"overview";
+}
+function render(){
+  stopMockTimer();
+  const route=currentRoute();
+  setActiveNav(route);
+  document.body.classList.remove("drawer");
+  const view=$("#view");
+  view.innerHTML=VIEWS[route]();
+  BINDS[route]();
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", render);
+
+/* global delegation: accordions + conf rating */
+document.addEventListener("click", e=>{
+  const rate=e.target.closest("[data-rate]");
+  if(rate){
+    e.stopPropagation();
+    const parts=rate.dataset.rate.split(":");
+    const qid=Number(parts[0]), n=Number(parts[1]);
+    rateQuestion(qid,n); updateDots(qid);
+    document.querySelectorAll('[data-qdlabel="'+qid+'"]').forEach(el=>el.textContent=CONF[n]);
+    return;
+  }
+  const mf=e.target.closest("[data-mf]");
+  if(mf){ matchFilter=mf.dataset.mf; render(); return; }
+  const to=e.target.closest("[data-to]");
+  if(to){
+    const acc=to.dataset.to;
+    if(acc.startsWith("q")) qOpen = acc.slice(1)===String(qOpen)? null : Number(acc.slice(1));
+    else if(acc.startsWith("m")) matchOpen = acc===("m"+matchOpen)? null : Number(acc.slice(1));
+    else if(acc.startsWith("st")) starOpen = acc.slice(2)===starOpen? null : acc.slice(2);
+    const card=to.closest(".acc");
+    if(card) card.classList.toggle("open");
+    if(acc.startsWith("q")) $("#qlist") && drawQList();
+    if(acc.startsWith("st")) drawStarList();
+    return;
+  }
+});
+/* notes autosave (delegated) */
+let notesTimer=null;
+document.addEventListener("input", e=>{
+  const t=e.target.closest("[data-notes]");
+  if(!t) return;
+  clearTimeout(notesTimer);
+  const qid=t.dataset.notes, val=t.value;
+  notesTimer=setTimeout(()=>{ S.notes[qid]=val; save(); toast("Note saved"); },700);
+});
+/* keyboard shortcuts for practice */
+document.addEventListener("keydown", e=>{
+  const tag=(e.target.tagName||"").toLowerCase();
+  if(tag==="input"||tag==="textarea"||tag==="select") return;
+  if(currentRoute()!=="practice" || !PR || PR.done) return;
+  if((e.key===" "||e.key==="Enter") && !PR.revealed){ e.preventDefault(); practiceReveal(); }
+  else if(PR.revealed && ["1","2","3","4"].includes(e.key)){ practiceRate(Number(e.key)); }
+  else if(e.key==="ArrowRight"){ practiceSkip(); }
+});
+
+/* misc */
+function resetAll(){ if(confirm("Reset ALL progress (ratings, notes, checklist, sessions, custom stories)?")){ S=defaultState(); save(); PR=null; MK=null; render(); toast("All progress reset"); } }
+function downloadSelf(){
+  toast("Use Ctrl/Cmd+S to save this page as a file");
+  return false;
+}
+
+/* boot */
+buildNav();
+render();
+</script>
+
+
+</body></html>
