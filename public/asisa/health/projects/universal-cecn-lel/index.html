@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elly — Certified Insurance Consultant | Private Health Insurance in Spain</title>
+<meta name="description" content="Private health insurance for residents and students in Spain. Zero data storage, no cookies, no tracking. Your quote request is sent directly from your own email or WhatsApp app." />
+<meta name="robots" content="index, follow" />
+<meta name="referrer" content="no-referrer" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style>
+  :root { --ink:#0b1b2b; }
+  html { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .step { display:none; }
+  .step.active { display:block; animation: fade .35s ease both; }
+  @keyframes fade { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none} }
+  .field:focus { outline:none; box-shadow:0 0 0 3px rgba(13,148,136,.25); border-color:#0d9488; }
+  .chip:has(input:checked) { border-color:#0d9488; background:#f0fdfa; box-shadow:0 0 0 1px #0d9488 inset; }
+  .prodcard:has(input:checked) { border-color:#0d9488; background:#f0fdfa; box-shadow:0 10px 30px -12px rgba(13,148,136,.5); }
+  .err { border-color:#dc2626 !important; background:#fef2f2; }
+  ::selection { background:#99f6e4; }
+  .grain:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#0d948820 1px,transparent 1px);background-size:22px 22px;opacity:.5;pointer-events:none}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2 font-bold text-slate-900">
+      <span class="w-9 h-9 grid place-items-center rounded-xl bg-teal-600 text-white text-lg">🛡️</span>
+      <span class="leading-tight">Elly<span class="block text-[10px] font-medium tracking-widest text-teal-700 uppercase">Insurance Consultant</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+      <a href="#products" class="hover:text-teal-700">Products</a>
+      <a href="#privacy" class="hover:text-teal-700">Privacy</a>
+      <a href="#documents" class="hover:text-teal-700">ID safety</a>
+      <a href="#verify" class="hover:text-teal-700">Verify me</a>
+    </nav>
+    <a href="#quote" class="text-sm font-semibold px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-700 transition">Get a quote</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative overflow-hidden grain bg-gradient-to-b from-white to-slate-50">
+  <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center relative">
+    <div>
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase bg-teal-50 text-teal-800 border border-teal-200 px-3 py-1.5 rounded-full">
+        <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span> No servers · No cookies · No tracking
+      </span>
+      <h1 class="mt-5 text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.1]">
+        Private health insurance in Spain — <span class="text-teal-700">without handing your data to anyone.</span>
+      </h1>
+      <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+        I'm <strong>Elly</strong>, a certified insurance consultant. This website has <strong>no database and no backend</strong>.
+        Everything you type stays in your browser. When you're ready, your device opens <em>your own</em> email or WhatsApp app
+        with a pre-filled message — you press send.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#quote" class="px-6 py-3 rounded-xl bg-teal-600 text-white font-semibold shadow-lg shadow-teal-600/25 hover:bg-teal-700 transition">Start my quote →</a>
+        <a href="#privacy" class="px-6 py-3 rounded-xl bg-white border border-slate-300 font-semibold hover:border-slate-400 transition">How privacy works</a>
+      </div>
+      <dl class="mt-10 grid grid-cols-3 gap-4 max-w-md">
+        <div><dt class="text-2xl font-black text-slate-900">0</dt><dd class="text-xs text-slate-500 uppercase tracking-wide">Data stored</dd></div>
+        <div><dt class="text-2xl font-black text-slate-900">0</dt><dd class="text-xs text-slate-500 uppercase tracking-wide">Cookies set</dd></div>
+        <div><dt class="text-2xl font-black text-slate-900">DGSFP</dt><dd class="text-xs text-slate-500 uppercase tracking-wide">Registered</dd></div>
+      </dl>
+    </div>
+
+    <div class="relative">
+      <div class="rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/5 p-6">
+        <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Direct contact</p>
+        <div class="mt-4 space-y-3">
+          <a href="mailto:ecampeanu@tuasesorasisa.es" class="flex items-center gap-3 p-3 rounded-2xl border border-slate-200 hover:border-teal-400 hover:bg-teal-50/50 transition group">
+            <span class="w-10 h-10 grid place-items-center rounded-xl bg-slate-900 text-white">✉️</span>
+            <span class="min-w-0">
+              <span class="block text-xs text-slate-500">Email</span>
+              <span class="block font-semibold text-slate-900 truncate group-hover:text-teal-700">ecampeanu@tuasesorasisa.es</span>
+            </span>
+          </a>
+          <a href="https://wa.me/34614213113" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-2xl border border-slate-200 hover:border-green-400 hover:bg-green-50/50 transition group">
+            <span class="w-10 h-10 grid place-items-center rounded-xl bg-green-600 text-white">💬</span>
+            <span>
+              <span class="block text-xs text-slate-500">WhatsApp</span>
+              <span class="block font-semibold text-slate-900 group-hover:text-green-700">+34 614 21 31 13</span>
+            </span>
+          </a>
+          <a href="https://www.dgsfp.mineco.gob.es/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-2xl border border-slate-200 hover:border-blue-400 hover:bg-blue-50/50 transition group">
+            <span class="w-10 h-10 grid place-items-center rounded-xl bg-blue-700 text-white">🏛️</span>
+            <span>
+              <span class="block text-xs text-slate-500">Official registry check</span>
+              <span class="block font-semibold text-slate-900 group-hover:text-blue-700">DGSFP · Ministerio de Economía</span>
+            </span>
+          </a>
+        </div>
+        <p class="mt-5 text-xs text-slate-500 leading-relaxed border-t border-dashed border-slate-200 pt-4">
+          🔒 This page loads only Tailwind CSS from a public CDN. There are no analytics scripts, no pixels, no fonts trackers and no <code class="bg-slate-100 px-1 rounded">localStorage</code> writes.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section id="products" class="py-16 md:py-20 bg-white border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-black text-slate-900">Products I advise on</h2>
+    <p class="mt-2 text-slate-600 max-w-2xl">Health insurance policies compliant with Spanish residency and student visa requirements (no copayments, no waiting periods where required by immigration offices).</p>
+    <div class="mt-10 grid md:grid-cols-2 gap-6">
+      <article class="rounded-3xl border border-slate-200 p-7 hover:shadow-xl hover:shadow-slate-900/5 transition">
+        <div class="text-3xl">🏥</div>
+        <h3 class="mt-4 text-xl font-bold text-slate-900">Health Residents</h3>
+        <p class="mt-2 text-slate-600">Full private health cover designed for foreign residents applying for or renewing a residence permit (TIE / NIE holders, non-lucrative visa, arraigo, family reunification).</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+          <li class="flex gap-2"><span class="text-teal-600">✔</span> Valid certificate for immigration offices</li>
+          <li class="flex gap-2"><span class="text-teal-600">✔</span> No copayment options available</li>
+          <li class="flex gap-2"><span class="text-teal-600">✔</span> Nationwide medical network</li>
+        </ul>
+      </article>
+      <article class="rounded-3xl border border-slate-200 p-7 hover:shadow-xl hover:shadow-slate-900/5 transition">
+        <div class="text-3xl">🎓</div>
+        <h3 class="mt-4 text-xl font-bold text-slate-900">Health Residents — Students</h3>
+        <p class="mt-2 text-slate-600">Tailored cover for students on a study visa or Erasmus stay, matching the exact wording consulates and extranjería require.</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+          <li class="flex gap-2"><span class="text-teal-600">✔</span> Accepted for student visa applications</li>
+          <li class="flex gap-2"><span class="text-teal-600">✔</span> Flexible duration (from 3 months)</li>
+          <li class="flex gap-2"><span class="text-teal-600">✔</span> Repatriation cover included</li>
+        </ul>
+      </article>
+    </div>
+    <div class="mt-6 grid sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5"><div class="text-2xl">🦷</div><h4 class="mt-2 font-bold">Dental add-on</h4><p class="text-sm text-slate-600 mt-1">Cleanings, check-ups and reduced-tariff treatments.</p></div>
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5"><div class="text-2xl">🚑</div><h4 class="mt-2 font-bold">Accidents add-on</h4><p class="text-sm text-slate-600 mt-1">Capital for accidental injury, disability or death.</p></div>
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5"><div class="text-2xl">🛏️</div><h4 class="mt-2 font-bold">Hospitalization add-on</h4><p class="text-sm text-slate-600 mt-1">Daily indemnity and extended hospital benefits.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE FORM ============ -->
+<section id="quote" class="py-16 md:py-20">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-slate-900">Request your quote</h2>
+      <p class="mt-3 text-slate-600">3 short steps. Nothing is uploaded — the summary is built inside your browser and handed to your own email or WhatsApp app.</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="mt-10 flex items-center gap-2" id="progress">
+      <div class="flex-1"><div class="h-1.5 rounded-full bg-teal-600" data-bar="1"></div><p class="mt-2 text-xs font-semibold text-teal-700" data-lbl="1">1 · Contact</p></div>
+      <div class="flex-1"><div class="h-1.5 rounded-full bg-slate-200" data-bar="2"></div><p class="mt-2 text-xs font-semibold text-slate-400" data-lbl="2">2 · Personal</p></div>
+      <div class="flex-1"><div class="h-1.5 rounded-full bg-slate-200" data-bar="3"></div><p class="mt-2 text-xs font-semibold text-slate-400" data-lbl="3">3 · Product</p></div>
+      <div class="flex-1"><div class="h-1.5 rounded-full bg-slate-200" data-bar="4"></div><p class="mt-2 text-xs font-semibold text-slate-400" data-lbl="4">4 · Send</p></div>
+    </div>
+
+    <form id="quoteForm" autocomplete="on" novalidate class="mt-6 bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-900/5 p-6 md:p-9">
+
+      <!-- STEP 1 -->
+      <div class="step active" data-step="1">
+        <h3 class="text-xl font-bold text-slate-900">Contact details</h3>
+        <p class="text-sm text-slate-500 mt-1">So I know how to reach you back.</p>
+        <div class="mt-6 grid sm:grid-cols-2 gap-5">
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-semibold mb-1.5" for="fullName">Full name <span class="text-red-500">*</span></label>
+            <input id="fullName" name="fullName" type="text" required placeholder="Maria Rossi" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="email">Email <span class="text-red-500">*</span></label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="phone">Phone / WhatsApp <span class="text-red-500">*</span></label>
+            <input id="phone" name="phone" type="tel" required placeholder="+34 600 000 000" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="city">City / Province</label>
+            <input id="city" name="city" type="text" placeholder="Valencia" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="prefLang">Preferred language</label>
+            <select id="prefLang" name="prefLang" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm bg-white">
+              <option>English</option><option>Español</option><option>Română</option><option>Italiano</option><option>Français</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step" data-step="2">
+        <h3 class="text-xl font-bold text-slate-900">Personal details</h3>
+        <p class="text-sm text-slate-500 mt-1">Only what's needed to price a policy. <strong>Never</strong> type ID or passport numbers here.</p>
+        <div class="mt-6 grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="dob">Date of birth <span class="text-red-500">*</span></label>
+            <input id="dob" name="dob" type="date" required class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="nationality">Nationality</label>
+            <input id="nationality" name="nationality" type="text" placeholder="Italian" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="status">Residency status</label>
+            <select id="status" name="status" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm bg-white">
+              <option>Applying for first residence permit</option>
+              <option>Renewing residence permit</option>
+              <option>Student visa applicant</option>
+              <option>Already resident in Spain</option>
+              <option>Other / not sure</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="people">People to insure</label>
+            <select id="people" name="people" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm bg-white">
+              <option>1 (just me)</option><option>2</option><option>3</option><option>4</option><option>5 or more (family)</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-semibold mb-1.5" for="startDate">Desired start date</label>
+            <input id="startDate" name="startDate" type="date" class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm" />
+          </div>
+        </div>
+        <div class="mt-5 rounded-2xl bg-amber-50 border border-amber-200 p-4 text-sm text-amber-900">
+          ⚠️ <strong>Do not type or attach identity documents here.</strong> There is no file upload on this site by design. When I ask for your passport / TIE / NIE, first add an AI-resistant watermark at <a href="https://saferlayer.com/" target="_blank" rel="noopener noreferrer" class="underline font-semibold">saferlayer.com</a>, then attach the watermarked file yourself to an email addressed to me. <a href="#documents" class="underline font-semibold">See the full procedure →</a>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step" data-step="3">
+        <h3 class="text-xl font-bold text-slate-900">Product selection</h3>
+        <p class="text-sm text-slate-500 mt-1">Choose the base product, then any add-ons.</p>
+
+        <div class="mt-6 grid sm:grid-cols-2 gap-4">
+          <label class="prodcard cursor-pointer rounded-2xl border-2 border-slate-200 p-5 block transition">
+            <input type="radio" name="product" value="Health Residents" class="sr-only" checked />
+            <div class="text-2xl">🏥</div>
+            <div class="mt-2 font-bold text-slate-900">Health Residents</div>
+            <p class="text-xs text-slate-500 mt-1">For residence permit applications & renewals.</p>
+          </label>
+          <label class="prodcard cursor-pointer rounded-2xl border-2 border-slate-200 p-5 block transition">
+            <input type="radio" name="product" value="Health Residents Students" class="sr-only" />
+            <div class="text-2xl">🎓</div>
+            <div class="mt-2 font-bold text-slate-900">Health Residents Students</div>
+            <p class="text-xs text-slate-500 mt-1">For study visas and Erasmus stays.</p>
+          </label>
+        </div>
+
+        <p class="mt-7 text-sm font-semibold text-slate-900">Optional add-ons</p>
+        <div class="mt-3 grid sm:grid-cols-3 gap-3">
+          <label class="chip cursor-pointer flex items-center gap-3 rounded-xl border border-slate-300 px-4 py-3 transition">
+            <input type="checkbox" name="addon" value="Dental" class="accent-teal-600 w-4 h-4" /> <span class="text-sm font-medium">🦷 Dental</span>
+          </label>
+          <label class="chip cursor-pointer flex items-center gap-3 rounded-xl border border-slate-300 px-4 py-3 transition">
+            <input type="checkbox" name="addon" value="Accidents" class="accent-teal-600 w-4 h-4" /> <span class="text-sm font-medium">🚑 Accidents</span>
+          </label>
+          <label class="chip cursor-pointer flex items-center gap-3 rounded-xl border border-slate-300 px-4 py-3 transition">
+            <input type="checkbox" name="addon" value="Hospitalization" class="accent-teal-600 w-4 h-4" /> <span class="text-sm font-medium">🛏️ Hospitalization</span>
+          </label>
+        </div>
+
+        <div class="mt-6">
+          <label class="block text-sm font-semibold mb-1.5" for="notes">Notes / questions</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="E.g. I need the certificate before 15 March for my appointment at extranjería." class="field w-full rounded-xl border border-slate-300 px-4 py-3 text-sm"></textarea>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step" data-step="4">
+        <h3 class="text-xl font-bold text-slate-900">Review &amp; send</h3>
+        <p class="text-sm text-slate-500 mt-1">This summary was assembled locally in your browser. It has <strong>not</strong> been transmitted anywhere yet.</p>
+
+        <pre id="summary" class="mt-5 whitespace-pre-wrap text-[13px] leading-relaxed bg-slate-900 text-slate-100 rounded-2xl p-5 overflow-x-auto"></pre>
+
+        <label class="mt-6 flex gap-3 items-start rounded-2xl border border-slate-300 p-4 cursor-pointer" id="gdprBox">
+          <input id="gdpr" type="checkbox" class="mt-1 accent-teal-600 w-4 h-4 shrink-0" />
+          <span class="text-sm text-slate-600">
+            <strong class="text-slate-900">GDPR consent (required).</strong> I understand this website stores nothing and sends nothing automatically. By pressing a button below, <em>I</em> choose to transmit this information from my own email or WhatsApp account to Elly (ecampeanu@tuasesorasisa.es / +34 614 21 31 13) for the sole purpose of preparing an insurance quote. I acknowledge that the channel I pick (my email provider or WhatsApp/Meta) processes and stores the message under its own privacy policy, and that to prepare the quote Elly will enter these details into the insurer <strong>ASISA</strong>'s agent platforms, where ASISA's own data protection clauses apply — all as explained in the <a href="#privacy" class="underline font-semibold">privacy statement</a>. I may withdraw consent at any time by writing to that address.
+          </span>
+        </label>
+        <p id="gdprErr" class="hidden mt-2 text-sm font-semibold text-red-600">Please tick the GDPR consent box to continue.</p>
+
+        <div class="mt-6 grid sm:grid-cols-2 gap-3">
+          <button type="button" id="sendEmail" class="px-6 py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-700 transition">✉️ Send via Email</button>
+          <button type="button" id="sendWa" class="px-6 py-4 rounded-xl bg-green-600 text-white font-bold hover:bg-green-700 transition">💬 Send via WhatsApp</button>
+        </div>
+        <div class="mt-3 grid sm:grid-cols-2 gap-3">
+          <button type="button" id="copyBtn" class="px-4 py-3 rounded-xl border border-slate-300 text-sm font-semibold hover:border-slate-400 transition">📋 Copy summary to clipboard</button>
+          <a href="https://saferlayer.com/" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl border border-slate-300 text-sm font-semibold hover:border-slate-400 transition text-center">🔏 Watermark my ID at SaferLayer</a>
+        </div>
+        <p class="mt-4 text-xs text-slate-500 leading-relaxed bg-slate-50 border border-slate-200 rounded-xl p-4">
+          📎 <strong>About documents:</strong> don't attach anything yet. If I need your ID, watermark it first at <a href="https://saferlayer.com/" target="_blank" rel="noopener noreferrer" class="underline font-semibold">saferlayer.com</a> (AI-resistant watermark), then attach the watermarked copy directly in your own email to ecampeanu@tuasesorasisa.es.
+        </p>
+        <p id="toast" class="hidden mt-3 text-sm font-semibold text-teal-700"></p>
+      </div>
+
+      <!-- NAV -->
+      <div class="mt-8 flex items-center justify-between gap-3 border-t border-slate-200 pt-6">
+        <button type="button" id="prevBtn" class="px-5 py-3 rounded-xl border border-slate-300 font-semibold text-sm invisible hover:border-slate-400 transition">← Back</button>
+        <p class="text-xs text-slate-400">Step <span id="stepNum">1</span> of 4</p>
+        <button type="button" id="nextBtn" class="px-6 py-3 rounded-xl bg-teal-600 text-white font-semibold text-sm hover:bg-teal-700 transition">Continue →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ DOCUMENTS ============ -->
+<section id="documents" class="py-16 bg-slate-900 text-slate-200">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase bg-white/10 text-teal-300 border border-teal-400/30 px-3 py-1.5 rounded-full">Step before you attach anything</span>
+        <h2 class="mt-4 text-3xl font-black text-white">Watermark your ID first — then email it to me directly.</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          This website deliberately has <strong class="text-white">no file upload field</strong>. A static page cannot receive files without a server, and I don't want a server that could ever be breached or subpoenaed.
+        </p>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          Instead, protect the copy <em>before</em> it leaves your device. <a href="https://saferlayer.com/" target="_blank" rel="noopener noreferrer" class="underline font-semibold text-white">SaferLayer</a> applies the most <strong class="text-white">AI-resistant watermark</strong> on the market to your passport, TIE or NIE scan — so if the file is ever intercepted, copied or fed into an AI tool, it cannot be cleanly reused for identity fraud.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm">
+          <li class="flex gap-3"><span class="text-red-400 font-bold">✕</span> <span>Never send a <strong class="text-white">clean, unwatermarked</strong> copy of your ID to anyone — including me.</span></li>
+          <li class="flex gap-3"><span class="text-red-400 font-bold">✕</span> <span>Never upload identity documents into a web form you don't control. There is none here.</span></li>
+          <li class="flex gap-3"><span class="text-green-400 font-bold">✓</span> <span>Watermark at <a href="https://saferlayer.com/" target="_blank" rel="noopener noreferrer" class="underline font-semibold text-white">saferlayer.com</a>, then <strong class="text-white">attach the watermarked file manually</strong> in your own email client to <span class="text-white">ecampeanu@tuasesorasisa.es</span>.</span></li>
+          <li class="flex gap-3"><span class="text-green-400 font-bold">✓</span> <span>Write the purpose in the watermark text, e.g. <em>"Only valid for health insurance policy with Elly – [date]"</em>.</span></li>
+          <li class="flex gap-3"><span class="text-green-400 font-bold">✓</span> <span>Only send documents once I've confirmed which ones are actually required.</span></li>
+        </ul>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="https://saferlayer.com/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-white text-slate-900 font-bold hover:bg-slate-200 transition">🔏 Watermark my ID at SaferLayer →</a>
+          <a href="mailto:ecampeanu@tuasesorasisa.es?subject=Watermarked%20documents" class="px-6 py-3 rounded-xl border border-slate-600 text-white font-bold hover:border-slate-400 transition">✉️ Then email it to me</a>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border border-slate-700 bg-slate-800/60 p-7">
+        <p class="text-xs uppercase tracking-widest text-slate-400 font-bold">The correct order</p>
+        <ol class="mt-5 space-y-5 text-sm">
+          <li class="flex gap-4">
+            <span class="w-8 h-8 shrink-0 grid place-items-center rounded-lg bg-teal-500 text-slate-900 font-black">1</span>
+            <span><strong class="text-white block">Scan or photograph your document</strong> on your own device. It never touches this website.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-8 h-8 shrink-0 grid place-items-center rounded-lg bg-teal-500 text-slate-900 font-black">2</span>
+            <span><strong class="text-white block">Open saferlayer.com and add the watermark.</strong> Their watermark is built to survive AI removal, cropping and editing attempts.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-8 h-8 shrink-0 grid place-items-center rounded-lg bg-teal-500 text-slate-900 font-black">3</span>
+            <span><strong class="text-white block">Download the watermarked copy</strong> back to your device.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-8 h-8 shrink-0 grid place-items-center rounded-lg bg-teal-500 text-slate-900 font-black">4</span>
+            <span><strong class="text-white block">Attach it to a normal email to me</strong> at ecampeanu@tuasesorasisa.es — directly from your own inbox, no intermediary.</span>
+          </li>
+        </ol>
+        <p class="mt-6 pt-5 border-t border-slate-700 text-xs text-slate-400 leading-relaxed">
+          A watermarked document is still perfectly valid for the insurer's underwriting — but it becomes useless to a fraudster who tries to reuse it for loans, SIM swaps or fake accounts.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACY ============ -->
+<section id="privacy" class="py-16 bg-white border-b border-slate-200">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-black text-slate-900">Privacy statement</h2>
+    <p class="mt-3 text-slate-600 max-w-3xl leading-relaxed">
+      Issued in accordance with <strong>Regulation (EU) 2016/679 (GDPR)</strong> and Spain's <strong>Ley Orgánica 3/2018 (LOPDGDD)</strong>,
+      on the protection of personal data and guarantee of digital rights. Last updated: <span id="privDate" class="font-semibold"></span>.
+      This notice is available in Spanish on request.
+    </p>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-5">
+      <div class="rounded-2xl border border-slate-200 p-6"><div class="text-2xl">🍪</div><h3 class="mt-3 font-bold">No cookies, no tracking</h3><p class="mt-2 text-sm text-slate-600">No analytics, pixels, fingerprinting or localStorage. That's why there is no cookie banner.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><div class="text-2xl">🗄️</div><h3 class="mt-3 font-bold">No database</h3><p class="mt-2 text-sm text-slate-600">The quote form runs only inside your browser and performs zero network requests — nothing is POSTed to any server.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><div class="text-2xl">📤</div><h3 class="mt-3 font-bold">You are the sender</h3><p class="mt-2 text-sm text-slate-600">The form only builds a <code class="bg-slate-100 px-1 rounded">mailto:</code> or <code class="bg-slate-100 px-1 rounded">wa.me</code> link that your own device opens. You decide if and when to send.</p></div>
+    </div>
+
+    <ol class="mt-10 space-y-5">
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">1. Data controller <span class="font-normal text-slate-400">(Responsable del tratamiento)</span></h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          Elly — Certified Insurance Consultant, Spain. Contact: <a class="underline" href="mailto:ecampeanu@tuasesorasisa.es">ecampeanu@tuasesorasisa.es</a> · +34 614 21 31 13.
+          Registration as insurance intermediary can be verified at the <a class="underline" href="https://www.dgsfp.mineco.gob.es/" target="_blank" rel="noopener noreferrer">DGSFP</a>.
+        </p>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">2. What this website itself processes</h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          Nothing actively. This is a static page with no cookies, no analytics, no tracking pixels, no localStorage/sessionStorage and no fonts or ad trackers.
+          It is served over an encrypted HTTPS connection. The only third-party asset loaded when you open it is a public CSS library (Tailwind) from the jsDelivr CDN, which — like any web server — sees your IP address and browser user-agent to deliver the file.
+        </p>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">3. Hosting provider: server logs (Netlify)</h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          This page is hosted by <strong>Netlify, Inc.</strong>, 512 2nd Street, Suite 200, San Francisco, CA 94107, USA, which acts as <strong>data processor</strong> <em>(encargado del tratamiento)</em>.
+          When your browser requests this page, Netlify's servers — exactly like any web server — automatically record standard access logs for a limited time:
+          your <strong>IP address</strong>, date and time of the request, the URL requested, HTTP status code, referrer URL and browser user-agent string.
+        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          The <strong>legal basis</strong> is the legitimate interest in the secure, available and abuse-free operation of the website (Art. 6.1.f GDPR).
+          The controller does not systematically access, combine or profile these logs, and never receives the content you type into the quote form — Netlify never sees it either.
+          Log retention and details are described in <a class="underline" href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">Netlify's privacy policy</a>.
+        </p>
+        <div class="mt-4 rounded-xl bg-teal-50 border border-teal-200 p-4 text-sm text-teal-900">
+          🕵️ <strong>Prefer not to reveal your real IP?</strong> You may browse this site and contact me through a <strong>VPN</strong> or the Tor Browser. The form works identically — it needs no connection at all.
+        </div>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">4. Data you actively choose to send me</h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          Only if you press "Send via Email" or "Send via WhatsApp", the following categories reach the controller: identification and contact data (name, email, phone, city, preferred language),
+          quote data (date of birth, nationality, residency status, people to insure, start date, product and add-ons) and any notes you write.
+        </p>
+        <ul class="mt-3 space-y-1.5 text-sm text-slate-600">
+          <li><strong>Purpose <em>(finalidad)</em>:</strong> to prepare a non-binding insurance quote, communicate with you and, if you proceed, manage pre-contractual and contractual steps with the insurer.</li>
+          <li><strong>Legal basis <em>(base jurídica)</em>:</strong> pre-contractual measures at your request (Art. 6.1.b GDPR) and your consent (Art. 6.1.a GDPR), which you may withdraw at any time.</li>
+          <li><strong>Obligation to provide:</strong> voluntary; without it, a quote cannot be prepared. There are no negative consequences for not sending data.</li>
+          <li><strong>Recipients <em>(destinatarios)</em>:</strong> your details are never sold or used for marketing. To prepare the quote they are entered into the insurer's official agent tools — see the box below.</li>
+          <li><strong>Special categories:</strong> the form asks for no health information — please don't include any in the notes field either. If you voluntarily send health data (Art. 9 GDPR), it is processed only as strictly necessary for the insurance operation you requested.</li>
+        </ul>
+        <div class="mt-4 rounded-xl bg-blue-50 border border-blue-200 p-4 text-sm text-slate-700">
+          <p class="font-bold text-slate-900">🏥 The insurer: ASISA</p>
+          <p class="mt-1.5 leading-relaxed">
+            As a consultant for <strong>ASISA, ASISTENCIA SANITARIA INTERPROVINCIAL DE SEGUROS, S.A.U.</strong> (NIF A08169294 · C/ Juan Ignacio Luca de Tena 12, 28027 Madrid ·
+            <a class="underline" href="https://www.asisa.es/" target="_blank" rel="noopener noreferrer">asisa.es</a> · DPO: <a class="underline" href="mailto:DPO@grupoasisa.com">DPO@grupoasisa.com</a>),
+            I enter the details you send me into ASISA's own agent platforms — including its Salesforce-based agent portal and other internal ASISA tools — which are operated by ASISA.
+            From that moment, <strong>ASISA processes your data as an independent data controller</strong> for underwriting, pricing and policy management, under its own privacy policy and its own retention rules.
+            Before any policy is signed, ASISA will present you its own data protection information and consent clauses (<em>cláusulas y consentimientos de protección de datos</em>) for review and signature — they govern how ASISA and the ASISA Group handle your data.
+          </p>
+        </div>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">5. Processing by the communication channel you pick</h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">When you send the message, it travels through a third party that acts as an independent controller under its own privacy policy:</p>
+        <div class="mt-4 grid sm:grid-cols-2 gap-4 text-sm">
+          <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+            <p class="font-bold text-slate-900">💬 WhatsApp (Meta)</p>
+            <p class="mt-1.5 text-slate-600 leading-relaxed">
+              Operated by WhatsApp Ireland Ltd. / Meta Platforms, Inc. Message content is end-to-end encrypted, but <strong>Meta processes and stores metadata</strong> (phone numbers, timestamps, device and connection data) and account data under the
+              <a class="underline" href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">WhatsApp privacy policy</a>.
+              Prefer to minimise third-party processing? Choose email instead.
+            </p>
+          </div>
+          <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+            <p class="font-bold text-slate-900">✉️ Email</p>
+            <p class="mt-1.5 text-slate-600 leading-relaxed">
+              Your provider and the recipient's provider transmit and store the message (headers, IP, timestamps) under their own policies. Ordinary email is not end-to-end encrypted;
+              for maximum confidentiality you may use an encrypted provider (e.g. Proton Mail) or PGP.
+            </p>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-slate-600">Neither channel involves this website or Netlify: the hosting provider never receives the content of your enquiry.</p>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">6. International transfers <span class="font-normal text-slate-400">(transferencias internacionales)</span></h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          Netlify (hosting) and Meta/WhatsApp (if you use that channel) are US-based companies, so data may be processed outside the EU/EEA.
+          Such transfers rely, where applicable, on the European Commission's adequacy decision for the <strong>EU–US Data Privacy Framework</strong> (Implementing Decision (EU) 2023/1795) for certified entities,
+          or on Standard Contractual Clauses (Art. 46 GDPR). You may request information about the applicable safeguards by email.
+        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          Likewise, ASISA's agent platforms run partly on cloud infrastructure operated by international providers (such as Salesforce, whose services are certified under the EU–US Data Privacy Framework).
+          Where ASISA's own systems involve processing outside the EU/EEA, it is ASISA — as controller of those systems — that implements the required safeguards; details are set out in ASISA's own privacy documentation.
+        </p>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">7. Retention <span class="font-normal text-slate-400">(plazos de conservación)</span></h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          Quote enquiries are kept only as long as needed to prepare the quote and handle your follow-ups. If a policy is issued, data is kept for the periods required by insurance, tax and limitation-of-claims law.
+          Enquiries that do not lead to a policy are deleted on request, or within a reasonable period. Hosting logs are retained only per Netlify's log-retention practices.
+        </p>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">8. Your rights <span class="font-normal text-slate-400">(derechos del interesado)</span></h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          You may exercise <strong>access, rectification, erasure ("right to be forgotten"), restriction, objection and portability</strong>, and withdraw consent at any time without affecting the lawfulness of prior processing.
+          Write to <a class="underline" href="mailto:ecampeanu@tuasesorasisa.es">ecampeanu@tuasesorasisa.es</a> with the subject "Data protection". Erasure includes deleting the emails/WhatsApp messages you sent me.
+          If proof of identity is needed, please send it <strong>watermarked</strong> as explained in the <a href="#documents" class="underline font-semibold">ID safety section</a>.
+        </p>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">9. Supervisory authority</h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          If you believe your rights have been infringed, you may lodge a complaint with the <strong>Agencia Española de Protección de Datos (AEPD)</strong>,
+          C/ Jorge Juan 6, 28001 Madrid — <a class="underline" href="https://www.aepd.es/" target="_blank" rel="noopener noreferrer">www.aepd.es</a> — or with your local EU data protection authority.
+        </p>
+      </li>
+
+      <li class="rounded-2xl border border-slate-200 p-6 md:p-7">
+        <h3 class="font-bold text-slate-900">10. Automated decisions, audience and updates</h3>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+          No automated decision-making or profiling with legal or similarly significant effects takes place on this website.
+          Services are aimed at adults (18+); students under 18 should apply through a parent or legal guardian.
+          This notice may be updated; the current version always appears on this page.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ VERIFY ============ -->
+<section id="verify" class="py-16">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-black text-slate-900">Verify that I'm a registered consultant</h2>
+    <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Never trust an insurance intermediary who cannot be checked. Spanish insurance distribution is supervised by the <strong>Dirección General de Seguros y Fondos de Pensiones (DGSFP)</strong>. Use the official registry before sharing personal data with anyone — including me.</p>
+    <a href="https://www.dgsfp.mineco.gob.es/" target="_blank" rel="noopener noreferrer" class="inline-block mt-7 px-7 py-4 rounded-xl bg-blue-700 text-white font-bold hover:bg-blue-800 transition">🏛️ Check the DGSFP registry</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-slate-900 text-slate-400 py-12">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+    <div>
+      <p class="text-white font-bold text-lg">Elly</p>
+      <p class="mt-1">Certified Insurance Consultant · Spain</p>
+      <p class="mt-4">✉️ <a class="hover:text-white underline" href="mailto:ecampeanu@tuasesorasisa.es">ecampeanu@tuasesorasisa.es</a></p>
+      <p>💬 <a class="hover:text-white underline" href="https://wa.me/34614213113" target="_blank" rel="noopener noreferrer">+34 614 21 31 13</a></p>
+    </div>
+    <div>
+      <p class="text-white font-semibold">Useful links</p>
+      <ul class="mt-3 space-y-2">
+        <li><a href="https://www.dgsfp.mineco.gob.es/" target="_blank" rel="noopener noreferrer" class="hover:text-white">DGSFP official registry</a></li>
+        <li><a href="https://saferlayer.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white">SaferLayer — AI-resistant ID watermark</a></li>
+        <li><a href="#privacy" class="hover:text-white">Privacy statement</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-white font-semibold">Notice</p>
+      <p class="mt-3 leading-relaxed">This site is informational and does not constitute a binding offer of insurance. Cover, prices and conditions depend on the insurer's underwriting. No cookies, no analytics, no data storage.</p>
+      <p class="mt-4 text-xs">© <span id="yr"></span> Elly. Static page — zero backend.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var AGENT_EMAIL = "ecampeanu@tuasesorasisa.es";
+  var AGENT_WA    = "34614213113";
+
+  var form    = document.getElementById("quoteForm");
+  var steps   = Array.prototype.slice.call(document.querySelectorAll(".step"));
+  var nextBtn = document.getElementById("nextBtn");
+  var prevBtn = document.getElementById("prevBtn");
+  var stepNum = document.getElementById("stepNum");
+  var summary = document.getElementById("summary");
+  var gdpr    = document.getElementById("gdpr");
+  var gdprErr = document.getElementById("gdprErr");
+  var toast   = document.getElementById("toast");
+  var current = 1;
+  var TOTAL   = steps.length;
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  document.getElementById("privDate").textContent = new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" });
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.remove("hidden");
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function () { toast.classList.add("hidden"); }, 4000);
+  }
+
+  function paint() {
+    steps.forEach(function (s) { s.classList.toggle("active", Number(s.dataset.step) === current); });
+    for (var i = 1; i <= TOTAL; i++) {
+      var bar = document.querySelector('[data-bar="' + i + '"]');
+      var lbl = document.querySelector('[data-lbl="' + i + '"]');
+      var on  = i <= current;
+      bar.className = "h-1.5 rounded-full " + (on ? "bg-teal-600" : "bg-slate-200");
+      lbl.className = "mt-2 text-xs font-semibold " + (on ? "text-teal-700" : "text-slate-400");
+    }
+    stepNum.textContent = current;
+    prevBtn.classList.toggle("invisible", current === 1);
+    nextBtn.classList.toggle("hidden", current === TOTAL);
+    document.getElementById("quote").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function validate(step) {
+    var ok = true;
+    var pane = document.querySelector('.step[data-step="' + step + '"]');
+    pane.querySelectorAll("[required]").forEach(function (el) {
+      var bad = !el.value.trim() || (el.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value));
+      el.classList.toggle("err", bad);
+      if (bad && ok) { el.focus(); }
+      if (bad) { ok = false; }
+    });
+    if (!ok) { showToast("Please complete the highlighted fields."); }
+    return ok;
+  }
+
+  form.addEventListener("input", function (e) { e.target.classList.remove("err"); });
+
+  function val(id) {
+    var el = document.getElementById(id);
+    return el && el.value.trim() ? el.value.trim() : "—";
+  }
+
+  function collect() {
+    var product = (document.querySelector('input[name="product"]:checked') || {}).value || "—";
+    var addons = Array.prototype.slice.call(document.querySelectorAll('input[name="addon"]:checked')).map(function (c) { return c.value; });
+    return {
+      name: val("fullName"), email: val("email"), phone: val("phone"),
+      city: val("city"), lang: val("prefLang"), dob: val("dob"),
+      nat: val("nationality"), status: val("status"), people: val("people"),
+      start: val("startDate"), product: product,
+      addons: addons.length ? addons.join(", ") : "None",
+      notes: val("notes")
+    };
+  }
+
+  function buildText() {
+    var d = collect();
+    return [
+      "INSURANCE QUOTE REQUEST",
+      "-----------------------------------",
+      "CONTACT",
+      "Name: " + d.name,
+      "Email: " + d.email,
+      "Phone / WhatsApp: " + d.phone,
+      "City / Province: " + d.city,
+      "Preferred language: " + d.lang,
+      "",
+      "PERSONAL DETAILS",
+      "Date of birth: " + d.dob,
+      "Nationality: " + d.nat,
+      "Residency status: " + d.status,
+      "People to insure: " + d.people,
+      "Desired start date: " + d.start,
+      "",
+      "PRODUCT",
+      "Base product: " + d.product,
+      "Add-ons: " + d.addons,
+      "",
+      "NOTES",
+      d.notes,
+      "",
+      "-----------------------------------",
+      "GDPR: The sender consents to Elly processing this data solely to prepare an insurance quote, including entering it into the insurer ASISA's agent platforms (asisa.es), which process it under ASISA's own data protection clauses.",
+      "Documents: no ID was sent through the website (it has no upload feature). If documents are required, I will watermark them at https://saferlayer.com/ and attach the watermarked copy directly to an email to " + AGENT_EMAIL + ".",
+      "Generated locally in the sender's browser - no data was transmitted to any web server."
+    ].join("\n");
+  }
+
+  function refreshSummary() { summary.textContent = buildText(); }
+
+  function gdprOk() {
+    if (gdpr.checked) { gdprErr.classList.add("hidden"); return true; }
+    gdprErr.classList.remove("hidden");
+    document.getElementById("gdprBox").classList.add("err");
+    gdpr.focus();
+    return false;
+  }
+  gdpr.addEventListener("change", function () {
+    if (gdpr.checked) {
+      gdprErr.classList.add("hidden");
+      document.getElementById("gdprBox").classList.remove("err");
+    }
+  });
+
+  nextBtn.addEventListener("click", function () {
+    if (!validate(current)) { return; }
+    if (current < TOTAL) { current++; if (current === TOTAL) { refreshSummary(); } paint(); }
+  });
+  prevBtn.addEventListener("click", function () {
+    if (current > 1) { current--; paint(); }
+  });
+  form.addEventListener("submit", function (e) { e.preventDefault(); });
+  form.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") { e.preventDefault(); nextBtn.click(); }
+  });
+
+  document.getElementById("sendEmail").addEventListener("click", function () {
+    if (!validate(1) || !validate(2) || !gdprOk()) { return; }
+    refreshSummary();
+    var d = collect();
+    var subject = "Quote request - " + d.product + " - " + d.name;
+    var href = "mailto:" + AGENT_EMAIL +
+               "?subject=" + encodeURIComponent(subject) +
+               "&body=" + encodeURIComponent(buildText());
+    window.location.href = href;
+    showToast("Your email app should now open with the message pre-filled. Nothing was sent from this website.");
+  });
+
+  document.getElementById("sendWa").addEventListener("click", function () {
+    if (!validate(1) || !validate(2) || !gdprOk()) { return; }
+    refreshSummary();
+    var url = "https://wa.me/" + AGENT_WA + "?text=" + encodeURIComponent(buildText());
+    window.open(url, "_blank", "noopener,noreferrer");
+    showToast("WhatsApp opened in a new tab with your message ready. Press send there.");
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", function () {
+    var text = buildText();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { showToast("Summary copied to your clipboard."); },
+        function () { showToast("Copy failed — please select the text manually."); });
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); showToast("Summary copied."); } catch (err) { showToast("Copy not supported."); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  form.addEventListener("change", function () { if (current === TOTAL) { refreshSummary(); } });
+  paint();
+})();
+</script>
+</body>
+</html>
