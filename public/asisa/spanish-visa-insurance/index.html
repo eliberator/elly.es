@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Elly Campeanu — Official ASISA Exclusive Agent. Visa-compliant private health insurance for Spain: sin copago, sin carencias, repatriación incluida. Zero-server, GDPR-first quote builder.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0A2540">
+<title>Elly Campeanu · ASISA Exclusive Agent — Visa-Compliant Health Insurance for Spain</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style>
+  :root{
+    --cyan:#00A3E0; --cyan-dark:#0087BC; --navy:#0A2540; --slate-bg:#F8FAFC;
+  }
+  html{scroll-behavior:smooth; scroll-padding-top:96px;}
+  body{font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;}
+  .font-display{font-family:Georgia,"Times New Roman",Times,serif;}
+  .font-mono2{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;}
+  ::selection{background:rgba(0,163,224,.25);}
+  :focus-visible{outline:3px solid rgba(0,163,224,.45); outline-offset:2px; border-radius:6px;}
+
+  /* ---------- header ---------- */
+  .hdr{transition:background .35s ease, box-shadow .35s ease, border-color .35s ease; border-bottom:1px solid transparent;}
+  .hdr .hdrink{color:#fff; transition:color .35s ease;}
+  .hdr.scrolled{background:rgba(255,255,255,.88); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom-color:#e2e8f0; box-shadow:0 8px 30px -12px rgba(10,37,64,.15);}
+  .hdr.scrolled .hdrink{color:var(--navy);}
+
+  /* ---------- decorative ---------- */
+  .dotgrid{background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,.10) 1px, transparent 0); background-size:22px 22px;}
+  .dotgrid-dark{background-image:radial-gradient(circle at 1px 1px, rgba(10,37,64,.07) 1px, transparent 0); background-size:22px 22px;}
+  .glow{position:absolute; border-radius:9999px; pointer-events:none;}
+  .glow-cyan{background:radial-gradient(closest-side, rgba(0,163,224,.38), rgba(0,163,224,0) 70%);}
+  .glow-soft{background:radial-gradient(closest-side, rgba(125,211,252,.20), rgba(125,211,252,0) 70%);}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .floaty{animation:floaty 6s ease-in-out infinite;}
+  .floaty-slow{animation:floaty 9s ease-in-out infinite;}
+  @keyframes spinSlow{to{transform:rotate(360deg)}}
+  .stamp{animation:spinSlow 26s linear infinite; transform-origin:center;}
+  .marqwrap{overflow:hidden; -webkit-mask-image:radial-gradient(closest-side at 50% 50%, black 72%, transparent 100%); mask-image:radial-gradient(closest-side at 50% 50%, black 72%, transparent 100%);}
+  .marq{display:flex; gap:.75rem; width:max-content; animation:marq 34s linear infinite;}
+  .marqwrap:hover .marq{animation-play-state:paused;}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- reveal on scroll ---------- */
+  [data-reveal]{opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);}
+  [data-reveal].in{opacity:1; transform:none;}
+
+  /* ---------- eyebrow ---------- */
+  .eyebrow{font-size:.72rem; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan);}
+
+  /* ---------- form primitives ---------- */
+  .lbl{display:block; font-size:.78rem; font-weight:700; letter-spacing:.02em; color:#334155; margin-bottom:.45rem;}
+  .lbl .opt{font-weight:500; color:#94a3b8;}
+  .req-star{color:#e11d48;}
+  .hint{font-size:.74rem; color:#64748b; margin-top:.4rem; line-height:1.5;}
+  .inp{display:block; width:100%; border:1.5px solid #e2e8f0; background:#fff; border-radius:.8rem; padding:.68rem .95rem; font-size:.93rem; color:var(--navy); transition:border-color .15s, box-shadow .15s, background .15s;}
+  .inp::placeholder{color:#a7b4c4;}
+  .inp:hover{border-color:#cbd5e1;}
+  .inp:focus{outline:none; border-color:var(--cyan); box-shadow:0 0 0 3.5px rgba(0,163,224,.16);}
+  select.inp{appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right .8rem center; padding-right:2.6rem;}
+  .inp.err, .date-seg.err{border-color:#f87171 !important; background:#fef2f2;}
+  .inp.err:focus, .date-seg.err:focus-within{box-shadow:0 0 0 3.5px rgba(248,113,113,.18);}
+
+  /* segmented DD-MMM-YYYY date input */
+  .date-seg{display:inline-flex; align-items:stretch; border:1.5px solid #e2e8f0; background:#fff; border-radius:.8rem; overflow:hidden; transition:border-color .15s, box-shadow .15s;}
+  .date-seg:hover{border-color:#cbd5e1;}
+  .date-seg:focus-within{border-color:var(--cyan); box-shadow:0 0 0 3.5px rgba(0,163,224,.16);}
+  .date-seg input, .date-seg select{border:0; background:transparent; font-size:.93rem; color:var(--navy); padding:.68rem .45rem; text-align:center; -moz-appearance:textfield; appearance:none;}
+  .date-seg select{padding-right:1.4rem;}
+  .date-seg input:focus, .date-seg select:focus{outline:none; background:rgba(0,163,224,.06);}
+  .date-seg input::-webkit-outer-spin-button, .date-seg input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
+  .date-seg .sep{display:flex; align-items:center; color:#cbd5e1; font-weight:600;}
+  .d-day{width:3.1rem;} .d-mon{min-width:4.9rem;} .d-yr{width:4.1rem;}
+
+  /* radio pills */
+  .pillr{position:relative; display:inline-block;}
+  .pillr input{position:absolute; opacity:0; width:0; height:0;}
+  .pillr>span{display:inline-flex; align-items:center; gap:.4rem; border:1.5px solid #e2e8f0; background:#fff; border-radius:9999px; padding:.55rem 1.05rem; font-size:.85rem; font-weight:600; color:#334155; cursor:pointer; transition:all .18s; user-select:none;}
+  .pillr:hover>span{border-color:#94a3b8;}
+  .pillr input:checked+span{background:var(--navy); border-color:var(--navy); color:#fff; box-shadow:0 8px 18px -8px rgba(10,37,64,.5);}
+  .pillr input:focus-visible+span{box-shadow:0 0 0 3.5px rgba(0,163,224,.35);}
+  .errg .pillr>span{border-color:#f87171;}
+
+  /* switch */
+  .sw{position:relative; display:inline-flex; flex-shrink:0;}
+  .sw input{position:absolute; opacity:0; width:0; height:0;}
+  .sw .tk{width:46px; height:26px; border-radius:9999px; background:#e2e8f0; transition:background .2s; display:block; position:relative; cursor:pointer;}
+  .sw .tk::after{content:""; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:9999px; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.28); transition:transform .22s cubic-bezier(.22,1,.36,1);}
+  .sw input:checked+.tk{background:var(--cyan);}
+  .sw input:checked+.tk::after{transform:translateX(20px);}
+  .sw input:focus-visible+.tk{box-shadow:0 0 0 3.5px rgba(0,163,224,.35);}
+
+  /* custom checkbox */
+  .ck{display:flex; gap:.8rem; cursor:pointer;}
+  .ck input{position:absolute; opacity:0; width:0; height:0;}
+  .ck .box{width:24px; height:24px; border-radius:7px; border:2px solid #cbd5e1; background:#fff; display:inline-flex; align-items:center; justify-content:center; transition:all .15s; flex-shrink:0; margin-top:1px;}
+  .ck .box svg{opacity:0; transform:scale(.5); transition:all .15s;}
+  .ck input:checked+.box{background:var(--cyan); border-color:var(--cyan);}
+  .ck input:checked+.box svg{opacity:1; transform:scale(1);}
+  .ck input:focus-visible+.box{box-shadow:0 0 0 3.5px rgba(0,163,224,.35);}
+  .errck .box{border-color:#f87171; box-shadow:0 0 0 3.5px rgba(248,113,113,.18);}
+
+  /* misc components */
+  .stepnum{display:inline-flex; align-items:center; justify-content:center; border-radius:9999px; background:var(--navy); color:#fff; font-weight:800;}
+  .stepnum.cyan{background:var(--cyan);}
+  .eyebrow.on-dark{color:#67E8F9;}
+  .iconchip{width:44px; height:44px; border-radius:12px; background:rgba(0,163,224,.09); border:1px solid rgba(0,163,224,.16); color:var(--cyan); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .iconchip.icon-sm{width:36px; height:36px;}
+  .iconchip.icon-md{width:40px; height:40px;}
+  .addon{transition:border-color .2s, box-shadow .2s, background .2s;}
+  .addon.on{border-color:var(--cyan); box-shadow:0 12px 34px -16px rgba(0,163,224,.35); background:#fff;}
+  .cardlift{transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s;}
+  .cardlift:hover{transform:translateY(-5px); box-shadow:0 24px 50px -20px rgba(10,37,64,.22);}
+  .scrollthin::-webkit-scrollbar{width:8px;}
+  .scrollthin::-webkit-scrollbar-thumb{background:#cbd5e1; border-radius:8px; border:2px solid #f1f5f9;}
+  .scrollthin::-webkit-scrollbar-track{background:#f1f5f9;}
+
+  /* toast */
+  .toast{display:flex; align-items:center; gap:.6rem; background:var(--navy); color:#fff; font-size:.85rem; font-weight:600; padding:.8rem 1.2rem; border-radius:9999px; box-shadow:0 18px 40px -12px rgba(10,37,64,.45); opacity:0; transform:translateY(14px); transition:opacity .3s, transform .3s cubic-bezier(.22,1,.36,1); max-width:min(92vw,560px);}
+  .toast.show{opacity:1; transform:translateY(0);}
+  .toast.t-err{background:#b91c1c;}
+
+  @media (prefers-reduced-motion:reduce){
+    [data-reveal]{opacity:1; transform:none; transition:none;}
+    .floaty,.floaty-slow,.stamp,.marq{animation:none !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+
+<body class="bg-[#F8FAFC] text-[#0A2540] antialiased">
+<a href="#quote" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[120] focus:bg-[#0A2540] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg text-sm font-bold">Skip to quote builder</a>
+
+<!-- ======================= HEADER ======================= -->
+<header id="siteHeader" class="hdr fixed top-0 left-0 right-0 z-[60]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-[72px] flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-3 shrink-0" aria-label="Elly Campeanu — ASISA Exclusive Agent, back to top">
+      <span class="w-10 h-10 rounded-xl bg-[#00A3E0] text-white grid place-items-center shadow-lg shadow-cyan-500/30">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2h-1"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-extrabold tracking-tight text-[15px] hdrink">Elly Campeanu</span>
+        <span class="block text-[11px] font-semibold tracking-[0.14em] uppercase opacity-70 hdrink">Agente Exclusivo ASISA</span>
+      </span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-[13.5px] font-semibold" aria-label="Main">
+      <a href="#requirements" class="hdrink opacity-80 hover:opacity-100 transition">Requirements</a>
+      <a href="#coverages" class="hdrink opacity-80 hover:opacity-100 transition">Coverages</a>
+      <a href="#privacy" class="hdrink opacity-80 hover:opacity-100 transition">Privacy</a>
+      <a href="#security" class="hdrink opacity-80 hover:opacity-100 transition">ID Safety</a>
+      <a href="#verify" class="hdrink opacity-80 hover:opacity-100 transition">Verify Me</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="https://wa.me/34614213113?text=Hello%20Elly%2C%20I%27m%20interested%20in%20an%20ASISA%20visa-compliant%20health%20insurance%20quote." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="hdrink opacity-80 hover:opacity-100 transition hidden sm:inline-flex w-9 h-9 items-center justify-center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+      </a>
+      <a href="#quote" class="hidden sm:inline-flex items-center gap-2 bg-[#00A3E0] hover:bg-[#0087BC] text-white text-[13px] font-bold px-5 py-2.5 rounded-full shadow-lg shadow-cyan-500/25 transition-all hover:-translate-y-0.5">
+        Start my quote
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </a>
+      <button id="navMenuBtn" class="lg:hidden hdrink w-10 h-10 inline-flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden lg:hidden mx-4 mb-4 rounded-2xl bg-white border border-slate-200 shadow-2xl shadow-slate-900/10 p-3 text-[15px] font-semibold text-[#0A2540]">
+    <a href="#requirements" class="block px-4 py-3 rounded-xl hover:bg-slate-50">Requirements</a>
+    <a href="#coverages" class="block px-4 py-3 rounded-xl hover:bg-slate-50">Coverages</a>
+    <a href="#privacy" class="block px-4 py-3 rounded-xl hover:bg-slate-50">Privacy</a>
+    <a href="#security" class="block px-4 py-3 rounded-xl hover:bg-slate-50">ID Safety</a>
+    <a href="#verify" class="block px-4 py-3 rounded-xl hover:bg-slate-50">Verify Me</a>
+    <a href="#quote" class="block px-4 py-3 rounded-xl bg-[#00A3E0] text-white text-center mt-1">Start my quote</a>
+  </div>
+</header>
+
+<main>
+<!-- ======================= HERO ======================= -->
+<section id="top" class="relative overflow-hidden bg-[#0A2540]">
+  <div class="absolute inset-0 dotgrid" aria-hidden="true"></div>
+  <div class="glow glow-cyan w-[720px] h-[720px] -top-64 -right-40" aria-hidden="true"></div>
+  <div class="glow glow-soft w-[560px] h-[560px] -bottom-72 -left-40" aria-hidden="true"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-40 pb-14 lg:pt-48 lg:pb-20 grid lg:grid-cols-[1.05fr_.95fr] gap-16 items-center">
+    <div>
+      <div data-reveal class="inline-flex items-center gap-2.5 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-[11.5px] font-bold tracking-[0.16em] uppercase text-cyan-200">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+        Official ASISA Exclusive Agent · Registration publicly verifiable at DGSFP
+      </div>
+
+      <h1 data-reveal style="transition-delay:80ms" class="mt-7 text-white font-extrabold tracking-tight leading-[1.04] text-[42px] sm:text-6xl lg:text-[64px]">
+        Private health cover your
+        <em class="font-display italic font-medium text-[#38BDF8]">Spanish visa</em>
+        demands.
+      </h1>
+
+      <p data-reveal style="transition-delay:160ms" class="mt-6 text-slate-300 text-lg leading-relaxed max-w-xl">
+        Full coverage with <strong class="text-white font-semibold">zero copayments</strong>, <strong class="text-white font-semibold">no waiting periods</strong> and <strong class="text-white font-semibold">repatriation included</strong> — issued by ASISA, one of Spain's top-tier national medical insurers. Quoted personally by Elly Campeanu, registered exclusive agent.
+      </p>
+
+      <div data-reveal style="transition-delay:240ms" class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#quote" class="inline-flex items-center gap-2.5 bg-[#00A3E0] hover:bg-[#0087BC] text-white font-bold px-7 py-4 rounded-full shadow-xl shadow-cyan-500/30 transition-all hover:-translate-y-0.5 text-[15px]">
+          Build my visa quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+        </a>
+        <a href="https://wa.me/34614213113?text=Hello%20Elly%2C%20I%27m%20interested%20in%20an%20ASISA%20visa-compliant%20health%20insurance%20quote." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 border border-white/25 hover:border-white/50 text-white font-semibold px-7 py-4 rounded-full transition-all hover:-translate-y-0.5 text-[15px] bg-white/5">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          WhatsApp Elly
+        </a>
+      </div>
+
+      <div data-reveal style="transition-delay:320ms" class="mt-9 flex flex-wrap gap-2.5">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/[0.07] border border-white/10 text-slate-200 text-[12.5px] font-semibold px-3.5 py-1.5"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sin Copago</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/[0.07] border border-white/10 text-slate-200 text-[12.5px] font-semibold px-3.5 py-1.5"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sin Carencias</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/[0.07] border border-white/10 text-slate-200 text-[12.5px] font-semibold px-3.5 py-1.5"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Repatriación incluida</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/[0.07] border border-white/10 text-slate-200 text-[12.5px] font-semibold px-3.5 py-1.5"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Equivalent to the SNS</span>
+      </div>
+
+      <p data-reveal style="transition-delay:400ms" class="mt-7 text-[13px] text-slate-400 flex items-center gap-2">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        100% in-browser form · No cookies · No uploads · Nothing is sent until you press send.
+      </p>
+    </div>
+
+    <!-- Hero visual: illustrative certificate -->
+    <div class="relative" data-reveal style="transition-delay:200ms">
+      <div class="floaty-slow relative mx-auto max-w-md rounded-[28px] border border-white/15 bg-white/[0.06] backdrop-blur-xl p-7 sm:p-8 shadow-2xl shadow-black/30">
+        <div class="flex items-start justify-between">
+          <div>
+            <p class="text-[30px] leading-none font-extrabold tracking-tight text-white">asisa<span class="text-[#00A3E0]">.</span></p>
+            <p class="mt-1.5 text-[10.5px] font-bold tracking-[0.24em] uppercase text-slate-400">Seguros de Salud</p>
+          </div>
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-[#00A3E0]/15 border border-[#00A3E0]/30 text-cyan-200 text-[10.5px] font-bold tracking-widest uppercase px-3 py-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            Certificado
+          </span>
+        </div>
+        <div class="mt-7 space-y-3.5 text-[14px]">
+          <div class="flex items-center gap-3 text-slate-200"><span class="w-6 h-6 rounded-full bg-[#00A3E0]/20 grid place-items-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Cobertura completa · Sin copagos</div>
+          <div class="flex items-center gap-3 text-slate-200"><span class="w-6 h-6 rounded-full bg-[#00A3E0]/20 grid place-items-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Sin períodos de carencia</div>
+          <div class="flex items-center gap-3 text-slate-200"><span class="w-6 h-6 rounded-full bg-[#00A3E0]/20 grid place-items-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Repatriación al país de origen</div>
+          <div class="flex items-center gap-3 text-slate-200"><span class="w-6 h-6 rounded-full bg-[#00A3E0]/20 grid place-items-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Red médica nacional ASISA</div>
+        </div>
+        <div class="mt-7 pt-6 border-t border-white/10 flex items-end justify-between">
+          <div>
+            <p class="text-[10.5px] font-bold tracking-[0.2em] uppercase text-slate-500">Emitido por</p>
+            <p class="mt-1 text-[13.5px] font-bold text-white">Agente Exclusivo Autorizado</p>
+          </div>
+          <svg class="stamp w-[74px] h-[74px]" viewBox="0 0 120 120" aria-hidden="true">
+            <defs><path id="circPath" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
+            <circle cx="60" cy="60" r="57" fill="none" stroke="rgba(56,189,248,.45)" stroke-width="1.4"/>
+            <circle cx="60" cy="60" r="32" fill="none" stroke="rgba(56,189,248,.45)" stroke-width="1.4"/>
+            <text font-size="10" fill="#7DD3FC" letter-spacing="2.6" font-weight="700"><textPath href="#circPath">VÁLIDO EXTRANJERÍA • ASISA • </textPath></text>
+            <g transform="translate(48,48)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="floaty absolute -left-2 sm:left-2 top-8 rounded-2xl bg-white shadow-xl shadow-slate-900/20 px-4 py-3 flex items-center gap-2.5" aria-hidden="true">
+        <span class="iconchip icon-sm"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+        <span class="text-[13px] font-extrabold leading-tight">Sin<br class="sm:hidden"> carencias</span>
+      </div>
+      <div class="floaty-slow absolute -right-1 sm:right-4 bottom-10 rounded-2xl bg-[#00A3E0] text-white shadow-xl shadow-cyan-500/40 px-4 py-3 flex items-center gap-2.5" style="animation-delay:1.2s" aria-hidden="true">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        <span class="text-[13px] font-extrabold">Repatriación</span>
+      </div>
+      <p class="mt-5 text-center text-[11.5px] text-slate-500">Illustrative preview — your official certificate is issued by ASISA.</p>
+    </div>
+  </div>
+
+  <!-- visa ticker -->
+  <div class="relative border-t border-white/10 py-5 marqwrap" aria-label="Visas we cover">
+    <div class="marq">
+      <div class="flex gap-3 pr-3" aria-hidden="false">
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Student Visa</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Non-Lucrative Visa (NLV)</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Digital Nomad Visa</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Golden Visa</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">General Work / Residency</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">EU Citizen Registration</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Visa Renewals</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Family Reunification</span>
+      </div>
+      <div class="flex gap-3 pr-3" aria-hidden="true">
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Student Visa</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Non-Lucrative Visa (NLV)</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Digital Nomad Visa</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Golden Visa</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">General Work / Residency</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">EU Citizen Registration</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Visa Renewals</span>
+        <span class="whitespace-nowrap rounded-full border border-white/15 text-slate-200 text-[12.5px] font-semibold px-4 py-2">Family Reunification</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 01 REQUIREMENTS ======================= -->
+<section id="requirements" class="relative py-24 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">01 — Extranjería Criteria</p>
+      <h2 class="mt-4 font-display text-4xl sm:text-5xl leading-[1.08] tracking-tight">Four non-negotiables, <em class="italic text-[#00A3E0]">all included.</em></h2>
+      <p class="mt-5 text-slate-500 text-[17px] leading-relaxed">Spanish consulates and Extranjería offices reject private policies that fail any of these criteria. Your ASISA plan satisfies every one of them — no exceptions, no fine print.</p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div data-reveal class="cardlift rounded-3xl bg-white border border-slate-200 p-7 shadow-sm">
+        <span class="iconchip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3 class="mt-5 font-extrabold text-lg tracking-tight">Sin Copago</h3>
+        <p class="mt-2.5 text-slate-500 text-[14.5px] leading-relaxed">100% full coverage with zero copayments at the point of care — exactly what consulates demand, certificate-ready.</p>
+      </div>
+      <div data-reveal style="transition-delay:70ms" class="cardlift rounded-3xl bg-white border border-slate-200 p-7 shadow-sm">
+        <span class="iconchip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+        <h3 class="mt-5 font-extrabold text-lg tracking-tight">Sin Carencias</h3>
+        <p class="mt-2.5 text-slate-500 text-[14.5px] leading-relaxed">Zero waiting periods for visa validation purposes — your coverage is complete from day one of the policy.</p>
+      </div>
+      <div data-reveal style="transition-delay:140ms" class="cardlift rounded-3xl bg-white border border-slate-200 p-7 shadow-sm">
+        <span class="iconchip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>
+        <h3 class="mt-5 font-extrabold text-lg tracking-tight">Repatriación</h3>
+        <p class="mt-2.5 text-slate-500 text-[14.5px] leading-relaxed">Repatriation of remains to your country of origin and medical evacuation included — a hard consular requirement.</p>
+      </div>
+      <div data-reveal style="transition-delay:210ms" class="cardlift rounded-3xl bg-white border border-slate-200 p-7 shadow-sm">
+        <span class="iconchip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span>
+        <h3 class="mt-5 font-extrabold text-lg tracking-tight">Equivalent to SNS</h3>
+        <p class="mt-2.5 text-slate-500 text-[14.5px] leading-relaxed">Complete healthcare coverage equal to Spain's public Sistema Nacional de Salud — issued by an authorized national insurer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 02 COVERAGES ======================= -->
+<section id="coverages" class="relative py-24 lg:py-32 bg-white border-y border-slate-200/70 overflow-hidden">
+  <div class="absolute inset-0 dotgrid-dark" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">02 — Coberturas Incluidas</p>
+      <h2 class="mt-4 font-display text-4xl sm:text-5xl leading-[1.08] tracking-tight">One policy, <em class="italic text-[#00A3E0]">hospital-grade</em> depth.</h2>
+      <p class="mt-5 text-slate-500 text-[17px] leading-relaxed">The medical backbone of your ASISA visa-compliant plan — from family medicine to transplants, telemedicine to 24-hour home assistance.</p>
+    </div>
+
+    <!-- featured repatriation strip -->
+    <div data-reveal class="mt-12 rounded-3xl bg-[#0A2540] text-white p-7 sm:p-9 flex flex-col sm:flex-row sm:items-center gap-6 shadow-xl shadow-slate-900/15 relative overflow-hidden">
+      <div class="glow glow-cyan w-[420px] h-[420px] -top-52 -right-24 opacity-70" aria-hidden="true"></div>
+      <span class="relative w-14 h-14 rounded-2xl bg-[#00A3E0] grid place-items-center shrink-0 shadow-lg shadow-cyan-500/40">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+      </span>
+      <div class="relative">
+        <h3 class="font-extrabold text-xl tracking-tight">Travel assistance with €25,000 capital + repatriation</h3>
+        <p class="mt-1.5 text-slate-300 text-[15px] leading-relaxed">Asistencia en viajes con un capital de 25.000€ y repatriación al país de origen en caso de fallecimiento — the consular clause that makes or breaks a visa file.</p>
+      </div>
+    </div>
+
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-1">
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Primary care consultations</strong> — General / Family Medicine, Pediatrics and Nursing</p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">24h emergency service</strong> — home and outpatient care</p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">24h emergency service</strong> — hospital care</p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Diagnostic tests</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Special treatments</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Hospitalization</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Outpatient surgery</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Ambulance transfers</strong> for patients</p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Prosthetics and implants</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Transplants</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Work accidents</strong> &amp; mandatory motor-vehicle insurance incidents</p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Podiatry</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Psychotherapy</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Family planning</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Childbirth preparation</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Stomatology &amp; odontology</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Second medical opinion</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Preventive medicine</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Virtual Doctor</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">RAD:</strong> 24h phone &amp; virtual medical orientation, home care</p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">ASISA Live Telemedicine</strong></p></div>
+      <div data-reveal class="flex items-start gap-3 py-3.5 border-b border-slate-100"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A3E0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540] font-semibold">Medical Chat</strong></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 03 PRIVACY ======================= -->
+<section id="privacy" class="relative py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="rounded-[32px] bg-[#0A2540] text-white p-8 sm:p-12 lg:p-16 relative overflow-hidden" data-reveal>
+      <div class="absolute inset-0 dotgrid" aria-hidden="true"></div>
+      <div class="glow glow-cyan w-[560px] h-[560px] -top-72 -left-32 opacity-80" aria-hidden="true"></div>
+
+      <div class="relative grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
+        <div>
+          <p class="eyebrow on-dark">03 — GDPR by Architecture</p>
+          <h2 class="mt-4 font-display text-4xl sm:text-5xl leading-[1.08] tracking-tight">Zero-Server Storage &amp; <em class="italic text-[#38BDF8]">Privacy Guarantee.</em></h2>
+          <div class="mt-8 rounded-2xl border border-cyan-300/25 bg-cyan-300/10 p-6 flex gap-4">
+            <svg class="shrink-0 mt-1" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            <p class="text-[15px] leading-relaxed text-cyan-50 font-medium">"This page does not use cookies, trackers, or databases. Your sensitive details (including passport and phone numbers) exist only in your browser until you choose to send them directly to your verified ASISA agent."</p>
+          </div>
+          <p class="mt-6 text-slate-400 text-[14px] leading-relaxed">Transmission happens exclusively through user-initiated actions: your native email client via <span class="font-mono2 text-cyan-300 text-[13px]">mailto:</span>, or an encrypted WhatsApp chat you open yourself. Nothing else. Ever.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="rounded-2xl border border-white/12 bg-white/[0.05] p-6">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/><line x1="3" x2="21" y1="3" y2="21"/></svg>
+            <h3 class="mt-4 font-extrabold text-[15.5px]">No cookies</h3>
+            <p class="mt-1.5 text-slate-400 text-[13.5px] leading-relaxed">Not a single one — no consent banners needed, because there is nothing to consent to.</p>
+          </div>
+          <div class="rounded-2xl border border-white/12 bg-white/[0.05] p-6">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg>
+            <h3 class="mt-4 font-extrabold text-[15.5px]">No trackers or pixels</h3>
+            <p class="mt-1.5 text-slate-400 text-[13.5px] leading-relaxed">Zero third-party analytics. Your visit leaves no fingerprint and no heat-map trail.</p>
+          </div>
+          <div class="rounded-2xl border border-white/12 bg-white/[0.05] p-6">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2h13a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-5"/><path d="M10 10 2.5 2.5C2 2 2 2.5 2 5v3a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7.5"/><path d="M4 14v6a2 2 0 0 0 2 2h8"/><path d="m2 2 20 20"/></svg>
+            <h3 class="mt-4 font-extrabold text-[15.5px]">No database, no uploads</h3>
+            <p class="mt-1.5 text-slate-400 text-[13.5px] leading-relaxed">There is no back-end at all. No server storage, no file-upload inputs — by design.</p>
+          </div>
+          <div class="rounded-2xl border border-white/12 bg-white/[0.05] p-6">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="2" x2="22" y1="21" y2="21"/></svg>
+            <h3 class="mt-4 font-extrabold text-[15.5px]">Browser-only computing</h3>
+            <p class="mt-1.5 text-slate-400 text-[13.5px] leading-relaxed">All inputs, age calculations and message formatting run 100% locally in your device's memory.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 04 ID SAFETY / SAFERLAYER ======================= -->
+<section id="security" class="relative pb-24 lg:pb-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">04 — Cybersecurity for Expats</p>
+      <h2 class="mt-4 font-display text-4xl sm:text-5xl leading-[1.08] tracking-tight">Protect your identity <em class="italic text-[#00A3E0]">before</em> you hit send.</h2>
+    </div>
+
+    <div class="mt-12 grid lg:grid-cols-2 gap-6">
+      <!-- risk & why -->
+      <div class="space-y-6">
+        <div data-reveal class="rounded-3xl bg-white border border-slate-200 p-8 shadow-sm cardlift">
+          <div class="flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-red-50 border border-red-100 text-red-500 grid place-items-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+            <h3 class="font-extrabold text-lg tracking-tight">The risk</h3>
+          </div>
+          <p class="mt-4 text-slate-500 text-[15px] leading-relaxed">Raw passport and identity-document scans sent over unsecured networks are primary targets for <strong class="text-slate-700 font-semibold">identity theft, fraudulent contracts and financial fraud</strong>. Once leaked, your ID can be used to open accounts, sign rentals or contract loans in your name.</p>
+        </div>
+
+        <div data-reveal style="transition-delay:90ms" class="rounded-3xl bg-white border border-slate-200 p-8 shadow-sm cardlift">
+          <div class="flex items-center gap-3">
+            <span class="iconchip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m3 15 2 2 4-4"/></svg></span>
+            <h3 class="font-extrabold text-lg tracking-tight">Why your Passport / NIE is requested</h3>
+          </div>
+          <p class="mt-4 text-slate-500 text-[15px] leading-relaxed">ASISA's official quoting and policy-issuance portal requires an official ID number to generate <strong class="text-slate-700 font-semibold">legally binding visa certificates</strong>. That — and only that — is why your document number is requested. It is typed into a local form, never uploaded here.</p>
+        </div>
+
+        <div data-reveal style="transition-delay:180ms" class="rounded-3xl border-2 border-dashed border-[#00A3E0]/40 bg-[#00A3E0]/[0.05] p-8">
+          <div class="flex items-start gap-4">
+            <span class="iconchip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2h13a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-5"/><path d="M10 10 2.5 2.5C2 2 2 2.5 2 5v3a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7.5"/><path d="M4 14v6a2 2 0 0 0 2 2h8"/><path d="m2 2 20 20"/></svg></span>
+            <p class="text-[14.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540]">This website intentionally contains NO file-upload inputs.</strong> You will never be asked to attach documents here — a deliberate barrier against identity theft.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- saferlayer protocol -->
+      <div data-reveal style="transition-delay:120ms" class="rounded-3xl bg-[#0A2540] text-white p-8 lg:p-10 shadow-xl shadow-slate-900/15 relative overflow-hidden flex flex-col">
+        <div class="glow glow-cyan w-[380px] h-[380px] -bottom-40 -right-24 opacity-70" aria-hidden="true"></div>
+        <div class="relative">
+          <p class="text-[11px] font-extrabold tracking-[0.24em] uppercase text-cyan-300">The SaferLayer Protocol</p>
+          <h3 class="mt-3 font-extrabold text-2xl tracking-tight">Watermark your ID scans — always.</h3>
+
+          <ol class="mt-7 space-y-5">
+            <li class="flex gap-4"><span class="stepnum cyan w-7 h-7 text-[12px] shrink-0 mt-0.5">1</span><p class="text-slate-300 text-[14.5px] leading-relaxed">Take a photo or scan of your passport / NIE.</p></li>
+            <li class="flex gap-4"><span class="stepnum cyan w-7 h-7 text-[12px] shrink-0 mt-0.5">2</span><p class="text-slate-300 text-[14.5px] leading-relaxed">Open <a href="https://saferlayer.com" target="_blank" rel="noopener noreferrer" class="text-cyan-300 font-bold underline decoration-cyan-300/40 underline-offset-4 hover:decoration-cyan-300">saferlayer.com</a> and apply a diagonal watermark before attaching it to any email.</p></li>
+            <li class="flex gap-4"><span class="stepnum cyan w-7 h-7 text-[12px] shrink-0 mt-0.5">3</span><p class="text-slate-300 text-[14.5px] leading-relaxed">Use this exact watermark text so the scan is worthless to anyone else:</p></li>
+          </ol>
+
+          <div class="mt-5 rounded-2xl bg-black/40 border border-cyan-300/20 p-5">
+            <p class="font-mono2 text-[13px] sm:text-[13.5px] leading-relaxed text-cyan-200 break-words">COPY EXCLUSIVELY FOR ASISA VISA POLICY - AGENT ELLY - [DATE] - NOT VALID FOR ANY OTHER PURPOSE</p>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button type="button" id="wmCopy" class="inline-flex items-center gap-2 bg-[#00A3E0] hover:bg-[#0087BC] text-white text-[13px] font-bold px-4 py-2.5 rounded-full transition-colors">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                Copy watermark text
+              </button>
+              <a href="https://saferlayer.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-white/25 hover:border-white/50 text-white text-[13px] font-bold px-4 py-2.5 rounded-full transition-colors">
+                Open saferlayer.com
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+            </div>
+            <p class="mt-3 text-[12px] text-slate-400">Replace <span class="font-mono2 text-slate-300">[DATE]</span> with today's date before sending (format DD-MMM-YYYY, e.g. 05-Jan-2026).</p>
+          </div>
+
+          <p class="mt-6 text-slate-400 text-[13.5px] leading-relaxed flex items-start gap-2.5">
+            <svg class="shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            A watermarked scan can still be verified by ASISA, but cannot be reused to impersonate you anywhere else.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 05 VERIFY AGENT ======================= -->
+<section id="verify" class="relative pb-24 lg:pb-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">05 — Independent Verification</p>
+      <h2 class="mt-4 font-display text-4xl sm:text-5xl leading-[1.08] tracking-tight">Don't trust me. <em class="italic text-[#00A3E0]">Verify me.</em></h2>
+      <p class="mt-5 text-slate-500 text-[17px] leading-relaxed">Every insurance distributor in Spain is registered with the DGSFP — the Spanish Ministry of Economy's Dirección General de Seguros y Fondos de Pensiones. Check my official authorization yourself, in under two minutes.</p>
+    </div>
+
+    <div class="mt-12 grid lg:grid-cols-[1fr_.9fr] gap-6">
+      <div data-reveal class="rounded-3xl bg-white border border-slate-200 p-8 lg:p-10 shadow-sm">
+        <h3 class="font-extrabold text-xl tracking-tight flex items-center gap-3">
+          <span class="iconchip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>
+          DGSFP verification — step by step
+        </h3>
+        <ol class="mt-8 space-y-7">
+          <li class="flex gap-4">
+            <span class="stepnum w-8 h-8 text-[13px] shrink-0">1</span>
+            <div>
+              <p class="font-bold text-[15px]">Open the DGSFP official public registry</p>
+              <p class="mt-1 text-slate-500 text-[14px] leading-relaxed">Visit the Spanish Ministry of Economy's <em>Dirección General de Seguros y Fondos de Pensiones</em> consultation portal (PUI).</p>
+              <a href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer" class="mt-2.5 inline-flex items-center gap-2 text-[13.5px] font-bold text-[#00A3E0] hover:text-[#0087BC]">
+                dgsfp.mineco.gob.es — Registro de distribuidores
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="stepnum w-8 h-8 text-[13px] shrink-0">2</span>
+            <div>
+              <p class="font-bold text-[15px]">Access the administrative registry</p>
+              <p class="mt-1 text-slate-500 text-[14px] leading-relaxed">Enter the <em>Registro administrativo de distribuidores de seguros</em> search form.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="stepnum w-8 h-8 text-[13px] shrink-0">3</span>
+            <div>
+              <p class="font-bold text-[15px]">Search under Exclusive Agents for ASISA</p>
+              <p class="mt-1 text-slate-500 text-[14px] leading-relaxed">In the <em>Nombre / Razón Social</em> field, type <button type="button" id="nameCopy" class="font-mono2 font-bold text-[#0A2540] bg-cyan-50 border border-cyan-100 rounded-md px-2 py-0.5 hover:bg-cyan-100 transition-colors" title="Click to copy">ELLY CAMPEANU</button> and search among <em>Agentes exclusivos</em> linked to ASISA.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="stepnum w-8 h-8 text-[13px] shrink-0">4</span>
+            <div>
+              <p class="font-bold text-[15px]">Confirm active status &amp; exclusivity</p>
+              <p class="mt-1 text-slate-500 text-[14px] leading-relaxed">Verify the record shows an active license status and exclusivity with ASISA before sharing any personal detail.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div data-reveal style="transition-delay:120ms" class="rounded-3xl bg-white border border-slate-200 p-8 lg:p-10 shadow-sm flex flex-col">
+        <p class="eyebrow">Agent Credentials</p>
+        <div class="mt-6 flex items-center gap-4">
+          <span class="w-16 h-16 rounded-2xl bg-[#0A2540] text-white grid place-items-center text-2xl font-extrabold shadow-lg shadow-slate-900/20">EC</span>
+          <div>
+            <p class="font-extrabold text-xl tracking-tight">Elly Campeanu</p>
+            <p class="text-[13px] font-bold text-[#00A3E0] uppercase tracking-[0.14em] mt-0.5">Agente Exclusivo ASISA</p>
+          </div>
+        </div>
+        <div class="mt-8 space-y-4 flex-1">
+          <div class="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5">
+            <div class="flex items-center gap-3 min-w-0">
+              <svg class="shrink-0 text-slate-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:ecampeanu@tuasesorasisa.es" class="font-mono2 text-[13.5px] font-semibold text-[#0A2540] truncate hover:text-[#00A3E0]">ecampeanu@tuasesorasisa.es</a>
+            </div>
+            <button type="button" id="emailCopy" class="shrink-0 text-slate-400 hover:text-[#00A3E0] transition-colors" aria-label="Copy email address"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button>
+          </div>
+          <div class="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5">
+            <div class="flex items-center gap-3 min-w-0">
+              <svg class="shrink-0 text-slate-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+34614213113" class="font-mono2 text-[13.5px] font-semibold text-[#0A2540] hover:text-[#00A3E0]">+34 614 213 113</a>
+              <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider hidden sm:inline">0034 614 213 113</span>
+            </div>
+            <a href="https://wa.me/34614213113?text=Hello%20Elly%2C%20I%27m%20interested%20in%20an%20ASISA%20visa-compliant%20health%20insurance%20quote." target="_blank" rel="noopener noreferrer" class="shrink-0 text-slate-400 hover:text-[#00A3E0] transition-colors" aria-label="Open WhatsApp chat"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+          </div>
+        </div>
+        <div class="mt-6 rounded-2xl bg-[#0A2540] text-white p-5 flex items-start gap-3.5">
+          <svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <p class="text-[13.5px] text-slate-300 leading-relaxed">If any agent can't be found in the DGSFP registry, do not share your documents with them. Verification takes two minutes — identity theft takes years to undo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 06 QUOTE BUILDER ======================= -->
+<section id="quote" class="relative py-24 lg:py-32 bg-white border-t border-slate-200/70">
+  <div class="absolute inset-0 dotgrid-dark opacity-60" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">06 — Quote Builder</p>
+      <h2 class="mt-4 font-display text-4xl sm:text-5xl leading-[1.08] tracking-tight">Build your <em class="italic text-[#00A3E0]">official ASISA</em> quote request.</h2>
+      <p class="mt-5 text-slate-500 text-[17px] leading-relaxed">Fill in the details below. Everything is validated and formatted <strong class="text-slate-700 font-semibold">locally in your browser</strong> — nothing leaves this page until you press Email or WhatsApp.</p>
+    </div>
+
+    <form id="quoteForm" novalidate class="mt-14 grid lg:grid-cols-12 gap-8 items-start" onsubmit="return false">
+      <!-- LEFT: form -->
+      <div class="lg:col-span-7 space-y-8">
+
+        <!-- A. Contact -->
+        <section data-reveal class="rounded-3xl bg-[#F8FAFC] border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="secA">
+          <div class="flex items-center gap-3.5 mb-7">
+            <span class="stepnum w-9 h-9 text-[13px]">A</span>
+            <div>
+              <h3 id="secA" class="font-extrabold text-lg tracking-tight">Contact details</h3>
+              <p class="text-[12.5px] text-slate-500">How Elly reaches you with your official quote.</p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="lbl" for="cGiven">First / Given name(s) <span class="req-star" aria-hidden="true">*</span></label>
+              <input class="inp" id="cGiven" type="text" autocomplete="given-name" placeholder="e.g. Maria Angela" aria-required="true">
+            </div>
+            <div>
+              <label class="lbl" for="cSur1">First surname <span class="req-star" aria-hidden="true">*</span></label>
+              <input class="inp" id="cSur1" type="text" autocomplete="family-name" placeholder="e.g. Santos" aria-required="true">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="lbl" for="cSur2">Second surname <span class="opt">(optional)</span></label>
+              <input class="inp" id="cSur2" type="text" placeholder="e.g. Reyes">
+              <p class="hint">Spanish-style second family name — or your middle name, if that's how your passport reads (common in Filipino naming customs).</p>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="lbl" for="cEmail">Email address <span class="req-star" aria-hidden="true">*</span></label>
+              <input class="inp" id="cEmail" type="email" autocomplete="email" placeholder="you@example.com" aria-required="true">
+            </div>
+            <div class="sm:col-span-2">
+              <span class="lbl" id="phoneLbl">Phone number <span class="req-star" aria-hidden="true">*</span></span>
+              <div class="flex flex-col sm:flex-row gap-3" role="group" aria-labelledby="phoneLbl">
+                <div class="sm:w-[240px] shrink-0">
+                  <select class="inp" id="cPrefix" aria-label="Country calling code">
+                    <option value="+34" selected>Spain (+34)</option>
+                    <option value="+1">USA / Canada (+1)</option>
+                    <option value="+44">United Kingdom (+44)</option>
+                    <option value="+40">Romania (+40)</option>
+                    <option value="+49">Germany (+49)</option>
+                    <option value="+33">France (+33)</option>
+                    <option value="+39">Italy (+39)</option>
+                    <option value="+52">Mexico (+52)</option>
+                    <option value="+57">Colombia (+57)</option>
+                    <option value="+54">Argentina (+54)</option>
+                    <option value="+55">Brazil (+55)</option>
+                    <option value="+86">China (+86)</option>
+                    <option value="+91">India (+91)</option>
+                    <option value="+7">Russia (+7)</option>
+                    <option value="+61">Australia (+61)</option>
+                    <option value="+212">Morocco (+212)</option>
+                    <option value="custom">Other / custom prefix…</option>
+                  </select>
+                  <input class="inp mt-2.5 hidden" id="cPrefixCustom" type="text" inputmode="tel" maxlength="6" placeholder="e.g. +971" aria-label="Custom country prefix">
+                </div>
+                <input class="inp flex-1" id="cPhone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="612 345 678" aria-required="true" aria-label="Local phone number">
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="lbl" for="cLang">Preferred contact language <span class="req-star" aria-hidden="true">*</span></label>
+              <select class="inp" id="cLang" aria-required="true">
+                <option value="English" selected>English</option>
+                <option value="Spanish">Spanish — Español</option>
+                <option value="Romanian">Romanian — Română</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- B. Primary applicant -->
+        <section data-reveal class="rounded-3xl bg-[#F8FAFC] border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="secB">
+          <div class="flex items-center gap-3.5 mb-7">
+            <span class="stepnum w-9 h-9 text-[13px]">B</span>
+            <div>
+              <h3 id="secB" class="font-extrabold text-lg tracking-tight">Identity &amp; immigration — primary applicant</h3>
+              <p class="text-[12.5px] text-slate-500">Exactly as it appears on your travel document.</p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <fieldset class="sm:col-span-2" id="genderWrap">
+              <legend class="lbl">Gender <span class="req-star" aria-hidden="true">*</span></legend>
+              <div class="flex flex-wrap gap-2.5">
+                <label class="pillr"><input type="radio" name="pGender" id="gF" value="Female"><span>Female</span></label>
+                <label class="pillr"><input type="radio" name="pGender" id="gM" value="Male"><span>Male</span></label>
+                <label class="pillr"><input type="radio" name="pGender" id="gX" value="Non-Binary / Other"><span>Non-Binary / Other</span></label>
+              </div>
+              <p class="hint">Required by ASISA for actuarial (risk-based) quoting.</p>
+            </fieldset>
+
+            <div>
+              <label class="lbl" for="pDocType">Document type <span class="req-star" aria-hidden="true">*</span></label>
+              <select class="inp" id="pDocType" aria-required="true">
+                <option value="Passport" selected>Passport</option>
+                <option value="NIE">NIE</option>
+                <option value="DNI">DNI</option>
+              </select>
+            </div>
+            <div>
+              <label class="lbl" for="pDocNum">Document number <span class="req-star" aria-hidden="true">*</span></label>
+              <input class="inp" id="pDocNum" type="text" autocomplete="off" placeholder="e.g. PAA123456" aria-required="true">
+              <p class="hint">Needed to generate the legally binding ASISA visa certificate.</p>
+            </div>
+
+            <div data-dateblock>
+              <span class="lbl" id="pDobLbl">Date of birth <span class="req-star" aria-hidden="true">*</span></span>
+              <div class="date-seg" id="pDob" role="group" aria-labelledby="pDobLbl" data-dob="1">
+                <input type="text" inputmode="numeric" maxlength="2" placeholder="DD" class="d-day" data-d aria-label="Birth day, two digits">
+                <span class="sep" aria-hidden="true">·</span>
+                <select class="d-mon" data-m aria-label="Birth month"></select>
+                <span class="sep" aria-hidden="true">·</span>
+                <input type="text" inputmode="numeric" maxlength="4" placeholder="YYYY" class="d-yr" data-y aria-label="Birth year, four digits">
+              </div>
+              <p class="hint">Format DD-MMM-YYYY (e.g. 05-Jan-1990) <span data-age class="hidden font-bold text-[#00A3E0]"></span></p>
+            </div>
+
+            <div>
+              <label class="lbl" for="pNat">Nationality / citizenship <span class="req-star" aria-hidden="true">*</span></label>
+              <input class="inp" id="pNat" type="text" list="countriesList" autocomplete="off" placeholder="Start typing… e.g. Romania" aria-required="true">
+              <p class="hint">Type to filter, then pick your country of citizenship.</p>
+            </div>
+
+            <div>
+              <label class="lbl" for="pVisa">Visa category <span class="req-star" aria-hidden="true">*</span></label>
+              <select class="inp" id="pVisa" aria-required="true">
+                <option value="Student Visa" selected>Student Visa</option>
+                <option value="Non-Lucrative Visa (NLV)">Non-Lucrative Visa (NLV)</option>
+                <option value="Digital Nomad Visa">Digital Nomad Visa</option>
+                <option value="Golden Visa">Golden Visa</option>
+                <option value="General Work / Residency">General Work / Residency</option>
+                <option value="EU Citizen Registration">EU Citizen Registration</option>
+                <option value="Visa Renewal">Visa Renewal</option>
+              </select>
+            </div>
+
+            <div data-dateblock>
+              <span class="lbl" id="pStartLbl">Desired policy start date <span class="req-star" aria-hidden="true">*</span></span>
+              <div class="date-seg" id="pStart" role="group" aria-labelledby="pStartLbl">
+                <input type="text" inputmode="numeric" maxlength="2" placeholder="DD" class="d-day" data-d aria-label="Start day, two digits">
+                <span class="sep" aria-hidden="true">·</span>
+                <select class="d-mon" data-m aria-label="Start month"></select>
+                <span class="sep" aria-hidden="true">·</span>
+                <input type="text" inputmode="numeric" maxlength="4" placeholder="YYYY" class="d-yr" data-y aria-label="Start year, four digits">
+              </div>
+              <p class="hint">Coverage begins 00:00 on this date.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- C. Destination -->
+        <section data-reveal class="rounded-3xl bg-[#F8FAFC] border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="secC">
+          <div class="flex items-center gap-3.5 mb-7">
+            <span class="stepnum w-9 h-9 text-[13px]">C</span>
+            <div>
+              <h3 id="secC" class="font-extrabold text-lg tracking-tight">Study destination &amp; postal code</h3>
+              <p class="text-[12.5px] text-slate-500">ASISA prices by province — your university hub sets the postal code.</p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div class="sm:col-span-2">
+              <label class="lbl" for="dHub">Destination / university hub <span class="req-star" aria-hidden="true">*</span></label>
+              <select class="inp" id="dHub" aria-required="true">
+                <option value="Tarragona" data-zip="43001" selected>Tarragona — Universitat Rovira i Virgili (URV)</option>
+                <option value="Madrid" data-zip="28040">Madrid — UCM · UPM · UC3M · UAM</option>
+                <option value="Barcelona" data-zip="08007">Barcelona — UB · UAB · UPF · UPC</option>
+                <option value="Valencia" data-zip="46010">Valencia — UV · UPV</option>
+                <option value="Salamanca" data-zip="37008">Salamanca — Universidad de Salamanca</option>
+                <option value="Granada" data-zip="18071">Granada — Universidad de Granada</option>
+                <option value="Sevilla" data-zip="41004">Sevilla — Universidad de Sevilla · UPO</option>
+                <option value="Santiago de Compostela" data-zip="15782">Santiago de Compostela — USC</option>
+                <option value="Bilbao" data-zip="48014">Bilbao — UPV/EHU · Deusto</option>
+                <option value="Zaragoza" data-zip="50009">Zaragoza — Universidad de Zaragoza</option>
+                <option value="other">Other / relocation (custom postal code)</option>
+              </select>
+            </div>
+            <div id="dCityWrap" class="hidden sm:col-span-2">
+              <label class="lbl" for="dCity">City / town in Spain <span class="req-star" aria-hidden="true">*</span></label>
+              <input class="inp" id="dCity" type="text" placeholder="e.g. Alicante">
+            </div>
+            <div>
+              <label class="lbl" for="dPostal">Postal code <span class="req-star" aria-hidden="true">*</span></label>
+              <input class="inp" id="dPostal" type="text" inputmode="numeric" maxlength="5" value="43001" aria-required="true">
+              <p class="hint">Auto-filled from your hub — edit if your address differs.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- D. Family repeater -->
+        <section data-reveal class="rounded-3xl bg-[#F8FAFC] border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="secD">
+          <div class="flex items-center gap-3.5 mb-2">
+            <span class="stepnum w-9 h-9 text-[13px]">D</span>
+            <div>
+              <h3 id="secD" class="font-extrabold text-lg tracking-tight">Family members / dependents</h3>
+              <p class="text-[12.5px] text-slate-500">Insure your spouse, children or parents under the same request.</p>
+            </div>
+          </div>
+
+          <div id="membersList" class="mt-5 space-y-5"></div>
+
+          <button type="button" id="addMember" class="mt-5 w-full inline-flex items-center justify-center gap-2.5 rounded-2xl border-2 border-dashed border-slate-300 hover:border-[#00A3E0] hover:bg-cyan-50/40 text-slate-500 hover:text-[#0A2540] font-bold text-[14px] py-4 transition-all">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            Add family member / dependent
+          </button>
+          <p class="hint mt-3">Travelling alone? Leave this section empty — your request will read "None – Single Applicant".</p>
+        </section>
+
+        <!-- E. Add-ons -->
+        <section data-reveal class="rounded-3xl bg-[#F8FAFC] border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="secE">
+          <div class="flex items-center gap-3.5 mb-7">
+            <span class="stepnum w-9 h-9 text-[13px]">E</span>
+            <div>
+              <h3 id="secE" class="font-extrabold text-lg tracking-tight">Optional coverage add-ons</h3>
+              <p class="text-[12.5px] text-slate-500">Toggle what you need — each is quoted separately on top of the base product.</p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="addon rounded-2xl border border-slate-200 bg-white p-5 flex items-start justify-between gap-4">
+              <div class="flex gap-3.5 min-w-0">
+                <span class="iconchip icon-md"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.5-2-4.5-2.5-6.5-1C3.5 6 3 8.5 4 10.5c1 2.5 4.5 6.5 8 9.5 3.5-3 7-7 8-9.5 1-2 .5-4.5-1.5-6-2-1.5-5-1-6.5 1Z"/></svg></span>
+                <div>
+                  <p class="font-bold text-[14.5px]">ASISA Dental</p>
+                  <p class="text-[12.5px] text-slate-500 mt-1 leading-relaxed">Comprehensive dental clinics network: free checkups, extractions and cleanings.</p>
+                </div>
+              </div>
+              <label class="sw"><input type="checkbox" id="addDental"><span class="tk" aria-hidden="true"></span><span class="sr-only">Toggle ASISA Dental</span></label>
+            </div>
+
+            <div class="addon rounded-2xl border border-slate-200 bg-white p-5 flex items-start justify-between gap-4">
+              <div class="flex gap-3.5 min-w-0">
+                <span class="iconchip icon-md"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+                <div>
+                  <p class="font-bold text-[14.5px]">Hospitalization Cash Benefit</p>
+                  <p class="text-[12.5px] text-slate-500 mt-1 leading-relaxed">Daily cash compensation for every day you spend hospitalized.</p>
+                </div>
+              </div>
+              <label class="sw"><input type="checkbox" id="addHosp"><span class="tk" aria-hidden="true"></span><span class="sr-only">Toggle Hospitalization Cash Benefit</span></label>
+            </div>
+
+            <div class="addon rounded-2xl border border-slate-200 bg-white p-5 flex items-start justify-between gap-4">
+              <div class="flex gap-3.5 min-w-0">
+                <span class="iconchip icon-md"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span>
+                <div>
+                  <p class="font-bold text-[14.5px]">Personal Accident Cover</p>
+                  <p class="text-[12.5px] text-slate-500 mt-1 leading-relaxed">Added protection and capital compensation in case of accidents.</p>
+                </div>
+              </div>
+              <label class="sw"><input type="checkbox" id="addAcc"><span class="tk" aria-hidden="true"></span><span class="sr-only">Toggle Personal Accident Cover</span></label>
+            </div>
+
+            <div class="addon rounded-2xl border border-slate-200 bg-white p-5 sm:col-span-2">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex gap-3.5 min-w-0">
+                  <span class="iconchip icon-md"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+                  <div>
+                    <p class="font-bold text-[14.5px]">ASISA Mascotas — Pet Health Insurance</p>
+                    <p class="text-[12.5px] text-slate-500 mt-1 leading-relaxed">Bringing your dog or cat to Spain? Insure their health too.</p>
+                  </div>
+                </div>
+                <label class="sw"><input type="checkbox" id="addPet"><span class="tk" aria-hidden="true"></span><span class="sr-only">Toggle ASISA Mascotas pet insurance</span></label>
+              </div>
+
+              <div id="petPanel" class="hidden mt-5 pt-5 border-t border-slate-100 grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="lbl" for="petType">Pet type <span class="req-star" aria-hidden="true">*</span></label>
+                  <select class="inp" id="petType">
+                    <option value="Dog" selected>Dog</option>
+                    <option value="Cat">Cat</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="lbl" for="petName">Pet name <span class="req-star" aria-hidden="true">*</span></label>
+                  <input class="inp" id="petName" type="text" placeholder="e.g. Toby">
+                </div>
+                <div>
+                  <label class="lbl" for="petBreed">Breed <span class="req-star" aria-hidden="true">*</span></label>
+                  <input class="inp" id="petBreed" type="text" placeholder="e.g. Labrador Retriever">
+                </div>
+                <div>
+                  <label class="lbl" for="petAge">Age (years) <span class="req-star" aria-hidden="true">*</span></label>
+                  <input class="inp" id="petAge" type="number" min="0" max="40" step="1" placeholder="e.g. 3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- F. Notes & GDPR -->
+        <section data-reveal class="rounded-3xl bg-[#F8FAFC] border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="secF">
+          <div class="flex items-center gap-3.5 mb-7">
+            <span class="stepnum w-9 h-9 text-[13px]">F</span>
+            <div>
+              <h3 id="secF" class="font-extrabold text-lg tracking-tight">Notes &amp; GDPR consent</h3>
+              <p class="text-[12.5px] text-slate-500">Anything Elly should know before preparing your quote.</p>
+            </div>
+          </div>
+
+          <label class="lbl" for="notes">Additional notes <span class="opt">(optional)</span></label>
+          <textarea class="inp min-h-[110px] resize-y" id="notes" placeholder="Consular appointment deadlines, university enrolment dates, specific medical requirements, preferred call times…"></textarea>
+
+          <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+            <label class="ck" id="gdprLabel">
+              <input type="checkbox" id="gdpr" aria-required="true">
+              <span class="box" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="text-[13.5px] text-slate-600 leading-relaxed"><strong class="text-[#0A2540]">GDPR authorization (required):</strong> I authorize Elly to process this data solely to prepare my ASISA policy quote via official agent tools. No data is stored on web servers.</span>
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT: sticky summary -->
+      <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-5">
+        <section data-reveal class="rounded-3xl bg-[#0A2540] text-white p-6 sm:p-7 shadow-2xl shadow-slate-900/20 relative overflow-hidden" aria-labelledby="sumTitle">
+          <div class="glow glow-cyan w-[320px] h-[320px] -top-40 -right-20 opacity-60" aria-hidden="true"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m3 15 2 2 4-4"/></svg>
+                <h3 id="sumTitle" class="font-extrabold text-[17px] tracking-tight">Your quote summary</h3>
+              </div>
+              <span class="inline-flex items-center gap-1.5 text-[10.5px] font-extrabold tracking-[0.16em] uppercase text-cyan-300 border border-cyan-300/30 bg-cyan-300/10 rounded-full px-3 py-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-300"></span> Live · Local
+              </span>
+            </div>
+            <p class="mt-2 text-[12.5px] text-slate-400">This exact text is placed into your email or WhatsApp message — generated 100% in your browser's memory.</p>
+
+            <pre id="summaryOut" class="scrollthin mt-5 font-mono2 text-[11px] leading-[1.65] text-cyan-50/90 bg-black/35 border border-white/10 rounded-2xl p-4 max-h-[380px] overflow-auto whitespace-pre-wrap break-words" aria-live="off"></pre>
+
+            <div class="mt-5 space-y-3">
+              <button type="button" id="btnEmail" class="w-full inline-flex items-center justify-center gap-2.5 bg-[#00A3E0] hover:bg-[#0087BC] text-white font-bold text-[14.5px] px-6 py-4 rounded-2xl shadow-lg shadow-cyan-500/30 transition-all hover:-translate-y-0.5">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Send via Email
+              </button>
+              <button type="button" id="btnWhats" class="w-full inline-flex items-center justify-center gap-2.5 bg-[#1FAF5E] hover:bg-[#178a4a] text-white font-bold text-[14.5px] px-6 py-4 rounded-2xl shadow-lg shadow-emerald-600/25 transition-all hover:-translate-y-0.5">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                Send via WhatsApp
+              </button>
+              <button type="button" id="btnCopy" class="w-full inline-flex items-center justify-center gap-2.5 border border-white/25 hover:border-cyan-300/60 hover:bg-white/5 text-white font-bold text-[14.5px] px-6 py-4 rounded-2xl transition-all hover:-translate-y-0.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                Copy summary to clipboard
+              </button>
+            </div>
+
+            <p class="mt-4 text-[11.5px] text-slate-400 leading-relaxed flex items-start gap-2">
+              <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              No data is transmitted or stored by this page. Your email app or WhatsApp opens only when you press a button.
+            </p>
+          </div>
+        </section>
+
+        <button type="button" id="resetBtn" class="w-full text-center text-[12.5px] font-bold text-slate-400 hover:text-red-500 transition-colors py-1.5">Clear all fields and start over</button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="bg-[#0A2540] text-white relative overflow-hidden">
+  <div class="absolute inset-0 dotgrid" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 py-16 grid md:grid-cols-3 gap-12">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-[#00A3E0] text-white grid place-items-center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2h-1"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+        </span>
+        <div>
+          <p class="font-extrabold tracking-tight">Elly Campeanu</p>
+          <p class="text-[11px] font-bold tracking-[0.14em] uppercase text-slate-400">Agente Exclusivo ASISA</p>
+        </div>
+      </div>
+      <p class="mt-5 text-slate-400 text-[13.5px] leading-relaxed">Visa-compliant private health insurance for students, retirees, digital nomads, investors and workers relocating to Spain.</p>
+      <div class="mt-5 space-y-2 text-[13.5px]">
+        <a href="mailto:ecampeanu@tuasesorasisa.es" class="block text-slate-300 hover:text-cyan-300 transition-colors font-mono2">ecampeanu@tuasesorasisa.es</a>
+        <a href="tel:+34614213113" class="block text-slate-300 hover:text-cyan-300 transition-colors font-mono2">+34 614 213 113</a>
+      </div>
+    </div>
+    <div>
+      <p class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-cyan-300">Verify &amp; official links</p>
+      <ul class="mt-5 space-y-3 text-[14px]">
+        <li><a class="text-slate-300 hover:text-white transition-colors inline-flex items-center gap-2" href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer">DGSFP — Registro de distribuidores de seguros <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li>
+        <li><a class="text-slate-300 hover:text-white transition-colors inline-flex items-center gap-2" href="https://www.asisa.es" target="_blank" rel="noopener noreferrer">ASISA — official website <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li>
+        <li><a class="text-slate-300 hover:text-white transition-colors inline-flex items-center gap-2" href="https://saferlayer.com" target="_blank" rel="noopener noreferrer">SaferLayer — watermark ID scans <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-cyan-300">Zero-server promise</p>
+      <p class="mt-5 text-slate-400 text-[13.5px] leading-relaxed">This page sets no cookies, runs no analytics and stores nothing. Quote generation happens entirely on your device; documents are never uploaded because there is no upload control on this page.</p>
+      <p class="mt-4 text-slate-500 text-[12px] leading-relaxed">Policy conditions, premiums and binding certificates are defined and issued exclusively by ASISA through its official agent portal. ASISA is a registered trademark of its owner.</p>
+    </div>
+  </div>
+  <div class="relative border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-5 flex flex-col sm:flex-row gap-2 items-center justify-between text-[12px] text-slate-500">
+      <p>© <span id="yearNow">2026</span> Elly Campeanu · Agente Exclusivo ASISA. All rights reserved.</p>
+      <p>Page rendered and executed entirely on your own device.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp floating action -->
+<a href="https://wa.me/34614213113?text=Hello%20Elly%2C%20I%27m%20interested%20in%20an%20ASISA%20visa-compliant%20health%20insurance%20quote." target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[55] group" aria-label="Chat with Elly on WhatsApp">
+  <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap bg-[#0A2540] text-white text-[12px] font-bold px-3.5 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">Chat with Elly</span>
+  <span class="w-14 h-14 rounded-full bg-[#1FAF5E] hover:bg-[#178a4a] text-white grid place-items-center shadow-2xl shadow-emerald-600/40 transition-all hover:scale-105 inline-flex">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+  </span>
+</a>
+
+<!-- shared nationality datalist -->
+<datalist id="countriesList"></datalist>
+
+<!-- family member template -->
+<template id="memberTpl">
+  <div class="member-card rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
+    <div class="flex items-center justify-between gap-3 mb-5">
+      <div class="flex items-center gap-2.5">
+        <span class="stepnum cyan w-7 h-7 text-[12px]" data-mbadge>1</span>
+        <h4 class="font-extrabold text-[14.5px] tracking-tight" data-mtitle>Family member 1</h4>
+      </div>
+      <button type="button" data-remove class="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-slate-400 hover:text-red-500 transition-colors" aria-label="Remove this family member">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+        Remove
+      </button>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="sm:col-span-2">
+        <label class="lbl">Full name <span class="req-star" aria-hidden="true">*</span></label>
+        <input class="inp m-name" type="text" placeholder="e.g. Ana Maria Santos Reyes">
+        <p class="hint">Include a second surname (Spanish style) or middle name if it appears on the passport.</p>
+      </div>
+      <div>
+        <label class="lbl">Relationship <span class="req-star" aria-hidden="true">*</span></label>
+        <select class="inp m-rel">
+          <option value="" selected disabled>Select…</option>
+          <option value="Spouse">Spouse</option>
+          <option value="Child">Child</option>
+          <option value="Parent">Parent</option>
+        </select>
+      </div>
+      <div>
+        <label class="lbl">Gender <span class="req-star" aria-hidden="true">*</span></label>
+        <select class="inp m-gender">
+          <option value="" selected disabled>Select…</option>
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div data-dateblock>
+        <span class="lbl">Date of birth <span class="req-star" aria-hidden="true">*</span></span>
+        <div class="date-seg m-dob" data-dob="1" role="group" aria-label="Date of birth of family member">
+          <input type="text" inputmode="numeric" maxlength="2" placeholder="DD" class="d-day" data-d aria-label="Birth day, two digits">
+          <span class="sep" aria-hidden="true">·</span>
+          <select class="d-mon" data-m aria-label="Birth month"></select>
+          <span class="sep" aria-hidden="true">·</span>
+          <input type="text" inputmode="numeric" maxlength="4" placeholder="YYYY" class="d-yr" data-y aria-label="Birth year, four digits">
+        </div>
+        <p class="hint">DD-MMM-YYYY <span data-age class="hidden font-bold text-[#00A3E0]"></span></p>
+      </div>
+      <div>
+        <label class="lbl">Nationality <span class="req-star" aria-hidden="true">*</span></label>
+        <input class="inp m-nat" type="text" list="countriesList" autocomplete="off" placeholder="Start typing… e.g. Philippines">
+        <p class="hint">Type to filter, then choose the country.</p>
+      </div>
+      <div class="sm:col-span-2">
+        <label class="lbl">Passport / NIE number <span class="req-star" aria-hidden="true">*</span></label>
+        <input class="inp m-doc" type="text" autocomplete="off" placeholder="e.g. P1234567B">
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- toast container -->
+<div id="toastWrap" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[110] flex flex-col items-center gap-2 pointer-events-none" aria-live="polite" aria-atomic="false"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ============ helpers ============ */
+const $  = (s, c) => (c || document).querySelector(s);
+const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+
+const AGENT_EMAIL = 'ecampeanu@tuasesorasisa.es';
+const AGENT_WA    = '34614213113';
+const WM_TEXT     = 'COPY EXCLUSIVELY FOR ASISA VISA POLICY - AGENT ELLY - [DATE] - NOT VALID FOR ANY OTHER PURPOSE';
+const MONTHS      = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+/* ============ toast ============ */
+function toast(msg, err){
+  const wrap = $('#toastWrap');
+  const t = document.createElement('div');
+  t.className = 'toast pointer-events-auto' + (err ? ' t-err' : '');
+  t.innerHTML = (err
+    ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>'
+    : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>')
+    + '<span></span>';
+  t.lastElementChild.textContent = msg;
+  wrap.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 350); }, 2800);
+}
+
+/* ============ header / nav ============ */
+const hdr = $('#siteHeader');
+const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 24);
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+const menuBtn = $('#navMenuBtn'), mobileMenu = $('#mobileMenu');
+menuBtn.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('hidden') === false;
+  menuBtn.setAttribute('aria-expanded', open);
+});
+$$('#mobileMenu a').forEach(a => a.addEventListener('click', () => {
+  mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false');
+}));
+
+/* ============ reveal on scroll ============ */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold: .12, rootMargin: '0px 0px -6% 0px'});
+$$('[data-reveal]').forEach(el => io.observe(el));
+
+/* ============ nationality datalist ============ */
+const COUNTRIES = ['Afghanistan','Albania','Algeria','Andorra','Angola','Antigua and Barbuda','Argentina','Armenia','Australia','Austria','Azerbaijan','Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bhutan','Bolivia','Bosnia and Herzegovina','Botswana','Brazil','Brunei','Bulgaria','Burkina Faso','Burundi','Cabo Verde','Cambodia','Cameroon','Canada','Central African Republic','Chad','Chile','China','Colombia','Comoros','Congo (Brazzaville)','Congo (DRC)','Costa Rica','Croatia','Cuba','Cyprus','Czechia','Denmark','Djibouti','Dominica','Dominican Republic','Ecuador','Egypt','El Salvador','Equatorial Guinea','Eritrea','Estonia','Eswatini','Ethiopia','Fiji','Finland','France','Gabon','Gambia','Georgia','Germany','Ghana','Greece','Grenada','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti','Honduras','Hungary','Iceland','India','Indonesia','Iran','Iraq','Ireland','Israel','Italy','Ivory Coast','Jamaica','Japan','Jordan','Kazakhstan','Kenya','Kiribati','Kosovo','Kuwait','Kyrgyzstan','Laos','Latvia','Lebanon','Lesotho','Liberia','Libya','Liechtenstein','Lithuania','Luxembourg','Madagascar','Malawi','Malaysia','Maldives','Mali','Malta','Marshall Islands','Mauritania','Mauritius','Mexico','Micronesia','Moldova','Monaco','Mongolia','Montenegro','Morocco','Mozambique','Myanmar','Namibia','Nauru','Nepal','Netherlands','New Zealand','Nicaragua','Niger','Nigeria','North Korea','North Macedonia','Norway','Oman','Pakistan','Palau','Palestine','Panama','Papua New Guinea','Paraguay','Peru','Philippines','Poland','Portugal','Qatar','Romania','Russia','Rwanda','Saint Kitts and Nevis','Saint Lucia','Saint Vincent and the Grenadines','Samoa','San Marino','Sao Tome and Principe','Saudi Arabia','Senegal','Serbia','Seychelles','Sierra Leone','Singapore','Slovakia','Slovenia','Solomon Islands','Somalia','South Africa','South Korea','South Sudan','Spain','Sri Lanka','Sudan','Suriname','Sweden','Switzerland','Syria','Taiwan','Tajikistan','Tanzania','Thailand','Timor-Leste','Togo','Tonga','Trinidad and Tobago','Tunisia','Turkey','Turkmenistan','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom','United States','Uruguay','Uzbekistan','Vanuatu','Vatican City','Venezuela','Vietnam','Yemen','Zambia','Zimbabwe'];
+$('#countriesList').innerHTML = COUNTRIES.map(c => '<option value="' + c + '"></option>').join('');
+
+/* ============ segmented DD-MMM-YYYY dates ============ */
+function fillMonths(sel){
+  sel.innerHTML = '<option value="" disabled selected>MMM</option>' + MONTHS.map(m => '<option value="' + m + '">' + m + '</option>').join('');
+}
+function digitsOnly(el, max){
+  el.value = el.value.replace(/\D/g, '').slice(0, max);
+}
+function updateAge(seg){
+  if (!seg.dataset.dob) return;
+  const block = seg.closest('[data-dateblock]');
+  if (!block) return;
+  const out = $('[data-age]', block);
+  const a = ageOf(seg);
+  if (a !== null){ out.textContent = '· Age: ' + a; out.classList.remove('hidden'); }
+  else { out.textContent = ''; out.classList.add('hidden'); }
+}
+function wireDate(seg){
+  const d = $('[data-d]', seg), m = $('[data-m]', seg), y = $('[data-y]', seg);
+  fillMonths(m);
+  d.addEventListener('input', () => { digitsOnly(d, 2); if (d.value.length === 2) m.focus(); });
+  y.addEventListener('input', () => digitsOnly(y, 4));
+  m.addEventListener('change', () => y.focus());
+  ['input','change'].forEach(ev => seg.addEventListener(ev, () => { seg.classList.remove('err'); updateAge(seg); }));
+}
+function dateStr(seg){
+  const d = $('[data-d]', seg).value, m = $('[data-m]', seg).value, y = $('[data-y]', seg).value;
+  if (!d || !m || y.length !== 4) return '';
+  return d.padStart(2,'0') + '-' + m + '-' + y;
+}
+function dateObj(seg){
+  const d = parseInt($('[data-d]', seg).value, 10);
+  const m = $('[data-m]', seg).value;
+  const y = parseInt($('[data-y]', seg).value, 10);
+  if (!d || !m || !y || String($('[data-y]', seg).value).length !== 4) return null;
+  const mi = MONTHS.indexOf(m);
+  if (mi < 0 || y < 1900 || y > 2100 || d < 1 || d > 31) return null;
+  const dt = new Date(y, mi, d);
+  if (dt.getFullYear() !== y || dt.getMonth() !== mi || dt.getDate() !== d) return null;
+  return dt;
+}
+function ageOf(seg){
+  const dt = dateObj(seg); if (!dt) return null;
+  const now = new Date();
+  let a = now.getFullYear() - dt.getFullYear();
+  const before = (now.getMonth() < dt.getMonth()) || (now.getMonth() === dt.getMonth() && now.getDate() < dt.getDate());
+  if (before) a--;
+  return (a >= 0 && a < 130) ? a : null;
+}
+$$('.date-seg').forEach(wireDate);
+
+/* ============ phone prefix ============ */
+const cPrefix = $('#cPrefix'), cPrefixCustom = $('#cPrefixCustom');
+cPrefix.addEventListener('change', () => {
+  const custom = cPrefix.value === 'custom';
+  cPrefixCustom.classList.toggle('hidden', !custom);
+  if (custom){ cPrefixCustom.focus(); } else { cPrefixCustom.value=''; cPrefixCustom.classList.remove('err'); }
+  schedulePreview();
+});
+
+/* ============ destination hub → postal ============ */
+const dHub = $('#dHub'), dPostal = $('#dPostal'), dCityWrap = $('#dCityWrap'), dCity = $('#dCity');
+dHub.addEventListener('change', () => {
+  const opt = dHub.selectedOptions[0];
+  const isOther = dHub.value === 'other';
+  dCityWrap.classList.toggle('hidden', !isOther);
+  if (isOther){ dCity.focus(); }
+  else if (opt && opt.dataset.zip){ dPostal.value = opt.dataset.zip; dPostal.classList.remove('err'); }
+  schedulePreview();
+});
+
+/* ============ family members repeater ============ */
+const membersList = $('#membersList'), memberTpl = $('#memberTpl');
+function renumber(){
+  $$('.member-card', membersList).forEach((card, i) => {
+    $('[data-mbadge]', card).textContent = i + 1;
+    $('[data-mtitle]', card).textContent = 'Family member ' + (i + 1);
+  });
+}
+$('#addMember').addEventListener('click', () => {
+  const node = memberTpl.content.cloneNode(true);
+  const card = $('.member-card', node);
+  wireDate($('.date-seg', card));
+  $('[data-remove]', card).addEventListener('click', () => {
+    card.style.transition = 'opacity .25s, transform .25s';
+    card.style.opacity = '0'; card.style.transform = 'translateY(8px)';
+    setTimeout(() => { card.remove(); renumber(); schedulePreview(); }, 240);
+  });
+  membersList.appendChild(node);
+  renumber(); schedulePreview();
+  const first = $('.m-name', $('.member-card:last-child', membersList));
+  if (first) first.focus();
+});
+
+/* ============ add-on switches ============ */
+$$('.addon input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    const card = cb.closest('.addon');
+    if (card) card.classList.toggle('on', cb.checked);
+    schedulePreview();
+  });
+});
+
+/* ============ pet panel + species-aware defaults ============ */
+const PET_DEFAULTS = {
+  Dog: {name: 'e.g. Toby', breed: 'e.g. Labrador Retriever'},
+  Cat: {name: 'e.g. Misu', breed: 'e.g. European Shorthair'}
+};
+const addPet = $('#addPet'), petPanel = $('#petPanel'), petType = $('#petType'), petName = $('#petName'), petBreed = $('#petBreed');
+addPet.addEventListener('change', () => {
+  petPanel.classList.toggle('hidden', !addPet.checked);
+  if (addPet.checked) petName.focus();
+});
+function setPetPlaceholders(){
+  const p = PET_DEFAULTS[petType.value] || PET_DEFAULTS.Dog;
+  petName.placeholder = p.name;
+  petBreed.placeholder = p.breed;
+}
+petType.addEventListener('change', () => { setPetPlaceholders(); schedulePreview(); });
+setPetPlaceholders();
+
+/* ============ error marking / clearing ============ */
+function mark(el){ if (el){ el.classList.add('err'); el.setAttribute('aria-invalid','true'); } }
+$('#quoteForm').addEventListener('input', e => {
+  const t = e.target;
+  if (t.classList && t.classList.contains('inp')){ t.classList.remove('err'); t.removeAttribute('aria-invalid'); }
+});
+$('#quoteForm').addEventListener('change', e => {
+  const t = e.target;
+  if (t.classList && t.classList.contains('inp')){ t.classList.remove('err'); t.removeAttribute('aria-invalid'); }
+  if (t.name === 'pGender') $('#genderWrap').classList.remove('errg');
+  if (t.id === 'gdpr') $('#gdprLabel').classList.remove('errck');
+});
+
+/* ============ collect + validate + serialize ============ */
+function collect(strict){
+  const errs = [];
+  const v = id => ($('#' + id).value || '').trim();
+  const need = (id, msg) => {
+    const el = $('#' + id); const ok = el && el.value.trim();
+    if (!ok){ errs.push({el, msg}); if (strict) mark(el); }
+    return ok ? el.value.trim() : '';
+  };
+
+  /* A. contact */
+  const given = need('cGiven','First / given name is required');
+  const sur1  = need('cSur1','First surname is required');
+  const sur2  = v('cSur2');
+  const fullName = [given, sur1, sur2].filter(Boolean).join(' ');
+  const email = need('cEmail','Email address is required');
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
+    errs.push({el: $('#cEmail'), msg:'Please enter a valid email address'}); if (strict) mark($('#cEmail'));
+  }
+  let prefix = cPrefix.value;
+  if (prefix === 'custom'){
+    const cp = cPrefixCustom.value.trim();
+    if (!/^\+?\d{1,4}$/.test(cp)){ errs.push({el:cPrefixCustom, msg:'Enter a valid custom calling prefix (e.g. +971)'}); if (strict) mark(cPrefixCustom); }
+    prefix = cp ? (cp.startsWith('+') ? cp : '+' + cp) : '';
+  }
+  const phoneRaw = need('cPhone','Phone number is required');
+  const digits = phoneRaw.replace(/\D/g,'');
+  if (phoneRaw && (digits.length < 4 || digits.length > 15)){
+    errs.push({el:$('#cPhone'), msg:'Please enter a valid phone number (digits only, 4–15)'}); if (strict) mark($('#cPhone'));
+  }
+  const lang = v('cLang');
+
+  /* B. primary applicant */
+  const g = document.querySelector('input[name="pGender"]:checked');
+  if (!g){ errs.push({el:$('#genderWrap'), msg:'Please select a gender — required by ASISA for quoting'}); if (strict) $('#genderWrap').classList.add('errg'); }
+  const docType = v('pDocType');
+  const docNum  = need('pDocNum','Document number is required for the ASISA visa certificate');
+  const dobSeg = $('#pDob');
+  const dobDt = dateObj(dobSeg); const dobStr = dateStr(dobSeg);
+  if (!dobDt || dobDt >= new Date()){ errs.push({el:dobSeg, msg:'Enter a valid date of birth (DD-MMM-YYYY, in the past)'}); if (strict) mark(dobSeg); }
+  const dobAge = dobDt ? ageOf(dobSeg) : null;
+  const nat  = need('pNat','Nationality / country of citizenship is required');
+  const visa = v('pVisa');
+  const startSeg = $('#pStart');
+  const startDt = dateObj(startSeg); const startStr = dateStr(startSeg);
+  if (!startDt){ errs.push({el:startSeg, msg:'Enter a valid desired policy start date (DD-MMM-YYYY)'}); if (strict) mark(startSeg); }
+
+  /* C. destination */
+  const hubSel = dHub.value;
+  const city = hubSel === 'other' ? v('dCity') : hubSel;
+  if (hubSel === 'other' && !city){ errs.push({el:dCity, msg:'Enter your destination city in Spain'}); if (strict) mark(dCity); }
+  const postal = v('dPostal');
+  if (!/^\d{5}$/.test(postal)){ errs.push({el:dPostal, msg:'Postal code must be 5 digits (Spain)'}); if (strict) mark($('#dPostal')); }
+
+  /* D. members */
+  const members = [];
+  $$('.member-card', membersList).forEach((card, i) => {
+    const nm = $('.m-name', card), rl = $('.m-rel', card), gd = $('.m-gender', card),
+          db = $('.m-dob', card), nt = $('.m-nat', card), dc = $('.m-doc', card);
+    const who = 'Family member ' + (i+1);
+    if (!nm.value.trim()){ errs.push({el:nm, msg: who + ': full name is required'}); if (strict) mark(nm); }
+    if (!rl.value){ errs.push({el:rl, msg: who + ': select the relationship'}); if (strict) mark(rl); }
+    if (!gd.value){ errs.push({el:gd, msg: who + ': select the gender'}); if (strict) mark(gd); }
+    const mdt = dateObj(db);
+    if (!mdt || mdt >= new Date()){ errs.push({el:db, msg: who + ': enter a valid date of birth'}); if (strict) mark(db); }
+    if (!nt.value.trim()){ errs.push({el:nt, msg: who + ': nationality is required'}); if (strict) mark(nt); }
+    if (!dc.value.trim()){ errs.push({el:dc, msg: who + ': passport / NIE number is required'}); if (strict) mark(dc); }
+    members.push({
+      name: nm.value.trim(), rel: rl.value, gender: gd.value,
+      dob: dateStr(db), age: mdt ? ageOf(db) : null,
+      nat: nt.value.trim(), doc: dc.value.trim()
+    });
+  });
+
+  /* E. add-ons */
+  const dental = $('#addDental').checked, hosp = $('#addHosp').checked, acc = $('#addAcc').checked;
+  const petOn = addPet.checked;
+  let pet = null;
+  if (petOn){
+    const pName = petName.value.trim(), pBreed = petBreed.value.trim(), pAge = $('#petAge').value.trim();
+    if (!pName){ errs.push({el:petName, msg:'Pet insurance: pet name is required'}); if (strict) mark(petName); }
+    if (!pBreed){ errs.push({el:petBreed, msg:'Pet insurance: breed is required'}); if (strict) mark(petBreed); }
+    if (!pAge || isNaN(+pAge) || +pAge < 0 || +pAge > 40){ errs.push({el:$('#petAge'), msg:'Pet insurance: enter a valid pet age (0–40)'}); if (strict) mark($('#petAge')); }
+    pet = {type: petType.value, name: pName, breed: pBreed, age: pAge};
+  }
+
+  /* F. notes + gdpr */
+  const notes = v('notes');
+  const gdprOk = $('#gdpr').checked;
+  if (!gdprOk){ errs.push({el:$('#gdprLabel'), msg:'Please tick the GDPR authorization to continue'}); if (strict) $('#gdprLabel').classList.add('errck'); }
+
+  const data = {
+    fullName, given, sur1, sur2, email,
+    phone: (prefix ? prefix + ' ' : '') + phoneRaw, prefix, phoneRaw,
+    lang, city, postal,
+    gender: g ? g.value : '', docType, docNum,
+    dob: dobStr, dobAge, nat, visa, start: startStr,
+    members, dental, hosp, acc, petOn, pet, notes, gdprOk
+  };
+  return {data, errs};
+}
+
+const SEP = '='.repeat(50);
+function yn(b){ return b ? 'Yes' : 'No'; }
+
+function buildSummary(d){
+  const L = [];
+  L.push(SEP);
+  L.push('        ASISA VISA INSURANCE QUOTE REQUEST');
+  L.push(SEP);
+  L.push('');
+  L.push('1. CONTACT INFO');
+  L.push('- Full Name: ' + (d.fullName || '—'));
+  L.push('- Email: ' + (d.email || '—'));
+  L.push('- Phone: ' + (d.phone.trim() || '—'));
+  L.push('- Preferred Language: ' + (d.lang || '—'));
+  L.push('- Destination: ' + (d.city || '—') + ' (Postal Code: ' + (d.postal || '—') + ')');
+  L.push('');
+  L.push('2. PRIMARY APPLICANT');
+  L.push('- Gender: ' + (d.gender || '—'));
+  L.push('- Document ID (' + (d.docType || 'Passport') + '): ' + (d.docNum || '—'));
+  L.push('- Date of Birth: ' + (d.dob || '—') + (d.dobAge !== null && d.dobAge !== undefined ? ' (Age: ' + d.dobAge + ')' : ''));
+  L.push('- Nationality: ' + (d.nat || '—'));
+  L.push('- Visa Category: ' + (d.visa || '—'));
+  L.push('- Desired Start Date: ' + (d.start || '—'));
+  L.push('');
+  L.push('3. FAMILY MEMBERS TO INSURE (' + d.members.length + ' additional)');
+  if (d.members.length === 0){
+    L.push('None - Single Applicant');
+  } else {
+    d.members.forEach((m, i) => {
+      L.push('- Member ' + (i+1) + ': ' + (m.name || '—')
+        + ' | Rel: ' + (m.rel || '—')
+        + ' | Gender: ' + (m.gender || '—')
+        + ' | DOB: ' + (m.dob || '—') + (m.age !== null ? ' (Age: ' + m.age + ')' : '')
+        + ' | Nat: ' + (m.nat || '—')
+        + ' | Doc: ' + (m.doc || '—'));
+    });
+  }
+  L.push('');
+  L.push('4. COVERAGE & OPTIONAL ADD-ONS');
+  L.push('- Base Product: ASISA Compliant Visa Insurance (0 Copay / Repatriation)');
+  L.push('- Dental Coverage: ' + yn(d.dental));
+  L.push('- Hospitalization Cash Benefit: ' + yn(d.hosp));
+  L.push('- Personal Accident Cover: ' + yn(d.acc));
+  L.push('- Pet Insurance: ' + (d.petOn && d.pet
+      ? 'Yes: Type (' + d.pet.type + '), Name: ' + (d.pet.name || '—') + ', Breed: ' + (d.pet.breed || '—') + ', Age: ' + (d.pet.age || '—')
+      : 'No'));
+  L.push('');
+  L.push('5. ADDITIONAL NOTES');
+  L.push(d.notes || 'None');
+  L.push('');
+  L.push(SEP);
+  L.push('GDPR & CYBERSECURITY NOTICE:');
+  L.push('- The sender consents to Elly processing this data solely for an official ASISA quote.');
+  L.push('- No ID documents were uploaded to this website.');
+  L.push('- Sender was advised to watermark document scans via saferlayer.com before emailing.');
+  L.push('- Form generated 100% locally in user browser memory.');
+  L.push(SEP);
+  return L.join('\n');
+}
+
+/* ============ live preview ============ */
+const summaryOut = $('#summaryOut');
+function renderPreview(){
+  const {data} = collect(false);
+  summaryOut.textContent = buildSummary(data);
+}
+let pvTimer = null;
+function schedulePreview(){ clearTimeout(pvTimer); pvTimer = setTimeout(renderPreview, 220); }
+$('#quoteForm').addEventListener('input', schedulePreview);
+$('#quoteForm').addEventListener('change', schedulePreview);
+renderPreview();
+
+/* ============ guarded submission ============ */
+function guarded(){
+  const {data, errs} = collect(true);
+  if (errs.length){
+    toast(errs[0].msg, true);
+    const first = errs[0].el;
+    setTimeout(() => {
+      first.scrollIntoView({behavior:'smooth', block:'center'});
+      if (first.focus) setTimeout(() => { try{ first.focus({preventScroll:true}); }catch(e){} }, 450);
+    }, 60);
+    return null;
+  }
+  return {txt: buildSummary(data), data: data};
+}
+
+$('#btnEmail').addEventListener('click', () => {
+  const g = guarded();
+  if (!g) return;
+  const subject = 'ASISA Visa Quote Request - ' + (g.data.fullName || 'New Client');
+  window.location.href = 'mailto:' + AGENT_EMAIL +
+    '?subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent(g.txt);
+  toast('Opening your email app…');
+});
+
+$('#btnWhats').addEventListener('click', () => {
+  const g = guarded();
+  if (!g) return;
+  window.open('https://wa.me/' + AGENT_WA + '?text=' + encodeURIComponent(g.txt), '_blank', 'noopener');
+  toast('Opening WhatsApp…');
+});
+
+function copyText(txt, okMsg){
+  const done = () => toast(okMsg);
+  if (navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(txt).then(done).catch(() => fallbackCopy(txt, done));
+  } else fallbackCopy(txt, done);
+}
+function fallbackCopy(txt, done){
+  const ta = document.createElement('textarea');
+  ta.value = txt; ta.setAttribute('readonly','');
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch(e){ toast('Copy failed — please select the text manually', true); }
+  ta.remove();
+}
+
+$('#btnCopy').addEventListener('click', () => {
+  const g = guarded();
+  if (!g) return;
+  copyText(g.txt, 'Summary copied!');
+});
+
+/* ============ small copy utilities ============ */
+$('#wmCopy').addEventListener('click', () => copyText(WM_TEXT, 'Watermark text copied!'));
+$('#emailCopy').addEventListener('click', () => copyText(AGENT_EMAIL, 'Email address copied!'));
+const nameCopyBtn = $('#nameCopy');
+if (nameCopyBtn) nameCopyBtn.addEventListener('click', () => copyText('ELLY CAMPEANU', 'Name copied — paste it in the DGSFP search'));
+
+/* ============ reset ============ */
+$('#resetBtn').addEventListener('click', () => {
+  $('#quoteForm').reset();
+  membersList.innerHTML = '';
+  dPostal.value = '43001';
+  dCityWrap.classList.add('hidden');
+  petPanel.classList.add('hidden');
+  cPrefixCustom.classList.add('hidden'); cPrefixCustom.value = '';
+  setPetPlaceholders();
+  $$('.err').forEach(el => el.classList.remove('err'));
+  $('#genderWrap').classList.remove('errg');
+  $('#gdprLabel').classList.remove('errck');
+  $$('.addon.on').forEach(el => el.classList.remove('on'));
+  $$('[data-age]').forEach(el => { el.textContent=''; el.classList.add('hidden'); });
+  renderPreview();
+  toast('Form cleared — starting fresh');
+});
+
+/* ============ footer year ============ */
+$('#yearNow').textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>
