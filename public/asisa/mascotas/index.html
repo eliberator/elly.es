@@ -190,18 +190,22 @@ section{scroll-margin-top:92px}
 .count-card small{font-weight:700;color:var(--ink-soft);font-size:.78rem;text-align:center}
 .paws-mini{display:flex;gap:3px;color:var(--coral)}
 .paws-mini svg{width:16px;height:16px}
-.count-card{display:flex;flex-direction:column}
+.count-card{display:flex;flex-direction:column;gap:8px}
 .count-card>label{flex:1}
-.custom-pets{display:none;padding:12px 10px 4px;text-align:center}
-.custom-pets.show{display:block;animation:fadeUp .3s ease}
-.custom-pets>label{display:block;font-weight:700;font-size:.78rem;color:var(--teal-darker);margin-bottom:7px}
-.custom-hint{display:block;font-size:.7rem;color:var(--ink-soft);margin-top:6px}
-.num-stepper{display:flex;align-items:stretch;justify-content:center;gap:0;max-width:150px;margin:0 auto;border:1.5px solid var(--teal);border-radius:11px;overflow:hidden;background:#fff}
-.num-stepper button{width:38px;border:0;background:var(--teal-soft);color:var(--teal-darker);font-family:var(--font-h);font-weight:900;font-size:1.15rem;cursor:pointer;line-height:1;transition:background .18s}
-.num-stepper button:hover{background:var(--teal);color:#fff}
-.num-stepper input{width:100%;border:0;text-align:center;font-family:var(--font-h);font-weight:900;font-size:1.05rem;color:var(--teal-darker);padding:9px 0;-moz-appearance:textfield;appearance:textfield}
-.num-stepper input::-webkit-outer-spin-button,.num-stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.num-stepper input:focus{outline:none;background:var(--teal-ghost)}
+/* --- stepper compacto: cabe completo dentro de la tarjeta --- */
+.custom-pets{display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:12px 8px;min-height:0}
+#cardMas input:checked ~ label{display:none}
+#cardMas input:checked ~ .custom-pets{display:flex;animation:fadeUp .25s ease}
+.cp-label{font-weight:800;font-size:.62rem;color:var(--teal-dark);text-transform:uppercase;letter-spacing:.6px;line-height:1}
+.step-btn{display:flex;align-items:center;justify-content:center;width:100%;max-width:58px;height:31px;border:0;border-radius:9px;background:var(--teal-dark);color:#fff;font-family:var(--font-h);font-weight:900;font-size:1.15rem;cursor:pointer;line-height:1;transition:transform .14s,background .18s;touch-action:manipulation;flex:none}
+.step-btn:hover{background:var(--teal-darker)}
+.step-btn:active{transform:scale(.94)}
+.step-down{background:var(--coral-dark)}
+.step-down:hover{background:#9E3B25}
+.cp-big{font-family:var(--font-h);font-weight:900;font-size:1.6rem;color:var(--teal-dark);line-height:1;min-height:1.6rem}
+.cp-small{font-weight:700;color:var(--ink-soft);font-size:.66rem;line-height:1}
+.field select:disabled{background:var(--teal-soft);color:var(--teal-darker);font-weight:700;border-color:rgba(42,157,143,.4);cursor:not-allowed;opacity:1}
+.field select option:disabled{color:#AAB2B6}
 .date-field{display:flex;flex-direction:column;gap:6px}
 .date-text{font-family:var(--font-b);font-size:.95rem;padding:12px 14px;border:1.5px solid #D8CEC2;border-radius:11px;background:#fff;color:var(--ink);width:100%;transition:border-color .2s,box-shadow .2s;text-transform:uppercase}
 .date-text::placeholder{text-transform:none;color:#98A3A8}
@@ -496,6 +500,13 @@ section{scroll-margin-top:92px}
 .modal-head{padding:18px}
 .modal-body{padding:18px}
 .date-selects{grid-template-columns:1fr 1fr 1.2fr;gap:6px}
+.count-card label{padding:14px 5px}
+.count-num{font-size:1.45rem}
+.count-card small{font-size:.66rem}
+.custom-pets{padding:9px 5px;gap:3px}
+.step-btn{max-width:100%;height:28px;font-size:1rem;border-radius:8px}
+.cp-big{font-size:1.4rem}
+.cp-label{font-size:.56rem}
 .gar-card label{padding:15px 14px}
 .badge-price,.badge-carencia,.badge-confirm{font-size:.62rem}
 .gar-badges{gap:5px}
@@ -697,17 +708,16 @@ html{scroll-behavior:auto}
               <input type="radio" name="numPets" id="np2" value="2">
               <label for="np2"><span class="paws-mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span><span class="count-num">2</span><small>mascotas</small></label>
             </div>
-            <div class="count-card">
+            <div class="count-card" id="cardMas">
               <input type="radio" name="numPets" id="npMas" value="mas">
               <label for="npMas"><span class="paws-mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span><span class="count-num" id="countMasNum">3 o +</span><small>mascotas</small></label>
               <div class="custom-pets" id="customPetsWrap">
-                <label for="numPetsCustom">¿Cuántas exactamente?</label>
-                <div class="num-stepper">
-                  <button type="button" id="petsMinus" aria-label="Quitar una mascota">−</button>
-                  <input type="number" id="numPetsCustom" min="3" max="10" value="3" inputmode="numeric" aria-label="Número exacto de mascotas">
-                  <button type="button" id="petsPlus" aria-label="Añadir una mascota">+</button>
-                </div>
-                <span class="custom-hint" id="customHint">3 fichas creadas · máx. 10</span>
+                <span class="cp-label">¿Cuántas?</span>
+                <button type="button" class="step-btn" id="petsPlus" aria-label="Añadir una mascota">+</button>
+                <span class="cp-big" id="cpBigNum">3</span>
+                <button type="button" class="step-btn step-down" id="petsMinus" aria-label="Quitar una mascota">−</button>
+                <small class="cp-small">mascotas</small>
+                <input type="hidden" id="numPetsCustom" value="3">
               </div>
             </div>
           </div>
@@ -870,12 +880,13 @@ html{scroll-behavior:auto}
             <div class="field col-2">
               <span class="flabel" id="fn-lbl">Fecha de nacimiento del tomador <span class="req">*</span></span>
               <div id="fnDateWrap" role="group" aria-labelledby="fn-lbl"></div>
-              <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Formato: DÍA MES AÑO (por ejemplo 01 ENE 1991). Debes ser mayor de 18 años.</span>
+              <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Escribe los números (01/01/1991) o usa los desplegables. Debes ser mayor de 18 años.</span>
               <p class="err-msg" id="err-fechaNac"></p>
             </div>
             <div class="field">
               <label for="nacionalidad">Nacionalidad <span class="req">*</span></label>
               <select id="nacionalidad"></select>
+              <span class="hint" id="nacHint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> <span id="nacHintTxt">Con DNI, la nacionalidad es española.</span></span>
               <p class="err-msg" id="err-nacionalidad"></p>
             </div>
             <div class="field" id="wrapNacOtra" style="display:none">
@@ -1289,6 +1300,68 @@ function mesIndex(tok){
   if(MESES_LARGOS[tok]!==undefined) return MESES_LARGOS[tok];
   return -1;
 }
+function diasDelMes(mi,yy){ return new Date(yy,mi+1,0).getDate(); }
+/* Máscara inteligente DD/MM/AAAA: inserta las barras y bloquea en vivo
+   cualquier valor imposible (día 0 o >31, mes 0 o >12, año fuera de rango,
+   31/02 → 28 o 29 según el año). Nunca deja escribir una fecha inválida. */
+function maskDateInput(el,borrando){
+  var raw=el.value;
+  if(/[A-Za-zÁÉÍÓÚÑáéíóúñ]/.test(raw)) return; /* texto tipo "01 ENE 1991": se deja tal cual */
+  var ymin=parseInt(el.getAttribute('data-ymin'),10);
+  var ymax=parseInt(el.getAttribute('data-ymax'),10);
+  var dig=raw.replace(/\D/g,'').slice(0,8);
+  var out='';
+  if(dig.length){
+    /* ---------- DÍA (01–31) ---------- */
+    var day,usados;
+    if(dig.length===1){
+      /* 4..9 solo puede ser 04..09 → autocompleta y salta al mes */
+      day=(parseInt(dig,10)>3 && !borrando) ? '0'+dig : dig;
+      usados=1;
+    } else {
+      var dn=parseInt(dig.substr(0,2),10);
+      day = dn<1 ? '01' : (dn>31 ? '31' : dig.substr(0,2));
+      usados=2;
+    }
+    out=day;
+    var r1=dig.substr(usados);
+    if(day.length===2 && (r1.length>0 || !borrando)) out+='/';
+    /* ---------- MES (01–12) ---------- */
+    if(r1.length){
+      var mon,usados2;
+      if(r1.length===1){
+        /* 2..9 solo puede ser 02..09 → autocompleta y salta al año */
+        mon=(parseInt(r1,10)>1 && !borrando) ? '0'+r1 : r1;
+        usados2=1;
+      } else {
+        var mn=parseInt(r1.substr(0,2),10);
+        mon = mn<1 ? '01' : (mn>12 ? '12' : r1.substr(0,2));
+        usados2=2;
+      }
+      out+=mon;
+      var r2=r1.substr(usados2);
+      if(mon.length===2 && (r2.length>0 || !borrando)) out+='/';
+      /* ---------- AÑO (dentro del rango permitido) ---------- */
+      if(r2.length){
+        var yr=r2.slice(0,4);
+        out+=yr;
+        if(yr.length===4){
+          var yn=parseInt(yr,10);
+          if(!isNaN(ymin)&&yn<ymin) yn=ymin;
+          if(!isNaN(ymax)&&yn>ymax) yn=ymax;
+          /* día imposible para ese mes/año (31/02, 31/04…) → último día real */
+          var dim=diasDelMes(parseInt(mon,10)-1,yn);
+          if(parseInt(day,10)>dim) day=pad2(dim);
+          out=day+'/'+mon+'/'+yn;
+        }
+      }
+    }
+  }
+  if(out!==raw){
+    el.value=out;
+    try{ el.setSelectionRange(out.length,out.length); }catch(e){}
+  }
+}
 /* acepta: 01 ENE 1991 · 1 enero 1991 · 01/01/1991 · 1-1-1991 */
 function parseDateText(v){
   if(!v) return null;
@@ -1303,7 +1376,7 @@ function parseDateText(v){
   return {d:dd,mi:mi,y:yy,iso:yy+'-'+pad2(mi+1)+'-'+pad2(dd),dmy:pad2(dd)+' '+MESES[mi]+' '+yy};
 }
 function dateSelectsHTML(base,yFrom,yTo){
-  var t='<input type="text" class="date-text" id="'+base+'-t" placeholder="Escríbela: 01 ENE 1991" autocomplete="off" spellcheck="false" aria-label="Escribe la fecha en formato DÍA MES AÑO">';
+  var t='<input type="text" class="date-text" id="'+base+'-t" placeholder="DD/MM/AAAA" inputmode="numeric" maxlength="14" autocomplete="off" spellcheck="false" data-ymax="'+yFrom+'" data-ymin="'+yTo+'" aria-label="Escribe la fecha: dos dígitos de día, dos de mes y cuatro de año">';
   var d='<select class="date-sel" id="'+base+'-d" aria-label="Día"><option value="" selected>DD</option>';
   for(var i=1;i<=31;i++){ d+='<option value="'+pad2(i)+'">'+pad2(i)+'</option>'; }
   d+='</select>';
@@ -1350,7 +1423,22 @@ function bindDateSel(base,onchange){
   });
   var tt=$(base+'-t');
   if(tt){
-    tt.addEventListener('input',function(){
+    /* solo se pueden teclear dígitos y la barra: nada de letras ni signos */
+    tt.addEventListener('keypress',function(e){
+      if(e.ctrlKey||e.metaKey||e.altKey) return;
+      if(e.key && e.key.length===1 && !/[0-9\/]/.test(e.key)) e.preventDefault();
+    });
+    tt.addEventListener('paste',function(e){
+      var txt=(e.clipboardData||window.clipboardData).getData('text')||'';
+      if(/[A-Za-zÁÉÍÓÚÑáéíóúñ]/.test(txt)) return; /* permite pegar "01 ENE 1991" */
+      e.preventDefault();
+      tt.value=txt.replace(/\D/g,'').slice(0,8);
+      maskDateInput(tt,false);
+      tt.dispatchEvent(new Event('input',{bubbles:true}));
+    });
+    tt.addEventListener('input',function(e){
+      var borrando = e && (e.inputType==='deleteContentBackward'||e.inputType==='deleteContentForward');
+      maskDateInput(tt,borrando);
       var p=parseDateText(tt.value);
       if(p){
         ensureYearOption(base,p.y);
@@ -1360,6 +1448,12 @@ function bindDateSel(base,onchange){
       }
       if(onchange) onchange();
     });
+    /* al enfocar, vuelve a formato numérico editable DD/MM/AAAA */
+    tt.addEventListener('focus',function(){
+      var p=parseDateText(tt.value);
+      if(p) tt.value=pad2(p.d)+'/'+pad2(p.mi+1)+'/'+p.y;
+    });
+    /* al salir, muestra el formato legible 01 ENE 1991 */
     tt.addEventListener('blur',function(){
       var p=parseDateText(tt.value);
       if(p) tt.value=p.dmy;
@@ -1448,6 +1542,7 @@ function fillSelect(sel,arr,selected){
   });
 }
 fillSelect($('nacionalidad'),NACIONALIDADES,'Española');
+$('nacionalidad').insertAdjacentHTML('afterbegin','<option value="" disabled>Selecciona tu nacionalidad</option>');
 fillSelect($('provincia'),PROVINCIAS,null);
 $('provincia').insertAdjacentHTML('afterbegin','<option value="" disabled selected>Selecciona tu provincia</option>');
 fillSelect($('tipoVia'),VIAS,'Calle');
@@ -1456,7 +1551,47 @@ $('nacionalidad').addEventListener('change',function(){
   var show=this.value==='Otra';
   $('wrapNacOtra').style.display=show?'flex':'none';
   if(!show){ $('nacOtra').value=''; clearErr('err-nacOtra',$('nacOtra')); }
+  clearErr('err-nacionalidad',$('nacionalidad'));
 });
+/* ===== Coherencia documento ⇄ nacionalidad =====
+   DNI  → nacionalidad española (fijada, no editable)
+   NIE  → extranjero: la opción "Española" queda deshabilitada
+   Pasaporte → cualquier nacionalidad */
+function aplicarReglaNacionalidad(avisar){
+  var tipo=$('docTipo').value;
+  var sel=$('nacionalidad');
+  var optEsp=null, optPlaceholder=null;
+  for(var i=0;i<sel.options.length;i++){
+    if(sel.options[i].value==='Española') optEsp=sel.options[i];
+    if(sel.options[i].value==='') optPlaceholder=sel.options[i];
+  }
+  if(tipo==='DNI'){
+    if(optEsp) optEsp.disabled=false;
+    sel.value='Española';
+    sel.disabled=true;
+    sel.classList.remove('invalid');
+    $('wrapNacOtra').style.display='none';
+    $('nacOtra').value='';
+    $('nacHintTxt').textContent='El DNI es un documento español: la nacionalidad queda fijada como «Española».';
+    clearErr('err-nacionalidad',sel);
+  } else if(tipo==='NIE'){
+    sel.disabled=false;
+    if(optEsp) optEsp.disabled=true;
+    if(sel.value==='Española'){
+      if(optPlaceholder) optPlaceholder.disabled=false;
+      sel.value='';
+      if(avisar) toast('El NIE es el documento de personas extranjeras: selecciona tu nacionalidad.','info');
+    }
+    $('wrapNacOtra').style.display=(sel.value==='Otra')?'flex':'none';
+    $('nacHintTxt').textContent='El NIE corresponde a personas extranjeras: elige una nacionalidad distinta de la española.';
+  } else {
+    sel.disabled=false;
+    if(optEsp) optEsp.disabled=false;
+    $('wrapNacOtra').style.display=(sel.value==='Otra')?'flex':'none';
+    $('nacHintTxt').textContent='Selecciona la nacionalidad que figura en tu pasaporte.';
+  }
+}
+aplicarReglaNacionalidad(false);
 /* fecha nacimiento tomador */
 var hoy=todayISO();
 var Ycur=new Date().getFullYear();
@@ -1531,7 +1666,7 @@ function petCardHTML(i){
       '<div class="field">'+
         '<span class="flabel" id="p'+i+'-nac-lbl">Fecha de nacimiento de la mascota <span class="req">*</span></span>'+
         '<div id="p'+i+'-nac-wrap" role="group" aria-labelledby="p'+i+'-nac-lbl"></div>'+
-        '<span class="hint">'+ICO_INFO+' Formato: DÍA MES AÑO (01 ENE 2020). No hay límite de edad.</span>'+
+        '<span class="hint">'+ICO_INFO+' Escribe los números (01/01/2020) o usa los desplegables. No hay límite de edad.</span>'+
         '<p class="err-msg" id="err-p'+i+'-nacimiento"></p>'+
       '</div>'+
       '<div class="field">'+
@@ -1557,7 +1692,7 @@ function petCardHTML(i){
       '<div class="field col-2">'+
         '<span class="flabel" id="p'+i+'-ini-lbl">Fecha deseada de inicio del seguro <span class="req">*</span></span>'+
         '<div id="p'+i+'-ini-wrap" role="group" aria-labelledby="p'+i+'-ini-lbl"></div>'+
-        '<span class="hint">'+ICO_INFO+' Formato: DÍA MES AÑO. Indica desde qué día quieres que tu mascota esté cubierta (hoy o una fecha futura).</span>'+
+        '<span class="hint">'+ICO_INFO+' Escribe los números (01/01/2026) o usa los desplegables. Debe ser hoy o una fecha futura.</span>'+
         '<p class="err-msg" id="err-p'+i+'-inicio"></p>'+
       '</div>'+
     '</div>'+
@@ -1590,14 +1725,13 @@ function syncCountUI(){
   var n=state.numPets;
   if(n<=2){
     $('np'+n).checked=true;
-    $('customPetsWrap').classList.remove('show');
     $('countMasNum').textContent='3 o +';
+    $('cpBigNum').textContent='3';
   } else {
     $('npMas').checked=true;
-    $('customPetsWrap').classList.add('show');
     $('numPetsCustom').value=n;
     $('countMasNum').textContent=String(n);
-    $('customHint').textContent=n+' fichas creadas · máx. '+MAX_PETS;
+    $('cpBigNum').textContent=String(n);
   }
   $('petCounter').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg> '+n+(n===1?' mascota':' mascotas')+' en tu solicitud';
 }
@@ -1665,15 +1799,12 @@ function setNumPets(n,render){
 document.querySelectorAll('input[name="numPets"]').forEach(function(r){
   r.addEventListener('change',function(){
     if(r.value==='mas'){
-      $('customPetsWrap').classList.add('show');
       var v=parseInt($('numPetsCustom').value,10);
       if(!v||v<3) v=3;
       v=Math.min(MAX_PETS,v);
       $('numPetsCustom').value=v;
       setNumPets(v);
-      $('numPetsCustom').focus();
     } else {
-      $('customPetsWrap').classList.remove('show');
       setNumPets(parseInt(r.value,10));
     }
   });
@@ -1681,17 +1812,18 @@ document.querySelectorAll('input[name="numPets"]').forEach(function(r){
 $('numPetsCustom').addEventListener('input',function(){
   var v=parseInt(this.value,10);
   if(!v) return;
-  v=Math.max(3,Math.min(MAX_PETS,v));
+  v=Math.max(1,Math.min(MAX_PETS,v));
   if(v!==state.numPets) setNumPets(v);
 });
 $('numPetsCustom').addEventListener('blur',function(){
   var v=parseInt(this.value,10);
-  if(!v||v<3){ this.value=3; if(state.numPets!==3) setNumPets(3); }
+  if(!v||v<1){ this.value=Math.max(3,state.numPets); setNumPets(state.numPets); }
 });
 $('petsMinus').addEventListener('click',function(){
-  var v=Math.max(3,state.numPets-1);
-  $('numPetsCustom').value=v;
-  if(v!==state.numPets) setNumPets(v);
+  var v=state.numPets-1;
+  if(v<1){ return; }
+  setNumPets(v);
+  if(v<3){ toast('Has seleccionado '+v+(v===1?' mascota':' mascotas')+'.','info'); }
 });
 $('petsPlus').addEventListener('click',function(){
   if(state.numPets>=MAX_PETS){ toast('Puedes asegurar un máximo de '+MAX_PETS+' mascotas por solicitud.','info'); return; }
@@ -1943,6 +2075,7 @@ $('docTipo').addEventListener('change',function(){
   var ph={'DNI':'12345678Z','NIE':'X1234567L','Pasaporte':'AAA123456'}[this.value];
   $('docNum').setAttribute('placeholder',ph);
   clearErr('err-docNum',$('docNum'));
+  aplicarReglaNacionalidad(true);
 });
 /* IBAN autoformato */
 $('iban').addEventListener('input',function(){
@@ -1990,6 +2123,9 @@ function validateForm(){
   else if(!esMayorDe18(fnR.iso)){ setErr('err-fechaNac','Debes ser mayor de 18 años para contratar el seguro.',null); markDateInvalid('fn',true); if(!firstBad) firstBad=$('fn-d'); ok=false; }
   else { fnacTomadorISO=fnR.iso; clearErr('err-fechaNac',null); markDateInvalid('fn',false); }
   ok=mark('nacionalidad','err-nacionalidad',!!$('nacionalidad').value,'Selecciona tu nacionalidad.')&&ok;
+  if($('docTipo').value==='NIE' && $('nacionalidad').value==='Española'){
+    ok=mark('nacionalidad','err-nacionalidad',false,'El NIE corresponde a personas extranjeras: selecciona una nacionalidad distinta de la española.')&&ok;
+  }
   if($('nacionalidad').value==='Otra'){
     ok=mark('nacOtra','err-nacOtra',$('nacOtra').value.trim().length>=2,'Indica tu nacionalidad.')&&ok;
   }
