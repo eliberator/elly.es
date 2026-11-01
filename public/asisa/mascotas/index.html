@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguro de Mascotas ASISA — Elly Campeanu, Agente Exclusivo</title>
+<meta name="description" content="Contrata el seguro de mascotas ASISA desde 9,90€/mes. Perros y gatos, todas las razas y edades. Elly Campeanu, agente exclusivo ASISA.">
+<meta name="keywords" content="seguro mascotas, seguro perro, seguro gato, ASISA mascotas, seguro veterinario, España">
+<meta name="author" content="Elly Campeanu — Agente Exclusivo ASISA">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Seguro de Mascotas ASISA — Desde 9,90€/mes 🐾">
+<meta property="og:description" content="Seguro para perros y gatos desde 9,90€/mes. Todas las razas y edades.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--teal:#2A9D8F; --teal-dark:#1C7368; --teal-darker:#11453E; --teal-soft:#E4F3F1; --teal-ghost:#F0F9F8;
+--coral:#E76F51; --coral-dark:#B8472E; --coral-soft:#FDEBE4;
+--lav:#B5A8D5; --lav-dark:#62539E; --lav-soft:#F1EEF9;
+--cream:#FFF8F0; --ink:#2D3436; --ink-soft:#57636A; --line:#EADFD4;
+--white:#FFFFFF; --ok:#177E4F; --warn-bg:#FDF3E0; --warn-tx:#8A5A00; --err:#B3261E;
+--r-sm:12px; --r-md:16px; --r-lg:22px;
+--shadow:0 12px 34px rgba(45,52,54,.09); --shadow-sm:0 4px 14px rgba(45,52,54,.07);
+--grad:linear-gradient(120deg,var(--teal) 0%,#5FB4AD 32%,var(--lav) 68%,#F2A3B5 100%);
+--font-h:'Nunito',system-ui,sans-serif; --font-b:'Open Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-b);color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:var(--font-h);line-height:1.15;color:var(--ink)}
+img,svg{display:block}
+a{color:var(--teal-dark);text-decoration:none}
+a:hover{text-decoration:underline}
+section{scroll-margin-top:92px}
+.container{max-width:1140px;margin-inline:auto;padding-inline:20px}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--teal-darker);color:#fff;padding:10px 18px;z-index:999;border-radius:0 0 12px 0}
+.skip-link:focus{left:0}
+:focus-visible{outline:3px solid var(--teal-dark);outline-offset:2px;border-radius:6px}
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,248,240,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(234,223,212,.8);transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 6px 24px rgba(45,52,54,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1180px;margin-inline:auto;padding:10px 20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none!important}
+.brand-paw{width:44px;height:44px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;box-shadow:0 6px 16px rgba(42,157,143,.35);flex:none}
+.brand-paw svg{width:24px;height:24px}
+.brand-txt strong{display:block;font-family:var(--font-h);font-weight:800;font-size:1.02rem;color:var(--ink);line-height:1.1}
+.brand-txt span{font-size:.72rem;font-weight:700;color:var(--teal-dark);letter-spacing:.4px;text-transform:uppercase}
+.nav-links{display:flex;gap:4px;align-items:center;list-style:none}
+.nav-links a{font-weight:700;font-size:.9rem;color:var(--ink-soft);padding:8px 11px;border-radius:10px;position:relative;text-decoration:none!important;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--teal-dark);background:var(--teal-soft)}
+.nav-links a.legal-link{color:var(--lav-dark)}
+.nav-links a.legal-link:hover{background:var(--lav-soft)}
+.menu-btn{display:none;background:none;border:0;width:44px;height:44px;border-radius:12px;cursor:pointer;color:var(--ink);align-items:center;justify-content:center}
+.menu-btn:hover{background:var(--teal-soft)}
+.mobile-menu{display:none;flex-direction:column;gap:2px;padding:10px 18px 18px;background:rgba(255,248,240,.98);border-bottom:1px solid var(--line)}
+.mobile-menu a{padding:12px 14px;border-radius:12px;font-weight:700;color:var(--ink-soft);text-decoration:none!important}
+.mobile-menu a:hover{background:var(--teal-soft);color:var(--teal-dark)}
+.mobile-menu.open{display:flex}
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 0 70px;background:linear-gradient(135deg,#E3F4F2 0%,#FFF8F0 38%,#F4EFFB 72%,#FDECEC 100%);overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none}
+.b1{width:480px;height:480px;background:#9AD9D2;top:-140px;left:-120px;animation:drift 14s ease-in-out infinite alternate}
+.b2{width:420px;height:420px;background:#D9CDEF;bottom:-120px;right:-90px;animation:drift 17s ease-in-out infinite alternate-reverse}
+.b3{width:340px;height:340px;background:#F7C6CF;top:32%;right:16%;opacity:.35;animation:drift 20s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(36px,26px) scale(1.08)}}
+.paw-float{position:absolute;color:var(--teal);opacity:.16;animation:floaty 7s ease-in-out infinite;pointer-events:none}
+.paw-float svg{width:100%;height:100%}
+.pf1{width:70px;top:16%;left:6%;transform:rotate(-18deg)}
+.pf2{width:44px;bottom:22%;left:44%;animation-delay:1.4s;transform:rotate(14deg);color:var(--lav-dark)}
+.pf3{width:56px;top:20%;right:8%;animation-delay:.7s;transform:rotate(22deg);color:var(--coral)}
+.pf4{width:36px;bottom:14%;right:30%;animation-delay:2.2s;transform:rotate(-10deg)}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -16px}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--teal-dark);font-weight:700;font-size:.8rem;padding:7px 14px;border-radius:999px;box-shadow:var(--shadow-sm);letter-spacing:.3px}
+.eyebrow svg{width:15px;height:15px}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.1rem);font-weight:900;margin:20px 0 18px;letter-spacing:-.5px}
+.hero h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:1.14rem;color:var(--ink-soft);max-width:34rem}
+.price-pill{margin:26px 0 8px;display:inline-flex;flex-direction:column;background:#fff;border-radius:var(--r-md);padding:16px 22px;box-shadow:var(--shadow);border:1px solid rgba(42,157,143,.18)}
+.price-pill small{font-weight:700;color:var(--ink-soft);font-size:.72rem;text-transform:uppercase;letter-spacing:1.2px}
+.price-pill .price{font-family:var(--font-h);font-weight:900;font-size:2.1rem;color:var(--teal-dark);line-height:1.15}
+.price-note{font-size:.74rem;color:var(--ink-soft);max-width:30rem;display:block;margin-top:2px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--font-h);font-weight:800;border-radius:14px;padding:14px 26px;font-size:1rem;border:0;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s;text-decoration:none!important;line-height:1.2}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-primary{background:var(--teal-dark);color:#fff;box-shadow:0 10px 24px rgba(28,115,104,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(28,115,104,.42);background:var(--teal-darker)}
+.btn-ghost{background:#fff;color:var(--teal-dark);border:2px solid var(--teal);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{background:var(--teal-soft);transform:translateY(-2px)}
+.btn-coral{background:var(--coral-dark);color:#fff;box-shadow:0 10px 24px rgba(184,71,46,.32)}
+.btn-coral:hover{background:#9E3B25;transform:translateY(-2px)}
+.btn-wa{background:#1FA855;color:#fff;box-shadow:0 10px 24px rgba(31,168,85,.32)}
+.btn-wa:hover{background:#167E3F;transform:translateY(-2px)}
+.btn-lg{padding:17px 30px;font-size:1.05rem}
+.btn-sm{padding:11px 18px;font-size:.9rem}
+.btn-block{width:100%}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.pet-orb{position:relative;width:min(400px,88%);aspect-ratio:1;border-radius:42% 58% 55% 45%/48% 42% 58% 52%;background:linear-gradient(150deg,#fff 0%,var(--teal-soft) 45%,var(--lav-soft) 100%);box-shadow:var(--shadow),inset 0 0 0 1px rgba(255,255,255,.7);display:grid;place-items:center;animation:morph 12s ease-in-out infinite}
+@keyframes morph{0%,100%{border-radius:42% 58% 55% 45%/48% 42% 58% 52%}50%{border-radius:56% 44% 45% 55%/44% 56% 46% 54%}}
+.pet-orb .big-paw{width:44%;color:var(--teal);opacity:.9}
+.pet-orb .big-paw svg{width:100%;height:auto}
+.chip-float{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border-radius:14px;padding:10px 15px;font-family:var(--font-h);font-weight:800;font-size:.83rem;color:var(--ink);box-shadow:var(--shadow);border:1px solid var(--line);animation:floaty 6s ease-in-out infinite;white-space:nowrap}
+.chip-float svg{width:17px;height:17px;flex:none}
+.cf1{top:6%;left:-6%;color:var(--teal-dark)}
+.cf1 svg{color:var(--teal)}
+.cf2{top:44%;right:-10%;animation-delay:1.2s;color:var(--coral-dark)}
+.cf2 svg{color:var(--coral)}
+.cf3{bottom:5%;left:2%;animation-delay:2s;color:var(--lav-dark)}
+.cf3 svg{color:var(--lav-dark)}
+/* ============ SECTIONS ============ */
+.sect{padding:clamp(64px,9vw,110px) 0}
+.sect-alt{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%)}
+.eyebrow2{display:inline-flex;align-items:center;gap:7px;color:var(--teal-dark);font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:1.6px;margin-bottom:12px}
+.eyebrow2 svg{width:16px;height:16px}
+.sect h2{font-size:clamp(1.75rem,3.6vw,2.55rem);font-weight:900;letter-spacing:-.4px;margin-bottom:12px}
+.sect .lead{color:var(--ink-soft);max-width:46rem;font-size:1.05rem}
+.sect-head{margin-bottom:44px}
+.center-head{text-align:center}
+.center-head .lead{margin-inline:auto}
+/* coverage cards */
+.cov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cov-card{background:#fff;border-radius:var(--r-md);padding:26px 22px;box-shadow:var(--shadow-sm);border:1px solid rgba(234,223,212,.9);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.cov-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.cov-card::before{content:'';position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad);opacity:0;transition:opacity .25s}
+.cov-card:hover::before{opacity:1}
+.cov-ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;margin-bottom:16px}
+.cov-ic svg{width:26px;height:26px}
+.ic-teal{background:var(--teal-soft);color:var(--teal-dark)}
+.ic-coral{background:var(--coral-soft);color:var(--coral-dark)}
+.ic-lav{background:var(--lav-soft);color:var(--lav-dark)}
+.cov-card h3{font-size:1.06rem;font-weight:800;margin-bottom:6px}
+.cov-card p{font-size:.92rem;color:var(--ink-soft)}
+.tag-free{display:inline-block;margin-top:12px;font-size:.7rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;background:var(--teal-soft);color:var(--teal-dark);border-radius:999px;padding:4px 11px}
+.vac-card{grid-column:span 1;background:linear-gradient(160deg,#fff 0%,var(--lav-soft) 130%)}
+.vac-card ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:7px}
+.vac-card ul li{display:flex;gap:9px;align-items:flex-start;font-size:.92rem;color:var(--ink-soft)}
+.vac-card ul li svg{width:16px;height:16px;color:var(--teal-dark);margin-top:3px;flex:none}
+.vac-card ul li strong{color:var(--ink)}
+.vac-head{display:flex;align-items:center;gap:14px}
+.vac-head h3{margin:0}
+/* conditions box */
+.cond-box{margin-top:34px;background:linear-gradient(120deg,var(--teal-dark) 0%,#238B7E 60%,var(--lav-dark) 130%);color:#fff;border-radius:var(--r-lg);padding:30px 32px;display:flex;gap:22px;align-items:flex-start;box-shadow:0 16px 40px rgba(28,115,104,.3);flex-wrap:wrap}
+.cond-box .cond-ic{width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none}
+.cond-box .cond-ic svg{width:28px;height:28px}
+.cond-box h3{font-size:1.25rem;color:#fff;margin-bottom:8px}
+.cond-box p{color:rgba(255,255,255,.92);font-size:.96rem}
+.cond-list{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.cond-list span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 14px;font-size:.83rem;font-weight:700}
+.cond-list svg{width:15px;height:15px}
+/* optional strip */
+.opt-strip{margin-top:30px;background:#fff;border:1.5px dashed var(--lav);border-radius:var(--r-lg);padding:26px 28px}
+.opt-strip h3{display:flex;align-items:center;gap:10px;font-size:1.12rem;margin-bottom:6px}
+.opt-strip h3 svg{width:22px;height:22px;color:var(--lav-dark)}
+.opt-strip>p{font-size:.92rem;color:var(--ink-soft);margin-bottom:16px}
+.opt-items{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.opt-item{display:flex;gap:9px;align-items:flex-start;background:var(--lav-soft);border-radius:12px;padding:12px 14px;font-size:.86rem;font-weight:600;color:var(--ink)}
+.opt-item svg{width:16px;height:16px;color:var(--lav-dark);margin-top:2px;flex:none}
+/* ============ CALCULATOR ============ */
+.calc-shell{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow);border:1px solid rgba(234,223,212,.9);overflow:hidden}
+.calc-top{background:var(--grad);padding:26px 30px;color:#fff}
+.calc-top h3{color:#fff;font-size:1.35rem;display:flex;align-items:center;gap:11px}
+.calc-top h3 svg{width:24px;height:24px}
+.calc-top p{color:rgba(255,255,255,.92);font-size:.92rem;margin-top:4px}
+.stepper{display:flex;list-style:none;padding:22px 30px 0;gap:0;position:relative}
+.stepper li{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;text-align:center}
+.stepper li::before{content:'';position:absolute;top:19px;left:-50%;width:100%;height:3px;background:var(--line);z-index:0}
+.stepper li:first-child::before{display:none}
+.stepper li.done::before,.stepper li.active::before{background:var(--teal)}
+.step-dot{width:38px;height:38px;border-radius:50%;background:#fff;border:3px solid var(--line);display:grid;place-items:center;font-family:var(--font-h);font-weight:900;color:var(--ink-soft);z-index:1;transition:all .3s;font-size:.95rem}
+.stepper li.done .step-dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.stepper li.active .step-dot{border-color:var(--teal-dark);color:var(--teal-dark);box-shadow:0 0 0 5px rgba(42,157,143,.18)}
+.step-label{font-size:.78rem;font-weight:700;color:var(--ink-soft)}
+.stepper li.active .step-label{color:var(--teal-dark)}
+.step-dot svg{width:18px;height:18px}
+.calc-body{padding:18px 30px 34px}
+.calc-panel{display:none}
+.calc-panel.active{display:block;animation:fadeUp .45s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.count-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 22px}
+.count-card{position:relative}
+.count-card input{position:absolute;opacity:0;pointer-events:none}
+.count-card label{display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 12px;border:2px solid var(--line);border-radius:var(--r-md);cursor:pointer;transition:all .2s;background:var(--cream);height:100%}
+.count-card label:hover{border-color:var(--teal)}
+.count-card input:checked+label{border-color:var(--teal-dark);background:var(--teal-soft);box-shadow:0 8px 20px rgba(42,157,143,.2)}
+.count-card input:focus-visible+label{outline:3px solid var(--teal-dark);outline-offset:2px}
+.count-num{font-family:var(--font-h);font-weight:900;font-size:1.7rem;color:var(--teal-dark)}
+.count-card small{font-weight:700;color:var(--ink-soft);font-size:.78rem;text-align:center}
+.paws-mini{display:flex;gap:3px;color:var(--coral)}
+.paws-mini svg{width:16px;height:16px}
+.count-card{display:flex;flex-direction:column}
+.count-card>label{flex:1}
+.custom-pets{display:none;padding:12px 10px 4px;text-align:center}
+.custom-pets.show{display:block;animation:fadeUp .3s ease}
+.custom-pets>label{display:block;font-weight:700;font-size:.78rem;color:var(--teal-darker);margin-bottom:7px}
+.custom-hint{display:block;font-size:.7rem;color:var(--ink-soft);margin-top:6px}
+.num-stepper{display:flex;align-items:stretch;justify-content:center;gap:0;max-width:150px;margin:0 auto;border:1.5px solid var(--teal);border-radius:11px;overflow:hidden;background:#fff}
+.num-stepper button{width:38px;border:0;background:var(--teal-soft);color:var(--teal-darker);font-family:var(--font-h);font-weight:900;font-size:1.15rem;cursor:pointer;line-height:1;transition:background .18s}
+.num-stepper button:hover{background:var(--teal);color:#fff}
+.num-stepper input{width:100%;border:0;text-align:center;font-family:var(--font-h);font-weight:900;font-size:1.05rem;color:var(--teal-darker);padding:9px 0;-moz-appearance:textfield;appearance:textfield}
+.num-stepper input::-webkit-outer-spin-button,.num-stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.num-stepper input:focus{outline:none;background:var(--teal-ghost)}
+.date-field{display:flex;flex-direction:column;gap:6px}
+.date-text{font-family:var(--font-b);font-size:.95rem;padding:12px 14px;border:1.5px solid #D8CEC2;border-radius:11px;background:#fff;color:var(--ink);width:100%;transition:border-color .2s,box-shadow .2s;text-transform:uppercase}
+.date-text::placeholder{text-transform:none;color:#98A3A8}
+.date-text:focus{border-color:var(--teal-dark);box-shadow:0 0 0 4px rgba(42,157,143,.15);outline:none}
+.date-text.invalid{border-color:var(--err);box-shadow:0 0 0 4px rgba(179,38,30,.12)}
+.date-or{font-size:.72rem;color:var(--ink-soft);font-weight:600;text-align:center;letter-spacing:.3px}
+/* pet cards */
+.pet-card{border:1.5px solid var(--line);border-radius:var(--r-md);padding:24px 22px;margin-bottom:20px;background:linear-gradient(160deg,#fff 0%,var(--teal-ghost) 100%);position:relative;animation:fadeUp .4s ease}
+.pet-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.pet-legend{display:flex;align-items:center;gap:10px;font-family:var(--font-h);font-weight:900;font-size:1.1rem}
+.pet-legend .pn{width:34px;height:34px;border-radius:11px;background:var(--teal-dark);color:#fff;display:grid;place-items:center;font-size:.95rem;flex:none}
+.pet-remove{display:inline-flex;align-items:center;gap:6px;background:var(--coral-soft);color:var(--coral-dark);border:0;border-radius:999px;padding:8px 14px;font-family:var(--font-h);font-weight:800;font-size:.75rem;cursor:pointer;transition:all .2s}
+.pet-remove:hover{background:var(--coral);color:#fff}
+.pet-remove svg{width:13px;height:13px}
+.pet-actions{display:flex;justify-content:center;margin:2px 0 4px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.col-2{grid-column:span 2}
+.field label,.flabel{font-weight:700;font-size:.88rem;color:var(--ink)}
+.field label .req,.flabel .req{color:var(--coral-dark)}
+.field .opt-tag{font-weight:600;color:var(--ink-soft);font-size:.78rem}
+.field input[type=text],.field input[type=email],.field input[type=tel],.field input[type=number],.field select{font-family:var(--font-b);font-size:.95rem;padding:12px 14px;border:1.5px solid #D8CEC2;border-radius:11px;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s;width:100%}
+.field input:focus,.field select:focus{border-color:var(--teal-dark);box-shadow:0 0 0 4px rgba(42,157,143,.15);outline:none}
+.field input.invalid,.field select.invalid{border-color:var(--err);box-shadow:0 0 0 4px rgba(179,38,30,.12)}
+.date-selects{display:grid;grid-template-columns:.85fr 1.05fr 1.1fr;gap:8px}
+.date-selects select{padding-inline:10px;font-weight:600}
+.field .hint{font-size:.76rem;color:var(--ink-soft);display:flex;gap:6px;align-items:flex-start}
+.field .hint svg{width:13px;height:13px;margin-top:2px;flex:none;color:var(--teal-dark)}
+.err-msg{font-size:.78rem;color:var(--err);font-weight:600;display:none;align-items:center;gap:6px}
+.err-msg.show{display:flex}
+.err-msg svg{width:14px;height:14px;flex:none}
+.pill-group{display:flex;gap:9px;flex-wrap:wrap}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;pointer-events:none}
+.pill label{display:inline-flex;align-items:center;gap:7px;padding:10px 17px;border:1.5px solid #D8CEC2;border-radius:999px;background:#fff;cursor:pointer;font-weight:700;font-size:.87rem;color:var(--ink-soft);transition:all .18s}
+.pill label:hover{border-color:var(--teal)}
+.pill input:checked+label{background:var(--teal-dark);border-color:var(--teal-dark);color:#fff}
+.pill input:focus-visible+label{outline:3px solid var(--teal-dark);outline-offset:2px}
+.pill label svg{width:17px;height:17px}
+.pill-gato input:checked+label{background:var(--lav-dark);border-color:var(--lav-dark)}
+.warn-box{display:none;gap:9px;align-items:flex-start;background:var(--warn-bg);border:1.5px solid #EBCFA0;color:var(--warn-tx);border-radius:11px;padding:11px 14px;font-size:.85rem;font-weight:600;margin-top:8px}
+.warn-box.show{display:flex}
+.warn-box svg{width:17px;height:17px;flex:none;margin-top:1px}
+.species-note{display:flex;gap:8px;align-items:flex-start;background:var(--lav-soft);border-radius:11px;padding:10px 13px;font-size:.8rem;color:var(--lav-dark);font-weight:600;margin-top:8px}
+.species-note svg{width:15px;height:15px;flex:none;margin-top:2px}
+/* garantías */
+.gar-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 18px}
+.gar-card input{position:absolute;opacity:0;pointer-events:none}
+.gar-card{position:relative}
+.gar-card label{display:flex;gap:13px;align-items:flex-start;border:2px solid var(--line);border-radius:var(--r-md);padding:17px 18px;cursor:pointer;transition:all .2s;background:#fff;height:100%}
+.gar-card label:hover{border-color:var(--lav)}
+.gar-card input:checked+label{border-color:var(--lav-dark);background:var(--lav-soft);box-shadow:0 8px 20px rgba(98,83,158,.16)}
+.gar-card input:focus-visible+label{outline:3px solid var(--lav-dark);outline-offset:2px}
+.gar-check{width:24px;height:24px;border-radius:8px;border:2px solid #C9BEE0;display:grid;place-items:center;flex:none;background:#fff;transition:all .2s;margin-top:1px}
+.gar-card input:checked+label .gar-check{background:var(--lav-dark);border-color:var(--lav-dark);color:#fff}
+.gar-check svg{width:15px;height:15px;opacity:0;transition:opacity .15s}
+.gar-card input:checked+label .gar-check svg{opacity:1}
+.gar-txt strong{display:block;font-family:var(--font-h);font-weight:800;font-size:.97rem}
+.gar-txt small{color:var(--ink-soft);font-size:.79rem;line-height:1.45;display:block;margin-top:2px}
+.gar-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.badge-carencia,.badge-confirm{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border-radius:999px;padding:3px 9px}
+.badge-carencia{background:var(--warn-bg);color:var(--warn-tx)}
+.badge-carencia svg{width:11px;height:11px}
+.badge-confirm{background:var(--teal-soft);color:var(--teal-dark)}
+.badge-confirm svg{width:11px;height:11px}
+.badge-price{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border-radius:999px;padding:3px 9px;background:var(--coral-dark);color:#fff}
+.badge-price svg{width:11px;height:11px}
+.gar-card-full{grid-column:1 / -1}
+.gar-card-full>label{background:linear-gradient(120deg,#fff 0%,var(--lav-soft) 130%)}
+.gar-card{display:flex;flex-direction:column}
+.gar-card>label{flex:1}
+.gar-sub{display:none;margin-top:12px;background:var(--lav-soft);border:1.5px solid var(--lav);border-radius:14px;padding:15px}
+.gar-card input:checked ~ .gar-sub{display:block;animation:fadeUp .3s ease}
+.gar-sub-title{font-weight:800;font-size:.82rem;color:var(--lav-dark);margin:0 0 11px;text-transform:uppercase;letter-spacing:.6px}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cap-card{position:relative;display:flex}
+.cap-card input{position:absolute;opacity:0;pointer-events:none}
+.cap-card label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:100%;text-align:center;background:#fff;border:2px solid #C9BEE0;border-radius:13px;padding:14px 8px 12px;cursor:pointer;transition:all .2s;position:relative;overflow:visible}
+.cap-txt{display:flex;flex-direction:column;align-items:center;gap:1px}
+.cap-card label:hover{border-color:var(--lav-dark);transform:translateY(-2px)}
+.cap-card input:checked+label{border-color:var(--lav-dark);background:#fff;box-shadow:0 8px 20px rgba(98,83,158,.24);outline:2px solid var(--lav-dark);outline-offset:-1px}
+.cap-card input:focus-visible+label{outline:3px solid var(--lav-dark);outline-offset:2px}
+.cap-eur{font-family:var(--font-h);font-weight:900;font-size:1.32rem;color:var(--ink);line-height:1.1}
+.cap-card input:checked+label .cap-eur{color:var(--lav-dark)}
+.cap-price{font-family:var(--font-h);font-weight:800;font-size:.92rem;color:var(--coral-dark);margin-top:3px}
+.cap-x{font-size:.68rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.5px}
+.cap-tag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--coral-dark);color:#fff;font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.gar-sub-hint{display:block;font-size:.76rem;color:var(--lav-dark);margin-top:11px;font-weight:600;text-align:center}
+.rc-confirm{display:none;align-items:center;gap:8px;margin-top:11px;background:var(--teal-soft);border:1.5px solid rgba(42,157,143,.32);border-radius:11px;padding:10px 13px;font-size:.83rem;font-weight:700;color:var(--teal-darker);text-align:center;justify-content:center}
+.rc-confirm.show{display:flex;animation:fadeUp .25s ease}
+.rc-confirm svg{width:16px;height:16px;flex:none;color:var(--teal-dark)}
+.pet-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.pet-counter{display:inline-flex;align-items:center;gap:8px;background:var(--teal-soft);color:var(--teal-darker);border-radius:999px;padding:9px 16px;font-family:var(--font-h);font-weight:800;font-size:.85rem}
+.pet-counter svg{width:16px;height:16px;flex:none}
+.carencia-note{display:flex;gap:11px;align-items:flex-start;background:var(--warn-bg);border:1.5px solid #EBCFA0;border-radius:var(--r-md);padding:15px 17px;font-size:.88rem;color:var(--warn-tx);font-weight:600;margin:6px 0 4px}
+.carencia-note svg{width:20px;height:20px;flex:none;margin-top:1px}
+.estim-note{display:flex;gap:11px;align-items:flex-start;background:var(--teal-soft);border:1.5px solid rgba(42,157,143,.3);border-radius:var(--r-md);padding:15px 17px;font-size:.87rem;color:var(--teal-darker);font-weight:600;margin-top:16px;line-height:1.55}
+.estim-note svg{width:20px;height:20px;flex:none;margin-top:1px}
+/* frecuencia y recibo */
+.freq-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0 20px}
+.freq-card{position:relative}
+.freq-card input{position:absolute;opacity:0;pointer-events:none}
+.freq-card label{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;border:2px solid var(--line);border-radius:var(--r-md);padding:16px 10px;cursor:pointer;background:#fff;transition:all .2s;height:100%}
+.freq-card label:hover{border-color:var(--teal)}
+.freq-card input:checked+label{border-color:var(--teal-dark);background:var(--teal-soft);box-shadow:0 8px 20px rgba(42,157,143,.18)}
+.freq-card input:focus-visible+label{outline:3px solid var(--teal-dark);outline-offset:2px}
+.freq-card .fl{font-family:var(--font-h);font-weight:900;font-size:1rem}
+.disc-badge{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border-radius:999px;padding:3px 9px;background:#EFEAE2;color:var(--ink-soft)}
+.freq-card input:checked+label .disc-badge.on,.disc-badge.on{background:var(--coral-soft);color:var(--coral-dark)}
+.receipt{background:linear-gradient(165deg,#fff 0%,var(--teal-ghost) 100%);border:1.5px solid rgba(42,157,143,.25);border-radius:var(--r-md);padding:24px 26px;margin-top:6px}
+.receipt h4{font-size:1.05rem;display:flex;align-items:center;gap:9px;margin-bottom:16px}
+.receipt h4 svg{width:20px;height:20px;color:var(--teal-dark)}
+.rc-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;font-size:.92rem;border-bottom:1px dashed #D9E7E4}
+.rc-row span:first-child{color:var(--ink-soft)}
+.rc-row span:last-child{font-weight:700;text-align:right}
+.rc-row.disc span:last-child{color:var(--ok);white-space:nowrap}
+.rc-row.gar span:last-child{color:var(--lav-dark)}
+.rc-total{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:16px;padding-top:16px;border-top:2px solid rgba(42,157,143,.3);flex-wrap:wrap}
+.rc-total .lbl{font-family:var(--font-h);font-weight:800;font-size:1rem}
+.rc-total .lbl small{display:block;font-family:var(--font-b);font-weight:600;color:var(--ink-soft);font-size:.74rem}
+.rc-total .val{font-family:var(--font-h);font-weight:900;font-size:2rem;color:var(--teal-dark);line-height:1}
+.rc-annual{display:flex;justify-content:space-between;margin-top:10px;font-size:.85rem;color:var(--ink-soft)}
+.rc-annual strong{color:var(--ink)}
+.tax-note{font-size:.72rem;color:var(--ink-soft);margin-top:12px;display:block}
+.contract-year-note{display:flex;gap:9px;align-items:center;font-size:.83rem;font-weight:700;color:var(--teal-darker);margin-top:12px}
+.contract-year-note svg{width:16px;height:16px;flex:none}
+.calc-nav{display:flex;justify-content:space-between;gap:14px;margin-top:26px;flex-wrap:wrap}
+.step-error{display:none;align-items:center;gap:8px;background:#FDECEB;border:1.5px solid #F2B8B5;color:var(--err);border-radius:11px;padding:11px 15px;font-size:.85rem;font-weight:700;margin-top:16px}
+.step-error.show{display:flex}
+.step-error svg{width:17px;height:17px;flex:none}
+/* ============ CONTRACT FORM ============ */
+.contract-wrap{display:grid;grid-template-columns:1.55fr .95fr;gap:26px;align-items:start}
+.form-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow);border:1px solid rgba(234,223,212,.9);padding:30px}
+.form-card h3{font-size:1.25rem;display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.form-card h3 svg{width:22px;height:22px;color:var(--teal-dark)}
+.form-card .fc-sub{font-size:.88rem;color:var(--ink-soft);margin-bottom:22px}
+.f-group{border-top:1.5px dashed var(--line);padding-top:20px;margin-top:22px}
+.f-group-title{font-family:var(--font-h);font-weight:800;color:var(--teal-darker);display:flex;align-items:center;gap:8px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.8px;font-size:.8rem}
+.f-group-title svg{width:17px;height:17px}
+.consent-box{background:var(--lav-soft);border-radius:var(--r-md);padding:20px;display:flex;flex-direction:column;gap:14px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:.87rem;line-height:1.5;cursor:pointer}
+.consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--lav-dark);flex:none;cursor:pointer}
+.consent a{font-weight:700}
+.send-row{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.send-row .btn{width:100%;padding:16px 22px}
+.send-hint{font-size:.78rem;color:var(--ink-soft);text-align:center;margin-top:10px}
+/* resumen lateral */
+.summary-side{position:sticky;top:100px}
+.summary-card{background:linear-gradient(165deg,var(--teal-darker) 0%,var(--teal-dark) 60%,#3A7E92 130%);color:#fff;border-radius:var(--r-lg);padding:26px;box-shadow:0 18px 44px rgba(17,69,62,.32)}
+.summary-card h4{color:#fff;font-size:1.12rem;display:flex;align-items:center;gap:9px;margin-bottom:16px}
+.summary-card h4 svg{width:20px;height:20px}
+.sum-pet{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:13px;padding:12px 14px;margin-bottom:9px}
+.sum-pet .sp-ic{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.2);display:grid;place-items:center;flex:none}
+.sum-pet .sp-ic svg{width:20px;height:20px}
+.sum-pet strong{display:block;font-family:var(--font-h);font-size:.93rem}
+.sum-pet small{font-size:.76rem;color:rgba(255,255,255,.85);line-height:1.5;display:block}
+.sum-row{display:flex;justify-content:space-between;font-size:.85rem;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.22);gap:12px}
+.sum-row span:first-child{color:rgba(255,255,255,.85)}
+.sum-row span:last-child{font-weight:700;text-align:right}
+.sum-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;gap:12px}
+.sum-total .v{font-family:var(--font-h);font-weight:900;font-size:1.6rem;text-align:right}
+.sum-total small{display:block;font-size:.68rem;color:rgba(255,255,255,.8)}
+.sum-edit{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:.8rem;font-weight:700;color:#fff;background:rgba(255,255,255,.16);padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}
+.sum-edit:hover{background:rgba(255,255,255,.26);text-decoration:none}
+.sum-edit svg{width:13px;height:13px}
+.sum-empty{font-size:.87rem;color:rgba(255,255,255,.9);background:rgba(255,255,255,.1);border-radius:12px;padding:14px;text-align:center}
+/* ============ DOCS ============ */
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.doc-card{display:flex;gap:14px;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:var(--r-md);padding:18px;transition:all .22s;text-decoration:none!important}
+.doc-card:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.doc-ic{width:46px;height:46px;border-radius:13px;background:var(--teal-soft);color:var(--teal-dark);display:grid;place-items:center;flex:none}
+.doc-ic svg{width:22px;height:22px}
+.doc-card strong{font-family:var(--font-h);font-size:.93rem;color:var(--ink);display:block;line-height:1.3}
+.doc-card small{font-size:.73rem;color:var(--ink-soft);display:flex;align-items:center;gap:5px;margin-top:3px}
+.doc-card small svg{width:12px;height:12px}
+.doc-note{margin-top:22px;display:flex;gap:10px;align-items:flex-start;background:var(--teal-soft);border-radius:var(--r-md);padding:15px 18px;font-size:.9rem;color:var(--teal-darker);font-weight:600}
+.doc-note svg{width:19px;height:19px;flex:none;margin-top:1px}
+/* ============ TRUST ============ */
+.trust-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.trust-wrap p{color:var(--ink-soft);margin-top:14px}
+.trust-wrap .dgsfp-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:#fff;border:1.5px solid var(--teal);color:var(--teal-dark);font-weight:800;padding:12px 20px;border-radius:13px;box-shadow:var(--shadow-sm);transition:all .2s;font-size:.92rem}
+.trust-wrap .dgsfp-link:hover{background:var(--teal-soft);transform:translateY(-2px);text-decoration:none}
+.trust-wrap .dgsfp-link svg{width:17px;height:17px}
+.badge-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.t-badge{background:#fff;border-radius:var(--r-md);padding:20px 16px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid rgba(234,223,212,.9);transition:transform .2s}
+.t-badge:hover{transform:translateY(-4px)}
+.t-badge .tb-ic{width:46px;height:46px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center}
+.t-badge .tb-ic svg{width:22px;height:22px}
+.t-badge strong{font-family:var(--font-h);font-size:.88rem;display:block;line-height:1.35}
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.contact-card{background:#fff;border-radius:var(--r-lg);padding:30px 24px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid rgba(234,223,212,.9);transition:all .25s;display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none!important}
+.contact-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.contact-card .cc-ic{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;margin-bottom:8px}
+.contact-card .cc-ic svg{width:27px;height:27px}
+.contact-card h3{font-size:1.05rem}
+.contact-card p{font-size:.85rem;color:var(--ink-soft)}
+.contact-card strong{font-size:.98rem;color:var(--teal-dark)}
+/* ============ FOOTER ============ */
+.footer{background:var(--ink);color:#D8E0E2;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.3fr .7fr .8fr;gap:36px;padding:56px 0 30px}
+.footer h4{color:#fff;font-size:1rem;margin-bottom:14px}
+.footer-brand{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.footer-brand .brand-paw{width:40px;height:40px}
+.footer-brand strong{color:#fff;font-family:var(--font-h)}
+.footer-brand span{display:block;font-size:.72rem;color:var(--teal)}
+.footer p{font-size:.82rem;color:#AEBBC0;line-height:1.65}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer ul button,.footer ul a{color:#C7D3D6;font-size:.87rem;font-weight:600;background:none;border:0;padding:0;cursor:pointer;font-family:var(--font-b);text-align:left}
+.footer ul button:hover,.footer ul a:hover{color:#fff;text-decoration:underline}
+.ai-note{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:16px 18px;font-size:.75rem;color:#AEBBC0;line-height:1.65;margin:26px 0 0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:#AEBBC0}
+.footer-bottom a{color:#8FD0C6;font-weight:700}
+/* ============ MODALS ============ */
+.modal-overlay{position:fixed;inset:0;background:rgba(45,52,54,.55);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:var(--r-lg);max-width:720px;width:100%;max-height:86vh;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.3);animation:popIn .3s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes popIn{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:22px 26px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;border-radius:var(--r-lg) var(--r-lg) 0 0}
+.modal-head h3{font-size:1.25rem;display:flex;align-items:center;gap:10px}
+.modal-head h3 svg{width:22px;height:22px;color:var(--teal-dark)}
+.modal-close{width:38px;height:38px;border-radius:11px;border:0;background:var(--cream);cursor:pointer;display:grid;place-items:center;color:var(--ink);transition:background .2s;flex:none}
+.modal-close:hover{background:var(--coral-soft);color:var(--coral-dark)}
+.modal-close svg{width:19px;height:19px}
+.modal-body{padding:24px 26px;overflow-y:auto;font-size:.9rem;color:var(--ink-soft)}
+.modal-body h4{color:var(--ink);font-size:.98rem;margin:18px 0 6px}
+.modal-body h4:first-child{margin-top:0}
+.modal-body p{margin-bottom:10px;line-height:1.65}
+.modal-body ul{margin:0 0 10px 20px}
+.modal-body li{margin-bottom:5px;line-height:1.55}
+.modal-body a{font-weight:700}
+/* ============ TOAST ============ */
+.toast-wrap{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:300;display:flex;flex-direction:column;gap:10px;align-items:center;width:min(92vw,480px);pointer-events:none}
+.toast{display:flex;align-items:center;gap:11px;background:var(--ink);color:#fff;padding:14px 20px;border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.3);font-size:.9rem;font-weight:600;opacity:0;transform:translateY(18px);transition:all .35s cubic-bezier(.2,.9,.3,1.2);width:100%}
+.toast.show{opacity:1;transform:none}
+.toast svg{width:20px;height:20px;flex:none}
+.toast.t-ok{background:#136F4A}
+.toast.t-ok svg{color:#7FE0B2}
+.toast.t-err{background:#8F1D17}
+.toast.t-err svg{color:#FFB4B0}
+.toast.t-info{background:var(--teal-darker)}
+.toast.t-info svg{color:#8FD0C6}
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+/* ============ RESPONSIVE ============ */
+@media (max-width:1000px){
+.hero-grid{grid-template-columns:1fr;gap:44px}
+.hero-visual{order:-1}
+.pet-orb{width:min(300px,74%)}
+.cov-grid{grid-template-columns:1fr 1fr}
+.opt-items{grid-template-columns:1fr 1fr}
+.freq-grid{grid-template-columns:1fr 1fr}
+.contract-wrap{grid-template-columns:1fr}
+.summary-side{position:static}
+.trust-wrap{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+.nav-links{display:none}
+.menu-btn{display:flex}
+}
+@media (max-width:760px){
+.cap-grid{grid-template-columns:1fr;gap:12px}
+.cap-card label{flex-direction:row;align-items:center;justify-content:space-between;padding:14px 16px;text-align:left;gap:12px}
+.cap-eur{font-size:1.3rem}
+.cap-txt{align-items:flex-end;gap:1px}
+.cap-price{font-size:1.02rem}
+.cap-tag{position:absolute;top:50%;left:12px;transform:translateY(-50%)}
+.cap-card label{padding-left:14px}
+.cap-eur{margin-left:74px}
+}
+@media (max-width:640px){
+.cov-grid{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.field.col-2{grid-column:span 1}
+.gar-grid{grid-template-columns:1fr}
+.gar-sub{padding:13px 12px}
+.count-row{grid-template-columns:repeat(3,1fr);gap:9px}
+.opt-items{grid-template-columns:1fr}
+.calc-body{padding:16px 18px 26px}
+.calc-top{padding:20px 18px}
+.stepper{padding:18px 18px 0}
+.step-label{font-size:.66rem}
+.footer-grid{grid-template-columns:1fr}
+.freq-grid{grid-template-columns:1fr 1fr}
+.chip-float{font-size:.72rem;padding:8px 11px}
+.hero{padding-top:112px}
+.modal-head{padding:18px}
+.modal-body{padding:18px}
+.date-selects{grid-template-columns:1fr 1fr 1.2fr;gap:6px}
+.gar-card label{padding:15px 14px}
+.badge-price,.badge-carencia,.badge-confirm{font-size:.62rem}
+.gar-badges{gap:5px}
+.rc-confirm{font-size:.78rem;padding:9px 11px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+html{scroll-behavior:auto}
+.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#inicio" aria-label="Elly Campeanu, Agente Exclusivo ASISA — Inicio">
+      <span class="brand-paw" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+      <span class="brand-txt"><strong>Elly Campeanu</strong><span>Agente Exclusivo ASISA</span></span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#coberturas">Coberturas</a></li>
+        <li><a href="#calculadora">Calcula tu precio</a></li>
+        <li><a href="#contratar">Contratar</a></li>
+        <li><a href="#documentacion">Documentación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#" class="legal-link" data-modal="modal-aviso">Aviso Legal</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú de navegación">
+      <svg id="menuIcoOpen" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="menuIcoClose" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+    <a href="#inicio">Inicio</a>
+    <a href="#coberturas">Coberturas</a>
+    <a href="#calculadora">Calcula tu precio</a>
+    <a href="#contratar">Contratar</a>
+    <a href="#documentacion">Documentación</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#" data-modal="modal-aviso">Aviso Legal</a>
+  </nav>
+</header>
+
+<main id="contenido">
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <span class="blob b1" aria-hidden="true"></span><span class="blob b2" aria-hidden="true"></span><span class="blob b3" aria-hidden="true"></span>
+  <span class="paw-float pf1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+  <span class="paw-float pf2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+  <span class="paw-float pf3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+  <span class="paw-float pf4" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Seguro de mascotas ASISA · Perros y gatos</span>
+      <h1>Porque ellos también son <span class="hl">familia</span></h1>
+      <p class="hero-sub">El seguro de mascotas de ASISA con asistencia veterinaria, urgencias 24 horas los 365 días y vacunaciones incluidas. Sin importar su raza o edad.</p>
+      <div class="price-pill">
+        <small>Precio ASISA Mascotas</small>
+        <span class="price">Desde 9,90€/mes*</span>
+      </div>
+      <span class="price-note">*Precio para 2026, impuestos no incluidos. El precio final puede variar según las opciones seleccionadas.</span>
+      <div class="hero-ctas">
+        <a href="#calculadora" class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg> Calcula tu precio</a>
+        <a href="#coberturas" class="btn btn-ghost btn-lg">Ver coberturas</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="pet-orb">
+        <span class="big-paw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+      </div>
+      <span class="chip-float cf1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Urgencias 24h · 365 días</span>
+      <span class="chip-float cf2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> Todas las razas y edades</span>
+      <span class="chip-float cf3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg> Vacunaciones incluidas</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COBERTURAS ============ -->
+<section class="sect sect-alt" id="coberturas">
+  <div class="container">
+    <div class="sect-head center-head reveal">
+      <span class="eyebrow2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg> ASISA Mascotas · Un único seguro</span>
+      <h2>Todo esto, incluido en el precio base</h2>
+      <p class="lead">Un solo producto, sin niveles ni letra pequeña: estas coberturas vienen incluidas siempre, para todas las mascotas aseguradas, perros y gatos por igual.</p>
+    </div>
+    <div class="cov-grid">
+      <article class="cov-card reveal d1">
+        <span class="cov-ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg></span>
+        <h3>Asistencia veterinaria</h3>
+        <p>Cobertura de asistencia veterinaria para tu perro o gato, incluida desde el primer día.</p>
+        <span class="tag-free">Incluida en el precio base</span>
+      </article>
+      <article class="cov-card reveal d2">
+        <span class="cov-ic ic-coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <h3>Orientación telefónica veterinaria</h3>
+        <p>Servicio de orientación telefónica veterinaria para resolver tus dudas sobre la salud de tu mascota.</p>
+        <span class="tag-free">Incluida en el precio base</span>
+      </article>
+      <article class="cov-card reveal d3">
+        <span class="cov-ic ic-lav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+        <h3>Información Mundo Mascotas</h3>
+        <p>Servicio de información Mundo Mascotas con todo lo que necesitas saber para su cuidado.</p>
+        <span class="tag-free">Incluida en el precio base</span>
+      </article>
+      <article class="cov-card reveal d1">
+        <span class="cov-ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+        <h3>Urgencias 24 horas, 365 días</h3>
+        <p>Servicio de urgencias disponible a cualquier hora, cualquier día del año.</p>
+        <span class="tag-free">Incluida en el precio base</span>
+      </article>
+      <article class="cov-card vac-card reveal d2">
+        <div class="vac-head">
+          <span class="cov-ic ic-coral" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg></span>
+          <h3>Vacunaciones caninas</h3>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Rabia</strong> (caninos)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Tetravalente</strong></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Trivalente</strong></span></li>
+        </ul>
+        <span class="tag-free">Incluidas en el precio base</span>
+      </article>
+      <article class="cov-card vac-card reveal d3">
+        <div class="vac-head">
+          <span class="cov-ic ic-lav" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg></span>
+          <h3>Vacunaciones felinas</h3>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Leucemia</strong></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Rabia</strong> (felinos)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Tetravalente</strong></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Trivalente</strong></span></li>
+        </ul>
+        <span class="tag-free">Incluidas en el precio base</span>
+      </article>
+    </div>
+
+    <div class="cond-box reveal">
+      <span class="cond-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <div>
+        <h3>Condiciones de contratación: solo dos requisitos</h3>
+        <p>El seguro ASISA Mascotas es apto para <strong>perros y gatos sin importar su raza o edad</strong>. Los únicos requisitos son:</p>
+        <div class="cond-list">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Identificación con microchip</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Inscripción en el Registro de Animales de Compañía de tu Comunidad Autónoma</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="opt-strip reveal">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Garantías opcionales</h3>
+      <p>Puedes ampliar tu seguro con estas garantías opcionales, cada una con un coste adicional. Selecciónalas en la calculadora y ASISA confirmará su importe exacto en tu oferta oficial, que recibirás en PDF por email.</p>
+      <div class="opt-items">
+        <span class="opt-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg> Responsabilidad civil</span>
+        <span class="opt-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg> Capital en caso de fallecimiento por accidente</span>
+        <span class="opt-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg> Capital en caso de robo</span>
+        <span class="opt-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg> Gastos por sacrificio y eliminación de restos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULADORA ============ -->
+<section class="sect" id="calculadora">
+  <div class="container">
+    <div class="sect-head center-head reveal">
+      <span class="eyebrow2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg> Calcula tu precio</span>
+      <h2>Tu presupuesto en 3 pasos</h2>
+      <p class="lead">Precio base: 9,90€/mes por mascota (impuestos no incluidos), igual para perros y gatos. El precio mostrado es una estimación orientativa: la oferta oficial, con el precio confirmado por ASISA, te llegará en PDF por email.</p>
+    </div>
+
+    <div class="calc-shell reveal">
+      <div class="calc-top">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg> ASISA Mascotas — presupuesto interactivo</h3>
+        <p>Sin compromiso. Tus datos no se almacenan: solo se usan para preparar tu solicitud.</p>
+      </div>
+      <ol class="stepper" id="stepper" aria-label="Progreso de la calculadora">
+        <li class="active" data-step-dot="1"><span class="step-dot">1</span><span class="step-label">Tus mascotas</span></li>
+        <li data-step-dot="2"><span class="step-dot">2</span><span class="step-label">Garantías opcionales</span></li>
+        <li data-step-dot="3"><span class="step-dot">3</span><span class="step-label">Pago y precio</span></li>
+      </ol>
+
+      <div class="calc-body">
+        <!-- PASO 1 -->
+        <div class="calc-panel active" id="panel-1" role="group" aria-labelledby="stp1-title">
+          <h4 id="stp1-title" class="flabel" style="font-size:1.05rem;margin-bottom:12px">¿Cuántas mascotas deseas asegurar?</h4>
+          <div class="count-row" role="radiogroup" aria-label="Número de mascotas">
+            <div class="count-card">
+              <input type="radio" name="numPets" id="np1" value="1" checked>
+              <label for="np1"><span class="paws-mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span><span class="count-num">1</span><small>mascota</small></label>
+            </div>
+            <div class="count-card">
+              <input type="radio" name="numPets" id="np2" value="2">
+              <label for="np2"><span class="paws-mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span><span class="count-num">2</span><small>mascotas</small></label>
+            </div>
+            <div class="count-card">
+              <input type="radio" name="numPets" id="npMas" value="mas">
+              <label for="npMas"><span class="paws-mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span><span class="count-num" id="countMasNum">3 o +</span><small>mascotas</small></label>
+              <div class="custom-pets" id="customPetsWrap">
+                <label for="numPetsCustom">¿Cuántas exactamente?</label>
+                <div class="num-stepper">
+                  <button type="button" id="petsMinus" aria-label="Quitar una mascota">−</button>
+                  <input type="number" id="numPetsCustom" min="3" max="10" value="3" inputmode="numeric" aria-label="Número exacto de mascotas">
+                  <button type="button" id="petsPlus" aria-label="Añadir una mascota">+</button>
+                </div>
+                <span class="custom-hint" id="customHint">3 fichas creadas · máx. 10</span>
+              </div>
+            </div>
+          </div>
+          <div id="petForms"></div>
+          <div class="pet-actions">
+            <span class="pet-counter" id="petCounter" aria-live="polite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg> 1 mascota en tu solicitud</span>
+            <button type="button" class="btn btn-ghost btn-sm" id="addPet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> Añadir otra mascota</button>
+          </div>
+          <div class="step-error" id="err-step1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><span>Revisa los campos marcados: para poder contratar, tu mascota debe tener microchip y estar inscrita en el Registro de Animales de Compañía.</span></div>
+          <div class="calc-nav">
+            <span></span>
+            <button type="button" class="btn btn-primary" id="toStep2">Siguiente: garantías <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+          </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="calc-panel" id="panel-2" role="group" aria-labelledby="stp2-title">
+          <h4 id="stp2-title" class="flabel" style="font-size:1.05rem;margin-bottom:4px">Garantías opcionales</h4>
+          <p style="font-size:.88rem;color:var(--ink-soft);margin-bottom:14px">Amplía tu protección por muy poco al mes. Las garantías con precio indicado se suman automáticamente a tu presupuesto; el resto se valoran de forma personalizada y su importe se confirmará en tu oferta oficial en PDF.</p>
+          <div class="gar-grid">
+            <div class="gar-card gar-card-full">
+              <input type="checkbox" id="gar-rc" name="gar" value="rc">
+              <label for="gar-rc"><span class="gar-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="gar-txt"><strong>Responsabilidad civil</strong><small>Protección frente a daños a terceros causados por tu mascota. La garantía más solicitada: un solo incidente con otra persona u otro animal puede costar mucho más que años de seguro.</small><span class="gar-badges"><span class="badge-price"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> Desde 1,57 €/mes por mascota</span></span></span></label>
+              <div class="gar-sub" id="garSubRC">
+                <p class="gar-sub-title" id="rcCapLbl">Elige el capital asegurado que mejor se adapte a ti</p>
+                <div class="cap-grid" role="radiogroup" aria-labelledby="rcCapLbl">
+                  <div class="cap-card">
+                    <input type="radio" name="rcCapital" id="rc-150" value="150000" checked>
+                    <label for="rc-150"><span class="cap-eur">150.000&nbsp;€</span><span class="cap-txt"><span class="cap-price">1,57&nbsp;€/mes</span><span class="cap-x">por mascota</span></span></label>
+                  </div>
+                  <div class="cap-card">
+                    <input type="radio" name="rcCapital" id="rc-200" value="200000">
+                    <label for="rc-200"><span class="cap-tag">El más elegido</span><span class="cap-eur">200.000&nbsp;€</span><span class="cap-txt"><span class="cap-price">1,98&nbsp;€/mes</span><span class="cap-x">por mascota</span></span></label>
+                  </div>
+                  <div class="cap-card">
+                    <input type="radio" name="rcCapital" id="rc-300" value="300000">
+                    <label for="rc-300"><span class="cap-eur">300.000&nbsp;€</span><span class="cap-txt"><span class="cap-price">2,19&nbsp;€/mes</span><span class="cap-x">por mascota</span></span></label>
+                  </div>
+                </div>
+                <span class="gar-sub-hint">Por apenas 0,62 € más al mes multiplicas por dos tu capital de protección.</span>
+                <p class="rc-confirm" id="rc-confirm" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="gar-card">
+              <input type="checkbox" id="gar-fall" name="gar" value="fallecimiento">
+              <label for="gar-fall"><span class="gar-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="gar-txt"><strong>Capital en caso de fallecimiento por accidente</strong><small>Indemnización si tu mascota fallece a causa de un accidente. Por el precio de un café al mes, evitas que un accidente se convierta también en un golpe económico.</small><span class="gar-badges"><span class="badge-price"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> Solo 0,63 €/mes por mascota</span></span></span></label>
+            </div>
+            <div class="gar-card">
+              <input type="checkbox" id="gar-robo" name="gar" value="robo">
+              <label for="gar-robo"><span class="gar-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="gar-txt"><strong>Capital en caso de robo</strong><small>Indemnización en caso de robo de tu mascota. La garantía más completa: protege el valor de tu mascota frente a una de las situaciones más duras para cualquier familia.</small><span class="gar-badges"><span class="badge-price"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> 3,87 €/mes por mascota</span><span class="badge-carencia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg> Sujeto a carencia</span></span></span></label>
+            </div>
+            <div class="gar-card">
+              <input type="checkbox" id="gar-sac" name="gar" value="sacrificio">
+              <label for="gar-sac"><span class="gar-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="gar-txt"><strong>Gastos por sacrificio y eliminación de restos</strong><small>Cobertura de los gastos de sacrificio y eliminación de restos. Evita que, en el momento más difícil, tengas que preocuparte también por el coste.</small><span class="gar-badges"><span class="badge-price"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> 2,92 €/mes por mascota</span><span class="badge-carencia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg> Sujeto a carencia</span></span></span></label>
+            </div>
+          </div>
+          <div class="carencia-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 7 12 12 15.5 14"/></svg>
+            <span>Las garantías de indemnización por robo y gastos de sacrificio y eliminación de restos están sujetas a un <strong>periodo de carencia</strong> según las condiciones generales del seguro.</span>
+          </div>
+          <div class="estim-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>El precio de esta web es solo una <strong>estimación orientativa</strong>. Cuando reciba toda tu información por email, prepararemos tu <strong>oferta oficial de ASISA</strong> con el precio definitivo y la recibirás en <strong>PDF</strong> junto con la documentación del seguro.</span>
+          </div>
+          <div class="calc-nav">
+            <button type="button" class="btn btn-ghost" id="backTo1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Anterior</button>
+            <button type="button" class="btn btn-primary" id="toStep3">Siguiente: pago y precio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+          </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="calc-panel" id="panel-3" role="group" aria-labelledby="stp3-title">
+          <h4 id="stp3-title" class="flabel" style="font-size:1.05rem;margin-bottom:12px">Frecuencia de pago</h4>
+          <div class="freq-grid" role="radiogroup" aria-label="Frecuencia de pago">
+            <div class="freq-card"><input type="radio" name="freq" id="fq-m" value="mensual" checked><label for="fq-m"><span class="fl">Mensual</span><span class="disc-badge">Sin descuento</span></label></div>
+            <div class="freq-card"><input type="radio" name="freq" id="fq-t" value="trimestral"><label for="fq-t"><span class="fl">Trimestral</span><span class="disc-badge on">-1% dto.</span></label></div>
+            <div class="freq-card"><input type="radio" name="freq" id="fq-s" value="semestral"><label for="fq-s"><span class="fl">Semestral</span><span class="disc-badge on">-2% dto.</span></label></div>
+            <div class="freq-card"><input type="radio" name="freq" id="fq-a" value="anual"><label for="fq-a"><span class="fl">Anual</span><span class="disc-badge on">-3% dto.</span></label></div>
+          </div>
+          <div class="receipt" aria-live="polite">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h5"/></svg> Resumen de tu presupuesto estimado</h4>
+            <div class="rc-row"><span>Precio base por mascota</span><span>9,90&nbsp;€/mes*</span></div>
+            <div class="rc-row"><span>Número de mascotas</span><span id="rc-pets">1</span></div>
+            <div id="rc-gar-lines"></div>
+            <div class="rc-row"><span>Subtotal mensual</span><span id="rc-mensual">9,90&nbsp;€</span></div>
+            <div class="rc-row"><span>Subtotal anual (12 meses)</span><span id="rc-anual">118,80&nbsp;€</span></div>
+            <div class="rc-row disc" id="rc-disc-row" style="display:none"><span id="rc-disc-lbl">Descuento por pago anual (3%)</span><span id="rc-disc-val">−3,56&nbsp;€</span></div>
+            <div class="rc-row gar" id="rc-gar-row" style="display:none"><span id="rc-gar-lbl">Garantías opcionales seleccionadas</span><span>Importe a confirmar por ASISA en tu oferta oficial</span></div>
+            <div class="rc-total">
+              <span class="lbl" id="rc-per-lbl">Tu pago mensual estimado<small>Pago mensual · estimación, impuestos no incluidos</small></span>
+              <span class="val" id="rc-per-val">9,90&nbsp;€</span>
+            </div>
+            <div class="rc-annual"><span id="rc-total-year-lbl">Total anual estimado</span><strong id="rc-total-year">118,80&nbsp;€</strong></div>
+            <span class="tax-note">*Precio para 2026, impuestos no incluidos. Estimación sin compromiso: el precio final, incluyendo las garantías opcionales seleccionadas, será confirmado por ASISA tras la valoración de la solicitud y recibirás tu oferta oficial en PDF por email.</span>
+          </div>
+          <p class="contract-year-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg> El contrato de seguro se formaliza por periodos de 1 año.</p>
+          <div class="calc-nav">
+            <button type="button" class="btn btn-ghost" id="backTo2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Anterior</button>
+            <a href="#contratar" class="btn btn-coral btn-lg" id="ctaContratar">¡Me interesa! Solicitar oferta oficial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTRATAR ============ -->
+<section class="sect sect-alt" id="contratar">
+  <div class="container">
+    <div class="sect-head center-head reveal">
+      <span class="eyebrow2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> Contratación</span>
+      <h2>Solicita tu oferta oficial ASISA Mascotas</h2>
+      <p class="lead">Completa tus datos y envíame tu solicitud por el canal que prefieras. El precio de esta web es una estimación: tras recibir tu información prepararemos tu oferta oficial de ASISA y la recibirás en PDF por email. Esta web no almacena ningún dato: todo se envía directamente desde tu dispositivo.</p>
+    </div>
+    <div class="contract-wrap">
+      <form class="form-card reveal" id="contractForm" novalidate>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Datos del tomador</h3>
+        <p class="fc-sub">Los campos marcados con <span style="color:var(--coral-dark);font-weight:700">*</span> son obligatorios.</p>
+
+        <div class="f-group" style="border-top:none;padding-top:0;margin-top:0">
+          <p class="f-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M6 9.5h4"/><path d="M6 13.5h2"/></svg> Identificación</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="docTipo">Tipo de documento <span class="req">*</span></label>
+              <select id="docTipo">
+                <option value="DNI" selected>DNI</option>
+                <option value="NIE">NIE</option>
+                <option value="Pasaporte">Pasaporte</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="docNum">Número de documento <span class="req">*</span></label>
+              <input type="text" id="docNum" placeholder="12345678Z" autocomplete="off">
+              <p class="err-msg" id="err-docNum"></p>
+            </div>
+            <div class="field">
+              <label for="nombre">Nombre <span class="req">*</span></label>
+              <input type="text" id="nombre" placeholder="Tu nombre" autocomplete="given-name">
+              <p class="err-msg" id="err-nombre"></p>
+            </div>
+            <div class="field">
+              <label for="apellido1">Primer apellido <span class="req">*</span></label>
+              <input type="text" id="apellido1" placeholder="Primer apellido" autocomplete="family-name">
+              <p class="err-msg" id="err-apellido1"></p>
+            </div>
+            <div class="field">
+              <label for="apellido2">Segundo apellido <span class="opt-tag">(opcional)</span></label>
+              <input type="text" id="apellido2" placeholder="Segundo apellido, si tienes">
+            </div>
+            <div class="field">
+              <label for="genero">Género <span class="req">*</span></label>
+              <select id="genero">
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+              </select>
+              <p class="err-msg" id="err-genero"></p>
+            </div>
+            <div class="field col-2">
+              <span class="flabel" id="fn-lbl">Fecha de nacimiento del tomador <span class="req">*</span></span>
+              <div id="fnDateWrap" role="group" aria-labelledby="fn-lbl"></div>
+              <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Formato: DÍA MES AÑO (por ejemplo 01 ENE 1991). Debes ser mayor de 18 años.</span>
+              <p class="err-msg" id="err-fechaNac"></p>
+            </div>
+            <div class="field">
+              <label for="nacionalidad">Nacionalidad <span class="req">*</span></label>
+              <select id="nacionalidad"></select>
+              <p class="err-msg" id="err-nacionalidad"></p>
+            </div>
+            <div class="field" id="wrapNacOtra" style="display:none">
+              <label for="nacOtra">Indica tu nacionalidad <span class="req">*</span></label>
+              <input type="text" id="nacOtra" placeholder="Escribe tu nacionalidad">
+              <p class="err-msg" id="err-nacOtra"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="f-group">
+          <p class="f-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Contacto</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="email">Correo electrónico <span class="req">*</span></label>
+              <input type="email" id="email" placeholder="tunombre@ejemplo.es" autocomplete="email">
+              <p class="err-msg" id="err-email"></p>
+            </div>
+            <div class="field">
+              <label for="movil">Teléfono móvil <span class="req">*</span></label>
+              <input type="tel" id="movil" placeholder="612 345 678" autocomplete="tel" inputmode="numeric">
+              <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> 9 dígitos, empieza por 6 o 7.</span>
+              <p class="err-msg" id="err-movil"></p>
+            </div>
+            <div class="field col-2">
+              <label for="fijo">Teléfono fijo <span class="opt-tag">(opcional)</span></label>
+              <input type="tel" id="fijo" placeholder="912 345 678" inputmode="numeric">
+              <p class="err-msg" id="err-fijo"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="f-group">
+          <p class="f-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Dirección completa</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="tipoVia">Tipo de vía <span class="req">*</span></label>
+              <select id="tipoVia"></select>
+              <p class="err-msg" id="err-tipoVia"></p>
+            </div>
+            <div class="field">
+              <label for="nombreVia">Nombre de la vía <span class="req">*</span></label>
+              <input type="text" id="nombreVia" placeholder="Gran Vía" autocomplete="address-line1">
+              <p class="err-msg" id="err-nombreVia"></p>
+            </div>
+            <div class="field">
+              <label for="numVia">Número <span class="req">*</span></label>
+              <input type="text" id="numVia" placeholder="12" inputmode="text">
+              <p class="err-msg" id="err-numVia"></p>
+            </div>
+            <div class="field">
+              <label for="piso">Piso / Puerta <span class="opt-tag">(opcional)</span></label>
+              <input type="text" id="piso" placeholder="3.º A">
+            </div>
+            <div class="field">
+              <label for="cp">Código postal <span class="req">*</span></label>
+              <input type="text" id="cp" placeholder="28001" inputmode="numeric" maxlength="5" autocomplete="postal-code">
+              <p class="err-msg" id="err-cp"></p>
+            </div>
+            <div class="field">
+              <label for="localidad">Localidad <span class="req">*</span></label>
+              <input type="text" id="localidad" placeholder="Madrid">
+              <p class="err-msg" id="err-localidad"></p>
+            </div>
+            <div class="field col-2">
+              <label for="provincia">Provincia <span class="req">*</span></label>
+              <select id="provincia"></select>
+              <p class="err-msg" id="err-provincia"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="f-group">
+          <p class="f-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg> Datos de pago</p>
+          <div class="form-grid">
+            <div class="field col-2">
+              <label for="iban">Cuenta IBAN <span class="req">*</span></label>
+              <input type="text" id="iban" placeholder="ES91 2100 0418 4502 0005 1332" autocomplete="off" spellcheck="false" inputmode="text">
+              <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> IBAN español: ES + 22 dígitos. Se formatea automáticamente.</span>
+              <p class="err-msg" id="err-iban"></p>
+            </div>
+            <div class="field col-2">
+              <label for="frecuenciaPago">Frecuencia de pago <span class="req">*</span></label>
+              <select id="frecuenciaPago">
+                <option value="mensual">Mensual (sin descuento)</option>
+                <option value="trimestral">Trimestral (1% de descuento)</option>
+                <option value="semestral">Semestral (2% de descuento)</option>
+                <option value="anual">Anual (3% de descuento)</option>
+              </select>
+              <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Sincronizado con tu selección en la calculadora. El contrato se formaliza por periodos de 1 año.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="f-group">
+          <p class="f-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Protección de datos (RGPD / LOPDGDD)</p>
+          <div class="consent-box">
+            <label class="consent"><input type="checkbox" id="cons1"><span>He leído y acepto la <a href="#" data-modal="modal-priv">Política de Privacidad</a> y el <a href="#" data-modal="modal-aviso">Aviso Legal</a>. <span style="color:var(--coral-dark)">*</span></span></label>
+            <label class="consent"><input type="checkbox" id="cons2"><span>Consiento el tratamiento de mis datos personales por parte de <strong>ASISA</strong> (responsable del tratamiento) y <strong>Elly Campeanu</strong> (agente exclusivo) para la gestión y contratación del seguro de mascotas, conforme al Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD). <span style="color:var(--coral-dark)">*</span></span></label>
+            <label class="consent"><input type="checkbox" id="cons3"><span>Declaro que la información proporcionada es veraz y comprendo que la inexactitud de los datos podría afectar a la validez del contrato de seguro. <span style="color:var(--coral-dark)">*</span></span></label>
+            <label class="consent"><input type="checkbox" id="cons4"><span>Acepto recibir comunicaciones comerciales de ASISA y/o de Elly Campeanu sobre productos y servicios de seguros. <em>(opcional)</em></span></label>
+          </div>
+          <p class="err-msg" id="err-consent" style="margin-top:10px"></p>
+        </div>
+
+        <div class="send-row">
+          <button type="button" class="btn btn-primary" id="btnEmail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Enviar por Email</button>
+          <button type="button" class="btn btn-wa" id="btnWhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Enviar por WhatsApp</button>
+          <button type="button" class="btn btn-coral" id="btnCopiar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> Copiar datos</button>
+        </div>
+        <p class="send-hint">Tu solicitud se envía directamente desde tu dispositivo (correo o WhatsApp). Esta web no almacena ningún dato personal. La oferta oficial con el precio final la recibirás en PDF por email.</p>
+      </form>
+
+      <aside class="summary-side reveal d2" aria-label="Resumen de tu solicitud">
+        <div class="summary-card">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg> Resumen de tu solicitud</h4>
+          <div id="sumPets"></div>
+          <div style="margin-top:14px">
+            <div class="sum-row"><span>Garantías opcionales</span><span id="sumGars">Ninguna</span></div>
+            <div class="sum-row"><span>Frecuencia de pago</span><span id="sumFreq">Mensual</span></div>
+            <div class="sum-row"><span id="sumPerLbl">Pago mensual estimado</span><span id="sumPerVal">9,90&nbsp;€</span></div>
+          </div>
+          <div class="sum-total">
+            <span style="font-size:.85rem"><span id="sumTotalLbl">Total anual estimado</span><small>impuestos no incluidos · estimación</small></span>
+            <span class="v" id="sumTotal">118,80&nbsp;€</span>
+          </div>
+          <a href="#calculadora" class="sum-edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> Editar en la calculadora</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOCUMENTACIÓN ============ -->
+<section class="sect" id="documentacion">
+  <div class="container">
+    <div class="sect-head reveal">
+      <span class="eyebrow2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg> Transparencia total</span>
+      <h2>Documentación del seguro</h2>
+      <p class="lead">Toda la documentación contractual oficial del seguro ASISA Mascotas, disponible en la web de ASISA. Además, la recibirás en PDF junto con tu oferta oficial.</p>
+    </div>
+    <div class="doc-grid">
+      <a class="doc-card reveal d1" href="https://www.asisa.es/content/dam/wasisa/documentos-web/particulares/mascotas/2026/NIP-ASISA-MASCOTAS-AIG10647.pdf" target="_blank" rel="noopener noreferrer" download="Nota informativa">
+        <span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+        <span><strong>Nota informativa</strong><small>PDF · descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></small></span>
+      </a>
+      <a class="doc-card reveal d2" href="https://www.asisa.es/content/dam/wasisa/documentos-web/particulares/mascotas/ASISA_MASCOTAS-Documento_Informacion.pdf" target="_blank" rel="noopener noreferrer" download="Documento de información de producto">
+        <span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+        <span><strong>Documento de información de producto (DIP)</strong><small>PDF · descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></small></span>
+      </a>
+      <a class="doc-card reveal d3" href="https://www.asisa.es/content/dam/wasisa/documentos-web/particulares/mascotas/CCGG-ASISA-MASCOTAS-AIG10809.pdf" target="_blank" rel="noopener noreferrer" download="Condiciones generales">
+        <span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></span>
+        <span><strong>Condiciones generales</strong><small>PDF · descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></small></span>
+      </a>
+      <a class="doc-card reveal d4" href="https://www.asisa.es/content/dam/wasisa/documentos-web/particulares/mascotas/251229_FOLLETO_MASCOTAS_2026_ASISA_CASTELLANO.pdf" target="_blank" rel="noopener noreferrer" download="Folleto">
+        <span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+        <span><strong>Folleto</strong><small>PDF · descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></small></span>
+      </a>
+      <a class="doc-card reveal d1" href="https://www.asisa.es/content/dam/wasisa/documentos-web/particulares/mascotas/solicitud-seguro-mascotas.pdf" target="_blank" rel="noopener noreferrer" download="Solicitud de seguro">
+        <span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></span>
+        <span><strong>Solicitud de seguro</strong><small>PDF · descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></small></span>
+      </a>
+      <a class="doc-card reveal d2" href="https://www.asisa.es/content/dam/wasisa/documentos-web/particulares/mascotas/AIG10648-ASISA-Mascotas-Peninsula-y-Baleares-2026.pdf" target="_blank" rel="noopener noreferrer" download="Franquicias Península y Baleares">
+        <span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <span><strong>Franquicias Península y Baleares</strong><small>PDF · descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></small></span>
+      </a>
+      <a class="doc-card reveal d3" href="https://www.asisa.es/content/dam/wasisa/documentos-web/particulares/mascotas/AIG1241-ASISA-Mascotas-Canarias-2026.pdf" target="_blank" rel="noopener noreferrer" download="Franquicias Canarias">
+        <span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <span><strong>Franquicias Canarias</strong><small>PDF · descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></small></span>
+      </a>
+      <a class="doc-card reveal d4" href="https://www.asisa.es/content/dam/wasisa/documentos-web/particulares/mascotas/AIG12413-ASISA-Mascotas-Ceuta-y-Melilla-2026.pdf" target="_blank" rel="noopener noreferrer" download="Franquicias Ceuta y Melilla">
+        <span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <span><strong>Franquicias Ceuta y Melilla</strong><small>PDF · descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></small></span>
+      </a>
+    </div>
+    <div class="doc-note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span>Toda la documentación contractual está disponible en la web de ASISA. Elly Campeanu puede facilitarte cualquier documento que necesites.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONFIANZA / AGENTE ============ -->
+<section class="sect sect-alt" id="agente">
+  <div class="container trust-wrap">
+    <div class="reveal">
+      <span class="eyebrow2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Tu agente de confianza</span>
+      <h2>Elly Campeanu, Agente Exclusivo de ASISA</h2>
+      <p>Soy Elly Campeanu y trabajo como agente exclusivo de ASISA. Te acompaño en todo el proceso: resolver tus dudas, preparar tu oferta oficial personalizada y gestionar la contratación de tu seguro de mascotas de forma cercana y transparente.</p>
+      <p>Elly Campeanu está registrada como distribuidora de seguros y puede verificarse en el registro oficial de la DGSFP (Dirección General de Seguros y Fondos de Pensiones):</p>
+      <a class="dgsfp-link" href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        Verificar en el registro oficial de la DGSFP
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+      </a>
+    </div>
+    <div class="badge-grid">
+      <div class="t-badge reveal d1"><span class="tb-ic ic-teal cov-ic" style="margin:0 auto 10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></span><strong>Registro DGSFP verificable</strong></div>
+      <div class="t-badge reveal d2"><span class="tb-ic ic-lav cov-ic" style="margin:0 auto 10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><strong>Datos protegidos (RGPD)</strong></div>
+      <div class="t-badge reveal d3"><span class="tb-ic ic-coral cov-ic" style="margin:0 auto 10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span><strong>Agente exclusivo ASISA</strong></div>
+      <div class="t-badge reveal d4"><span class="tb-ic ic-teal cov-ic" style="margin:0 auto 10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><strong>LOPDGDD cumplida</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="sect" id="contacto">
+  <div class="container">
+    <div class="sect-head center-head reveal">
+      <span class="eyebrow2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Hablemos</span>
+      <h2>¿Tienes dudas? Escríbeme</h2>
+      <p class="lead">Te respondo personalmente y te ayudo a elegir la mejor opción para tu mascota.</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card reveal d1" href="mailto:ecampeanu@tuasesorasisa.es">
+        <span class="cc-ic ic-teal cov-ic" style="margin:0 0 4px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+        <h3>Email</h3>
+        <p>Te contesto lo antes posible</p>
+        <strong>ecampeanu@tuasesorasisa.es</strong>
+      </a>
+      <a class="contact-card reveal d2" href="tel:+34614213113">
+        <span class="cc-ic ic-coral cov-ic" style="margin:0 0 4px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <h3>Teléfono</h3>
+        <p>Llámame directamente</p>
+        <strong>+34 614 213 113</strong>
+      </a>
+      <a class="contact-card reveal d3" href="https://wa.me/34614213113?text=Hola%20Elly%2C%20me%20interesa%20el%20seguro%20de%20mascotas%20ASISA" target="_blank" rel="noopener noreferrer">
+        <span class="cc-ic cov-ic" style="margin:0 0 4px;background:#E4F8EC;color:#177E3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>
+        <h3>WhatsApp</h3>
+        <p>Respuesta rápida por chat</p>
+        <strong>+34 614 213 113</strong>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="brand-paw" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>
+          <div><strong>Elly Campeanu</strong><span>Agente Exclusivo ASISA</span></div>
+        </div>
+        <p>Seguro de mascotas ASISA para perros y gatos, desde 9,90€/mes (precio para 2026, impuestos no incluidos; estimación orientativa, oferta oficial en PDF tras la solicitud). Todas las razas y edades, con microchip e inscripción en el Registro de Animales de Compañía.</p>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><button type="button" data-modal="modal-aviso">Aviso Legal</button></li>
+          <li><button type="button" data-modal="modal-priv">Política de Privacidad</button></li>
+          <li><button type="button" data-modal="modal-cookies">Política de Cookies</button></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="https://www.asisa.es" target="_blank" rel="noopener noreferrer">www.asisa.es</a></li>
+          <li><a href="https://www.asisa.es/seguro-para-animales/seguro-para-mascotas" target="_blank" rel="noopener noreferrer">ASISA Mascotas</a></li>
+          <li><a href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer">Registro DGSFP</a></li>
+          <li><a href="#documentacion">Documentación del seguro</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ai-note">Esta página web ha sido generada con asistencia de inteligencia artificial (modelo Claude de Anthropic). No se almacenan datos personales de usuarios en esta web. Los datos del formulario se envían directamente desde el dispositivo del usuario a través de su aplicación de correo electrónico o WhatsApp. El código fuente está alojado en GitHub y desplegado a través de Netlify. El responsable del tratamiento de los datos para la contratación del seguro es ASISA (www.asisa.es). Elly Campeanu actúa como agente exclusivo de seguros.</p>
+    <div class="footer-bottom">
+      <span>© 2025 Elly Campeanu — Agente Exclusivo ASISA</span>
+      <span>Producto asegurador: <a href="https://www.asisa.es" target="_blank" rel="noopener noreferrer">ASISA</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODALES ============ -->
+<div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-labelledby="aviso-title">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="aviso-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 13.5 16 12l5 3L12 20l-9-5 5-3 2 1.5"/><path d="m12 12 9-5-9-5-9 5z"/></svg> Aviso Legal</h3>
+      <button type="button" class="modal-close" aria-label="Cerrar Aviso Legal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <h4>Titular de la web</h4>
+      <p><strong>Elly Campeanu</strong>, Agente Exclusivo de Seguros de ASISA.<br>Email: <a href="mailto:ecampeanu@tuasesorasisa.es">ecampeanu@tuasesorasisa.es</a> · Teléfono: <a href="tel:+34614213113">+34 614 213 113</a></p>
+      <h4>Actividad</h4>
+      <p>Distribución de seguros como agente exclusivo de ASISA (Asistencia Sanitaria Interprovincial de Seguros, S.A.).</p>
+      <h4>Normativa aplicable</h4>
+      <p>La actividad de distribución de seguros se rige por la Ley 26/2006, de 17 de julio, de mediación de seguros y reaseguros privados, el Real Decreto-ley 3/2020, de 4 de febrero, de medidas urgentes, y la Directiva (UE) 2016/97 sobre distribución de seguros (IDD).</p>
+      <h4>Compañía aseguradora</h4>
+      <p>ASISA — Asistencia Sanitaria Interprovincial de Seguros, S.A. (<a href="https://www.asisa.es" target="_blank" rel="noopener noreferrer">www.asisa.es</a>).</p>
+      <h4>Verificación registral</h4>
+      <p>La inscripción como distribuidora de seguros puede verificarse en el registro oficial de la Dirección General de Seguros y Fondos de Pensiones (DGSFP): <a href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer">dgsfp.mineco.gob.es — Punto Único de Información</a>.</p>
+      <h4>Alojamiento, código fuente y herramientas</h4>
+      <p>Esta web es una página estática alojada en <strong>Netlify</strong>. El código fuente se almacena en un repositorio de <strong>GitHub</strong>. El contenido ha sido generado con asistencia de inteligencia artificial (modelo <strong>Claude de Anthropic</strong>). Ninguno de estos servicios recibe datos personales de los usuarios de esta web.</p>
+      <h4>Propiedad intelectual</h4>
+      <p>Los contenidos, diseño y textos de esta página se publican con fines informativos sobre el producto ASISA Mascotas. La información contractual vinculante es la contenida en la documentación oficial de ASISA.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-priv" role="dialog" aria-modal="true" aria-labelledby="priv-title">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="priv-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Política de Privacidad</h3>
+      <button type="button" class="modal-close" aria-label="Cerrar Política de Privacidad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <h4>Responsable del tratamiento</h4>
+      <p><strong>ASISA</strong> (Asistencia Sanitaria Interprovincial de Seguros, S.A.), CIF A-28017178, con domicilio en C/ Juan Ignacio Luca de Tena 12, 28027 Madrid. Delegado de Protección de Datos: <a href="mailto:dpd@asisa.es">dpd@asisa.es</a>.</p>
+      <h4>Agente exclusivo</h4>
+      <p><strong>Elly Campeanu</strong>, agente exclusivo de ASISA — <a href="mailto:ecampeanu@tuasesorasisa.es">ecampeanu@tuasesorasisa.es</a> · +34 614 213 113.</p>
+      <h4>Finalidad del tratamiento</h4>
+      <p>Gestión de solicitudes de presupuesto y contratación del seguro de mascotas ASISA Mascotas, incluida la tramitación de la póliza y la relación precontractual y contractual.</p>
+      <h4>Base jurídica (legitimación)</h4>
+      <ul>
+        <li>Consentimiento del interesado (art. 6.1.a RGPD).</li>
+        <li>Aplicación de medidas precontractuales a petición del interesado (art. 6.1.b RGPD).</li>
+      </ul>
+      <h4>Destinatarios</h4>
+      <p>ASISA como compañía aseguradora. No se ceden datos a terceros salvo obligación legal. Elly Campeanu accede a los datos únicamente para la gestión de tu solicitud como agente exclusivo.</p>
+      <h4>Derechos de los interesados</h4>
+      <p>Puedes ejercer tus derechos de <strong>acceso, rectificación, supresión, portabilidad, limitación y oposición</strong> escribiendo a <a href="mailto:dpd@asisa.es">dpd@asisa.es</a> o a <a href="mailto:ecampeanu@tuasesorasisa.es">ecampeanu@tuasesorasisa.es</a>, indicando el derecho que deseas ejercer y adjuntando copia de tu documento de identidad.</p>
+      <h4>Reclamaciones</h4>
+      <p>Si consideras que el tratamiento no se ajusta a la normativa, puedes reclamar ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong>: <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>.</p>
+      <h4>Plazo de conservación</h4>
+      <p>Los datos se conservarán mientras sean necesarios para la finalidad indicada y, una vez finalizada la relación, durante los plazos de prescripción legal. Las solicitudes que no lleguen a contratarse se conservarán como máximo <strong>12 meses</strong>.</p>
+      <h4>Seguridad: esta web no almacena tus datos</h4>
+      <p>Este sitio web <strong>no dispone de base de datos, backend ni cookies de rastreo</strong>. Los datos que introduces en el formulario se envían directamente desde tu propio dispositivo a través de tu aplicación de correo electrónico o de WhatsApp, al pulsar los botones de envío. Netlify únicamente aloja el archivo HTML estático y GitHub almacena el código fuente. Claude (Anthropic) ha asistido en la generación del contenido, pero no recibe ni trata datos de los usuarios.</p>
+      <h4>Transferencias internacionales</h4>
+      <p>Netlify y GitHub pueden disponer de servidores fuera del Espacio Económico Europeo; en tal caso se aplican las garantías adecuadas, como las cláusulas contractuales tipo aprobadas por la Comisión Europea. No se transfieren datos personales de usuarios a través de estos servicios, ya que la web no almacena datos.</p>
+      <h4>Normativa</h4>
+      <p>Reglamento (UE) 2016/679 (RGPD) y Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD).</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-cookies" role="dialog" aria-modal="true" aria-labelledby="cookies-title">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="cookies-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg> Política de Cookies</h3>
+      <button type="button" class="modal-close" aria-label="Cerrar Política de Cookies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <h4>Este sitio no utiliza cookies de rastreo</h4>
+      <p>Este sitio web <strong>no utiliza cookies propias de rastreo ni de análisis</strong>. No se instalan cookies publicitarias, de terceros, de redes sociales ni de analítica web, y no se realiza ningún tipo de elaboración de perfiles ni seguimiento de la navegación de los usuarios.</p>
+      <h4>Cookies técnicas del alojamiento</h4>
+      <p>El proveedor de alojamiento (Netlify) puede emplear cookies <strong>estrictamente necesarias</strong> de carácter técnico para el correcto funcionamiento y seguridad del servicio de alojamiento. Estas cookies no requieren consentimiento al ser imprescindibles para la prestación del servicio solicitado.</p>
+      <h4>Normativa aplicable</h4>
+      <p>La presente política se emite en cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), y del Reglamento (UE) 2016/679 (RGPD).</p>
+      <h4>Más información</h4>
+      <p>Para cualquier duda sobre esta política puedes escribir a <a href="mailto:ecampeanu@tuasesorasisa.es">ecampeanu@tuasesorasisa.es</a>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+(function(){
+'use strict';
+/* ================= UTILIDADES ================= */
+var $ = function(id){ return document.getElementById(id); };
+var ICO_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>';
+var ICO_ERR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>';
+var ICO_INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>';
+var ICO_WARN = ICO_ERR;
+var ICO_DOG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.25 16.75h1.5L12 18z"/><path d="M16 14v.5"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309"/><path d="M8 14v.5"/><path d="M8.5 8.5c-.384 1.05-1.083 2.028-2.344 2.5-1.931.722-3.576-.297-3.656-1-.113-.994 1.177-6.53 4-7 1.923-.321 3.651.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5"/></svg>';
+var ICO_CAT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/></svg>';
+var MESES=['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+function eur(n){ return n.toLocaleString('es-ES',{style:'currency',currency:'EUR'}); }
+function pad2(n){ return (n<10?'0':'')+n; }
+function todayISO(){ var d=new Date(); return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
+function isoToDMY(iso){ if(!iso) return ''; var p=iso.split('-'); if(p.length!==3) return iso; var mi=parseInt(p[1],10)-1; if(mi<0||mi>11) return iso; return p[2]+' '+MESES[mi]+' '+p[0]; }
+function toast(msg,type){
+  type = type||'ok';
+  var wrap=$('toastWrap');
+  var t=document.createElement('div');
+  t.className='toast t-'+type;
+  t.setAttribute('role','status');
+  t.innerHTML=(type==='ok'?ICO_CHECK:(type==='err'?ICO_ERR:ICO_INFO))+'<span>'+msg+'</span>';
+  wrap.appendChild(t);
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ t.classList.add('show'); }); });
+  setTimeout(function(){ t.classList.remove('show'); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },400); },4200);
+}
+function copiarAlPortapapeles(texto, cb){
+  function fallback(){
+    try{
+      var ta=document.createElement('textarea');
+      ta.value=texto; ta.setAttribute('readonly','');
+      ta.style.position='fixed'; ta.style.top='-1000px'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0,999999);
+      var ok=document.execCommand('copy');
+      document.body.removeChild(ta);
+      cb(!!ok);
+    }catch(e){ cb(false); }
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(texto).then(function(){ cb(true); },function(){ fallback(); });
+  } else { fallback(); }
+}
+/* ================= SELECTORES DE FECHA DD MES AAAA ================= */
+var MESES_LARGOS={'ENERO':0,'FEBRERO':1,'MARZO':2,'ABRIL':3,'MAYO':4,'JUNIO':5,'JULIO':6,'AGOSTO':7,'SEPTIEMBRE':8,'SETIEMBRE':8,'OCTUBRE':9,'NOVIEMBRE':10,'DICIEMBRE':11};
+function sinTildes(s){
+  try{ return s.normalize('NFD').replace(/[\u0300-\u036f]/g,''); }catch(e){ return s; }
+}
+function mesIndex(tok){
+  tok=sinTildes(String(tok).toUpperCase()).replace(/\./g,'');
+  if(/^\d+$/.test(tok)){ var n=parseInt(tok,10); return (n>=1&&n<=12)?n-1:-1; }
+  var i=MESES.indexOf(tok.slice(0,3));
+  if(i>=0) return i;
+  if(MESES_LARGOS[tok]!==undefined) return MESES_LARGOS[tok];
+  return -1;
+}
+/* acepta: 01 ENE 1991 · 1 enero 1991 · 01/01/1991 · 1-1-1991 */
+function parseDateText(v){
+  if(!v) return null;
+  var parts=String(v).trim().split(/[\s\/\-.,]+/).filter(Boolean);
+  if(parts.length!==3) return null;
+  var dd=parseInt(parts[0],10);
+  var mi=mesIndex(parts[1]);
+  var yy=parseInt(parts[2],10);
+  if(isNaN(dd)||mi<0||isNaN(yy)||parts[2].replace(/\D/g,'').length!==4) return null;
+  var dt=new Date(yy,mi,dd);
+  if(dt.getFullYear()!==yy||dt.getMonth()!==mi||dt.getDate()!==dd) return null;
+  return {d:dd,mi:mi,y:yy,iso:yy+'-'+pad2(mi+1)+'-'+pad2(dd),dmy:pad2(dd)+' '+MESES[mi]+' '+yy};
+}
+function dateSelectsHTML(base,yFrom,yTo){
+  var t='<input type="text" class="date-text" id="'+base+'-t" placeholder="Escríbela: 01 ENE 1991" autocomplete="off" spellcheck="false" aria-label="Escribe la fecha en formato DÍA MES AÑO">';
+  var d='<select class="date-sel" id="'+base+'-d" aria-label="Día"><option value="" selected>DD</option>';
+  for(var i=1;i<=31;i++){ d+='<option value="'+pad2(i)+'">'+pad2(i)+'</option>'; }
+  d+='</select>';
+  var m='<select class="date-sel" id="'+base+'-m" aria-label="Mes"><option value="" selected>MES</option>';
+  MESES.forEach(function(mm){ m+='<option value="'+mm+'">'+mm+'</option>'; });
+  m+='</select>';
+  var y='<select class="date-sel" id="'+base+'-y" aria-label="Año"><option value="" selected>AAAA</option>';
+  for(var yy=yFrom;yy>=yTo;yy--){ y+='<option value="'+yy+'">'+yy+'</option>'; }
+  y+='</select>';
+  return '<div class="date-field">'+t+'<span class="date-or">o selecciónala</span><div class="date-selects">'+d+m+y+'</div></div>';
+}
+function ensureYearOption(base,year){
+  var y=$(base+'-y'); if(!y) return;
+  var found=false;
+  for(var i=0;i<y.options.length;i++){ if(y.options[i].value===String(year)){ found=true; break; } }
+  if(!found){ var o=document.createElement('option'); o.value=String(year); o.textContent=String(year); y.appendChild(o); }
+}
+function syncTextFromSelects(base){
+  var d=$(base+'-d'), m=$(base+'-m'), y=$(base+'-y'), t=$(base+'-t');
+  if(!t||!d||!m||!y) return;
+  if(d.value&&m.value&&y.value){ t.value=d.value+' '+m.value+' '+y.value; }
+}
+function setDateSel(base,iso){
+  if(!iso) return;
+  var p=iso.split('-'); if(p.length!==3) return;
+  var d=$(base+'-d'), m=$(base+'-m'), y=$(base+'-y');
+  ensureYearOption(base,p[0]);
+  if(d) d.value=p[2];
+  if(m) m.value=MESES[parseInt(p[1],10)-1]||'';
+  if(y) y.value=p[0];
+  syncTextFromSelects(base);
+}
+function clampDaysSel(base){
+  var m=$(base+'-m'), y=$(base+'-y'), d=$(base+'-d');
+  if(!m||!y||!d) return;
+  if(!m.value||!y.value) return;
+  var dim=new Date(parseInt(y.value,10),MESES.indexOf(m.value)+1,0).getDate();
+  if(d.value && parseInt(d.value,10)>dim) d.value='';
+}
+function bindDateSel(base,onchange){
+  ['-d','-m','-y'].forEach(function(sfx){
+    var el=$(base+sfx); if(!el) return;
+    el.addEventListener('change',function(){ clampDaysSel(base); syncTextFromSelects(base); if(onchange) onchange(); });
+  });
+  var tt=$(base+'-t');
+  if(tt){
+    tt.addEventListener('input',function(){
+      var p=parseDateText(tt.value);
+      if(p){
+        ensureYearOption(base,p.y);
+        if($(base+'-d')) $(base+'-d').value=pad2(p.d);
+        if($(base+'-m')) $(base+'-m').value=MESES[p.mi];
+        if($(base+'-y')) $(base+'-y').value=String(p.y);
+      }
+      if(onchange) onchange();
+    });
+    tt.addEventListener('blur',function(){
+      var p=parseDateText(tt.value);
+      if(p) tt.value=p.dmy;
+    });
+  }
+}
+/* devuelve null si incompleta, {invalid:true} si imposible, o {iso,dmy} */
+function readDateSel(base){
+  var tx=$(base+'-t');
+  if(tx && tx.value.trim()){
+    var pt=parseDateText(tx.value);
+    if(!pt) return {invalid:true};
+    return {iso:pt.iso, dmy:pt.dmy};
+  }
+  var d=$(base+'-d'), m=$(base+'-m'), y=$(base+'-y');
+  if(!d||!m||!y) return null;
+  if(!d.value||!m.value||!y.value) return null;
+  var mi=MESES.indexOf(m.value);
+  var dd=parseInt(d.value,10), yy=parseInt(y.value,10);
+  var dt=new Date(yy,mi,dd);
+  if(dt.getFullYear()!==yy||dt.getMonth()!==mi||dt.getDate()!==dd) return {invalid:true};
+  var iso=y.value+'-'+pad2(mi+1)+'-'+d.value;
+  return {iso:iso, dmy:d.value+' '+m.value+' '+y.value};
+}
+function markDateInvalid(base,bad){
+  ['-d','-m','-y','-t'].forEach(function(sfx){
+    var el=$(base+sfx); if(!el) return;
+    el.classList.toggle('invalid',!!bad);
+    if(bad){ el.setAttribute('aria-invalid','true'); } else { el.removeAttribute('aria-invalid'); }
+  });
+}
+/* ================= NAV Y MENÚ ================= */
+var nav=$('nav');
+window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled', window.scrollY>10); },{passive:true});
+var menuBtn=$('menuBtn'), mobileMenu=$('mobileMenu'), icoOpen=$('menuIcoOpen'), icoClose=$('menuIcoClose');
+function closeMenu(){ mobileMenu.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); icoOpen.style.display='block'; icoClose.style.display='none'; }
+menuBtn.addEventListener('click',function(){
+  var open=mobileMenu.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open?'true':'false');
+  icoOpen.style.display=open?'none':'block';
+  icoClose.style.display=open?'block':'none';
+});
+mobileMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',closeMenu); });
+/* ================= MODALES ================= */
+var lastFocus=null;
+function openModal(id){
+  var m=$(id); if(!m) return;
+  lastFocus=document.activeElement;
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  var btn=m.querySelector('.modal-close'); if(btn) btn.focus();
+}
+function closeModal(m){
+  if(!m) return;
+  m.classList.remove('open');
+  document.body.style.overflow='';
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+}
+document.querySelectorAll('[data-modal]').forEach(function(el){
+  el.addEventListener('click',function(e){ e.preventDefault(); closeMenu(); openModal(el.getAttribute('data-modal')); });
+});
+document.querySelectorAll('.modal-overlay').forEach(function(m){
+  m.addEventListener('click',function(e){ if(e.target===m) closeModal(m); });
+  var c=m.querySelector('.modal-close'); if(c) c.addEventListener('click',function(){ closeModal(m); });
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m){ closeModal(m); });
+    closeMenu();
+  }
+});
+/* ================= REVEAL ================= */
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target); } });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+/* ================= SELECTS ESTÁTICOS ================= */
+var NACIONALIDADES=['Española','Alemana','Andorrana','Argentina','Belga','Boliviana','Brasileña','Británica','Búlgara','Chilena','China','Colombiana','Croata','Cubana','Dominicana','Ecuatoriana','Estadounidense','Filipina','Francesa','Hondureña','India','Italiana','Marroquí','Mexicana','Nicaragüense','Pakistaní','Paraguaya','Peruana','Polaca','Portuguesa','Rumana','Rusa','Senegalesa','Sueca','Suiza','Ucraniana','Uruguaya','Venezolana','Otra'];
+var PROVINCIAS=['Álava','Albacete','Alicante','Almería','Asturias','Ávila','Badajoz','Barcelona','Burgos','Cáceres','Cádiz','Cantabria','Castellón','Ceuta','Ciudad Real','Córdoba','Cuenca','Girona','Granada','Guadalajara','Guipúzcoa','Huelva','Huesca','Illes Balears','Jaén','A Coruña','La Rioja','Las Palmas','León','Lleida','Lugo','Madrid','Málaga','Melilla','Murcia','Navarra','Ourense','Palencia','Pontevedra','Salamanca','Santa Cruz de Tenerife','Segovia','Sevilla','Soria','Tarragona','Teruel','Toledo','Valencia','Valladolid','Vizcaya','Zamora','Zaragoza'];
+var VIAS=['Calle','Avenida','Plaza','Paseo','Camino','Carretera','Ronda','Travesía','Bulevar','Urbanización','Otros'];
+function fillSelect(sel,arr,selected){
+  arr.forEach(function(v){
+    var o=document.createElement('option'); o.value=v; o.textContent=v;
+    if(v===selected) o.selected=true;
+    sel.appendChild(o);
+  });
+}
+fillSelect($('nacionalidad'),NACIONALIDADES,'Española');
+fillSelect($('provincia'),PROVINCIAS,null);
+$('provincia').insertAdjacentHTML('afterbegin','<option value="" disabled selected>Selecciona tu provincia</option>');
+fillSelect($('tipoVia'),VIAS,'Calle');
+/* nacionalidad otra */
+$('nacionalidad').addEventListener('change',function(){
+  var show=this.value==='Otra';
+  $('wrapNacOtra').style.display=show?'flex':'none';
+  if(!show){ $('nacOtra').value=''; clearErr('err-nacOtra',$('nacOtra')); }
+});
+/* fecha nacimiento tomador */
+var hoy=todayISO();
+var Ycur=new Date().getFullYear();
+$('fnDateWrap').innerHTML=dateSelectsHTML('fn',Ycur-18,Ycur-110);
+bindDateSel('fn',function(){ clearErr('err-fechaNac',null); markDateInvalid('fn',false); });
+/* ================= ESTADO CALCULADORA ================= */
+var BASE=9.90;
+var MAX_PETS=10;
+var FREQS={
+  mensual:{label:'Mensual',periods:12,disc:0,perWord:'Pago mensual',perWord2:'al mes'},
+  trimestral:{label:'Trimestral',periods:4,disc:0.01,perWord:'Pago trimestral',perWord2:'al trimestre'},
+  semestral:{label:'Semestral',periods:2,disc:0.02,perWord:'Pago semestral',perWord2:'al semestre'},
+  anual:{label:'Anual',periods:1,disc:0.03,perWord:'Pago anual',perWord2:'al año'}
+};
+var RC_CAPITALES={
+  '150000':{label:'150.000 €',price:1.57},
+  '200000':{label:'200.000 €',price:1.98},
+  '300000':{label:'300.000 €',price:2.19}
+};
+var GARS={
+  rc:{label:'Responsabilidad civil',price:1.57},
+  fallecimiento:{label:'Capital en caso de fallecimiento por accidente',price:0.63},
+  robo:{label:'Capital en caso de robo',price:3.87},
+  sacrificio:{label:'Gastos por sacrificio y eliminación de restos',price:2.92}
+};
+function garPrice(k){ return (k==='rc') ? RC_CAPITALES[state.rcCapital].price : GARS[k].price; }
+function garLabel(k){ return (k==='rc') ? ('Responsabilidad civil (capital '+RC_CAPITALES[state.rcCapital].label+')') : GARS[k].label; }
+var EJEMPLOS={
+  perro:{nombre:'Thor, Luna, Rocky...',raza:'Labrador, pastor alemán, mestizo...'},
+  gato:{nombre:'Mia, Simba, Nala...',raza:'Común europeo, siamés, persa...'}
+};
+function newPet(){ return {nombre:'',tipo:'perro',raza:'',nacimiento:'',microchip:'',sexo:'',esterilizado:'',registro:'',inicio:''}; }
+var state={
+  step:1, numPets:1,
+  pets:[newPet()],
+  garantias:{rc:false,fallecimiento:false,robo:false,sacrificio:false},
+  rcCapital:'150000',
+  freq:'mensual'
+};
+/* ================= FORMULARIOS DE MASCOTAS ================= */
+function petCardHTML(i){
+  var p=state.pets[i];
+  var ej=EJEMPLOS[p.tipo]||EJEMPLOS.perro;
+  function pill(name,val,label){
+    var checked=(p[name]===val)?' checked':'';
+    return '<div class="pill"><input type="radio" name="p'+i+'-'+name+'" id="p'+i+'-'+name+'-'+val+'" value="'+val+'"'+checked+'><label for="p'+i+'-'+name+'-'+val+'">'+label+'</label></div>';
+  }
+  var quitar = state.numPets>1 ? '<button type="button" class="pet-remove" data-remove="'+i+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Quitar</button>' : '';
+  return ''+
+  '<div class="pet-card" data-pet="'+i+'">'+
+    '<div class="pet-head"><span class="pet-legend"><span class="pn" aria-hidden="true">'+(i+1)+'</span> Mascota '+(i+1)+'</span>'+quitar+'</div>'+
+    '<div class="form-grid">'+
+      '<div class="field">'+
+        '<label for="p'+i+'-nombre">Nombre de la mascota <span class="req">*</span></label>'+
+        '<input type="text" id="p'+i+'-nombre" placeholder="'+ej.nombre+'" value="'+p.nombre.replace(/"/g,'&quot;')+'">'+
+        '<p class="err-msg" id="err-p'+i+'-nombre"></p>'+
+      '</div>'+
+      '<div class="field">'+
+        '<span class="flabel" id="p'+i+'-tipo-lbl">Tipo de animal <span class="req">*</span></span>'+
+        '<div class="pill-group" role="radiogroup" aria-labelledby="p'+i+'-tipo-lbl">'+
+          '<div class="pill"><input type="radio" name="p'+i+'-tipo" id="p'+i+'-tipo-perro" value="perro"'+(p.tipo==='perro'?' checked':'')+'><label for="p'+i+'-tipo-perro">'+ICO_DOG+' Perro</label></div>'+
+          '<div class="pill pill-gato"><input type="radio" name="p'+i+'-tipo" id="p'+i+'-tipo-gato" value="gato"'+(p.tipo==='gato'?' checked':'')+'><label for="p'+i+'-tipo-gato">'+ICO_CAT+' Gato</label></div>'+
+        '</div>'+
+        '<span class="species-note">'+ICO_INFO+' El tipo de animal no afecta al precio: el seguro cuesta lo mismo para perros y para gatos.</span>'+
+      '</div>'+
+      '<div class="field">'+
+        '<label for="p'+i+'-raza">Raza <span class="req">*</span></label>'+
+        '<input type="text" id="p'+i+'-raza" placeholder="'+ej.raza+'" value="'+p.raza.replace(/"/g,'&quot;')+'">'+
+        '<span class="hint">'+ICO_INFO+' Todas las razas están cubiertas, sin exclusiones.</span>'+
+        '<p class="err-msg" id="err-p'+i+'-raza"></p>'+
+      '</div>'+
+      '<div class="field">'+
+        '<span class="flabel" id="p'+i+'-nac-lbl">Fecha de nacimiento de la mascota <span class="req">*</span></span>'+
+        '<div id="p'+i+'-nac-wrap" role="group" aria-labelledby="p'+i+'-nac-lbl"></div>'+
+        '<span class="hint">'+ICO_INFO+' Formato: DÍA MES AÑO (01 ENE 2020). No hay límite de edad.</span>'+
+        '<p class="err-msg" id="err-p'+i+'-nacimiento"></p>'+
+      '</div>'+
+      '<div class="field">'+
+        '<span class="flabel" id="p'+i+'-micro-lbl">¿Tiene microchip? <span class="req">*</span></span>'+
+        '<div class="pill-group" role="radiogroup" aria-labelledby="p'+i+'-micro-lbl">'+pill('microchip','si','Sí')+pill('microchip','no','No')+'</div>'+
+        '<div class="warn-box" id="warn-p'+i+'-microchip">'+ICO_WARN+'<span>Tu mascota debe estar identificada con microchip para poder contratar el seguro ASISA.</span></div>'+
+      '</div>'+
+      '<div class="field">'+
+        '<span class="flabel" id="p'+i+'-sexo-lbl">Sexo <span class="req">*</span></span>'+
+        '<div class="pill-group" role="radiogroup" aria-labelledby="p'+i+'-sexo-lbl">'+pill('sexo','macho','Macho')+pill('sexo','hembra','Hembra')+'</div>'+
+        '<p class="err-msg" id="err-p'+i+'-sexo"></p>'+
+      '</div>'+
+      '<div class="field">'+
+        '<span class="flabel" id="p'+i+'-ester-lbl">¿Está esterilizado/a? <span class="req">*</span></span>'+
+        '<div class="pill-group" role="radiogroup" aria-labelledby="p'+i+'-ester-lbl">'+pill('esterilizado','si','Sí')+pill('esterilizado','no','No')+'</div>'+
+        '<p class="err-msg" id="err-p'+i+'-esterilizado"></p>'+
+      '</div>'+
+      '<div class="field">'+
+        '<span class="flabel" id="p'+i+'-reg-lbl">¿Está inscrita en el Registro de Animales de Compañía de tu Comunidad Autónoma? <span class="req">*</span></span>'+
+        '<div class="pill-group" role="radiogroup" aria-labelledby="p'+i+'-reg-lbl">'+pill('registro','si','Sí')+pill('registro','no','No')+'</div>'+
+        '<div class="warn-box" id="warn-p'+i+'-registro">'+ICO_WARN+'<span>Tu mascota debe estar inscrita en el Registro de Animales de Compañía de tu Comunidad Autónoma para poder contratar el seguro.</span></div>'+
+      '</div>'+
+      '<div class="field col-2">'+
+        '<span class="flabel" id="p'+i+'-ini-lbl">Fecha deseada de inicio del seguro <span class="req">*</span></span>'+
+        '<div id="p'+i+'-ini-wrap" role="group" aria-labelledby="p'+i+'-ini-lbl"></div>'+
+        '<span class="hint">'+ICO_INFO+' Formato: DÍA MES AÑO. Indica desde qué día quieres que tu mascota esté cubierta (hoy o una fecha futura).</span>'+
+        '<p class="err-msg" id="err-p'+i+'-inicio"></p>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
+}
+function renderPetForms(){
+  var html='';
+  for(var i=0;i<state.numPets;i++){
+    if(!state.pets[i]) state.pets[i]=newPet();
+    html+=petCardHTML(i);
+  }
+  $('petForms').innerHTML=html;
+  /* construir selects de fecha y restaurar valores */
+  for(var j=0;j<state.numPets;j++){
+    $('p'+j+'-nac-wrap').innerHTML=dateSelectsHTML('p'+j+'-nac',Ycur,Ycur-40);
+    $('p'+j+'-ini-wrap').innerHTML=dateSelectsHTML('p'+j+'-ini',Ycur+2,Ycur);
+    if(state.pets[j].nacimiento) setDateSel('p'+j+'-nac',state.pets[j].nacimiento);
+    if(state.pets[j].inicio) setDateSel('p'+j+'-ini',state.pets[j].inicio);
+  }
+  bindPetInputs();
+  updateCalcPreview();
+}
+function applyEjemplos(i){
+  var ej=EJEMPLOS[state.pets[i].tipo]||EJEMPLOS.perro;
+  var n=$('p'+i+'-nombre'), r=$('p'+i+'-raza');
+  if(n) n.setAttribute('placeholder',ej.nombre);
+  if(r) r.setAttribute('placeholder',ej.raza);
+}
+function syncCountUI(){
+  var n=state.numPets;
+  if(n<=2){
+    $('np'+n).checked=true;
+    $('customPetsWrap').classList.remove('show');
+    $('countMasNum').textContent='3 o +';
+  } else {
+    $('npMas').checked=true;
+    $('customPetsWrap').classList.add('show');
+    $('numPetsCustom').value=n;
+    $('countMasNum').textContent=String(n);
+    $('customHint').textContent=n+' fichas creadas · máx. '+MAX_PETS;
+  }
+  $('petCounter').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg> '+n+(n===1?' mascota':' mascotas')+' en tu solicitud';
+}
+function bindPetInputs(){
+  for(var i=0;i<state.numPets;i++){
+    (function(idx){
+      var nombre=$('p'+idx+'-nombre'), raza=$('p'+idx+'-raza');
+      if(nombre) nombre.addEventListener('input',function(){ state.pets[idx].nombre=nombre.value; clearErr('err-p'+idx+'-nombre',nombre); updateCalcPreview(); });
+      if(raza) raza.addEventListener('input',function(){ state.pets[idx].raza=raza.value; clearErr('err-p'+idx+'-raza',raza); updateCalcPreview(); });
+      bindDateSel('p'+idx+'-nac',function(){
+        var r=readDateSel('p'+idx+'-nac');
+        state.pets[idx].nacimiento=(r&&r.iso)?r.iso:'';
+        clearErr('err-p'+idx+'-nacimiento',null); markDateInvalid('p'+idx+'-nac',false);
+        updateCalcPreview();
+      });
+      bindDateSel('p'+idx+'-ini',function(){
+        var r=readDateSel('p'+idx+'-ini');
+        state.pets[idx].inicio=(r&&r.iso)?r.iso:'';
+        clearErr('err-p'+idx+'-inicio',null); markDateInvalid('p'+idx+'-ini',false);
+        updateCalcPreview();
+      });
+      ['tipo','microchip','sexo','esterilizado','registro'].forEach(function(name){
+        var inputs=document.querySelectorAll('input[name="p'+idx+'-'+name+'"]');
+        inputs.forEach(function(inp){
+          inp.addEventListener('change',function(){
+            state.pets[idx][name]=inp.value;
+            if(name==='tipo') applyEjemplos(idx);
+            if(name==='microchip') $('warn-p'+idx+'-microchip').classList.toggle('show', inp.value==='no');
+            if(name==='registro') $('warn-p'+idx+'-registro').classList.toggle('show', inp.value==='no');
+            var map={sexo:'err-p'+idx+'-sexo',esterilizado:'err-p'+idx+'-esterilizado'};
+            if(map[name]) clearErr(map[name],null);
+            $('err-step1').classList.remove('show');
+            updateCalcPreview();
+          });
+        });
+      });
+    })(i);
+  }
+  /* avisos persistidos + botones quitar */
+  for(var j=0;j<state.numPets;j++){
+    $('warn-p'+j+'-microchip').classList.toggle('show', state.pets[j].microchip==='no');
+    $('warn-p'+j+'-registro').classList.toggle('show', state.pets[j].registro==='no');
+  }
+  document.querySelectorAll('.pet-remove').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var idx=parseInt(btn.getAttribute('data-remove'),10);
+      state.pets.splice(idx,1);
+      state.numPets=state.pets.length;
+      if(state.numPets<1){ state.pets=[newPet()]; state.numPets=1; }
+      syncCountUI(); renderPetForms();
+      toast('Mascota '+(idx+1)+' eliminada.','info');
+    });
+  });
+}
+/* fija el número de mascotas y mantiene el array sincronizado (sin residuos) */
+function setNumPets(n,render){
+  n=Math.max(1,Math.min(MAX_PETS,n));
+  while(state.pets.length<n){ state.pets.push(newPet()); }
+  if(state.pets.length>n){ state.pets.length=n; }
+  state.numPets=n;
+  syncCountUI();
+  if(render!==false) renderPetForms();
+}
+/* selector de cantidad */
+document.querySelectorAll('input[name="numPets"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    if(r.value==='mas'){
+      $('customPetsWrap').classList.add('show');
+      var v=parseInt($('numPetsCustom').value,10);
+      if(!v||v<3) v=3;
+      v=Math.min(MAX_PETS,v);
+      $('numPetsCustom').value=v;
+      setNumPets(v);
+      $('numPetsCustom').focus();
+    } else {
+      $('customPetsWrap').classList.remove('show');
+      setNumPets(parseInt(r.value,10));
+    }
+  });
+});
+$('numPetsCustom').addEventListener('input',function(){
+  var v=parseInt(this.value,10);
+  if(!v) return;
+  v=Math.max(3,Math.min(MAX_PETS,v));
+  if(v!==state.numPets) setNumPets(v);
+});
+$('numPetsCustom').addEventListener('blur',function(){
+  var v=parseInt(this.value,10);
+  if(!v||v<3){ this.value=3; if(state.numPets!==3) setNumPets(3); }
+});
+$('petsMinus').addEventListener('click',function(){
+  var v=Math.max(3,state.numPets-1);
+  $('numPetsCustom').value=v;
+  if(v!==state.numPets) setNumPets(v);
+});
+$('petsPlus').addEventListener('click',function(){
+  if(state.numPets>=MAX_PETS){ toast('Puedes asegurar un máximo de '+MAX_PETS+' mascotas por solicitud.','info'); return; }
+  var v=state.numPets+1;
+  $('numPetsCustom').value=v;
+  setNumPets(v);
+});
+$('addPet').addEventListener('click',function(){
+  if(state.numPets>=MAX_PETS){ toast('Puedes asegurar un máximo de '+MAX_PETS+' mascotas por solicitud.','info'); return; }
+  setNumPets(state.numPets+1);
+  var cards=document.querySelectorAll('.pet-card');
+  var last=cards[cards.length-1];
+  if(last){ last.scrollIntoView({behavior:'smooth',block:'center'}); }
+  toast('Mascota '+state.numPets+' añadida.','ok');
+});
+/* ================= VALIDACIÓN PASO 1 ================= */
+function setErr(errId,msg,input){
+  var e=$(errId); if(!e) return;
+  e.innerHTML=ICO_WARN+'<span>'+msg+'</span>';
+  e.classList.add('show');
+  if(input){ input.classList.add('invalid'); input.setAttribute('aria-invalid','true'); }
+}
+function clearErr(errId,input){
+  var e=$(errId); if(!e) return;
+  e.classList.remove('show'); e.innerHTML='';
+  if(input){ input.classList.remove('invalid'); input.removeAttribute('aria-invalid'); }
+}
+function validatePets(){
+  var allOk=true;
+  for(var i=0;i<state.numPets;i++){
+    var p=state.pets[i];
+    var n=$('p'+i+'-nombre');
+    if(!p.nombre.trim()){ setErr('err-p'+i+'-nombre','Escribe el nombre de tu mascota.',n); allOk=false; }
+    var rz=$('p'+i+'-raza');
+    if(!p.raza.trim()){ setErr('err-p'+i+'-raza','Indica la raza. Todas las razas están cubiertas, sin exclusiones.',rz); allOk=false; }
+    var nc=readDateSel('p'+i+'-nac');
+    if(!nc){ setErr('err-p'+i+'-nacimiento','Completa la fecha de nacimiento (DÍA MES AÑO).',null); markDateInvalid('p'+i+'-nac',true); allOk=false; }
+    else if(nc.invalid){ setErr('err-p'+i+'-nacimiento','La fecha no es válida: revisa el día y el mes.',null); markDateInvalid('p'+i+'-nac',true); allOk=false; }
+    else if(nc.iso>=hoy){ setErr('err-p'+i+'-nacimiento','La fecha de nacimiento debe ser una fecha pasada.',null); markDateInvalid('p'+i+'-nac',true); allOk=false; }
+    else { p.nacimiento=nc.iso; }
+    if(p.microchip!=='si'){ $('warn-p'+i+'-microchip').classList.add('show'); allOk=false; }
+    if(!p.sexo){ setErr('err-p'+i+'-sexo','Selecciona el sexo de tu mascota.',null); allOk=false; }
+    if(!p.esterilizado){ setErr('err-p'+i+'-esterilizado','Indica si está esterilizado/a.',null); allOk=false; }
+    if(p.registro!=='si'){ $('warn-p'+i+'-registro').classList.add('show'); allOk=false; }
+    var ini=readDateSel('p'+i+'-ini');
+    if(!ini){ setErr('err-p'+i+'-inicio','Elige la fecha deseada de inicio del seguro (DÍA MES AÑO).',null); markDateInvalid('p'+i+'-ini',true); allOk=false; }
+    else if(ini.invalid){ setErr('err-p'+i+'-inicio','La fecha no es válida: revisa el día y el mes.',null); markDateInvalid('p'+i+'-ini',true); allOk=false; }
+    else if(ini.iso<hoy){ setErr('err-p'+i+'-inicio','La fecha de inicio debe ser hoy o una fecha futura.',null); markDateInvalid('p'+i+'-ini',true); allOk=false; }
+    else { p.inicio=ini.iso; }
+  }
+  $('err-step1').classList.toggle('show',!allOk);
+  return allOk;
+}
+/* ================= STEPPER ================= */
+function gotoStep(n){
+  state.step=n;
+  for(var s=1;s<=3;s++){
+    var panel=$('panel-'+s);
+    panel.classList.toggle('active',s===n);
+    var li=document.querySelector('[data-step-dot="'+s+'"]');
+    li.classList.toggle('active',s===n);
+    li.classList.toggle('done',s<n);
+    if(s===n){ li.setAttribute('aria-current','step'); } else { li.removeAttribute('aria-current'); }
+    if(s<n){ li.querySelector('.step-dot').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>'; }
+    else { li.querySelector('.step-dot').textContent=String(s); }
+  }
+  if(n===3) updateReceipt();
+  var shell=document.querySelector('.calc-shell');
+  var top=shell.getBoundingClientRect().top+window.scrollY-90;
+  window.scrollTo({top:top,behavior:'smooth'});
+}
+$('toStep2').addEventListener('click',function(){ if(validatePets()) gotoStep(2); else toast('Revisa los datos de tus mascotas para continuar.','err'); });
+$('backTo1').addEventListener('click',function(){ gotoStep(1); });
+$('toStep3').addEventListener('click',function(){ gotoStep(3); });
+$('backTo2').addEventListener('click',function(){ gotoStep(2); });
+/* ================= GARANTÍAS ================= */
+['gar-rc','gar-fall','gar-robo','gar-sac'].forEach(function(id){
+  $(id).addEventListener('change',function(){
+    state.garantias[$(id).value]=$(id).checked;
+    updateReceipt(); updateCalcPreview();
+    var k=$(id).value;
+    if($(id).checked){
+      if(garPrice(k)>0){ toast('Garantía añadida: '+garLabel(k)+' por solo '+eur(garPrice(k))+' más al mes por mascota.','ok'); }
+      else { toast('Garantía añadida: '+garLabel(k)+'. Su importe se valorará en tu oferta oficial.','info'); }
+    }
+    actualizarRC();
+  });
+});
+function actualizarRC(){
+  var sel=document.querySelector('input[name="rcCapital"]:checked');
+  if(sel) state.rcCapital=sel.value;
+  var c=RC_CAPITALES[state.rcCapital];
+  var cb=$('rc-confirm');
+  if(cb){
+    cb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Capital seleccionado: '+c.label+' · '+eur(c.price)+'/mes por mascota';
+    cb.classList.toggle('show',$('gar-rc').checked);
+  }
+}
+document.querySelectorAll('input[name="rcCapital"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    state.rcCapital=r.value;
+    updateReceipt(); updateCalcPreview(); actualizarRC();
+    var c=RC_CAPITALES[state.rcCapital];
+    toast('Capital de responsabilidad civil: '+c.label+' por '+eur(c.price)+'/mes por mascota.','ok');
+  });
+});
+/* ================= FRECUENCIA + PRECIO ================= */
+document.querySelectorAll('input[name="freq"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    state.freq=r.value;
+    $('frecuenciaPago').value=r.value;
+    updateReceipt(); updateCalcPreview();
+  });
+});
+$('frecuenciaPago').addEventListener('change',function(){
+  state.freq=this.value;
+  var radio=document.querySelector('input[name="freq"][value="'+this.value+'"]');
+  if(radio) radio.checked=true;
+  updateReceipt(); updateCalcPreview();
+});
+function garsConPrecio(){
+  var out=[];
+  Object.keys(state.garantias).forEach(function(k){ if(state.garantias[k] && garPrice(k)>0) out.push(k); });
+  return out;
+}
+function garsSinPrecio(){
+  var out=[];
+  Object.keys(state.garantias).forEach(function(k){ if(state.garantias[k] && !(garPrice(k)>0)) out.push(k); });
+  return out;
+}
+function calcPrices(){
+  var f=FREQS[state.freq];
+  var extraPorMascota=0;
+  garsConPrecio().forEach(function(k){ extraPorMascota+=garPrice(k); });
+  var baseMonthly=BASE*state.numPets;
+  var extrasMonthly=extraPorMascota*state.numPets;
+  var monthly=baseMonthly+extrasMonthly;
+  var annual=monthly*12;
+  var discount=annual*f.disc;
+  var total=annual-discount;
+  var perPeriod=total/f.periods;
+  return {f:f,baseMonthly:baseMonthly,extrasMonthly:extrasMonthly,monthly:monthly,annual:annual,discount:discount,total:total,perPeriod:perPeriod};
+}
+function selectedGars(){
+  var out=[];
+  Object.keys(state.garantias).forEach(function(k){ if(state.garantias[k]) out.push(garLabel(k)); });
+  return out;
+}
+function updateReceipt(){
+  var c=calcPrices();
+  var conPrecio=garsConPrecio(), sinPrecio=garsSinPrecio();
+  $('rc-pets').textContent=String(state.numPets);
+  /* líneas de garantías con precio cerrado */
+  var lineas='';
+  conPrecio.forEach(function(k){
+    var pu=garPrice(k), imp=pu*state.numPets;
+    lineas+='<div class="rc-row gar"><span>+ '+garLabel(k)+' ('+eur(pu)+'/mes × '+state.numPets+')</span><span>'+eur(imp)+'/mes</span></div>';
+  });
+  $('rc-gar-lines').innerHTML=lineas;
+  $('rc-mensual').textContent=eur(c.monthly);
+  $('rc-anual').textContent=eur(c.annual);
+  if(c.f.disc>0){
+    $('rc-disc-row').style.display='flex';
+    $('rc-disc-lbl').textContent='Descuento por pago '+state.freq+' ('+Math.round(c.f.disc*100)+'% sobre el total anual)';
+    $('rc-disc-val').textContent='−'+eur(c.discount);
+  } else { $('rc-disc-row').style.display='none'; }
+  if(sinPrecio.length>0){
+    $('rc-gar-row').style.display='flex';
+    $('rc-gar-lbl').textContent='Garantías con valoración personalizada ('+sinPrecio.length+'): '+sinPrecio.map(function(k){ return garLabel(k); }).join(', ');
+  } else { $('rc-gar-row').style.display='none'; }
+  var desde=sinPrecio.length>0?'desde ':'';
+  $('rc-per-lbl').innerHTML='Tu pago '+state.freq+' estimado '+desde+'<small>'+c.f.perWord+' · estimación, impuestos no incluidos'+(sinPrecio.length>0?' + garantías a valorar':'')+'</small>';
+  $('rc-per-val').textContent=desde+eur(c.perPeriod);
+  $('rc-total-year-lbl').textContent='Total anual estimado'+(sinPrecio.length>0?' (desde)':'');
+  $('rc-total-year').textContent=desde+eur(c.total);
+}
+function updateCalcPreview(){
+  var wrap=$('sumPets'); var html='';
+  var has=false;
+  for(var i=0;i<state.numPets;i++){
+    var p=state.pets[i];
+    if(!p.nombre.trim() && !p.raza.trim() && !p.inicio) continue;
+    has=true;
+    var ico=(p.tipo==='gato')?ICO_CAT:ICO_DOG;
+    var tipoTxt=(p.tipo==='gato')?'Gato':'Perro';
+    html+='<div class="sum-pet"><span class="sp-ic">'+ico+'</span><span><strong>'+(p.nombre.trim()||('Mascota '+(i+1)))+'</strong>'+
+    '<small>'+tipoTxt+(p.raza.trim()?(' · '+p.raza.trim()):'')+
+    (p.inicio?('<br>Inicio deseado: '+isoToDMY(p.inicio)):'')+'</small></span></div>';
+  }
+  if(!has) html='<p class="sum-empty">Completa la calculadora y aquí aparecerá el resumen de tus mascotas.</p>';
+  wrap.innerHTML=html;
+  var gars=selectedGars();
+  var sinPrecio=garsSinPrecio();
+  var detalle=[];
+  Object.keys(state.garantias).forEach(function(k){
+    if(!state.garantias[k]) return;
+    detalle.push(garLabel(k)+(garPrice(k)>0?(' (+'+eur(garPrice(k))+'/mes por mascota)'):' (a valorar)'));
+  });
+  $('sumGars').textContent=detalle.length?detalle.join(' · '):'Ninguna';
+  var c=calcPrices();
+  var desde=sinPrecio.length?'desde ':'';
+  $('sumFreq').textContent=c.f.label;
+  $('sumPerLbl').textContent=c.f.perWord+' estimado';
+  $('sumPerVal').textContent=desde+eur(c.perPeriod);
+  $('sumTotalLbl').textContent='Total anual estimado'+(sinPrecio.length?' (desde)':'');
+  $('sumTotal').textContent=desde+eur(c.total);
+}
+syncCountUI();
+renderPetForms();
+updateReceipt();
+updateCalcPreview();
+actualizarRC();
+/* ================= VALIDADORES FORMULARIO ================= */
+var LETRAS_DNI='TRWAGMYFPDXBNJZSQVHLCKE';
+function validarDNI(v){
+  var m=/^(\d{8})([A-Za-z])$/.exec(v); if(!m) return false;
+  return LETRAS_DNI[parseInt(m[1],10)%23]===m[2].toUpperCase();
+}
+function validarNIE(v){
+  var m=/^([XxYyZz])(\d{7})([A-Za-z])$/.exec(v); if(!m) return false;
+  var pref={'X':'0','Y':'1','Z':'2'}[m[1].toUpperCase()];
+  return validarDNI(pref+m[2]+m[3]);
+}
+function validarPasaporte(v){ return /^[A-Za-z0-9]{5,12}$/.test(v); }
+function validarIBAN(v){
+  var s=v.replace(/\s+/g,'').toUpperCase();
+  if(!/^ES\d{22}$/.test(s)) return false;
+  var re=s.slice(4)+s.slice(0,4), num='', i, ch;
+  for(i=0;i<re.length;i++){ ch=re.charAt(i); num+=/[A-Z]/.test(ch)?String(ch.charCodeAt(0)-55):ch; }
+  var rem=0;
+  for(i=0;i<num.length;i+=7){ rem=parseInt(String(rem)+num.substr(i,7),10)%97; }
+  return rem===1;
+}
+function validarEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+function validarMovil(v){ return /^[67]\d{8}$/.test(v.replace(/[\s-]/g,'')); }
+function validarFijo(v){ return v.trim()==='' || /^[89]\d{8}$/.test(v.replace(/[\s-]/g,'')); }
+function validarCP(v){ return /^(0[1-9]|[1-4]\d|5[0-2])\d{3}$/.test(v.trim()); }
+function esMayorDe18(iso){
+  if(!iso) return false;
+  var d=new Date(iso+'T00:00:00'); if(isNaN(d)) return false;
+  var hoyD=new Date();
+  var edad=hoyD.getFullYear()-d.getFullYear();
+  var m=hoyD.getMonth()-d.getMonth();
+  if(m<0||(m===0&&hoyD.getDate()<d.getDate())) edad--;
+  return edad>=18;
+}
+/* placeholders documento */
+$('docTipo').addEventListener('change',function(){
+  var ph={'DNI':'12345678Z','NIE':'X1234567L','Pasaporte':'AAA123456'}[this.value];
+  $('docNum').setAttribute('placeholder',ph);
+  clearErr('err-docNum',$('docNum'));
+});
+/* IBAN autoformato */
+$('iban').addEventListener('input',function(){
+  var v=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if(v && v.indexOf('ES')!==0){ v='ES'+v.replace(/^E?S?/,''); }
+  v=v.replace(/^ES+/,'ES').slice(0,24);
+  this.value=(v.match(/.{1,4}/g)||[]).join(' ');
+});
+/* validación en vivo suave */
+function attachLive(id,errId,fn,msg,optional){
+  var el=$(id);
+  el.addEventListener('blur',function(){
+    if(optional && !el.value.trim()){ clearErr(errId,el); return; }
+    if(fn(el.value)) clearErr(errId,el); else setErr(errId,msg,el);
+  });
+  el.addEventListener('input',function(){ clearErr(errId,el); });
+}
+attachLive('email','err-email',validarEmail,'Introduce un correo electrónico válido (por ejemplo: tunombre@ejemplo.es).');
+attachLive('movil','err-movil',validarMovil,'Introduce un móvil español válido: 9 dígitos que empiecen por 6 o 7.');
+attachLive('fijo','err-fijo',validarFijo,'Introduce un fijo válido: 9 dígitos que empiecen por 8 o 9, o deja el campo vacío.',true);
+attachLive('cp','err-cp',validarCP,'Introduce un código postal español válido (5 dígitos, 01–52).');
+attachLive('iban','err-iban',validarIBAN,'Introduce un IBAN español válido (ES + 22 dígitos). Revisa los dígitos de control.');
+/* ================= VALIDACIÓN COMPLETA ================= */
+var fnacTomadorISO='';
+function validateForm(){
+  var firstBad=null;
+  function mark(id,errId,ok,msg){
+    var el=$(id);
+    if(!ok){ setErr(errId,msg,el); if(!firstBad) firstBad=el; return false; }
+    clearErr(errId,el); return true;
+  }
+  var ok=true;
+  var tipo=$('docTipo').value, num=$('docNum').value.trim();
+  var docOK=false, docMsg='';
+  if(tipo==='DNI'){ docOK=validarDNI(num); docMsg='Introduce un DNI válido: 8 dígitos seguidos de la letra correcta (por ejemplo 12345678Z).'; }
+  else if(tipo==='NIE'){ docOK=validarNIE(num); docMsg='Introduce un NIE válido: X, Y o Z + 7 dígitos + letra (por ejemplo X1234567L).'; }
+  else { docOK=validarPasaporte(num); docMsg='Introduce un número de pasaporte válido (5–12 caracteres alfanuméricos).'; }
+  ok=mark('docNum','err-docNum',docOK,docMsg)&&ok;
+  ok=mark('nombre','err-nombre',$('nombre').value.trim().length>=2,'Escribe tu nombre.')&&ok;
+  ok=mark('apellido1','err-apellido1',$('apellido1').value.trim().length>=2,'Escribe tu primer apellido.')&&ok;
+  ok=mark('genero','err-genero',!!$('genero').value,'Selecciona una opción de género.')&&ok;
+  var fnR=readDateSel('fn');
+  if(!fnR){ setErr('err-fechaNac','Indica tu fecha de nacimiento (DÍA MES AÑO).',null); markDateInvalid('fn',true); if(!firstBad) firstBad=$('fn-d'); ok=false; }
+  else if(fnR.invalid){ setErr('err-fechaNac','La fecha no es válida: revisa el día y el mes.',null); markDateInvalid('fn',true); if(!firstBad) firstBad=$('fn-d'); ok=false; }
+  else if(!esMayorDe18(fnR.iso)){ setErr('err-fechaNac','Debes ser mayor de 18 años para contratar el seguro.',null); markDateInvalid('fn',true); if(!firstBad) firstBad=$('fn-d'); ok=false; }
+  else { fnacTomadorISO=fnR.iso; clearErr('err-fechaNac',null); markDateInvalid('fn',false); }
+  ok=mark('nacionalidad','err-nacionalidad',!!$('nacionalidad').value,'Selecciona tu nacionalidad.')&&ok;
+  if($('nacionalidad').value==='Otra'){
+    ok=mark('nacOtra','err-nacOtra',$('nacOtra').value.trim().length>=2,'Indica tu nacionalidad.')&&ok;
+  }
+  ok=mark('email','err-email',validarEmail($('email').value.trim()),'Introduce un correo electrónico válido.')&&ok;
+  ok=mark('movil','err-movil',validarMovil($('movil').value),'Introduce un móvil español válido: 9 dígitos que empiecen por 6 o 7.')&&ok;
+  ok=mark('fijo','err-fijo',validarFijo($('fijo').value),'Introduce un fijo válido: 9 dígitos que empiecen por 8 o 9, o deja el campo vacío.')&&ok;
+  ok=mark('tipoVia','err-tipoVia',!!$('tipoVia').value,'Selecciona el tipo de vía.')&&ok;
+  ok=mark('nombreVia','err-nombreVia',$('nombreVia').value.trim().length>=2,'Escribe el nombre de la vía.')&&ok;
+  ok=mark('numVia','err-numVia',$('numVia').value.trim().length>=1,'Indica el número.')&&ok;
+  ok=mark('cp','err-cp',validarCP($('cp').value),'Introduce un código postal español válido (5 dígitos, 01–52).')&&ok;
+  ok=mark('localidad','err-localidad',$('localidad').value.trim().length>=2,'Escribe tu localidad.')&&ok;
+  ok=mark('provincia','err-provincia',!!$('provincia').value,'Selecciona tu provincia.')&&ok;
+  ok=mark('iban','err-iban',validarIBAN($('iban').value),'Introduce un IBAN español válido (ES + 22 dígitos). Revisa los dígitos de control.')&&ok;
+  var consOk=$('cons1').checked && $('cons2').checked && $('cons3').checked;
+  var eC=$('err-consent');
+  if(!consOk){
+    eC.innerHTML=ICO_WARN+'<span>Debes aceptar los tres consentimientos obligatorios (privacidad, tratamiento de datos y veracidad de la información) para poder enviar tu solicitud.</span>';
+    eC.classList.add('show');
+    if(!firstBad) firstBad=$('cons1');
+    ok=false;
+  } else { eC.classList.remove('show'); }
+  if(!ok && firstBad){
+    firstBad.scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(function(){ firstBad.focus({preventScroll:true}); },450);
+  }
+  return ok;
+}
+/* ================= CONSTRUCCIÓN DEL TEXTO (CONCISO, SIN ESTIMACIÓN DE PRECIO) ================= */
+function buildData(){
+  var gars=selectedGars();
+  var pets=[];
+  for(var i=0;i<state.numPets;i++){ pets.push(state.pets[i]); }
+  var nacVal=$('nacionalidad').value;
+  if(nacVal==='Otra'){ nacVal=$('nacOtra').value.trim()||'Otra'; }
+  return {
+    pets:pets, gars:gars,
+    doc:{tipo:$('docTipo').value,num:$('docNum').value.trim().toUpperCase()},
+    nombre:$('nombre').value.trim(), ap1:$('apellido1').value.trim(), ap2:$('apellido2').value.trim(),
+    genero:$('genero').value, fnac:fnacTomadorISO, nac:nacVal,
+    email:$('email').value.trim(), movil:$('movil').value.replace(/[\s-]/g,''), fijo:$('fijo').value.replace(/[\s-]/g,''),
+    via:$('tipoVia').value, nomVia:$('nombreVia').value.trim(), numVia:$('numVia').value.trim(), piso:$('piso').value.trim(),
+    cp:$('cp').value.trim(), loc:$('localidad').value.trim(), prov:$('provincia').value,
+    iban:$('iban').value.trim(), freq:state.freq,
+    cons4:$('cons4').checked
+  };
+}
+function nombreCompleto(d){ return (d.nombre+' '+d.ap1+(d.ap2?(' '+d.ap2):'')).replace(/\s+/g,' ').trim(); }
+function petsTexto(d,sep){
+  var out=[];
+  d.pets.forEach(function(p,i){
+    var tipo=(p.tipo==='gato')?'Gato':'Perro';
+    out.push(
+      'Mascota '+(i+1)+': '+(p.nombre.trim()||'(sin indicar)')+sep+
+      '  Tipo: '+tipo+' · Raza: '+(p.raza.trim()||'(sin indicar)')+sep+
+      '  Nacimiento: '+(p.nacimiento?isoToDMY(p.nacimiento):'(sin indicar)')+' · Sexo: '+(p.sexo?(p.sexo==='macho'?'Macho':'Hembra'):'(sin indicar)')+sep+
+      '  Microchip: '+(p.microchip==='si'?'Sí':'No')+' · Esterilizado/a: '+(p.esterilizado==='si'?'Sí':(p.esterilizado==='no'?'No':'(sin indicar)'))+sep+
+      '  Registro de Animales de Compañía: '+(p.registro==='si'?'Sí':'No')+sep+
+      '  Inicio deseado del seguro: '+(p.inicio?isoToDMY(p.inicio):'(sin indicar)')
+    );
+  });
+  return out.join(sep);
+}
+function garsTexto(d){
+  if(!d.gars.length) return 'Ninguna';
+  return d.gars.map(function(x){ return '- '+x; }).join('\n')+'\n(Nota: la indemnización por robo y los gastos de sacrificio y eliminación de restos están sujetos a un periodo de carencia según las condiciones generales.)';
+}
+function buildFullText(){
+  var d=buildData();
+  var ahora=new Date();
+  var fechaEnvio=pad2(ahora.getDate())+' '+MESES[ahora.getMonth()]+' '+ahora.getFullYear()+' '+pad2(ahora.getHours())+':'+pad2(ahora.getMinutes());
+  var L=[];
+  L.push('SOLICITUD DE OFERTA — SEGURO ASISA MASCOTAS');
+  L.push('===========================================');
+  L.push('');
+  L.push('MASCOTAS ('+d.pets.length+')');
+  L.push('----------');
+  L.push(petsTexto(d,'\n'));
+  L.push('');
+  L.push('GARANTÍAS OPCIONALES');
+  L.push('--------------------');
+  L.push(garsTexto(d));
+  L.push('');
+  L.push('PAGO');
+  L.push('----');
+  L.push('- Frecuencia de pago deseada: '+FREQS[d.freq].label);
+  L.push('- Solicito la oferta oficial de ASISA con el precio final y la documentación en PDF. El contrato se formaliza por periodos de 1 año.');
+  L.push('');
+  L.push('TOMADOR');
+  L.push('-------');
+  L.push('- Documento: '+d.doc.tipo+' '+d.doc.num);
+  L.push('- Nombre: '+nombreCompleto(d));
+  L.push('- Género: '+d.genero+' · Nacimiento: '+(d.fnac?isoToDMY(d.fnac):'-')+' · Nacionalidad: '+d.nac);
+  L.push('- Email: '+d.email+' · Móvil: '+d.movil+(d.fijo?(' · Fijo: '+d.fijo):''));
+  L.push('- Dirección: '+d.via+' '+d.nomVia+', núm. '+d.numVia+(d.piso?(', '+d.piso):'')+', '+d.cp+' '+d.loc+' ('+d.prov+')');
+  L.push('- IBAN: '+d.iban);
+  L.push('');
+  L.push('CONSENTIMIENTOS');
+  L.push('---------------');
+  L.push('- Política de Privacidad y Aviso Legal: aceptados');
+  L.push('- Tratamiento de datos (RGPD UE 2016/679 y LOPDGDD 3/2018) por ASISA y Elly Campeanu: consentido');
+  L.push('- Veracidad de la información: declarada');
+  L.push('- Comunicaciones comerciales: '+(d.cons4?'aceptadas':'no aceptadas'));
+  L.push('- Fecha y hora: '+fechaEnvio);
+  L.push('');
+  L.push('Gracias.');
+  L.push('');
+  L.push('Atentamente,');
+  L.push(nombreCompleto(d));
+  L.push('Tel: '+d.movil);
+  return L.join('\n');
+}
+function buildWhatsAppText(){
+  var d=buildData();
+  var L=[];
+  L.push('*SOLICITUD DE OFERTA — SEGURO ASISA MASCOTAS*');
+  L.push('');
+  L.push('*Mascotas:*');
+  d.pets.forEach(function(p,i){
+    var tipo=(p.tipo==='gato')?'Gato':'Perro';
+    L.push((i+1)+'. '+(p.nombre.trim()||'(sin nombre)')+' — '+tipo+(p.raza.trim()?(', '+p.raza.trim()):'')+', nac. '+(p.nacimiento?isoToDMY(p.nacimiento):'-')+', microchip: '+(p.microchip==='si'?'Sí':'No')+', registro: '+(p.registro==='si'?'Sí':'No')+'. Inicio: '+(p.inicio?isoToDMY(p.inicio):'-'));
+  });
+  L.push('');
+  L.push('*Garantías opcionales:* '+(d.gars.length?d.gars.join('; '):'Ninguna'));
+  L.push('*Frecuencia de pago:* '+FREQS[d.freq].label);
+  L.push('Solicito la oferta oficial con el precio final y la documentación en PDF.');
+  L.push('');
+  L.push('*Tomador:* '+nombreCompleto(d)+' ('+d.doc.tipo+' '+d.doc.num+')');
+  L.push('*Nacimiento:* '+(d.fnac?isoToDMY(d.fnac):'-')+' · *Género:* '+d.genero+' · *Nacionalidad:* '+d.nac);
+  L.push('*Email:* '+d.email+' · *Móvil:* '+d.movil+(d.fijo?(' · Fijo: '+d.fijo):''));
+  L.push('*Dirección:* '+d.via+' '+d.nomVia+' '+d.numVia+(d.piso?(', '+d.piso):'')+', '+d.cp+' '+d.loc+' ('+d.prov+')');
+  L.push('*IBAN:* '+d.iban);
+  L.push('');
+  L.push('*Consentimientos:* privacidad y aviso legal aceptados; tratamiento de datos (RGPD/LOPDGDD) consentido; veracidad declarada; comunicaciones comerciales: '+(d.cons4?'Sí':'No')+'.');
+  L.push('');
+  L.push('Gracias.');
+  L.push('*'+nombreCompleto(d)+'*');
+  L.push('Tel: '+d.movil);
+  return L.join('\n');
+}
+/* ================= ENVÍOS ================= */
+function ensureValid(){
+  if(!validatePets()){
+    toast('Antes de enviar, completa correctamente los datos de tus mascotas en la calculadora (microchip y registro deben ser "Sí").','err');
+    document.querySelector('#calculadora').scrollIntoView({behavior:'smooth'});
+    gotoStep(1);
+    return false;
+  }
+  if(!validateForm()){
+    toast('Revisa los campos marcados en el formulario antes de enviar.','err');
+    return false;
+  }
+  return true;
+}
+$('btnEmail').addEventListener('click',function(){
+  if(!ensureValid()) return;
+  var d=buildData();
+  var full=buildFullText();
+  var subject='Solicitud de oferta — Seguro ASISA Mascotas';
+  var url='mailto:ecampeanu@tuasesorasisa.es?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(full);
+  if(url.length>1900){
+    copiarAlPortapapeles(full,function(ok){
+      var shortBody='Hola Elly,\n\nTe envío mi solicitud del seguro ASISA Mascotas. Los datos completos se han copiado automáticamente a mi portapapeles; los pego a continuación (Ctrl+V o Cmd+V):\n\n[PEGA AQUÍ LOS DATOS]\n\nGracias.\n\nAtentamente,\n'+nombreCompleto(d)+'\nTel: '+d.movil;
+      window.location.href='mailto:ecampeanu@tuasesorasisa.es?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(shortBody);
+      if(ok){ toast('El texto es muy largo: los datos se han copiado al portapapeles. Pégalos en el correo (Ctrl+V).','info'); }
+      else { toast('Se abrirá tu correo con instrucciones. Si lo necesitas, usa el botón "Copiar datos".','info'); }
+    });
+  } else {
+    window.location.href=url;
+    toast('Se ha abierto tu aplicación de correo con la solicitud lista para enviar.','info');
+  }
+});
+$('btnWhatsApp').addEventListener('click',function(){
+  if(!ensureValid()) return;
+  var txt=buildWhatsAppText();
+  var url='https://wa.me/34614213113?text='+encodeURIComponent(txt);
+  if(url.length>6000){
+    var d=buildData();
+    txt='*SOLICITUD DE OFERTA — SEGURO ASISA MASCOTAS*\n\n*Mascotas:* '+d.pets.map(function(p,i){ return (i+1)+'. '+(p.nombre.trim()||'-')+' ('+(p.tipo==='gato'?'Gato':'Perro')+'), inicio '+(p.inicio?isoToDMY(p.inicio):'-'); }).join(' · ')+
+    '\n*Garantías opc.:* '+(d.gars.length?d.gars.join('; '):'Ninguna')+
+    '\n*Pago:* '+FREQS[d.freq].label+'. Solicito oferta oficial con precio final en PDF.'+
+    '\n*Tomador:* '+nombreCompleto(d)+' ('+d.doc.tipo+' '+d.doc.num+')'+
+    '\n*Email:* '+d.email+' · *Móvil:* '+d.movil+
+    '\n*IBAN:* '+d.iban+' · *Dirección:* '+d.via+' '+d.nomVia+' '+d.numVia+', '+d.cp+' '+d.loc+' ('+d.prov+')'+
+    '\nConsentimientos RGPD/LOPDGDD: aceptados. Comunicaciones comerciales: '+(d.cons4?'Sí':'No')+'.'+
+    '\n\nGracias.\n*'+nombreCompleto(d)+'*\nTel: '+d.movil;
+    url='https://wa.me/34614213113?text='+encodeURIComponent(txt);
+  }
+  window.open(url,'_blank','noopener');
+  toast('Se ha abierto WhatsApp con tu solicitud lista para enviar.','info');
+});
+$('btnCopiar').addEventListener('click',function(){
+  if(!ensureValid()) return;
+  var full=buildFullText();
+  copiarAlPortapapeles(full,function(ok){
+    if(ok){ toast('Datos copiados al portapapeles','ok'); }
+    else { toast('No se pudo copiar automáticamente. Usa el botón "Enviar por Email" y copia el texto manualmente.','err'); }
+  });
+});
+$('ctaContratar').addEventListener('click',function(){
+  updateCalcPreview();
+});
+})();
+</script>
+</body>
+</html>
