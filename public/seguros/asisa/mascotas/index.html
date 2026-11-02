@@ -546,6 +546,25 @@ details.faq-i .fq-a a{font-weight:800}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
 .reveal.visible{opacity:1;transform:none}
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+/* ==================== ANTI-OVERFLOW (defensas móviles) ==================== */
+.btn{max-width:100%}
+.contacto-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,70px);align-items:start}
+.hero-grid>*,.prod-grid>*,.editorial>*,.coverage-cols>*,.contract-wrap>*,.contacto-cols>*,.form-grid>*{min-width:0}
+.hero-price{min-width:0}
+.hero-price .pr-n{max-width:100%;overflow-wrap:anywhere}
+.channels a{grid-template-columns:auto minmax(0,1fr) auto}
+.channels .cv{overflow-wrap:anywhere}
+.count-card label{max-width:100%}
+.gar-card label{min-width:0}
+.cap-row .cap-eur,.cap-row .cap-txt{overflow-wrap:break-word}
+.rc-row span{min-width:0;overflow-wrap:break-word}
+.sum-total .v{overflow-wrap:break-word}
+.prod-card{min-width:0}
+.benefit{min-width:0}
+details.faq-i summary .fq-t{overflow-wrap:break-word;min-width:0}
+.doc-row .fq-t{overflow-wrap:break-word;min-width:0}
+.field input,.field select,.field textarea{min-width:0}
+#cardMas .count-num{max-width:100%;overflow-wrap:anywhere}
 /* ==================== RESPONSIVE ==================== */
 @media(max-width:1020px){
 .hero-grid{grid-template-columns:1fr;gap:46px}
@@ -567,6 +586,9 @@ details.faq-i .fq-a a{font-weight:800}
 .sticky-cta{display:flex}
 body{padding-bottom:64px}
 }
+@media(max-width:1020px){
+.contacto-cols{grid-template-columns:1fr}
+}
 @media(max-width:660px){
 .benefit-grid{grid-template-columns:1fr}
 .count-row{grid-template-columns:1fr;gap:10px}
@@ -584,6 +606,38 @@ details.faq-i .fq-a{padding:2px 4px 20px 40px}
 .stepper li::after{display:none}
 .step-label{font-size:.58rem;white-space:normal}
 .stepper{gap:14px}
+/* botones siempre dentro del viewport */
+.hero-ctas{flex-direction:column;align-items:stretch}
+.hero-ctas .btn{width:100%;padding-inline:18px}
+.prod-ctas{flex-direction:column}
+.prod-ctas .btn{width:100%;padding-inline:16px}
+.final-ctas .btn{flex:1 1 100%;width:100%}
+.send-row .btn{padding-inline:14px}
+.calc-nav{flex-direction:column}
+.calc-nav .btn{padding-inline:16px}
+/* tarjetas compactas */
+.prod-card,.summary-card,.form-card{padding-inline:18px}
+.benefit{padding:20px 16px}
+.step{padding:20px 16px}
+.cov-block li{padding-inline:14px}
+.cov-block h3{padding-inline:14px}
+.cap-row{gap:10px}
+.cap-eur{font-size:1.06rem}
+.cap-price{font-size:.9rem}
+.channels .ck{min-width:68px;font-size:.58rem}
+.channels .cv{font-size:.95rem}
+.channels a{gap:10px;padding-inline:2px}
+.gar-card>label{padding:14px 14px}
+.custom-pets{padding:10px 6px}
+.date-selects{grid-template-columns:.75fr 1fr 1.05fr;gap:6px}
+details.faq-i summary{gap:10px;padding-inline:2px}
+.doc-row{gap:10px;padding-inline:2px}
+#calculadora .calc-body{padding:16px 16px 22px}
+.calc-top{padding:14px 16px}
+.stepper{padding:18px 16px 14px}
+.hero{padding-top:0}
+.ph-a{width:100%}
+.ph-b{width:52%;left:0}
 }
 @media(prefers-reduced-motion:reduce){
 *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
@@ -782,7 +836,7 @@ html{scroll-behavior:auto}
 
 <!-- ==================== 5. SEGURO PARA GATOS ==================== -->
 <section class="sect sect-beige" id="gatos">
-  <div class="container editorial" style="grid-template-columns:.85fr 1.15fr">
+  <div class="container editorial">
     <div class="reveal" style="order:2">
       <p class="kicker">Seguro para gatos</p>
       <h2 style="font-size:clamp(1.9rem,3.6vw,2.8rem)">Seguro para gatos: su bienestar también importa</h2>
@@ -1324,7 +1378,7 @@ html{scroll-behavior:auto}
 
 <!-- ==================== CONTACTO ==================== -->
 <section class="sect sect-beige" id="contacto">
-  <div class="container" style="display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,70px);align-items:start">
+  <div class="container contacto-cols">
     <div class="lead-info reveal">
       <p class="kicker">Hablemos</p>
       <h2>¿Alguna duda <em>pendiente</em>?</h2>
@@ -1380,7 +1434,7 @@ html{scroll-behavior:auto}
     </div>
     <p class="ai-note">Esta página web ha sido generada con asistencia de inteligencia artificial (modelo Claude de Anthropic). No se almacenan datos personales de usuarios en esta web. Los datos del formulario se envían directamente desde el dispositivo del usuario a través de su aplicación de correo electrónico o WhatsApp. El código fuente está alojado en GitHub y desplegado a través de Netlify. El responsable del tratamiento de los datos para la contratación del seguro es ASISA (www.asisa.es). Elly Campeanu actúa como agente exclusivo de seguros.</p>
     <div class="footer-bottom">
-      <span>© 2026 Elly Campeanu — Agente Exclusivo ASISA</span>
+      <span>© 2025 Elly Campeanu — Agente Exclusivo ASISA</span>
       <span>Aseguradora: <a href="https://www.asisa.es" target="_blank" rel="noopener noreferrer">ASISA</a></span>
     </div>
   </div>
