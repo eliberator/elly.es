@@ -650,6 +650,102 @@ details.faq-i summary{gap:10px;padding-inline:2px}
 html{scroll-behavior:auto}
 .reveal{opacity:1;transform:none}
 }
+
+/* =====================================================================
+   REFINAMIENTO VISUAL — capa de acabado atelier
+   · Esquinas sartorial (0–4px) en cajas; píldora solo en insignias diminutas
+   · Sin sombras blandas genéricas: bordes de tinta + sombra dura editorial
+   · Eliminan cajas repetitivas: composiciones abiertas con hairlines
+   · Botones con relleno fluido; transiciones suaves y seccionales con regla de tinta
+   ===================================================================== */
+:root{
+--r:3px;
+--r-lg:6px;
+--shadow:0 1px 0 rgba(34,37,31,.14);
+--hard:8px 8px 0 rgba(34,37,31,.09);
+}
+body{letter-spacing:.002em}
+h1,h2,.hero h1,.sec-head h2{letter-spacing:-.018em}
+h1 em,h2 em{letter-spacing:0}
+.kicker{letter-spacing:.24em}
+.sec-no{letter-spacing:.02em}
+/* — botones: esquina firme y relleno fluido al hover — */
+.btn{border-radius:3px;position:relative;overflow:hidden;isolation:isolate;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .3s,color .3s}
+.btn::before{content:'';position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.16);transform:scaleX(0);transform-origin:left center;transition:transform .5s cubic-bezier(.65,0,.2,1)}
+.btn:hover::before{transform:scaleX(1)}
+.btn-line::before{background:rgba(34,37,31,.07)}
+.btn-line:hover{border-color:var(--pers)}
+.btn-glow:hover{box-shadow:0 14px 34px rgba(14,73,65,.3)}
+/* — secciones: las bandas toman una regla editorial en lugar de un corte duro — */
+.sect-beige{border-top:1.5px solid var(--ink);background:linear-gradient(180deg,#F5F0E5 0%,#F3EDE0 100%)}
+/* — hero cinematográfico — */
+.hero-grid{padding-top:clamp(48px,7vw,96px)!important}
+.hero h1{max-width:13ch}
+/* — "card fatigue" eliminada — */
+.benefit{background:transparent;border:0;border-top:1.5px solid var(--ink);border-radius:0;padding:26px 6px 22px;box-shadow:none}
+.benefit:hover{transform:none;box-shadow:none;border-color:var(--pers);background:transparent}
+.benefit .bi{border-radius:4px;width:44px;height:44px;margin-bottom:18px;background:transparent!important;border:1.5px solid currentColor}
+.benefit .bi svg{width:22px;height:22px}
+.benefit:last-child{border-right:0}
+.step{background:transparent;border:0;border-left:2px solid var(--line);border-radius:0;padding:6px 0 10px 22px;box-shadow:none}
+.step:hover{transform:none;box-shadow:none;border-color:var(--pers)}
+.step::before{background:none}
+.prod-card{border-radius:4px;box-shadow:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.prod-card:hover{transform:translate(-3px,-3px);box-shadow:var(--hard)}
+.prod-side{background:var(--card)}
+.cov-block{border-radius:4px;box-shadow:none;transition:transform .35s,box-shadow .35s}
+.form-card{border-radius:4px;border-width:2px;box-shadow:var(--hard)}
+.summary-card{border-radius:5px}
+.calc-shell{border-radius:5px;border-width:2px;box-shadow:var(--hard)}
+.calc-top{border-radius:3px 3px 0 0}
+.receipt{border-radius:3px}
+.receipt::before{border-radius:3px 3px 0 0}
+.pet-card{border-radius:3px}
+.pet-card::before{border-radius:0}
+.pet-actions{border-radius:0}
+.count-card>label{border-radius:2px}
+.custom-pets{border-radius:2px}
+.gar-card>label{border-radius:2px}
+.gar-sub{border-radius:3px}
+.cap-row{border-radius:0}
+.freq-card label{border-radius:2px}
+.pill label{border-radius:3px}
+.consent-box{border-radius:2px}
+.sticky-cta .btn{border-radius:3px}
+.modal{border-radius:6px;box-shadow:14px 16px 0 rgba(23,25,20,.2)}
+.modal-head{border-radius:0}
+.toast{border-radius:3px}
+.ph{border-radius:0}
+.ph-a{border-radius:0}
+.ph-a::before{border-radius:0}
+.vet-img{border:0;border-radius:0;transform:rotate(0);position:relative;box-shadow:none;padding-left:18px}
+.vet-img img{border:1.5px solid var(--ink)}
+.vet-img figcaption{border:0;border-left:2px solid var(--pers);padding:8px 0 0 14px;margin-left:6px}
+.final{border-radius:3px}
+.caps span{border-radius:3px}
+.field input,.field select,.field textarea{border-radius:2px}
+/* — micro-interacciones editoriales — */
+.doc-row,.contact-row,.faq-i summary,.channels a{transition:padding-left .3s cubic-bezier(.2,.8,.2,1),background .25s}
+.fq-n{transition:transform .35s cubic-bezier(.2,.8,.2,1),color .25s}
+details.faq-i summary:hover .fq-n,.doc-row:hover .fq-n{transform:translateX(4px);color:var(--teal)}
+.final img{transition:transform 9s cubic-bezier(.16,.6,.24,1)}
+.final:hover img{transform:scale(1.035)}
+.cov-block li,.prod-list li,.rich .puntos li{transition:padding-left .25s}
+.cov-block li:hover{padding-left:28px}
+.rich .puntos li:hover{padding-left:18px}
+/* — pacing dinámico — */
+#calculadora{padding-top:clamp(92px,11vw,148px);padding-bottom:clamp(92px,11vw,148px)}
+#precio,#contratar{padding-top:clamp(80px,9.5vw,132px)}
+#porque{padding-bottom:clamp(78px,9vw,126px)}
+@media(max-width:660px){
+.benefit{padding:22px 4px 18px}
+.step{padding:6px 0 10px 18px}
+ .prod-card:hover{transform:none;box-shadow:var(--hard)}
+}
+@media(prefers-reduced-motion:reduce){
+.btn::before{transition:none}
+.final:hover img{transform:none}
+}
 </style>
 </head>
 <body>
